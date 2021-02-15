@@ -1,6 +1,14 @@
 # Changelog
 
-##11.0.0
+## 11.0.1
+**Migration Guide**
+- Update theme files and layout files.
+
+**Fixed bugs:**
+
+- Search panel is not visible (dark mode)
+
+## 11.0.0
 **Migration Guide**
 - Update your project to Angular 11.
 - Update app.main.component.ts and app.component.ts
