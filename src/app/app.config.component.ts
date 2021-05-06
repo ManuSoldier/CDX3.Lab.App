@@ -151,7 +151,7 @@ export class AppConfigComponent implements OnInit {
 
     topbarTheme: string = 'blue';
 
-    theme: string = 'blue';
+    theme: string = 'indigo';
 
     matchingMenuTheme: boolean = false;
 
@@ -169,7 +169,7 @@ export class AppConfigComponent implements OnInit {
 
     ngOnInit() {
         this.themes = [
-            {name: 'indigo', color: '#2f8ee5'},
+            {name: 'indigo', color: '#3F51B5'},
             {name: 'pink', color: '#E91E63'},
             {name: 'purple', color: '#9C27B0'},
             {name: 'deeppurple', color: '#673AB7'},
