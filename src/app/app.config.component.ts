@@ -249,6 +249,7 @@ export class AppConfigComponent implements OnInit {
     }
 
     onLayoutModeChange(event, mode) {
+        const appLogoLink: HTMLImageElement = document.getElementById('app-logo') as HTMLImageElement;
         this.app.layoutMode = mode;
 
         if (!this.isInputBackgroundChanged) {
@@ -258,10 +259,12 @@ export class AppConfigComponent implements OnInit {
         if (mode === 'dark') {
             this.app.menuTheme = 'dark';
             this.app.topbarTheme = 'dark';
+            appLogoLink.src = 'assets/layout/images/logo-light.svg';
         }
         else {
             this.app.menuTheme = 'light';
             this.app.topbarTheme = 'blue';
+            appLogoLink.src = 'assets/layout/images/logo-light.svg';
         }
 
         const layoutLink: HTMLLinkElement = document.getElementById('layout-css') as HTMLLinkElement;
@@ -295,7 +298,8 @@ export class AppConfigComponent implements OnInit {
 
         const appLogoLink: HTMLImageElement = document.getElementById('app-logo') as HTMLImageElement;
 
-        if (theme.name == 'white' || theme.name == 'yellow' || theme.name == 'amber'  || theme.name == 'orange' || theme.name == 'lime') {
+        if (theme.name === 'white' || theme.name === 'yellow' || theme.name === 'amber'
+            || theme.name === 'orange' || theme.name === 'lime') {
             appLogoLink.src = 'assets/layout/images/logo-dark.svg';
         }
         else {
