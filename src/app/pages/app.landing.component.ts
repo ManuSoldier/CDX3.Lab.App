@@ -3,6 +3,19 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 @Component({
   selector: 'app-login',
   templateUrl: './app.landing.component.html',
+    styles: [`
+        .videoFrame{
+            width: 560px;
+            height: 300px;
+        }
+
+        @media screen and (max-width: 960px) {
+            .videoFrame{
+                width: 300px;
+            }
+        }
+
+    `]
 })
 export class AppLandingComponent {
 
