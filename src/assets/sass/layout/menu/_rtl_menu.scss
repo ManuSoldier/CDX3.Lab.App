@@ -32,6 +32,19 @@
                     }
                 }
             }
+
+            .layout-inline-menu {
+                .layout-inline-menu-action-panel {
+                    .layout-inline-menu-action-item {
+                        a {
+                            i {
+                                margin-right: 0;
+                                margin-left: .75rem;
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         .layout-topbar .layout-topbar-left .layout-menu-button > i {
