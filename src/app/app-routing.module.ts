@@ -41,6 +41,7 @@ import {AppCrudComponent} from './pages/app.crud.component';
 import {AppCalendarComponent} from './pages/app.calendar.component';
 import {AppInvoiceComponent} from './pages/app.invoice.component';
 import {AppHelpComponent} from './pages/app.help.component';
+import {AppWizardComponent} from './pages/app.wizard.component';
 
 @NgModule({
     imports: [
@@ -90,6 +91,7 @@ import {AppHelpComponent} from './pages/app.help.component';
             {path: 'contactus', component: AppContactusComponent},
             {path: 'login', component: AppLoginComponent},
             {path: 'landing', component: AppLandingComponent},
+            {path: 'pages/wizard', component: AppWizardComponent},
             {path: '**', redirectTo: '/notfound'},
         ], {scrollPositionRestoration: 'enabled'})
     ],

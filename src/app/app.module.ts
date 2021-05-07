@@ -135,6 +135,7 @@ import {AppErrorComponent} from './pages/app.error.component';
 import {AppAccessdeniedComponent} from './pages/app.accessdenied.component';
 import {AppLoginComponent} from './pages/app.login.component';
 import {AppTimelineDemoComponent} from './pages/app.timelinedemo.component';
+import {AppWizardComponent} from './pages/app.wizard.component';
 import {AppLandingComponent} from './pages/app.landing.component';
 
 import {CountryService} from './demo/service/countryservice';
@@ -288,6 +289,7 @@ import {AppContactusComponent} from './pages/app.contactus.component';
         AppErrorComponent,
         AppAccessdeniedComponent,
         AppTimelineDemoComponent,
+        AppWizardComponent,
         AppContactusComponent
     ],
     providers: [
