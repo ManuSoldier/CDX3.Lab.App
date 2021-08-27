@@ -12,10 +12,10 @@ import {AppMainComponent} from './app.main.component';
     /* tslint:enable:component-selector */
     template: `
         <ng-container>
-            <div *ngIf="root">
+            <div *ngIf="root && item.visible !== false">
                 <span class="layout-menuitem-text">{{item.label}}</span>
             </div>
-            <a [attr.href]="item.url" (click)="itemClick($event)" *ngIf="!item.routerLink || item.items" (keydown.enter)="itemClick($event)"
+            <a [attr.href]="item.url" (click)="itemClick($event)" *ngIf="(!item.routerLink || item.items) && item.visible !== false" (keydown.enter)="itemClick($event)"
                [attr.target]="item.target" [attr.tabindex]="0" [ngClass]="item.class" (mouseenter)="onMouseEnter()" pRipple
                [pTooltip]="item.label" [tooltipDisabled]="active || !(root && app.isSlim() && !app.isMobile())">
                 <i [ngClass]="item.icon" class="layout-menuitem-icon"></i>
@@ -23,7 +23,7 @@ import {AppMainComponent} from './app.main.component';
                 <span class="p-badge p-component p-badge-no-gutter" [ngClass]="item.badgeClass" *ngIf="item.badge && !root">{{item.badge}}</span>
                 <i class="pi pi-fw pi-angle-down layout-submenu-toggler" *ngIf="item.items"></i>
             </a>
-            <a (click)="itemClick($event)" *ngIf="item.routerLink && !item.items"
+            <a (click)="itemClick($event)" *ngIf="(item.routerLink && !item.items) && item.visible !== false"
                [routerLink]="item.routerLink" routerLinkActive="active-menuitem-routerlink" [routerLinkActiveOptions]="{exact: true}"
                [attr.target]="item.target" [attr.tabindex]="0" [ngClass]="item.class" (mouseenter)="onMouseEnter()" pRipple
                [pTooltip]="item.label" [tooltipDisabled]="active || !(root && app.isSlim() && !app.isMobile())">
@@ -32,7 +32,7 @@ import {AppMainComponent} from './app.main.component';
                 <span class="p-badge p-component p-badge-no-gutter" [ngClass]="item.badgeClass" *ngIf="item.badge && !root">{{item.badge}}</span>
                 <i class="pi pi-fw pi-angle-down layout-submenu-toggler" *ngIf="item.items"></i>
             </a>
-            <ul *ngIf="(item.items && root) || (item.items && active)" [@children]="root ? 'visible' : active ? 'visibleAnimated' : 'hiddenAnimated'">
+            <ul *ngIf="((item.items && root) || (item.items && active)) && item.visible !== false" [@children]="root ? 'visible' : active ? 'visibleAnimated' : 'hiddenAnimated'">
                 <ng-template ngFor let-child let-i="index" [ngForOf]="item.items">
                     <li app-menuitem [item]="child" [index]="i" [parentKey]="key" [class]="child.badgeClass"></li>
                 </ng-template>
