@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import { EventService } from '../service/eventservice';
 import { SelectItem } from 'primeng/api';
 import { Product } from '../domain/product';
@@ -11,7 +11,7 @@ import { AppMainComponent } from 'src/app/app.main.component';
 @Component({
     templateUrl: './dashboardanalytics.component.html'
 })
-export class DashboardAnalyticsComponent implements OnInit {
+export class DashboardAnalyticsComponent implements OnInit, OnDestroy {
 
     cities: SelectItem[];
 
@@ -25,39 +25,45 @@ export class DashboardAnalyticsComponent implements OnInit {
 
     doughnutOptions: any;
 
-    storeATotalValue: number = 100;
+    storeATotalValue = 100;
 
-    storeADiff: number = 0;
+    storeADiff = 0;
 
-    storeAStatus: number = 0;
+    storeAStatus = 0;
 
     storeAData: any;
 
-    storeBTotalValue: number = 120;
+    storeAOptions: any;
 
-    storeBDiff: number = 0;
+    storeBTotalValue = 120;
 
-    storeBStatus: number = 0;
+    storeBDiff = 0;
+
+    storeBStatus = 0;
 
     storeBData: any;
 
-    storeCTotalValue: number = 150;
+    storeBOptions: any;
 
-    storeCDiff: number = 0;
+    storeCTotalValue = 150;
 
-    storeCStatus: number = 0;
+    storeCDiff = 0;
+
+    storeCStatus = 0;
 
     storeCData: any;
 
-    storeDTotalValue: number = 80;
+    storeCOptions: any;
 
-    storeDDiff: number = 0;
+    storeDTotalValue = 80;
 
-    storeDStatus: number = 0;
+    storeDDiff = 0;
+
+    storeDStatus = 0;
 
     storeDData: any;
 
-    storeOptions: any;
+    storeDOptions: any;
 
     storeInterval: any;
 
@@ -85,8 +91,8 @@ export class DashboardAnalyticsComponent implements OnInit {
 
     @ViewChild('pie') pieViewChild: UIChart;
 
-    constructor(public app: AppComponent, public appMain: AppMainComponent, private productService: ProductService, private eventService: EventService,
-        private breadcrumbService: AppBreadcrumbService) {
+    constructor(public app: AppComponent, public appMain: AppMainComponent, private productService: ProductService,
+                private eventService: EventService, private breadcrumbService: AppBreadcrumbService) {
         this.breadcrumbService.setItems([
             { label: 'Dashboard Analytics', routerLink: ['/favorites/dashboardanalytics'] }
         ]);
@@ -134,7 +140,8 @@ export class DashboardAnalyticsComponent implements OnInit {
                     'rgba(77, 208, 225, 0.8)',
                 ],
                 borderWidth: 2,
-                fill: true
+                fill: true,
+                tension: .4
             }
             ]
         };
@@ -150,7 +157,8 @@ export class DashboardAnalyticsComponent implements OnInit {
                     'rgba(77, 208, 225, 0.8)',
                 ],
                 borderWidth: 2,
-                fill: true
+                fill: true,
+                tension: .4
             }
             ]
         };
@@ -166,7 +174,8 @@ export class DashboardAnalyticsComponent implements OnInit {
                     'rgba(77, 208, 225, 0.8)',
                 ],
                 borderWidth: 2,
-                fill: true
+                fill: true,
+                tension: .4
             }
             ]
         };
@@ -182,24 +191,105 @@ export class DashboardAnalyticsComponent implements OnInit {
                     'rgba(77, 208, 225, 0.8)',
                 ],
                 borderWidth: 2,
-                fill: true
+                fill: true,
+                tension: .4
             }
             ]
         };
 
-        this.storeOptions = {
-            legend: {
-                display: false
+        this.storeAOptions = {
+            plugins: {
+                legend: {
+                    display: false
+                }
             },
             responsive: true,
             aspectRatio: 4,
             scales: {
-                yAxes: [{
+                y: {
                     display: false
-                }],
-                xAxes: [{
+                },
+                x: {
                     display: false
-                }]
+                }
+            },
+            tooltips: {
+                enabled: false
+            },
+            elements: {
+                point: {
+                    radius: 0
+                }
+            },
+        };
+
+        this.storeBOptions = {
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
+            responsive: true,
+            aspectRatio: 4,
+            scales: {
+                y: {
+                    display: false
+                },
+                x: {
+                    display: false
+                }
+            },
+            tooltips: {
+                enabled: false
+            },
+            elements: {
+                point: {
+                    radius: 0
+                }
+            },
+        };
+
+        this.storeCOptions = {
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
+            responsive: true,
+            aspectRatio: 4,
+            scales: {
+                y: {
+                    display: false
+                },
+                x: {
+                    display: false
+                }
+            },
+            tooltips: {
+                enabled: false
+            },
+            elements: {
+                point: {
+                    radius: 0
+                }
+            },
+        };
+
+        this.storeDOptions = {
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
+            responsive: true,
+            aspectRatio: 4,
+            scales: {
+                y: {
+                    display: false
+                },
+                x: {
+                    display: false
+                }
             },
             tooltips: {
                 enabled: false
@@ -212,45 +302,49 @@ export class DashboardAnalyticsComponent implements OnInit {
         };
 
         const calculateStore = (storeData, totalValue) => {
-            let randomNumber = +((Math.random() * 500).toFixed(2));
-            let data = storeData.datasets[0].data;
-            let length = data.length;
+            const randomNumber = +((Math.random() * 500).toFixed(2));
+            const data = storeData.datasets[0].data;
+            const length = data.length;
             data.push(randomNumber);
             data.shift();
 
-            let diff = +((data[length - 1] - data[length - 2]).toFixed(2));
-            let status = diff === 0 ? 0 : (diff > 0 ? 1 : -1);
+            const diff = +((data[length - 1] - data[length - 2]).toFixed(2));
+            const status = diff === 0 ? 0 : (diff > 0 ? 1 : -1);
             totalValue = +((totalValue + diff).toFixed(2));
 
             return { diff, totalValue, status };
-        }
+        };
 
         this.storeInterval = setInterval(() => {
             requestAnimationFrame(() => {
-                let { diff: storeADiff, totalValue: storeATotalValue, status: storeAStatus } = calculateStore(this.storeAData, this.storeATotalValue);
+                const { diff: storeADiff, totalValue: storeATotalValue, status: storeAStatus } =
+                    calculateStore(this.storeAData, this.storeATotalValue);
                 this.storeADiff = storeADiff;
                 this.storeATotalValue = storeATotalValue;
                 this.storeAStatus = storeAStatus;
                 this.storeAViewChild.chart.update();
 
-                let { diff: storeBDiff, totalValue: storeBTotalValue, status: storeBStatus } = calculateStore(this.storeBData, this.storeBTotalValue);
+                const { diff: storeBDiff, totalValue: storeBTotalValue, status: storeBStatus } =
+                    calculateStore(this.storeBData, this.storeBTotalValue);
                 this.storeBDiff = storeBDiff;
                 this.storeBTotalValue = storeBTotalValue;
                 this.storeBStatus = storeBStatus;
                 this.storeBViewChild.chart.update();
 
-                let { diff: storeCDiff, totalValue: storeCTotalValue, status: storeCStatus } = calculateStore(this.storeCData, this.storeCTotalValue);
+                const { diff: storeCDiff, totalValue: storeCTotalValue, status: storeCStatus } =
+                    calculateStore(this.storeCData, this.storeCTotalValue);
                 this.storeCDiff = storeCDiff;
                 this.storeCTotalValue = storeCTotalValue;
                 this.storeCStatus = storeCStatus;
                 this.storeCViewChild.chart.update();
 
-                let { diff: storeDDiff, totalValue: storeDTotalValue, status: storeDStatus } = calculateStore(this.storeDData, this.storeDTotalValue);
+                const { diff: storeDDiff, totalValue: storeDTotalValue, status: storeDStatus } =
+                    calculateStore(this.storeDData, this.storeDTotalValue);
                 this.storeDDiff = storeDDiff;
                 this.storeDTotalValue = storeDTotalValue;
                 this.storeDStatus = storeDStatus;
                 this.storeDViewChild.chart.update();
-            })
+            });
         }, 2000);
     }
 
@@ -279,7 +373,7 @@ export class DashboardAnalyticsComponent implements OnInit {
             orangeColor: isLight ? '#FFA726' : '#FFCC80',
             deeporangeColor: isLight ? '#FF7043' : '#FFAB91',
             brownColor: isLight ? '#8D6E63' : '#BCAAA4'
-        }
+        };
     }
 
     getPieData() {
@@ -298,7 +392,7 @@ export class DashboardAnalyticsComponent implements OnInit {
                     borderColor
                 }
             ]
-        }
+        };
     }
 
     getPieOptions() {
@@ -307,17 +401,20 @@ export class DashboardAnalyticsComponent implements OnInit {
         return {
             responsive: true,
             aspectRatio: 1,
-            legend: {
-                position: 'top',
-                labels: {
-                    fontFamily,
-                    fontColor: textColor
-                }
+            plugins: {
+                legend: {
+                    position: 'top',
+                    labels: {
+                        fontFamily,
+                        fontColor: textColor
+                    }
+                },
             },
             animation: {
                 animateScale: true,
                 animateRotate: true
-            }
+            },
+            cutout: '0',
         };
     }
 
@@ -409,42 +506,44 @@ export class DashboardAnalyticsComponent implements OnInit {
         const gridLinesColor = getComputedStyle(document.body).getPropertyValue('--divider-color') || 'rgba(160, 167, 181, .3)';
         const fontFamily = getComputedStyle(document.body).getPropertyValue('--font-family');
         return {
-            legend: {
-                display: true,
-                labels: {
-                    fontFamily,
-                    fontColor: textColor
-                }
+            plugins: {
+                legend: {
+                    display: true,
+                    labels: {
+                        fontFamily,
+                        fontColor: textColor
+                    }
+                },
+            },
+            animation: {
+                animateScale: true,
+                animateRotate: true
             },
             responsive: true,
             maintainAspectRatio: false,
             scales: {
-                yAxes: [{
+                y: {
                     ticks: {
                         fontFamily,
                         fontColor: textColor
                     },
-                    gridLines: {
+                    grid: {
                         color: gridLinesColor
                     }
-                }],
-                xAxes: [{
+                },
+                x: {
                     categoryPercentage: .9,
                     barPercentage: .8,
                     ticks: {
                         fontFamily,
                         fontColor: textColor
                     },
-                    gridLines: {
+                    grid: {
                         color: gridLinesColor
                     }
-                }]
+                }
             },
-            animation: {
-                animateScale: true,
-                animateRotate: true
-            }
-        }
+        };
     }
 
     getDoughnutData() {
@@ -468,16 +567,17 @@ export class DashboardAnalyticsComponent implements OnInit {
         const textColor = getComputedStyle(document.body).getPropertyValue('--text-color') || 'rgba(0, 0, 0, 0.87)';
         const fontFamily = getComputedStyle(document.body).getPropertyValue('--font-family');
         return {
-            responsive: true,
-            legend: {
-                position: 'top',
-                labels: {
-                    fontFamily,
-                    fontColor: textColor
-                }
+            plugins: {
+                legend: {
+                    position: 'top',
+                    labels: {
+                        fontFamily,
+                        fontColor: textColor
+                    }
+                },
             },
-            circumference: Math.PI,
-            rotation: -Math.PI,
+            circumference: 180,
+            rotation: -90,
             animation: {
                 animateScale: true,
                 animateRotate: true
@@ -486,42 +586,42 @@ export class DashboardAnalyticsComponent implements OnInit {
     }
 
     changeMonthlyDataView() {
-        if (this.chartViewChild.chart.options.scales.xAxes[0].stacked) {
-            this.chartViewChild.chart.options.scales.xAxes[0].stacked = false;
-            this.chartViewChild.chart.options.scales.yAxes[0].stacked = false;
+        if (this.chartViewChild.chart.options.scales.x.stacked) {
+            this.chartViewChild.chart.options.scales.x.stacked = false;
+            this.chartViewChild.chart.options.scales.y.stacked = false;
         }
         else {
-            this.chartViewChild.chart.options.scales.xAxes[0].stacked = true;
-            this.chartViewChild.chart.options.scales.yAxes[0].stacked = true;
+            this.chartViewChild.chart.options.scales.x.stacked = true;
+            this.chartViewChild.chart.options.scales.y.stacked = true;
         }
 
         this.chartViewChild.chart.update();
     }
 
     changeDoughnutDataView() {
-        if (this.doughnutViewChild.chart.options.circumference === Math.PI) {
-            this.doughnutViewChild.chart.options.circumference = 2 * Math.PI;
-            this.doughnutViewChild.chart.options.rotation = -Math.PI / 2;
+        if (this.doughnutViewChild.chart.options.circumference === 180) {
+            this.doughnutViewChild.chart.options.circumference = 360;
+            this.doughnutViewChild.chart.options.rotation = -45;
         } else {
-            this.doughnutViewChild.chart.options.circumference = Math.PI;
-            this.doughnutViewChild.chart.options.rotation = -Math.PI;
+            this.doughnutViewChild.chart.options.circumference = 180;
+            this.doughnutViewChild.chart.options.rotation = -90;
         }
 
         this.doughnutViewChild.chart.update();
     }
 
     togglePieDoughnut() {
-        this.pieViewChild.chart.options.cutoutPercentage = this.pieViewChild.chart.options.cutoutPercentage ? 0 : 50;
+        this.pieViewChild.chart.options.cutout = this.pieViewChild.chart.options.cutout !== '0' ? '0' : '50%';
         this.pieViewChild.chart.update();
     }
 
     changePieDoughnutDataView() {
-        if (this.pieViewChild.chart.options.circumference === Math.PI) {
-            this.pieViewChild.chart.options.circumference = 2 * Math.PI;
-            this.pieViewChild.chart.options.rotation = -Math.PI / 2;
+        if (this.pieViewChild.chart.options.circumference === 180) {
+            this.pieViewChild.chart.options.circumference = 360;
+            this.pieViewChild.chart.options.rotation = -45;
         } else {
-            this.pieViewChild.chart.options.circumference = Math.PI;
-            this.pieViewChild.chart.options.rotation = -Math.PI;
+            this.pieViewChild.chart.options.circumference = 180;
+            this.pieViewChild.chart.options.rotation = -90;
         }
 
         this.pieViewChild.chart.update();

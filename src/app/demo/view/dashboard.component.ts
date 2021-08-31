@@ -20,10 +20,6 @@ export class DashboardComponent implements OnInit {
 
     ordersOptions: any;
 
-    chartMonthlyData: any;
-
-    chartData: any;
-
     selectedCity: any;
 
     timelineEvents: any[];
@@ -36,7 +32,13 @@ export class DashboardComponent implements OnInit {
 
     overviewChartData4: any;
 
-    overviewChartOptions: any;
+    overviewChartOptions1: any;
+
+    overviewChartOptions2: any;
+
+    overviewChartOptions3: any;
+
+    overviewChartOptions4: any;
 
     chatMessages: any[];
 
@@ -44,8 +46,8 @@ export class DashboardComponent implements OnInit {
 
     @ViewChild('chatcontainer') chatContainerViewChild: ElementRef;
 
-    constructor(public app: AppComponent, public appMain: AppMainComponent, private productService: ProductService, private eventService: EventService,
-        private breadcrumbService: AppBreadcrumbService) {
+    constructor(public app: AppComponent, public appMain: AppMainComponent, private productService: ProductService,
+                private eventService: EventService, private breadcrumbService: AppBreadcrumbService) {
         this.breadcrumbService.setItems([
             { label: 'Dashboard', routerLink: ['/'] }
         ]);
@@ -72,10 +74,10 @@ export class DashboardComponent implements OnInit {
         ];
 
         this.chatEmojis = [
-            '😀','😃','😄','😁','😆','😅','😂','🤣','😇','😉','😊','🙂','🙃','😋','😌','😍','🥰','😘','😗','😙','😚','🤪','😜','😝','😛',
-            '🤑','😎','🤓','🧐','🤠','🥳','🤗','🤡','😏','😶','😐','😑','😒','🙄','🤨','🤔','🤫','🤭','🤥','😳','😞','😟','😠','😡','🤬','😔',
-            '😟','😠','😡','🤬','😔','😕','🙁','😬','🥺','😣','😖','😫','😩','🥱','😤','😮','😱','😨','😰','😯','😦','😧','😢','😥','😪','🤤'
-        ]
+            '😀', '😃', '😄', '😁', '😆', '😅', '😂', '🤣', '😇', '😉', '😊', '🙂', '🙃', '😋', '😌', '😍', '🥰', '😘', '😗', '😙', '😚', '🤪', '😜', '😝', '😛',
+            '🤑', '😎', '🤓', '🧐', '🤠', '🥳', '🤗', '🤡', '😏', '😶', '😐', '😑', '😒', '🙄', '🤨', '🤔', '🤫', '🤭', '🤥', '😳', '😞', '😟', '😠', '😡', '🤬', '😔',
+            '😟', '😠', '😡', '🤬', '😔', '😕', '🙁', '😬', '🥺', '😣', '😖', '😫', '😩', '🥱', '😤', '😮', '😱', '😨', '😰', '😯', '😦', '😧', '😢', '😥', '😪', '🤤'
+        ];
 
         this.ordersChart = {
             labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September'],
@@ -89,7 +91,8 @@ export class DashboardComponent implements OnInit {
                     'rgba(77, 208, 225, 0.8)',
                 ],
                 borderWidth: 2,
-                fill: true
+                fill: true,
+                tension: .4
             }, {
                 label: 'Completed Orders',
                 data: [67, 98, 27, 88, 38, 3, 22, 60, 56],
@@ -101,6 +104,7 @@ export class DashboardComponent implements OnInit {
                 ],
                 borderWidth: 2,
                 fill: true,
+                tension: .4
             }]
         };
 
@@ -118,7 +122,8 @@ export class DashboardComponent implements OnInit {
                         'rgba(77, 208, 225, 0.8)',
                     ],
                     borderWidth: 2,
-                    fill: true
+                    fill: true,
+                    tension: .4
                 }
             ]
         };
@@ -135,7 +140,8 @@ export class DashboardComponent implements OnInit {
                         'rgba(77, 208, 225, 0.8)',
                     ],
                     borderWidth: 2,
-                    fill: true
+                    fill: true,
+                    tension: .4
                 }
             ]
         };
@@ -152,7 +158,8 @@ export class DashboardComponent implements OnInit {
                         'rgba(77, 208, 225, 0.8)',
                     ],
                     borderWidth: 2,
-                    fill: true
+                    fill: true,
+                    tension: .4
                 }
             ]
         };
@@ -169,23 +176,97 @@ export class DashboardComponent implements OnInit {
                         'rgba(77, 208, 225, 0.8)',
                     ],
                     borderWidth: 2,
-                    fill: true
+                    fill: true,
+                    tension: .4
                 }
             ]
         };
 
-        this.overviewChartOptions = {
-            legend: {
-                display: false
+        this.overviewChartOptions1 = {
+            plugins: {
+                legend: {
+                    display: false
+                }
             },
-            responsive: true,
             scales: {
-                yAxes: [{
+                y: {
                     display: false
-                }],
-                xAxes: [{
+                },
+                x: {
                     display: false
-                }]
+                }
+            },
+            tooltips: {
+                enabled: false
+            },
+            elements: {
+                point: {
+                    radius: 0
+                }
+            },
+        };
+
+        this.overviewChartOptions2 = {
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
+            scales: {
+                y: {
+                    display: false
+                },
+                x: {
+                    display: false
+                }
+            },
+            tooltips: {
+                enabled: false
+            },
+            elements: {
+                point: {
+                    radius: 0
+                }
+            },
+        };
+
+        this.overviewChartOptions3 = {
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
+            scales: {
+                y: {
+                    display: false
+                },
+                x: {
+                    display: false
+                }
+            },
+            tooltips: {
+                enabled: false
+            },
+            elements: {
+                point: {
+                    radius: 0
+                }
+            },
+        };
+
+        this.overviewChartOptions4 = {
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
+            scales: {
+                y: {
+                    display: false
+                },
+                x: {
+                    display: false
+                }
             },
             tooltips: {
                 enabled: false
@@ -204,47 +285,11 @@ export class DashboardComponent implements OnInit {
             this.setOverviewColors();
         };
 
-        this.chartData = {
-            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-            datasets: [
-                {
-                    label: 'Completed',
-                    data: [65, 59, 80, 81, 56, 55, 40],
-                    fill: false,
-                    borderColor: '#4DD0E1'
-                },
-                {
-                    label: 'Cancelled',
-                    data: [28, 48, 40, 19, 86, 27, 90],
-                    fill: false,
-                    borderColor: '#212121'
-                }
-            ]
-        };
-
-        this.chartMonthlyData = {
-            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-            datasets: [
-                {
-                    label: 'My First dataset',
-                    backgroundColor: '#80DEEA',
-                    borderColor: 'white',
-                    data: [65, 59, 80, 81, 56, 55, 40]
-                },
-                {
-                    label: 'My Second dataset',
-                    backgroundColor: '#0097A7',
-                    borderColor: 'white',
-                    data: [28, 48, 40, 19, 86, 27, 90]
-                }
-            ]
-        };
-
         this.timelineEvents = [
-            { status: 'Ordered', date: '15/10/2020 10:30', icon: "pi pi-shopping-cart", color: '#E91E63', description: "Richard Jones (C8012) has ordered a blue t-shirt for $79." },
-            { status: 'Processing', date: '15/10/2020 14:00', icon: "pi pi-cog", color: '#FB8C00', description: "Order #99207 has processed succesfully." },
-            { status: 'Shipped', date: '15/10/2020 16:15', icon: "pi pi-compass", color: '#673AB7', description: "Order #99207 has shipped with shipping code 2222302090." },
-            { status: 'Delivered', date: '16/10/2020 10:00', icon: "pi pi-check-square", color: '#0097A7', description: "Richard Jones (C8012) has recieved his blue t-shirt." }
+            { status: 'Ordered', date: '15/10/2020 10:30', icon: 'pi pi-shopping-cart', color: '#E91E63', description: 'Richard Jones (C8012) has ordered a blue t-shirt for $79.' },
+            { status: 'Processing', date: '15/10/2020 14:00', icon: 'pi pi-cog', color: '#FB8C00', description: 'Order #99207 has processed succesfully.' },
+            { status: 'Shipped', date: '15/10/2020 16:15', icon: 'pi pi-compass', color: '#673AB7', description: 'Order #99207 has shipped with shipping code 2222302090.' },
+            { status: 'Delivered', date: '16/10/2020 10:00', icon: 'pi pi-check-square', color: '#0097A7', description: 'Richard Jones (C8012) has recieved his blue t-shirt.' }
         ];
     }
 
@@ -257,8 +302,8 @@ export class DashboardComponent implements OnInit {
 
     onChatKeydown(event) {
         if (event.key === 'Enter') {
-            let message = event.currentTarget.value;
-            let lastMessage = this.chatMessages[this.chatMessages.length - 1];
+            const message = event.currentTarget.value;
+            const lastMessage = this.chatMessages[this.chatMessages.length - 1];
 
             if (lastMessage.from) {
                 this.chatMessages.push({ messages: [message] });
@@ -306,7 +351,7 @@ export class DashboardComponent implements OnInit {
             pinkBgColor: isLight ? '#F48FB1' : '#F8BBD0',
             tealBorderColor: isLight ? '#009688' : '#26A69A',
             tealBgColor: isLight ? '#80CBC4' : '#B2DFDB'
-        }
+        };
     }
 
     getOrdersOptions() {
@@ -314,34 +359,36 @@ export class DashboardComponent implements OnInit {
         const gridLinesColor = getComputedStyle(document.body).getPropertyValue('--divider-color') || 'rgba(160, 167, 181, .3)';
         const fontFamily = getComputedStyle(document.body).getPropertyValue('--font-family');
         return {
-            legend: {
-                display: true,
-                labels: {
-                    fontFamily,
-                    fontColor: textColor,
+            plugins: {
+                legend: {
+                    display: true,
+                    labels: {
+                        fontFamily,
+                        fontColor: textColor,
+                    }
                 }
             },
             responsive: true,
             scales: {
-                yAxes: [{
+                y: {
                     ticks: {
                         fontFamily,
                         fontColor: textColor
                     },
-                    gridLines: {
+                    grid: {
                         color: gridLinesColor
                     }
-                }],
-                xAxes: [{
+                },
+                x: {
                     ticks: {
                         fontFamily,
                         fontColor: textColor
                     },
-                    gridLines: {
+                    grid: {
                         color: gridLinesColor
                     }
-                }]
+                }
             }
-        }
+        };
     }
 }

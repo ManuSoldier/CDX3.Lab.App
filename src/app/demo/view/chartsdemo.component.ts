@@ -14,15 +14,23 @@ export class ChartsDemoComponent implements OnInit {
 
     pieData: any;
 
+    doughnutData: any;
+
     polarData: any;
 
     radarData: any;
 
-    chartsOptions: any;
+    lineOptions: any;
 
-    chartsOptions2: any;
+    barOptions: any;
 
-    chartsOptions3: any;
+    pieOptions: any;
+
+    doughnutOptions: any;
+
+    polarOptions: any;
+
+    radarOptions: any;
 
     constructor(public app: AppComponent, public appMain: AppMainComponent, private breadcrumbService: AppBreadcrumbService) {
         this.breadcrumbService.setItems([
@@ -36,19 +44,29 @@ export class ChartsDemoComponent implements OnInit {
         this.lineData = this.getLineData();
         this.barData = this.getBarData();
         this.pieData = this.getPieData();
+        this.doughnutData = this.getPieData();
         this.polarData = this.getPolarData();
-        this.chartsOptions = this.getChartOptions();
-        this.chartsOptions2 = this.getChartOptions2();
-        this.chartsOptions3 = this.getChartOptions3();
+
+        this.lineOptions = this.getChartOptions();
+        this.barOptions = this.getChartOptions();
+        this.pieOptions = this.getChartOptions2();
+        this.doughnutOptions = this.getChartOptions2();
+        this.polarOptions = this.getChartOptions3();
+        this.radarOptions = this.getChartOptions3();
 
         this.appMain['refreshChart'] = () => {
             this.lineData = this.getLineData();
             this.barData = this.getBarData();
             this.pieData = this.getPieData();
+            this.doughnutData = this.getPieData();
             this.polarData = this.getPolarData();
-            this.chartsOptions = this.getChartOptions();
-            this.chartsOptions2 = this.getChartOptions2();
-            this.chartsOptions3 = this.getChartOptions3();
+
+            this.lineOptions = this.getChartOptions();
+            this.barOptions = this.getChartOptions();
+            this.pieOptions = this.getChartOptions2();
+            this.doughnutOptions = this.getChartOptions2();
+            this.polarOptions = this.getChartOptions3();
+            this.radarOptions = this.getChartOptions3();
         };
 
         this.radarData = {
@@ -92,6 +110,7 @@ export class ChartsDemoComponent implements OnInit {
                     fill: false,
                     backgroundColor: dataset1Color,
                     borderColor: dataset1Color,
+                    tension: .4
                 },
                 {
                     label: 'Second Dataset',
@@ -99,6 +118,7 @@ export class ChartsDemoComponent implements OnInit {
                     fill: false,
                     backgroundColor: dataset2Color,
                     borderColor: dataset2Color,
+                    tension: .4
                 }
             ]
         };
@@ -197,7 +217,7 @@ export class ChartsDemoComponent implements OnInit {
             orangeColor: isLight ? '#FFA726' : '#FFCC80',
             deeporangeColor: isLight ? '#FF7043' : '#FFAB91',
             brownColor: isLight ? '#8D6E63' : '#BCAAA4'
-        }
+        };
     }
 
     getChartOptions() {
@@ -205,50 +225,53 @@ export class ChartsDemoComponent implements OnInit {
         const gridLinesColor = getComputedStyle(document.body).getPropertyValue('--divider-color') || 'rgba(160, 167, 181, .3)';
         const fontFamily = getComputedStyle(document.body).getPropertyValue('--font-family');
         return {
-            legend: {
-                display: true,
-                labels: {
-                    fontFamily,
-                    fontColor: textColor,
+            plugins: {
+                legend: {
+                    display: true,
+                    labels: {
+                        fontFamily,
+                        fontColor: textColor,
+                    }
                 }
             },
             responsive: true,
             scales: {
-                yAxes: [{
+                y: {
                     ticks: {
                         fontFamily,
                         fontColor: textColor
                     },
-                    gridLines: {
+                    grid: {
                         color: gridLinesColor
                     }
-                }],
-                xAxes: [{
+                },
+                x: {
                     ticks: {
                         fontFamily,
                         fontColor: textColor
                     },
-                    gridLines: {
+                    grid: {
                         color: gridLinesColor
                     }
-                }]
+                }
             }
-        }
+        };
     }
 
     getChartOptions2() {
         const textColor = getComputedStyle(document.body).getPropertyValue('--text-color') || 'rgba(0, 0, 0, 0.87)';
         const fontFamily = getComputedStyle(document.body).getPropertyValue('--font-family');
         return {
-            legend: {
-                display: true,
-                labels: {
-                    fontFamily,
-                    fontColor: textColor,
+            plugins: {
+                legend: {
+                    display: true,
+                    labels: {
+                        fontFamily,
+                        fontColor: textColor,
+                    }
                 }
-            },
-            responsive: true
-        }
+            }
+        };
     }
 
     getChartOptions3() {
@@ -257,21 +280,25 @@ export class ChartsDemoComponent implements OnInit {
         const gridLinesColor = getComputedStyle(document.body).getPropertyValue('--divider-color') || 'rgba(160, 167, 181, .3)';
 
         return {
-            legend: {
-                display: true,
-                labels: {
-                    fontFamily,
-                    fontColor: textColor,
+            plugins: {
+                legend: {
+                    display: true,
+                    labels: {
+                        fontFamily,
+                        fontColor: textColor,
+                    }
                 }
             },
-            scale: {
-                gridLines: {
-                    color: gridLinesColor
-                },
-                pointLabels: {
-                    fontColor: textColor
+            scales: {
+                r: {
+                    grid: {
+                        color: gridLinesColor
+                    },
+                    pointLabels: {
+                        fontColor: textColor
+                    }
                 }
             }
-        }
+        };
     }
 }

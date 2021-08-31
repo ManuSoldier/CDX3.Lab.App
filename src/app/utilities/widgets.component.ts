@@ -24,8 +24,6 @@ export class WidgetsComponent implements OnInit {
 
     radarChartData: any;
 
-    mainData: any;
-
     events: any[];
 
     selectedCity: any;
@@ -42,7 +40,8 @@ export class WidgetsComponent implements OnInit {
 
     overviewChartOptions: any;
 
-    constructor(public app: AppComponent, public appMain: AppMainComponent, private productService: ProductService, private eventService: EventService, private breadcrumbService: AppBreadcrumbService) {
+    constructor(public app: AppComponent, public appMain: AppMainComponent, private productService: ProductService,
+                private eventService: EventService, private breadcrumbService: AppBreadcrumbService) {
         this.breadcrumbService.setItems([
             { label: 'Utilities' },
             { label: 'Widgets', routerLink: ['/utilities/widgets'] }
@@ -62,29 +61,13 @@ export class WidgetsComponent implements OnInit {
         this.cities.push({label: 'Istanbul', value: {id: 4, name: 'Istanbul', code: 'IST'}});
         this.cities.push({label: 'Paris', value: {id: 5, name: 'Paris', code: 'PRS'}});
 
-        this.mainData = {
-            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-            datasets: [{
-                label: 'New',
-                data: [2, 7, 20, 9, 16, 9, 5],
-                backgroundColor: [
-                    'rgba(77, 208, 225, 0.5)',
-                ],
-                borderColor: [
-                    '#45B2C0',
-                ],
-                borderWidth: 3,
-                fill: true
-            }]
-        };
-
         this.chartData = this.getChartData();
         this.chartOptions = this.getChartOptions();
 
         this.overviewChartData1 = {
             labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September'],
             datasets: [{
-                data: [50,64,32,24,18,27,20,36,30],
+                data: [50, 64, 32, 24, 18, 27, 20, 36, 30],
                 borderColor: [
                     '#4DD0E1',
                 ],
@@ -92,14 +75,15 @@ export class WidgetsComponent implements OnInit {
                     'rgba(77, 208, 225, 0.8)',
                 ],
                 borderWidth: 2,
-                fill: true
+                fill: true,
+                tension: .4
             }
         ]};
 
         this.overviewChartData2 = {
             labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September'],
             datasets: [{
-                data: [11,30,52,35,39,20,14,18,29],
+                data: [11, 30, 52, 35, 39, 20, 14, 18, 29],
                 borderColor: [
                     '#4DD0E1',
                 ],
@@ -107,14 +91,15 @@ export class WidgetsComponent implements OnInit {
                     'rgba(77, 208, 225, 0.8)',
                 ],
                 borderWidth: 2,
-                fill: true
+                fill: true,
+                tension: .4
             }
         ]};
 
         this.overviewChartData3 = {
             labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September'],
             datasets: [{
-                data: [20,29,39,36,45,24,28,20,15],
+                data: [20, 29, 39, 36, 45, 24, 28, 20, 15],
                 borderColor: [
                     '#4DD0E1',
                 ],
@@ -122,14 +107,15 @@ export class WidgetsComponent implements OnInit {
                     'rgba(77, 208, 225, 0.8)',
                 ],
                 borderWidth: 2,
-                fill: true
+                fill: true,
+                tension: .4
             }
         ]};
 
         this.overviewChartData4 = {
             labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September'],
             datasets: [{
-                data: [30,39,50,21,33,18,10,24,20],
+                data: [30, 39, 50, 21, 33, 18, 10, 24, 20],
                 borderColor: [
                     '#4DD0E1',
                 ],
@@ -137,28 +123,31 @@ export class WidgetsComponent implements OnInit {
                     'rgba(77, 208, 225, 0.8)',
                 ],
                 borderWidth: 2,
-                fill: true
+                fill: true,
+                tension: .4
             }
         ]};
 
         this.overviewChartOptions = {
-            legend: {
-                display: false
+            plugins: {
+                legend: {
+                    display: false
+                }
             },
             responsive: true,
             scales: {
-                yAxes: [{
+                y: {
                     display: false
-                }],
-                xAxes: [{
+                },
+                x: {
                     display: false
-                }]
+                }
             },
             tooltips: {
                 enabled: false
             },
             elements: {
-                point:{
+                point: {
                     radius: 0
                 }
             },
@@ -218,10 +207,10 @@ export class WidgetsComponent implements OnInit {
         };
 
         this.timelineEvents = [
-            {status: 'Ordered', date: '15/10/2020 10:30', icon: "pi pi-shopping-cart", color: '#E91E63'},
-            {status: 'Processing', date: '15/10/2020 14:00', icon: "pi pi-cog", color: '#FB8C00'},
-            {status: 'Shipped', date: '15/10/2020 16:15', icon: "pi pi-compass", color: '#673AB7'},
-            {status: 'Delivered', date: '16/10/2020 10:00', icon: "pi pi-check-square", color: '#0097A7'}
+            {status: 'Ordered', date: '15/10/2020 10:30', icon: 'pi pi-shopping-cart', color: '#E91E63'},
+            {status: 'Processing', date: '15/10/2020 14:00', icon: 'pi pi-cog', color: '#FB8C00'},
+            {status: 'Shipped', date: '15/10/2020 16:15', icon: 'pi pi-compass', color: '#673AB7'},
+            {status: 'Delivered', date: '16/10/2020 10:00', icon: 'pi pi-check-square', color: '#0097A7'}
         ];
     }
 
@@ -246,7 +235,7 @@ export class WidgetsComponent implements OnInit {
         return {
             whiteBorderColor: isLight ? '#ffffff' : '#ffffff',
             whiteBgColor: isLight ? 'rgba(255,255,255,.35)' : 'rgba(255,255,255,.35)',
-        }
+        };
     }
 
     getChartData() {
@@ -269,7 +258,8 @@ export class WidgetsComponent implements OnInit {
                     borderColor: completedColors.borderColor,
                     backgroundColor: completedColors.backgroundColor,
                     borderWidth: 2,
-                    fill: true
+                    fill: true,
+                    tension: .4
                 },
                 {
                     label: 'Cancelled',
@@ -277,7 +267,8 @@ export class WidgetsComponent implements OnInit {
                     borderColor: canceledColors.borderColor,
                     backgroundColor: canceledColors.backgroundColor,
                     borderWidth: 2,
-                    fill: true
+                    fill: true,
+                    tension: .4
                 }
             ]
         };
@@ -287,31 +278,33 @@ export class WidgetsComponent implements OnInit {
         const textColor = getComputedStyle(document.body).getPropertyValue('--text-color') || 'rgba(0, 0, 0, 0.87)';
         const gridLinesColor = getComputedStyle(document.body).getPropertyValue('--divider-color') || 'rgba(160, 167, 181, .3)';
         return {
-            legend: {
-                display: true,
-                labels: {
-                    fontColor: textColor
+            plugins: {
+                legend: {
+                    display: true,
+                    labels: {
+                        fontColor: textColor
+                    }
                 }
             },
             responsive: true,
             scales: {
-                yAxes: [{
+                y: {
                     ticks: {
                         fontColor: textColor
                     },
-                    gridLines: {
+                    grid: {
                         color: gridLinesColor
                     }
-                }],
-                xAxes: [{
+                },
+                x: {
                     ticks: {
                         fontColor: textColor
                     },
-                    gridLines: {
+                    grid: {
                         color: gridLinesColor
                     }
-                }]
+                }
             }
-        }
+        };
     }
 }
