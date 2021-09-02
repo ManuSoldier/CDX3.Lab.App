@@ -25,7 +25,7 @@ import {AppBreadcrumbService} from '../app.breadcrumb.service';
             border-radius: 4px;
         }
 
-        .nested-grid .p-col-4 {
+        .nested-grid .col-4 {
             padding-bottom: 1rem;
         }
     `],

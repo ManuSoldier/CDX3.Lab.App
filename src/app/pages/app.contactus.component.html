@@ -1,11 +1,11 @@
-<div class="pages-body contact-page p-d-flex p-flex-column">
-    <div class="topbar p-p-3 p-d-flex p-jc-between p-flex-row p-ai-center">
-        <div class="topbar-left p-ml-3 p-d-flex" routerLink="/">
+<div class="pages-body contact-page flex flex-column">
+    <div class="topbar p-3 flex justify-content-between flex-row align-items-center">
+        <div class="topbar-left ml-3 flex" routerLink="/">
             <div class="logo">
                 <img src="assets/layout/images/logo2x.png" alt=""/>
             </div>
         </div>
-        <div class="topbar-right p-mr-3 p-d-flex">
+        <div class="topbar-right mr-3 flex">
             <button pButton pRipple type="button" label="DASHBOARD" [routerLink]="['/']"
                     class="p-button-text p-button-plain topbar-button"></button>
         </div>
@@ -19,25 +19,25 @@
     </div>
 
     <div class="pages-panel">
-        <div class="card p-grid">
-            <div class="left-panel p-lg-6 p-md-6 p-sm-12">
-                <h4 class="p-mb-3">Contact Us</h4>
-                <p class="p-mb-6">Subheader of contact us will come here...</p>
-                <input type="text" class="contact-input p-mb-3" pInputText placeholder="Your Name">
-                <input type="text" class="contact-input p-mb-3" pInputText placeholder="Your E-mail">
-                <textarea class="contact-input contact-message p-mb-6" rows="8" pInputTextarea
+        <div class="card grid">
+            <div class="left-panel lg:col-6 md:col-6 sm:col-12">
+                <h4 class="mb-3">Contact Us</h4>
+                <p class="mb-6">Subheader of contact us will come here...</p>
+                <input type="text" class="contact-input mb-3" pInputText placeholder="Your Name">
+                <input type="text" class="contact-input mb-3" pInputText placeholder="Your E-mail">
+                <textarea class="contact-input contact-message mb-6" rows="8" pInputTextarea
                           placeholder="Your Message"></textarea>
-                <p-button class="p-mb-3" label="SEND MESSAGE"></p-button>
+                <p-button class="mb-3" label="SEND MESSAGE"></p-button>
             </div>
-            <div class="right-panel p-lg-6 p-md-6 p-sm-12 p-mx-auto">
-                <div class="p-grid">
-                    <div class="p-md-offset-3 p-md-6 p-md-offset-3 p-sm-offset-2 p-sm-8 p-sm-offset-2">
-                        <i class="pi pi-home p-mb-2 p-mt-5"></i>
-                        <p class="title p-my-3">Headquarters</p>
+            <div class="right-panel lg:col-6 md:col-6 sm:col-12 mx-auto">
+                <div class="grid">
+                    <div class="md:col-offset-3 md:col-6 md:col-offset-3 sm:col-offset-2 sm:col-8 sm:col-offset-2">
+                        <i class="pi pi-home mb-2 mt-5"></i>
+                        <p class="title my-3">Headquarters</p>
                         <p>Van Beekweg 79-93 7825VC Eexterzandvoort</p>
 
-                        <i class="pi pi-briefcase p-mb-2 p-mt-5"></i>
-                        <p class="title p-my-3">Sales Office</p>
+                        <i class="pi pi-briefcase mb-2 mt-5"></i>
+                        <p class="title my-3">Sales Office</p>
                         <p>De Roodreef 89k 8502CA Oosternijkerk</p>
                     </div>
                 </div>

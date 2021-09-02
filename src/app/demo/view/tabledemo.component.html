@@ -1,5 +1,5 @@
-<div class="p-grid table-demo">
-	<div class="p-col-12">
+<div class="grid table-demo">
+	<div class="col-12">
 		<div class="card">
 			<h5>Default</h5>
 			<p>Pagination, sorting, filtering and checkbox selection.</p>
@@ -7,7 +7,7 @@
                      styleClass="p-datatable-customers" [rowHover]="true" [rows]="10" [paginator]="true"
                      [filterDelay]="0" [globalFilterFields]="['name','country.name','representative.name','status']">
                 <ng-template pTemplate="caption">
-                    <div class="p-d-flex p-flex-column p-flex-md-row p-jc-md-between table-header">
+                    <div class="flex flex-column md:flex-row md:justify-content-between table-header">
                         Customers
                         <span class="p-input-icon-left">
                     <i class="pi pi-search"></i>
@@ -22,27 +22,27 @@
                             <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
                         </th>
                         <th pSortableColumn="name">
-                            <div class="p-d-flex p-jc-between p-ai-center">
+                            <div class="flex justify-content-between align-items-center">
                                 Name
                                 <p-sortIcon field="name"></p-sortIcon>
-                                <p-columnFilter type="text" field="name" display="menu" class="p-ml-auto"></p-columnFilter>
+                                <p-columnFilter type="text" field="name" display="menu" class="ml-auto"></p-columnFilter>
                             </div>
                         </th>
                         <th pSortableColumn="country.name">
-                            <div class="p-d-flex p-jc-between p-ai-center">
+                            <div class="flex justify-content-between align-items-center">
                                 Country
                                 <p-sortIcon field="country.name"></p-sortIcon>
-                                <p-columnFilter type="text" field="country.name" display="menu" class="p-ml-auto"></p-columnFilter>
+                                <p-columnFilter type="text" field="country.name" display="menu" class="ml-auto"></p-columnFilter>
                             </div>
                         </th>
                         <th pSortableColumn="representative.name">
-                            <div class="p-d-flex p-jc-between p-ai-center">
+                            <div class="flex justify-content-between align-items-center">
                                 Agent
                                 <p-sortIcon field="representative.name"></p-sortIcon>
                                 <p-columnFilter field="representative" matchMode="in" display="menu" [showMatchModes]="false" [showOperator]="false" [showAddButton]="false">
                                     <ng-template pTemplate="header">
-                                        <div class="p-px-3 p-pt-3 p-pb-0">
-                                            <span class="p-text-bold">Agent Picker</span>
+                                        <div class="px-3 pt-3 pb-0">
+                                            <span class="font-bold">Agent Picker</span>
                                         </div>
                                     </ng-template>
                                     <ng-template pTemplate="filter" let-value let-filter="filterCallback">
@@ -50,7 +50,7 @@
                                             <ng-template let-option pTemplate="item">
                                                 <div class="p-multiselect-representative-option">
                                                     <img [alt]="option.label" src="assets/demo/images/avatar/{{option.image}}" width="32" style="vertical-align: middle" />
-                                                    <span class="p-ml-1">{{option.name}}</span>
+                                                    <span class="ml-1">{{option.name}}</span>
                                                 </div>
                                             </ng-template>
                                         </p-multiSelect>
@@ -59,21 +59,21 @@
                             </div>
                         </th>
                         <th pSortableColumn="date">
-                            <div class="p-d-flex p-jc-between p-ai-center">
+                            <div class="flex justify-content-between align-items-center">
                                 Date
                                 <p-sortIcon field="date"></p-sortIcon>
-                                <p-columnFilter type="date" field="date" display="menu" class="p-ml-auto"></p-columnFilter>
+                                <p-columnFilter type="date" field="date" display="menu" class="ml-auto"></p-columnFilter>
                             </div>
                         </th>
                         <th pSortableColumn="balance">
-                            <div class="p-d-flex p-jc-between p-ai-center">
+                            <div class="flex justify-content-between align-items-center">
                                 Balance
                                 <p-sortIcon field="balance"></p-sortIcon>
-                                <p-columnFilter type="numeric" field="balance" display="menu" currency="USD" class="p-ml-auto"></p-columnFilter>
+                                <p-columnFilter type="numeric" field="balance" display="menu" currency="USD" class="ml-auto"></p-columnFilter>
                             </div>
                         </th>
                         <th pSortableColumn="status">
-                            <div class="p-d-flex p-jc-between p-ai-center">
+                            <div class="flex justify-content-between align-items-center">
                                 Status
                                 <p-sortIcon field="status"></p-sortIcon>
                                 <p-columnFilter field="status" matchMode="equals" display="menu">
@@ -88,13 +88,13 @@
                             </div>
                         </th>
                         <th pSortableColumn="activity">
-                            <div class="p-d-flex p-jc-between p-ai-center">
+                            <div class="flex justify-content-between align-items-center">
                                 Activity
                                 <p-sortIcon field="activity"></p-sortIcon>
                                 <p-columnFilter field="activity" matchMode="between" display="menu" [showMatchModes]="false" [showOperator]="false" [showAddButton]="false">
                                     <ng-template pTemplate="filter" let-filter="filterCallback">
-                                        <p-slider [ngModel]="activityValues" [range]="true" (onSlideEnd)="filter($event.values)" styleClass="p-m-3"></p-slider>
-                                        <div class="p-d-flex p-ai-center p-jc-between p-px-2">
+                                        <p-slider [ngModel]="activityValues" [range]="true" (onSlideEnd)="filter($event.values)" styleClass="m-3"></p-slider>
+                                        <div class="flex align-items-center justify-content-between px-2">
                                             <span>{{activityValues[0]}}</span>
                                             <span>{{activityValues[1]}}</span>
                                         </div>
@@ -157,7 +157,7 @@
 		</div>
 	</div>
 
-	<div class="p-col-12">
+	<div class="col-12">
 		<div class="card">
 			<h5>Customized</h5>
 			<p>Scrollable table with gridlines (<mark>.p-datatable-gridlines</mark>), striped rows (<mark>.p-datatable-striped</mark>) and smaller paddings (<mark>p-datatable-sm</mark>).</p>
@@ -166,7 +166,7 @@
 					 styleClass="p-datatable-customers p-datatable-gridlines p-datatable-striped p-datatable-sm"
 					 [scrollable]="true" scrollHeight="600px" [filterDelay]="0" [globalFilterFields]="['name','country.name','representative.name','status']">
 				<ng-template pTemplate="caption">
-					<div class="p-d-flex p-flex-column p-flex-md-row p-jc-md-between table-header">
+					<div class="flex flex-column md:flex-row md:justify-content-between table-header">
 						Customers
 						<span class="p-input-icon-left p-float-label">
                             <i class="pi pi-search"></i>
@@ -226,7 +226,7 @@
 						</td>
 						<td>
 							<span class="p-column-title">Activity</span>
-							<p-progressBar [value]="customer.activity" [showValue]="false"></p-progressBar>
+                            <p-progressBar [value]="customer.activity" class="w-full" [showValue]="false"></p-progressBar>
 						</td>
 					</tr>
 				</ng-template>
@@ -239,7 +239,7 @@
 		</div>
 	</div>
 
-	<div class="p-col-12">
+	<div class="col-12">
 		<div class="card">
 			<h5>Row Expand</h5>
 			<p-table [value]="products" dataKey="name" styleClass="p-datatable-customers rowexpand-table">
@@ -260,7 +260,7 @@
                             <button pButton pRipple type="button" [pRowToggler]="product" class="p-button-text p-button-rounded p-button-plain" [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></button>
                         </td>
                         <td><span class="p-column-title">Name</span>{{product.name}}</td>
-                        <td><span class="p-column-title">Image</span><img [src]="'assets/demo/images/product/' + product.image" [alt]="product.name" width="100" class="p-shadow-4" /></td>
+                        <td><span class="p-column-title">Image</span><img [src]="'assets/demo/images/product/' + product.image" [alt]="product.name" width="100" class="shadow-4" /></td>
                         <td><span class="p-column-title">Price</span>{{product.price | currency:'USD'}}</td>
                         <td><span class="p-column-title">Category</span>{{product.category}}</td>
                         <td><span class="p-column-title">Reviews</span><p-rating [ngModel]="product.rating" [readonly]="true" [cancel]="false"></p-rating></td>
@@ -270,7 +270,7 @@
 				<ng-template pTemplate="rowexpansion" let-product>
 					<tr>
 						<td colspan="7">
-							<div class="p-p-3">
+							<div class="p-3">
 								<p-table [value]="product.orders" dataKey="id">
 									<ng-template pTemplate="header">
 										<tr>
@@ -306,7 +306,7 @@
 		</div>
 	</div>
 
-	<div class="p-col-12">
+	<div class="col-12">
 		<div class="card">
 			<h5>Row Group and Scrolling</h5>
 			<p-table [value]="customers3" sortField="representative.name" sortMode="single" (onSort)="onSort()" [scrollable]="true" scrollHeight="600px"
@@ -324,7 +324,7 @@
 					<tr *ngIf="rowGroupMetadata[customer.representative.name].index === rowIndex">
 						<td colspan="5">
 							<img [alt]="customer.representative.name" src="assets/demo/images/avatar/{{customer.representative.image}}" width="32" style="vertical-align: middle" />
-							<span class="p-text-bold p-ml-2">{{customer.representative.name}}</span>
+							<span class="font-bold ml-2">{{customer.representative.name}}</span>
 						</td>
 					</tr>
                     <tr>

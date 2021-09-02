@@ -180,15 +180,17 @@ export class AppMenuitemComponent implements OnInit, OnDestroy {
     }
 
     removeActiveInk(event: Event) {
-        let currentTarget = (event.currentTarget as HTMLElement);
+        const currentTarget = (event.currentTarget as HTMLElement);
         setTimeout(() => {
             if (currentTarget) {
-                let activeInk = currentTarget.querySelector('.p-ink-active');
+                const activeInk = currentTarget.querySelector('.p-ink-active');
                 if (activeInk) {
-                    if (activeInk.classList)
+                    if (activeInk.classList) {
                         activeInk.classList.remove('p-ink-active');
-                    else
+                    }
+                    else {
                         activeInk.className = activeInk.className.replace(new RegExp('(^|\\b)' + 'p-ink-active'.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+                    }
                 }
             }
         }, 401);

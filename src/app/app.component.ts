@@ -8,21 +8,21 @@ import { PrimeNGConfig } from 'primeng/api';
 })
 export class AppComponent implements OnInit{
 
-    topbarTheme: string = 'blue';
+    topbarTheme = 'blue';
 
-    menuTheme: string = 'light';
+    menuTheme = 'light';
 
-    layoutMode: string = 'light';
+    layoutMode = 'light';
 
-    menuMode: string = 'static';
+    menuMode = 'static';
 
-    inlineMenuPosition: string = 'bottom';
+    inlineMenuPosition = 'bottom';
 
-    inputStyle: string = 'filled';
+    inputStyle = 'filled';
 
-    ripple: boolean = true;
+    ripple = true;
 
-    isRTL: boolean = false;
+    isRTL = false;
 
     constructor(private primengConfig: PrimeNGConfig) {}
 

@@ -34,7 +34,7 @@ import { AppComponent } from './app.component';
 })
 export class AppInlineMenuComponent {
 
-    @Input() key = "inline-menu";
+    @Input() key = 'inline-menu';
 
     @Input() style: any;
 

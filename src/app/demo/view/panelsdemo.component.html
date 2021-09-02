@@ -1,5 +1,5 @@
-<div class="p-grid">
-    <div class="p-col-12">
+<div class="grid">
+    <div class="col-12">
         <div class="card toolbar-demo">
             <h5>Toolbar</h5>
             <p-toolbar>
@@ -22,7 +22,7 @@
         </div>
     </div>
 
-    <div class="p-col-12 p-md-6">
+    <div class="col-12 md:col-6">
         <div class="card">
             <h5>AccordionPanel</h5>
             <p-accordion>
@@ -104,7 +104,7 @@
         </div>
     </div>
 
-    <div class="p-col-12 p-md-6">
+    <div class="col-12 md:col-6">
         <div class="card">
             <h5>Panel</h5>
             <p-panel header="Header" [toggleable]="true">
@@ -156,19 +156,19 @@
         </div>
     </div>
 
-    <div class="p-col-12">
+    <div class="col-12">
         <div class="card">
             <h5>Divider</h5>
-            <div class="p-grid">
-                <div class="p-col-5 p-d-flex p-ai-center p-jc-center">
+            <div class="grid">
+                <div class="col-5 flex align-items-center justify-content-center">
                     <div class="p-fluid">
-                        <div class="p-field">
+                        <div class="field">
                             <span class="p-float-label">
                                 <input pInputText id="username" type="text"/>
                                 <label for="username">Username</label>
                             </span>
                         </div>
-                        <div class="p-field">
+                        <div class="field">
                             <span class="p-float-label">
                                 <input pInputText id="password" type="password"/>
                                 <label for="password">Password</label>
@@ -177,12 +177,12 @@
                         <p-button label="Login"></p-button>
                     </div>
                 </div>
-                <div class="p-col-1">
+                <div class="col-1">
                     <p-divider layout="vertical">
                         <b>OR</b>
                     </p-divider>
                 </div>
-                <div class="p-col-5 p-ai-center p-jc-center">
+                <div class="col-5 align-items-center justify-content-center">
                     <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
                         totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
                         architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
@@ -214,12 +214,12 @@
         </div>
     </div>
 
-    <div class="p-col-12">
+    <div class="col-12">
         <div class="card">
             <h5>Splitter</h5>
-            <p-splitter [style]="{'height': '300px'}" [panelSizes]="[20,80]" [minSizes]="[10,0]" styleClass="p-mb-5">
+            <p-splitter [style]="{'height': '300px'}" [panelSizes]="[20,80]" [minSizes]="[10,0]" styleClass="mb-5">
                 <ng-template pTemplate="panel">
-                    <div class="p-col p-d-flex p-ai-center p-jc-center p-p-2" style="overflow: auto">
+                    <div class="col flex align-items-center justify-content-center p-2" style="overflow: auto">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                         labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
                         ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
@@ -231,7 +231,7 @@
                 <ng-template pTemplate="panel">
                     <p-splitter layout="vertical" [panelSizes]="[30,70]" [minSizes]="[10,10]" panelStyleClass="splitter-overflow">
                         <ng-template pTemplate="panel">
-                            <div class="p-d-flex p-ai-center p-jc-center p-p-2">
+                            <div class="flex align-items-center justify-content-center p-2">
                                 Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
                                 doloremque
                                 laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
@@ -244,7 +244,7 @@
                             </div>
                         </ng-template>
                         <ng-template pTemplate="panel">
-                            <div class="p-d-flex p-ai-center p-jc-center p-p-2">
+                            <div class="flex align-items-center justify-content-center p-2">
                                 At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
                                 praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias
                                 excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui

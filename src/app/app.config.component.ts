@@ -5,84 +5,84 @@ import { AppMainComponent } from './app.main.component';
 @Component({
     selector: 'app-config',
     template: `
-        <p-sidebar #sidebar [(visible)]="configActive" [position]="app.isRTL ? 'left' : 'right'" [blockScroll]="true" [showCloseIcon]="false" [baseZIndex]="1000" styleClass="layout-config p-sidebar-sm fs-small p-p-0">
-            <div class="layout-config-panel p-d-flex p-flex-column">
-                <div class="p-px-3 p-pt-3">
+        <p-sidebar #sidebar [(visible)]="configActive" [position]="app.isRTL ? 'left' : 'right'" [blockScroll]="true" [showCloseIcon]="false" [baseZIndex]="1000" styleClass="layout-config p-sidebar-sm fs-small p-0">
+            <div class="layout-config-panel flex flex-column">
+                <div class="px-3 pt-3">
                     <h5>Theme Customization</h5>
                     <span>Ultima offers different themes for layout, topbar, menu etc.</span>
                 </div>
 
-                <hr class="p-mb-0" />
+                <hr class="mb-0" />
 
-                <div class="layout-config-options p-p-3">
+                <div class="layout-config-options p-3">
                     <h6>Layout/Theme Scale</h6>
-                    <div class="p-d-flex p-ai-center">
+                    <div class="flex align-items-center">
                         <button pButton pRipple type="button" icon="pi pi-minus" (click)="decrementScale()" class="p-button-rounded p-button-text" [disabled]="scale === scales[0]"></button>
-                        <i class="pi pi-circle-on p-m-1 scale-icon" *ngFor="let s of scales" [ngClass]="{'scale-active': s === scale}"></i>
+                        <i class="pi pi-circle-on m-1 scale-icon" *ngFor="let s of scales" [ngClass]="{'scale-active': s === scale}"></i>
                         <button pButton pRipple type="button" icon="pi pi-plus" (click)="incrementScale()" class="p-button-rounded p-button-text" [disabled]="scale === scales[scales.length - 1]"></button>
                     </div>
 
                     <h6>Layout Mode</h6>
-                    <div class="p-d-flex">
-                        <div class="p-d-flex p-ai-center">
+                    <div class="flex">
+                        <div class="flex align-items-center">
                             <p-radioButton name="layoutMode" value="light" [(ngModel)]="app.layoutMode" inputId="layoutMode1" (onClick)="onLayoutModeChange($event, 'light')"></p-radioButton>
-                            <label for="layoutMode1" [ngClass]="{'p-ml-2': !app.isRTL, 'p-mr-2': app.isRTL}">Light</label>
+                            <label for="layoutMode1" [ngClass]="{'ml-2': !app.isRTL, 'mr-2': app.isRTL}">Light</label>
                         </div>
-                        <div class="p-d-flex p-ai-center" [ngClass]="{'p-ml-4': !app.isRTL, 'p-mr-4': app.isRTL}">
+                        <div class="flex align-items-center" [ngClass]="{'ml-4': !app.isRTL, 'mr-4': app.isRTL}">
                             <p-radioButton name="layoutMode" value="dark" [(ngModel)]="app.layoutMode" inputId="layoutMode2" (onClick)="onLayoutModeChange($event, 'dark')"></p-radioButton>
-                            <label for="layoutMode2" [ngClass]="{'p-ml-2': !app.isRTL, 'p-mr-2': app.isRTL}">Dark</label>
+                            <label for="layoutMode2" [ngClass]="{'ml-2': !app.isRTL, 'mr-2': app.isRTL}">Dark</label>
                         </div>
                     </div>
 
                     <h6>Menu Mode</h6>
-                    <div class="p-d-flex">
-                        <div class="p-d-flex p-flex-column">
-                            <div class="p-d-flex p-ai-center">
+                    <div class="flex">
+                        <div class="flex flex-column">
+                            <div class="flex align-items-center">
                                 <p-radioButton name="menuMode" value="static" [(ngModel)]="app.menuMode" inputId="menuMode1"></p-radioButton>
-                                <label for="menuMode1" [ngClass]="{'p-ml-2': !app.isRTL, 'p-mr-2': app.isRTL}">Static</label>
+                                <label for="menuMode1" [ngClass]="{'ml-2': !app.isRTL, 'mr-2': app.isRTL}">Static</label>
                             </div>
-                            <div class="p-d-flex p-ai-center p-mt-3">
+                            <div class="flex align-items-center mt-3">
                                 <p-radioButton name="menuMode" value="horizontal" [(ngModel)]="app.menuMode" inputId="menuMode2"></p-radioButton>
-                                <label for="menuMode2" [ngClass]="{'p-ml-2': !app.isRTL, 'p-mr-2': app.isRTL}">Horizontal</label>
+                                <label for="menuMode2" [ngClass]="{'ml-2': !app.isRTL, 'mr-2': app.isRTL}">Horizontal</label>
                             </div>
                         </div>
-                        <div class="p-d-flex p-flex-column" [ngClass]="{'p-ml-4': !app.isRTL, 'p-mr-4': app.isRTL}">
-                            <div class="p-d-flex p-ai-center">
+                        <div class="flex flex-column" [ngClass]="{'ml-4': !app.isRTL, 'mr-4': app.isRTL}">
+                            <div class="flex align-items-center">
                                 <p-radioButton name="menuMode" value="overlay" [(ngModel)]="app.menuMode" inputId="menuMode4"></p-radioButton>
-                                <label for="menuMode4" [ngClass]="{'p-ml-2': !app.isRTL, 'p-mr-2': app.isRTL}">Overlay</label>
+                                <label for="menuMode4" [ngClass]="{'ml-2': !app.isRTL, 'mr-2': app.isRTL}">Overlay</label>
                             </div>
-                            <div class="p-d-flex p-ai-center p-mt-3">
+                            <div class="flex align-items-center mt-3">
                                 <p-radioButton name="menuMode" value="slim" [(ngModel)]="app.menuMode" inputId="menuMode3"></p-radioButton>
-                                <label for="menuMode3" [ngClass]="{'p-ml-2': !app.isRTL, 'p-mr-2': app.isRTL}">Slim</label>
+                                <label for="menuMode3" [ngClass]="{'ml-2': !app.isRTL, 'mr-2': app.isRTL}">Slim</label>
                             </div>
                         </div>
                     </div>
 
                     <h6>Inline Menu Position</h6>
-                    <div class="p-d-flex">
-                        <div class="p-d-flex p-ai-center">
+                    <div class="flex">
+                        <div class="flex align-items-center">
                             <p-radioButton name="inlineMenuPosition" value="top" [(ngModel)]="app.inlineMenuPosition" inputId="inlineMenuPosition1"></p-radioButton>
-                            <label for="inlineMenuPosition1" [ngClass]="{'p-ml-2': !app.isRTL, 'p-mr-2': app.isRTL}">Top</label>
+                            <label for="inlineMenuPosition1" [ngClass]="{'ml-2': !app.isRTL, 'mr-2': app.isRTL}">Top</label>
                         </div>
-                        <div class="p-d-flex p-ai-center" [ngClass]="{'p-ml-4': !app.isRTL, 'p-mr-4': app.isRTL}">
+                        <div class="flex align-items-center" [ngClass]="{'ml-4': !app.isRTL, 'mr-4': app.isRTL}">
                             <p-radioButton name="inlineMenuPosition" value="bottom" [(ngModel)]="app.inlineMenuPosition" inputId="inlineMenuPosition2"></p-radioButton>
-                            <label for="inlineMenuPosition2" [ngClass]="{'p-ml-2': !app.isRTL, 'p-mr-2': app.isRTL}">Bottom</label>
+                            <label for="inlineMenuPosition2" [ngClass]="{'ml-2': !app.isRTL, 'mr-2': app.isRTL}">Bottom</label>
                         </div>
-                        <div class="p-d-flex p-ai-center" [ngClass]="{'p-ml-4': !app.isRTL, 'p-mr-4': app.isRTL}">
+                        <div class="flex align-items-center" [ngClass]="{'ml-4': !app.isRTL, 'mr-4': app.isRTL}">
                             <p-radioButton name="inlineMenuPosition" value="both" [(ngModel)]="app.inlineMenuPosition" inputId="inlineMenuPosition3"></p-radioButton>
-                            <label for="inlineMenuPosition3" [ngClass]="{'p-ml-2': !app.isRTL, 'p-mr-2': app.isRTL}">Both</label>
+                            <label for="inlineMenuPosition3" [ngClass]="{'ml-2': !app.isRTL, 'mr-2': app.isRTL}">Both</label>
                         </div>
                     </div>
 
                     <h6>Input Background</h6>
-                    <div class="p-d-flex">
-                        <div class="p-d-flex p-ai-center">
+                    <div class="flex">
+                        <div class="flex align-items-center">
                             <p-radioButton name="inputStyle" value="outlined" [(ngModel)]="app.inputStyle" inputId="inputStyle1" (onClick)="onInputStyleClick()"></p-radioButton>
-                            <label for="inputStyle1" [ngClass]="{'p-ml-2': !app.isRTL, 'p-mr-2': app.isRTL}">Outlined</label>
+                            <label for="inputStyle1" [ngClass]="{'ml-2': !app.isRTL, 'mr-2': app.isRTL}">Outlined</label>
                         </div>
-                        <div class="p-d-flex p-ai-center" [ngClass]="{'p-ml-4': !app.isRTL, 'p-mr-4': app.isRTL}">
+                        <div class="flex align-items-center" [ngClass]="{'ml-4': !app.isRTL, 'mr-4': app.isRTL}">
                             <p-radioButton name="inputStyle" value="filled" [(ngModel)]="app.inputStyle" inputId="inputStyle2" (onClick)="onInputStyleClick()"></p-radioButton>
-                            <label for="inputStyle2" [ngClass]="{'p-ml-2': !app.isRTL, 'p-mr-2': app.isRTL}">Filled</label>
+                            <label for="inputStyle2" [ngClass]="{'ml-2': !app.isRTL, 'mr-2': app.isRTL}">Filled</label>
                         </div>
                     </div>
 
@@ -90,14 +90,14 @@ import { AppMainComponent } from './app.main.component';
                     <p-inputSwitch [ngModel]="app.ripple" (onChange)="appMain.onRippleChange($event)"></p-inputSwitch>
 
                     <h6>RTL</h6>
-                    <p-inputSwitch [ngModel]="app.isRTL" (onChange)="appMain.onRTLChange($event)" styleClass="p-d-block"></p-inputSwitch>
+                    <p-inputSwitch [ngModel]="app.isRTL" (onChange)="appMain.onRTLChange($event)" styleClass="block"></p-inputSwitch>
 
                     <h6>Menu Themes</h6>
-                    <div *ngIf="app.layoutMode!=='dark'" class="p-grid">
-                        <div *ngFor="let t of menuThemes" class="p-col p-col-fixed">
+                    <div *ngIf="app.layoutMode!=='dark'" class="grid">
+                        <div *ngFor="let t of menuThemes" class="col col-fixed">
                             <a style="cursor: pointer" (click)="changeMenuTheme(t)" class="layout-config-color-option" [title]="t.name">
                                 <span class="color" [ngStyle]="{'background-color': t.color}"></span>
-                                <span class="check p-d-flex p-ai-center p-jc-center" *ngIf="app.menuTheme === t.name">
+                                <span class="check flex align-items-center justify-content-center" *ngIf="app.menuTheme === t.name">
                                     <i class="pi pi-check" style="color: var(--menu-text-color)"></i>
                                 </span>
                             </a>
@@ -106,11 +106,11 @@ import { AppMainComponent } from './app.main.component';
                     <p *ngIf="app.layoutMode==='dark'">Menu themes are only available in light mode by design as large surfaces can emit too much brightness in dark mode.</p>
 
                     <h6>Topbar Themes</h6>
-                    <div class="p-grid">
-                        <div *ngFor="let t of topbarThemes" class="p-col p-col-fixed">
+                    <div class="grid">
+                        <div *ngFor="let t of topbarThemes" class="col col-fixed">
                             <a style="cursor: pointer" (click)="changeTopbarTheme(t)" class="layout-config-color-option" [title]="t.name">
                                 <span class="color" [ngStyle]="{'background-color': t.color}"></span>
-                                <span class="check p-d-flex p-ai-center p-jc-center" *ngIf="app.topbarTheme === t.name">
+                                <span class="check flex align-items-center justify-content-center" *ngIf="app.topbarTheme === t.name">
                                     <i class="pi pi-check" style="color: var(--topbar-text-color)"></i>
                                 </span>
                             </a>
@@ -118,11 +118,11 @@ import { AppMainComponent } from './app.main.component';
                     </div>
 
                     <h6>Component Themes</h6>
-                    <div class="p-grid">
-                        <div *ngFor="let t of themes" class="p-col p-col-fixed">
+                    <div class="grid">
+                        <div *ngFor="let t of themes" class="col col-fixed">
                             <a style="cursor: pointer" (click)="changeTheme(t.name)" class="layout-config-color-option" [title]="t.name">
                                 <span class="color" [ngStyle]="{'background-color': t.color}"></span>
-                                <span class="check p-d-flex p-ai-center p-jc-center" *ngIf="theme === t.name">
+                                <span class="check flex align-items-center justify-content-center" *ngIf="theme === t.name">
                                     <i class="pi pi-check" style="color: var(--primary-color-text)"></i>
                                 </span>
                             </a>
@@ -137,9 +137,9 @@ import { AppMainComponent } from './app.main.component';
 })
 export class AppConfigComponent implements OnInit {
 
-    scale: number = 14;
+    scale = 14;
 
-    scales: number[] = [12,13,14,15,16];
+    scales: number[] = [12, 13, 14, 15, 16];
 
     themes: any[];
 
@@ -149,21 +149,21 @@ export class AppConfigComponent implements OnInit {
 
     topbarThemes: any[];
 
-    topbarTheme: string = 'blue';
+    topbarTheme = 'blue';
 
-    theme: string = 'indigo';
+    theme = 'indigo';
 
-    matchingMenuTheme: boolean = false;
+    matchingMenuTheme = false;
 
-    matchingTopbarTheme: boolean = false;
+    matchingTopbarTheme = false;
 
     selectedMenuTheme: any;
 
     selectedTopbarTheme: any;
 
-    configActive: boolean = false;
+    configActive = false;
 
-    isInputBackgroundChanged: boolean = false;
+    isInputBackgroundChanged = false;
 
     constructor(public appMain: AppMainComponent, public app: AppComponent) {}
 

@@ -139,7 +139,7 @@ export class AppMainComponent implements AfterViewInit, OnInit, OnDestroy {
     }
 
     onSearchKeydown(event) {
-        if (event.keyCode == 27) {
+        if (event.keyCode === 27) {
             this.search = false;
         }
     }

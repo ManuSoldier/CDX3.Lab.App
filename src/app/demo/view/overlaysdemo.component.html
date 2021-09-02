@@ -1,5 +1,5 @@
-<div class="p-grid">
-    <div class="p-col-12 p-lg-6">
+<div class="grid">
+    <div class="col-12 lg:col-6">
         <div class="card">
             <h5>Dialog</h5>
             <p-dialog header="Dialog" [(visible)]="display" modal="modal" showEffect="fade" [style]="{width: '400px'}">
@@ -20,14 +20,14 @@
 
         <div class="card p-fluid">
             <h5>Overlay Panel</h5>
-            <div class="p-grid">
-                <div class="p-col-6">
+            <div class="grid">
+                <div class="col-6">
                     <button pButton pRipple type="button" label="Image" (click)="op1.toggle($event)" class="p-button-success"></button>
                     <p-overlayPanel #op1>
                         <img src="assets/demo/images/product/bamboo-watch.jpg" alt="Bamboo Watch" />
                     </p-overlayPanel>
                 </div>
-                <div class="p-col-6">
+                <div class="col-6">
                     <button pButton pRipple type="button" label="DataTable" (click)="op2.toggle($event)" class="p-button-success"></button>
                     <p-overlayPanel #op2 [showCloseIcon]="true" [style]="{width: '450px'}">
                         <ng-template pTemplate>
@@ -54,7 +54,7 @@
         </div>
     </div>
 
-    <div class="p-col-12 p-lg-6">
+    <div class="col-12 lg:col-6">
 
         <div class="card">
             <h5>Confirmation</h5>
@@ -94,11 +94,11 @@
         </div>
     </div>
 
-    <div class="p-col-12 p-lg-6">
+    <div class="col-12 lg:col-6">
         <div class="card">
             <h5>Tooltip</h5>
-            <div class="p-formgroup-inline">
-                <div class="p-field">
+            <div class="formgroup-inline">
+                <div class="field">
                     <label for="firstname5" class="p-sr-only">Username</label>
                     <input id="firstname5" type="text" pInputText placeholder="Username" pTooltip="Enter your username">
                 </div>
@@ -107,7 +107,7 @@
         </div>
     </div>
 
-    <div class="p-col-12 p-lg-6">
+    <div class="col-12 lg:col-6">
         <div class="card">
             <h5>ConfirmPopup</h5>
 
