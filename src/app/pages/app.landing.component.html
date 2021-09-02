@@ -1,6 +1,6 @@
 <div class="landing-container">
     <div id="header" class="section flex flex-column">
-        <div class="header-menu-container shadow-3 flex align-items-center justify-content-between">
+        <div class="header-menu-container flex align-items-center justify-content-between">
             <a class="layout-topbar-logo" routerLink="/">
                 <img src="assets/layout/images/logo2x.png" alt="ultima-layout" style="height: 24px">
             </a>
@@ -8,7 +8,7 @@
             <a id="menu-button" href="#" class="lg:hidden" (click)="onMenuButtonClick($event)">
                 <i class="pi pi-bars fs-xlarge"></i>
             </a>
-            <ul #menu id="menu" class="shadow-4" (animationend)="onMenuAnimationEnd()">
+            <ul #menu id="menu" (animationend)="onMenuAnimationEnd()">
                 <li><a class="flex p-3">Home</a></li>
                 <li><a (click)="smoothScroll('#header')" class="flex p-3">Introduction</a></li>
                 <li><a (click)="smoothScroll('#features')" class="flex p-3">Features</a></li>
