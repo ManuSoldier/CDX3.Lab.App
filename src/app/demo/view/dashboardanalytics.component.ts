@@ -368,7 +368,7 @@ export class DashboardAnalyticsComponent implements OnInit, OnDestroy {
             greenColor: isLight ? '#66BB6A' : '#A5D6A7',
             lightgreenColor: isLight ? '#9CCC65' : '#C5E1A5',
             limeColor: isLight ? '#D4E157' : '#E6EE9C',
-            yellowColor: isLight ? 'FFEE58' : '#FFF59D',
+            yellowColor: isLight ? '#FFEE58' : '#FFF59D',
             amberColor: isLight ? '#FFCA28' : '#FFE082',
             orangeColor: isLight ? '#FFA726' : '#FFCC80',
             deeporangeColor: isLight ? '#FF7043' : '#FFAB91',
