@@ -1,6 +1,6 @@
 {
     "name": "ultima",
-    "version": "12.0.0",
+    "version": "12.0.1-SNAPSHOT",
     "license": "COMMERCIAL",
     "angular-cli": {},
     "scripts": {
