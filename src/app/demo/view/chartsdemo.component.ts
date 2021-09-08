@@ -239,7 +239,7 @@ export class ChartsDemoComponent implements OnInit {
                 y: {
                     ticks: {
                         fontFamily,
-                        fontColor: textColor
+                        color: textColor
                     },
                     grid: {
                         color: gridLinesColor
@@ -248,7 +248,7 @@ export class ChartsDemoComponent implements OnInit {
                 x: {
                     ticks: {
                         fontFamily,
-                        fontColor: textColor
+                        color: textColor
                     },
                     grid: {
                         color: gridLinesColor

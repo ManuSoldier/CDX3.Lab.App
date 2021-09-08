@@ -525,7 +525,7 @@ export class DashboardAnalyticsComponent implements OnInit, OnDestroy {
                 y: {
                     ticks: {
                         fontFamily,
-                        fontColor: textColor
+                        color: textColor
                     },
                     grid: {
                         color: gridLinesColor
@@ -536,7 +536,7 @@ export class DashboardAnalyticsComponent implements OnInit, OnDestroy {
                     barPercentage: .8,
                     ticks: {
                         fontFamily,
-                        fontColor: textColor
+                        color: textColor
                     },
                     grid: {
                         color: gridLinesColor

@@ -290,7 +290,7 @@ export class WidgetsComponent implements OnInit {
             scales: {
                 y: {
                     ticks: {
-                        fontColor: textColor
+                        color: textColor
                     },
                     grid: {
                         color: gridLinesColor
@@ -298,7 +298,7 @@ export class WidgetsComponent implements OnInit {
                 },
                 x: {
                     ticks: {
-                        fontColor: textColor
+                        color: textColor
                     },
                     grid: {
                         color: gridLinesColor

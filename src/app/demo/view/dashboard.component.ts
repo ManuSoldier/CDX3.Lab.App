@@ -373,7 +373,7 @@ export class DashboardComponent implements OnInit {
                 y: {
                     ticks: {
                         fontFamily,
-                        fontColor: textColor
+                        color: textColor
                     },
                     grid: {
                         color: gridLinesColor
@@ -382,7 +382,7 @@ export class DashboardComponent implements OnInit {
                 x: {
                     ticks: {
                         fontFamily,
-                        fontColor: textColor
+                        color: textColor
                     },
                     grid: {
                         color: gridLinesColor
