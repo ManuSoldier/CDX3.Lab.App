@@ -1,5 +1,17 @@
 # Changelog
 
+## 12.0.0
+**Migration Guide**
+- Update your project to Angular 12.
+- Update app.* components
+- Update theme files and layout files.
+
+**Implemented New Features and Enhancements:**
+
+- Upgrade to Angular and PrimeNG 12
+- Styles of new PrimeNG components
+- PrimeFlex 3+ support
+
 ## 11.0.1
 **Migration Guide**
 - Update theme files and layout files.
