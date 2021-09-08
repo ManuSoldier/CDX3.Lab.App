@@ -29,6 +29,16 @@
                 background: transparent;
             }
         }
+        .p-multiselect-panel {
+            .p-multiselect-header {
+                .p-multiselect-filter-container {
+                    .p-inputtext {
+                        padding-top: .25rem;
+                    }
+                }
+            }
+
+        }
     }
 }
 
@@ -49,25 +59,25 @@
                 @include filled-input-float-label();
             }
         }
-        
+
         .p-inputwrapper-filled {
             .p-multiselect {
                 .p-multiselect-label {
                     @include filled-input-float-label();
                 }
-                
+
                 &.p-multiselect-chip {
                     .p-multiselect-token {
                         padding-top: 0;
                         padding-bottom: 0;
                         margin-top: 0;
                         margin-bottom: 0;
-    
+
                         .p-multiselect-token-icon {
                             font-size: 75%;
                         }
                     }
-                }   
+                }
             }
         }
     }
