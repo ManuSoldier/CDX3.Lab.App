@@ -96,7 +96,7 @@ export class AppTopBarComponent {
                         label: 'UTILITIES 4',
                         items: [
                             { label: 'Text', icon: 'pi pi-fw pi-pencil', routerLink: ['utilities/text'] },
-                            { label: 'Widgets', icon: 'pi pi-fw pi-star-o', routerLink: ['utilities/widgets'] }
+                            { label: 'Widgets', icon: 'pi pi-fw pi-star', routerLink: ['utilities/widgets'] }
                         ]
                     }
                 ],

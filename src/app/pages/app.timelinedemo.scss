@@ -16,6 +16,13 @@
         line-height: 1;
     }
 }
+::ng-deep {
+    .customized-timeline {
+        .p-card {
+            box-shadow: none;
+        }
+    }
+}
 
 @media screen and (max-width: 960px) {
     ::ng-deep {
