@@ -1,8 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {AppComponent} from './app.component';
 import {AppMainComponent} from './app.main.component';
-import {ConfigService} from './demo/service/app.config.service';
-import {AppConfig} from './demo/domain/appconfig';
 import {Subscription} from 'rxjs';
 @Component({
     selector: 'app-config',
@@ -167,18 +165,9 @@ export class AppConfigComponent implements OnInit {
 
     isInputBackgroundChanged = false;
 
-    config: AppConfig;
-
-    subscription: Subscription;
-
-    constructor(public appMain: AppMainComponent, public app: AppComponent, public configService: ConfigService) {}
+    constructor(public appMain: AppMainComponent, public app: AppComponent) {}
 
     ngOnInit() {
-        this.config = this.configService.config;
-        this.subscription = this.configService.configUpdate$.subscribe(config => {
-            this.config = config;
-        });
-
         this.themes = [
             {name: 'indigo', color: '#3F51B5'},
             {name: 'pink', color: '#E91E63'},
@@ -288,8 +277,6 @@ export class AppConfigComponent implements OnInit {
         const newURL = urlTokens.join('/');
 
         this.replaceLink(themeLink, newURL, this.appMain['refreshChart']);
-
-        this.configService.updateConfig({...this.config, ...{dark: mode === 'dark' ? true : false}});
     }
 
     changeTheme(theme) {
