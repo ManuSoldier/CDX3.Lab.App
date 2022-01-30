@@ -87,7 +87,7 @@ import {TreeModule} from 'primeng/tree';
 import {TreeTableModule} from 'primeng/treetable';
 import {VirtualScrollerModule} from 'primeng/virtualscroller';
 
-import {AppCodeModule} from './app.code.component';
+import {AppCodeModule} from './blocks/app-code/app.code.component';
 import {AppComponent} from './app.component';
 import {AppMainComponent} from './app.main.component';
 import {AppConfigComponent} from './app.config.component';
@@ -111,22 +111,14 @@ import {TreeDemoComponent} from './demo/view/treedemo.component';
 import {PanelsDemoComponent} from './demo/view/panelsdemo.component';
 import {OverlaysDemoComponent} from './demo/view/overlaysdemo.component';
 import {MediaDemoComponent} from './demo/view/mediademo.component';
-import {MenusDemoComponent} from './demo/view/menusdemo.component';
+import {MenusComponent} from './demo/view/menus/menus.component';
 import {MessagesDemoComponent} from './demo/view/messagesdemo.component';
 import {MiscDemoComponent} from './demo/view/miscdemo.component';
 import {EmptyDemoComponent} from './demo/view/emptydemo.component';
 import {ChartsDemoComponent} from './demo/view/chartsdemo.component';
 import {FileDemoComponent} from './demo/view/filedemo.component';
 import {DocumentationComponent} from './demo/view/documentation.component';
-import {DisplayComponent} from './utilities/display.component';
-import {ElevationComponent} from './utilities/elevation.component';
-import {FlexboxComponent} from './utilities/flexbox.component';
-import {GridComponent} from './utilities/grid.component';
 import {IconsComponent} from './utilities/icons.component';
-import {WidgetsComponent} from './utilities/widgets.component';
-import {SpacingComponent} from './utilities/spacing.component';
-import {TypographyComponent} from './utilities/typography.component';
-import {TextComponent} from './utilities/text.component';
 import {AppCrudComponent} from './pages/app.crud.component';
 import {AppCalendarComponent} from './pages/app.calendar.component';
 import {AppInvoiceComponent} from './pages/app.invoice.component';
@@ -138,6 +130,8 @@ import {AppLoginComponent} from './pages/app.login.component';
 import {AppTimelineDemoComponent} from './pages/app.timelinedemo.component';
 import {AppWizardComponent} from './pages/app.wizard.component';
 import {AppLandingComponent} from './pages/app.landing.component';
+import {BlocksComponent} from './blocks/blocks/blocks.component';
+import {BlockViewer} from './blocks/blockviewer/blockviewer.component';
 
 import {CountryService} from './demo/service/countryservice';
 import {CustomerService} from './demo/service/customerservice';
@@ -146,6 +140,7 @@ import {IconService} from './demo/service/iconservice';
 import {NodeService} from './demo/service/nodeservice';
 import {PhotoService} from './demo/service/photoservice';
 import {ProductService} from './demo/service/productservice';
+import {ConfigService} from './demo/service/app.config.service';
 
 import {MenuService} from './app.menu.service';
 import {AppBreadcrumbService} from './app.breadcrumb.service';
@@ -274,7 +269,7 @@ FullCalendarModule.registerPlugins([
         PanelsDemoComponent,
         OverlaysDemoComponent,
         MediaDemoComponent,
-        MenusDemoComponent,
+        MenusComponent,
         MessagesDemoComponent,
         MessagesDemoComponent,
         MiscDemoComponent,
@@ -282,15 +277,7 @@ FullCalendarModule.registerPlugins([
         EmptyDemoComponent,
         FileDemoComponent,
         DocumentationComponent,
-        DisplayComponent,
-        ElevationComponent,
-        FlexboxComponent,
-        GridComponent,
         IconsComponent,
-        WidgetsComponent,
-        SpacingComponent,
-        TypographyComponent,
-        TextComponent,
         AppCrudComponent,
         AppCalendarComponent,
         AppLoginComponent,
@@ -302,12 +289,14 @@ FullCalendarModule.registerPlugins([
         AppAccessdeniedComponent,
         AppTimelineDemoComponent,
         AppWizardComponent,
-        AppContactusComponent
+        AppContactusComponent,
+        BlocksComponent,
+        BlockViewer
     ],
     providers: [
         {provide: LocationStrategy, useClass: HashLocationStrategy},
         CountryService, CustomerService, EventService, IconService, NodeService,
-        PhotoService, ProductService, MenuService, AppBreadcrumbService
+        PhotoService, ProductService, MenuService, AppBreadcrumbService, ConfigService
     ],
     bootstrap: [AppComponent]
 })

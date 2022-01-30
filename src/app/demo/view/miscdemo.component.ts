@@ -3,19 +3,6 @@ import {AppBreadcrumbService} from '../../app.breadcrumb.service';
 
 @Component({
     templateUrl: './miscdemo.component.html',
-    styles: [`
-		:host ::ng-deep .misc-demo .p-button.p-widget {
-		    min-width: 6rem;
-	    }
-
-		:host ::ng-deep .misc-demo .badges .p-badge {
-		    margin-right: .5rem;
-		}
-
-		:host ::ng-deep .misc-demo .badges .p-tag {
-			margin-right: .5rem;
-		}
-    `]
 })
 export class MiscDemoComponent implements OnInit {
 
@@ -23,8 +10,8 @@ export class MiscDemoComponent implements OnInit {
 
     constructor(private breadcrumbService: AppBreadcrumbService) {
         this.breadcrumbService.setItems([
-            { label: 'UI Kit' },
-            { label: 'Misc', routerLink: ['/uikit/misc'] }
+            {label: 'UI Kit'},
+            {label: 'Misc'}
         ]);
     }
 

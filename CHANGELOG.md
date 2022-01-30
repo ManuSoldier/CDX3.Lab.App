@@ -1,5 +1,9 @@
 # Changelog
 
+## 13.1.0
+**Migration Guide**
+- Update your project to PrimeNG 13.1.0
+    
 ## 13.0.0
 **Migration Guide**
 - Update your project to Angular 13.

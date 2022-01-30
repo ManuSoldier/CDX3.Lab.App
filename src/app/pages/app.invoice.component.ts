@@ -18,7 +18,7 @@ export class AppInvoiceComponent implements OnInit {
     constructor(private breadcrumbService: AppBreadcrumbService) {
         this.breadcrumbService.setItems([
             { label: 'Pages' },
-            { label: 'Invoice', routerLink: ['/pages/invoice'] }
+            { label: 'Invoice' }
         ]);
     }
 

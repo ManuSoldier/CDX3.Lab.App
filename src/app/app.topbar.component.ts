@@ -74,42 +74,12 @@ export class AppTopBarComponent {
                     {
                         label: 'UTILITIES 1',
                         items: [
-                            { label: 'Display', icon: 'pi pi-fw pi-desktop', routerLink: ['utilities/display'] },
-                            { label: 'Elevation', icon: 'pi pi-fw pi-external-link', routerLink: ['utilities/elevation'] }
-                        ]
-                    },
-                    {
-                        label: 'UTILITIES 2',
-                        items: [
-                            { label: 'FlexBox', icon: 'pi pi-fw pi-directions', routerLink: ['utilities/flexbox'] }
+                            { label: 'Icons', icon: 'pi pi-fw pi-prime', routerLink: ['utilities/icons'] },
+                            { label: 'PrimeFlex', icon: 'pi pi-fw pi-desktop', url: 'https://www.primefaces.org/primeflex/', target: '_blank' }
                         ]
                     }
                 ],
-                [
-                    {
-                        label: 'UTILITIES 3',
-                        items: [
-                            { label: 'Icons', icon: 'pi pi-fw pi-search', routerLink: ['utilities/icons'] }
-                        ]
-                    },
-                    {
-                        label: 'UTILITIES 4',
-                        items: [
-                            { label: 'Text', icon: 'pi pi-fw pi-pencil', routerLink: ['utilities/text'] },
-                            { label: 'Widgets', icon: 'pi pi-fw pi-star', routerLink: ['utilities/widgets'] }
-                        ]
-                    }
-                ],
-                [
-                    {
-                        label: 'UTILITIES 5',
-                        items: [
-                            { label: 'Grid System', icon: 'pi pi-fw pi-th-large', routerLink: ['utilities/grid'] },
-                            { label: 'Spacing', icon: 'pi pi-fw pi-arrow-right', routerLink: ['utilities/spacing'] },
-                            { label: 'Typography', icon: 'pi pi-fw pi-align-center', routerLink: ['utilities/typography'] }
-                        ]
-                    }
-                ],
+
             ]
         }
     ];

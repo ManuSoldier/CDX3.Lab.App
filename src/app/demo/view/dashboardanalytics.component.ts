@@ -94,7 +94,7 @@ export class DashboardAnalyticsComponent implements OnInit, OnDestroy {
     constructor(public app: AppComponent, public appMain: AppMainComponent, private productService: ProductService,
                 private eventService: EventService, private breadcrumbService: AppBreadcrumbService) {
         this.breadcrumbService.setItems([
-            { label: 'Dashboard Analytics', routerLink: ['/favorites/dashboardanalytics'] }
+            { label: 'Dashboard Analytics' }
         ]);
     }
 
@@ -406,7 +406,7 @@ export class DashboardAnalyticsComponent implements OnInit, OnDestroy {
                     position: 'top',
                     labels: {
                         fontFamily,
-                        fontColor: textColor
+                        color: textColor
                     }
                 },
             },
@@ -511,7 +511,7 @@ export class DashboardAnalyticsComponent implements OnInit, OnDestroy {
                     display: true,
                     labels: {
                         fontFamily,
-                        fontColor: textColor
+                        color: textColor
                     }
                 },
             },
@@ -572,7 +572,7 @@ export class DashboardAnalyticsComponent implements OnInit, OnDestroy {
                     position: 'top',
                     labels: {
                         fontFamily,
-                        fontColor: textColor
+                        color: textColor
                     }
                 },
             },

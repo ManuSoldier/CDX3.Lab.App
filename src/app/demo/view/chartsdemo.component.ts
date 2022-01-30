@@ -230,7 +230,7 @@ export class ChartsDemoComponent implements OnInit {
                     display: true,
                     labels: {
                         fontFamily,
-                        fontColor: textColor,
+                        color: textColor,
                     }
                 }
             },
@@ -267,7 +267,7 @@ export class ChartsDemoComponent implements OnInit {
                     display: true,
                     labels: {
                         fontFamily,
-                        fontColor: textColor,
+                        color: textColor,
                     }
                 }
             }
@@ -285,7 +285,7 @@ export class ChartsDemoComponent implements OnInit {
                     display: true,
                     labels: {
                         fontFamily,
-                        fontColor: textColor,
+                        color: textColor,
                     }
                 }
             },
@@ -295,7 +295,7 @@ export class ChartsDemoComponent implements OnInit {
                         color: gridLinesColor
                     },
                     pointLabels: {
-                        fontColor: textColor
+                        color: textColor
                     }
                 }
             }

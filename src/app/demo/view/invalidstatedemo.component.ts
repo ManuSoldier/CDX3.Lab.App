@@ -32,10 +32,12 @@ export class InvalidStateDemoComponent implements OnInit {
 
     value9: any;
 
+    value10: any;
+
     constructor(private countryService: CountryService, private breadcrumbService: AppBreadcrumbService) {
         this.breadcrumbService.setItems([
             {label: 'UI Kit'},
-            {label: 'Invalid State', routerLink: ['/uikit/invalidstate']}
+            {label: 'Invalid State'}
         ]);
 
         this.cities = [

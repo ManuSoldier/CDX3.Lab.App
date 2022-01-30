@@ -364,7 +364,7 @@ export class DashboardComponent implements OnInit {
                     display: true,
                     labels: {
                         fontFamily,
-                        fontColor: textColor,
+                        color: textColor,
                     }
                 }
             },
