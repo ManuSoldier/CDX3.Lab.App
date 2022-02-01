@@ -302,14 +302,15 @@ export class DashboardAnalyticsComponent implements OnInit, OnDestroy {
         };
 
         const calculateStore = (storeData, totalValue) => {
-            const randomNumber = +((Math.random() * 500).toFixed(2));
-            const data = storeData.datasets[0].data;
-            const length = data.length;
+            let randomNumber = +((Math.random() * 500).toFixed(2));
+            let data = [...storeData.datasets[0].data];
+            let length = data.length;
             data.push(randomNumber);
             data.shift();
+            storeData.datasets[0].data = data;
 
-            const diff = +((data[length - 1] - data[length - 2]).toFixed(2));
-            const status = diff === 0 ? 0 : (diff > 0 ? 1 : -1);
+            let diff = +((data[length - 1] - data[length - 2]).toFixed(2));
+            let status = diff === 0 ? 0 : (diff > 0 ? 1 : -1);
             totalValue = +((totalValue + diff).toFixed(2));
 
             return { diff, totalValue, status };
@@ -322,28 +323,28 @@ export class DashboardAnalyticsComponent implements OnInit, OnDestroy {
                 this.storeADiff = storeADiff;
                 this.storeATotalValue = storeATotalValue;
                 this.storeAStatus = storeAStatus;
-                this.storeAViewChild.chart.update();
+                this.storeAViewChild.refresh();
 
                 const { diff: storeBDiff, totalValue: storeBTotalValue, status: storeBStatus } =
                     calculateStore(this.storeBData, this.storeBTotalValue);
                 this.storeBDiff = storeBDiff;
                 this.storeBTotalValue = storeBTotalValue;
                 this.storeBStatus = storeBStatus;
-                this.storeBViewChild.chart.update();
+                this.storeBViewChild.refresh();
 
                 const { diff: storeCDiff, totalValue: storeCTotalValue, status: storeCStatus } =
                     calculateStore(this.storeCData, this.storeCTotalValue);
                 this.storeCDiff = storeCDiff;
                 this.storeCTotalValue = storeCTotalValue;
                 this.storeCStatus = storeCStatus;
-                this.storeCViewChild.chart.update();
+                this.storeCViewChild.refresh();
 
                 const { diff: storeDDiff, totalValue: storeDTotalValue, status: storeDStatus } =
                     calculateStore(this.storeDData, this.storeDTotalValue);
                 this.storeDDiff = storeDDiff;
                 this.storeDTotalValue = storeDTotalValue;
                 this.storeDStatus = storeDStatus;
-                this.storeDViewChild.chart.update();
+                this.storeDViewChild.refresh();
             });
         }, 2000);
     }
