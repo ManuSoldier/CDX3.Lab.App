@@ -23,7 +23,7 @@
                 <span>November 22 - November 29</span>
                 <button pRipple pButton type="button" label="Semi/Full Data" class="p-button-text" [ngClass]="{'ml-auto': !app.isRTL, 'mr-auto': app.isRTL}" (click)="changeDoughnutDataView()"></button>
             </div>
-            <p-chart #doughnut type="doughnut" [data]="doughnutData" [options]="doughnutOptions" responsive="true"></p-chart>
+            <p-chart #doughnut type="doughnut" [data]="doughnutData" [options]="doughnutOptions" responsive="true" height="200px"></p-chart>
             <div class="flex flex-column justify-content-center">
                 <div class="flex flex-row align-items-center mt-4 px-3">
                     <i class="pi pi-thumbs-up p-3 rounded-circle lightgreen-bgcolor solid-surface-text-color"></i>
