@@ -68,11 +68,11 @@ import {AppWizardComponent} from './pages/app.wizard.component';
                     {path: 'blocks', component: BlocksComponent},
                 ]
             },
-            {path: 'pages/error', component: AppErrorComponent},
-            {path: 'pages/access', component: AppAccessdeniedComponent},
-            {path: 'pages/notfound', component: AppNotfoundComponent},
-            {path: 'pages/login', component: AppLoginComponent},
-            {path: 'pages/wizard', component: AppWizardComponent},
+            {path: 'error', component: AppErrorComponent},
+            {path: 'access', component: AppAccessdeniedComponent},
+            {path: 'notfound', component: AppNotfoundComponent},
+            {path: 'login', component: AppLoginComponent},
+            {path: 'wizard', component: AppWizardComponent},
             {path: '**', redirectTo: '/notfound'},
         ], {scrollPositionRestoration: 'enabled'})
     ],
