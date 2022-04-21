@@ -32,6 +32,7 @@ import {AppInvoiceComponent} from './pages/app.invoice.component';
 import {AppHelpComponent} from './pages/app.help.component';
 import {BlocksComponent} from './blocks/blocks/blocks.component';
 import {AppWizardComponent} from './pages/app.wizard.component';
+import { AppContactusComponent } from './pages/app.contactus.component';
 
 @NgModule({
     imports: [
@@ -73,6 +74,7 @@ import {AppWizardComponent} from './pages/app.wizard.component';
             {path: 'notfound', component: AppNotfoundComponent},
             {path: 'login', component: AppLoginComponent},
             {path: 'wizard', component: AppWizardComponent},
+            {path: 'contactus', component: AppContactusComponent},
             {path: '**', redirectTo: '/notfound'},
         ], {scrollPositionRestoration: 'enabled'})
     ],
