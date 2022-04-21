@@ -1,5 +1,9 @@
 # Changelog
 
+## 13.1.1
+**Fixed bugs:**
+- Router paths fixed
+
 ## 13.1.0
 **Migration Guide**
 - Update your project to PrimeNG 13.1.0
