@@ -67,6 +67,8 @@ export class InputDemoComponent implements OnInit{
 
     valCheck: string[] = [];
 
+    valCheck2: boolean;
+
     valSwitch: boolean;
 
     cities: SelectItem[];
