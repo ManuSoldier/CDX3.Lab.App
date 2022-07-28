@@ -49,7 +49,7 @@ export class DashboardComponent implements OnInit {
     constructor(public app: AppComponent, public appMain: AppMainComponent, private productService: ProductService,
                 private eventService: EventService, private breadcrumbService: AppBreadcrumbService) {
         this.breadcrumbService.setItems([
-            { label: 'Dashboard', routerLink: ['/'] }
+            { label: 'Dashboard Sales', routerLink: ['/'] }
         ]);
     }
 
