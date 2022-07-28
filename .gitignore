@@ -46,6 +46,7 @@ testem.log
 Thumbs.db
 
 theme.css
+src/assets/demo/*.css
 src/assets/theme/*/theme-*.css
 src/assets/layout/css/*.css
 src/assets/sass/theme/designer
