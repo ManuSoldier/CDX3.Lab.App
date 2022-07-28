@@ -32,7 +32,8 @@ import {AppInvoiceComponent} from './pages/app.invoice.component';
 import {AppHelpComponent} from './pages/app.help.component';
 import {BlocksComponent} from './blocks/blocks/blocks.component';
 import {AppWizardComponent} from './pages/app.wizard.component';
-import { AppContactusComponent } from './pages/app.contactus.component';
+import {AppContactusComponent} from './pages/app.contactus.component';
+import {AppLandingComponent} from './pages/app.landing.component';
 
 @NgModule({
     imports: [
@@ -69,6 +70,7 @@ import { AppContactusComponent } from './pages/app.contactus.component';
                     {path: 'blocks', component: BlocksComponent},
                 ]
             },
+            {path: 'pages/landing', component: AppLandingComponent},
             {path: 'error', component: AppErrorComponent},
             {path: 'access', component: AppAccessdeniedComponent},
             {path: 'notfound', component: AppNotfoundComponent},

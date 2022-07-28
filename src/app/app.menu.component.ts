@@ -71,7 +71,7 @@ export class AppMenuComponent implements OnInit {
                         label: 'Landing', icon: 'pi pi-fw pi-globe', badge: '2', badgeClass: 'p-badge-warning',
                         items: [
                             {label: 'Static', icon: 'pi pi-fw pi-globe', url: 'assets/pages/landing.html', target: '_blank'},
-                            {label: 'Component', icon: 'pi pi-fw pi-globe', routerLink: ['/landing']}
+                            {label: 'Component', icon: 'pi pi-fw pi-globe', routerLink: ['/pages/landing']}
                         ]
                     },
                     {label: 'Login', icon: 'pi pi-fw pi-sign-in', routerLink: ['/login']},
