@@ -22,7 +22,9 @@ export class AppMenuComponent implements OnInit {
                 items: [
                     {label: 'Dashboard Sales', icon: 'pi pi-fw pi-home', routerLink: ['/'], badge: '4', badgeClass: 'p-badge-info'},
                     {label: 'Dashboard Analytics', icon: 'pi pi-fw pi-home',
-                        routerLink: ['/favorites/dashboardanalytics'], badge: '2', badgeClass: 'p-badge-success'}
+                        routerLink: ['/favorites/dashboardanalytics'], badge: '2', badgeClass: 'p-badge-success'},
+                    {label: 'Dashboard Sass', icon: 'pi pi-fw pi-home',
+                        routerLink: ['/favorites/dashboardsaas'], badge: '2', badgeClass: 'p-badge-success'}
                 ]
             },
             {

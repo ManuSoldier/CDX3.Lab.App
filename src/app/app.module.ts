@@ -100,6 +100,7 @@ import {AppTopBarComponent} from './app.topbar.component';
 import {AppFooterComponent} from './app.footer.component';
 import {DashboardComponent} from './demo/view/dashboard.component';
 import {DashboardAnalyticsComponent} from './demo/view/dashboardanalytics.component';
+import {DashboardSaasComponent} from './demo/view/dashboardsaas.component';
 import {FormLayoutDemoComponent} from './demo/view/formlayoutdemo.component';
 import {FloatLabelDemoComponent} from './demo/view/floatlabeldemo.component';
 import {InvalidStateDemoComponent} from './demo/view/invalidstatedemo.component';
@@ -257,6 +258,7 @@ FullCalendarModule.registerPlugins([
         AppFooterComponent,
         DashboardComponent,
         DashboardAnalyticsComponent,
+        DashboardSaasComponent,
         FormLayoutDemoComponent,
         FloatLabelDemoComponent,
         InvalidStateDemoComponent,

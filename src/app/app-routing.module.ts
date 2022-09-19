@@ -34,6 +34,7 @@ import {BlocksComponent} from './blocks/blocks/blocks.component';
 import {AppWizardComponent} from './pages/app.wizard.component';
 import {AppContactusComponent} from './pages/app.contactus.component';
 import {AppLandingComponent} from './pages/app.landing.component';
+import { DashboardSaasComponent } from './demo/view/dashboardsaas.component';
 
 @NgModule({
     imports: [
@@ -43,6 +44,7 @@ import {AppLandingComponent} from './pages/app.landing.component';
                 children: [
                     {path: '', component: DashboardComponent},
                     {path: 'favorites/dashboardanalytics', component: DashboardAnalyticsComponent},
+                    {path: 'favorites/dashboardsaas', component: DashboardSaasComponent},
                     {path: 'uikit/formlayout', component: FormLayoutDemoComponent},
                     {path: 'uikit/floatlabel', component: FloatLabelDemoComponent},
                     {path: 'uikit/invalidstate', component: InvalidStateDemoComponent},
