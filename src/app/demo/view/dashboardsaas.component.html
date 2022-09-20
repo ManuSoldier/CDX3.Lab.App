@@ -45,4 +45,59 @@
             </div>
         </div>
     </div>
+
+    <div class="col-12">
+        <div class="card">
+            <div class="p-2 height-100 flex flex-column justify-content-between">
+                <div class="card-header">
+                    <span class="font-semibold text-lg text-900">My Workspace</span>
+                </div>
+                <div class="grid grid-nogutter">
+                    <div class="col-12 flex flex-column gap-3 border-1 p-4 border-round-md md:col-4">
+                        <div class="flex justify-content-between align-items-center">
+                            <div class="flex align-items-center gap-3">
+                                <div>
+                                    <p-knob size="32" rangeColor="#EEEEEE" [readonly]="true" [max]="5" [(ngModel)]="completeTask"></p-knob>
+                                </div>
+                               <div class="flex flex-column justify-content-between gap-1">
+                                <span class="font-bold text-900">My Daily Tasks</span>
+                                <span class="text-color-secondary text-sm"><span class="font-bold">{{completeTask}}</span>/5 Tasks</span>
+                               </div>
+                            </div>
+                            <div>
+                                <button pButton pRipple type="button" icon="pi pi-plus" class="p-button-outlined" label="New Task" ></button>
+                            </div>
+                        </div>
+                        <div class="flex flex-column gap-2 h-21rem overflow-auto -mb-4">
+                        <div *ngFor="let task of dailyTasks" class="flex justify-content-between p-3 bg-bluegray-50 cursor-pointer text-color-secondary border-round-md hover:bg-white hover:text-color">
+                            <div class="flex gap-3">
+                                <div>
+                                    <p-checkbox [(ngModel)]="task.checked"></p-checkbox>
+                                </div>
+                                <div class="flex flex-column gap-2">
+                                    <span class="font-medium text-sm">{{task.label}}</span>
+                                    <div class="flex gap-2 align-items-center">
+                                        <i class="pi pi-align-left text-color-secondary "></i>
+                                        <i class="pi pi-file text-color-secondary"></i>
+                                        <i class="pi pi-image text-color-secondary"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex gap-3">
+                                <div class="flex align-items-end">
+                                    <p-avatarGroup>
+                                        <p-avatar image="assets/showcase/images/demo/avatar/amyelsner.png" shape="circle"></p-avatar>
+                                        <p-avatar label="+2" shape="circle" [style]="{'background-color':'#9c27b0', 'color': '#ffffff'}"></p-avatar>
+                                    </p-avatarGroup>
+                                </div>
+                                <div class="flex align-items-center">
+                                    <i class="pi pi-ellipsis-h text-color-secondary"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
