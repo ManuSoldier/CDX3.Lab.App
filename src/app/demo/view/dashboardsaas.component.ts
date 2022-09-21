@@ -10,6 +10,13 @@ interface DailyTask {
 
 @Component({
     templateUrl: "./dashboardsaas.component.html",
+    styles: [
+        `
+            :host ::ng-deep .p-progressbar-value {
+                background: #fff;
+            }
+        `,
+    ],
 })
 export class DashboardSaasComponent implements OnInit {
     constructor(private breadcrumbService: AppBreadcrumbService) {
@@ -18,7 +25,42 @@ export class DashboardSaasComponent implements OnInit {
 
     ngOnInit(): void {}
 
+    progressValue: number = 25;
+
     completeTask: number = 1;
+
+    projectList = [
+        {
+            id: 1,
+            title: "Ultima Sales",
+            totalTasks: 50,
+            completedTask: 25,
+        },
+        {
+            id: 2,
+            title: "Ultima Landing",
+            totalTasks: 50,
+            completedTask: 25,
+        },
+        {
+            id: 3,
+            title: "Ultima SaaS",
+            totalTasks: 50,
+            completedTask: 25,
+        },
+        {
+            id: 4,
+            title: "Ultima SaaS",
+            totalTasks: 50,
+            completedTask: 25,
+        },
+        {
+            id: 5,
+            title: "Ultima SaaS",
+            totalTasks: 50,
+            completedTask: 25,
+        },
+    ];
 
     dailyTasks: DailyTask[] = [
         {
