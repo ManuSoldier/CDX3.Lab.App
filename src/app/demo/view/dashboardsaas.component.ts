@@ -62,6 +62,29 @@ export class DashboardSaasComponent implements OnInit {
         },
     ];
 
+    teamMembers:any= [
+        {
+            title: "UX Researchers",
+            avatarts: ["asdas", "asdsd", "asdsad"],
+        },
+        {
+            title: "UX Designers",
+            avatarts: ["asdas", "asdsd", "asdsad"],
+        },
+        {
+            title: "UI Designers",
+            avatarts: ["asdas", "asdsd", "asdsad"],
+        },
+        {
+            title: "Front-End Developers",
+            avatarts: ["asdas", "asdsd", "asdsad"],
+        },
+        {
+            title: "Back-End Developers",
+            avatarts: ["asdas", "asdsd", "asdsad"],
+        }
+    ];
+
     dailyTasks: DailyTask[] = [
         {
             id: 1,

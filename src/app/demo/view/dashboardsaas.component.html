@@ -170,27 +170,29 @@
                     </div>
                 </div>
                 <div class="grid">
-                  <div *ngFor="let project of projectList;let i = index" [ngClass]="{'hidden md:block':i > 0,'hidden': i > 1}"  class="col-8 md:col-4">
-                    <div class="flex flex-column justify-content-between p-3 gap-3 bg-primary cursor-pointer border-round-md">
-                        <div class="flex justify-content-between align-items-center">
-                            <div class="flex gap-2 font-bold text-sm align-items-center">
-                                <i class="pi pi-star-fill"></i>
-                                <span>{{project.title}}</span>
-                            </div>
-                            <div class="flex gap-2 text-sm align-items-center text-xs font-bold ">
-                                <div class="bg-primary-600 p-1 px-2 flex font-medium gap-2 border-round-md">
-                                  <span>25 July</span><i class="pi pi-arrow-right"></i> <span>25 Aug</span>
+                <ng-container  *ngFor="let project of projectList;let i = index">
+                    <div *ngIf="i<2" [ngClass]="{'hidden md:block':i<1}" class="col-12 md:col-4">
+                        <div class="flex flex-column justify-content-between p-3 gap-3 bg-primary cursor-pointer border-round-md">
+                            <div class="flex justify-content-between align-items-center">
+                                <div class="flex gap-2 font-bold text-sm align-items-center">
+                                    <i class="pi pi-star-fill"></i>
+                                    <span>{{project.title}}</span>
                                 </div>
-                                <i class="pi pi-ellipsis-h"></i>
+                                <div class="flex gap-2 text-sm align-items-center text-xs font-bold ">
+                                    <div class="bg-primary-600 p-1 px-2 flex font-medium gap-2 border-round-md">
+                                        <span>25 July</span><i class="pi pi-arrow-right"></i> <span>25 Aug</span>
+                                    </div>
+                                    <i class="pi pi-ellipsis-h"></i>
+                                </div>
                             </div>
-                        </div>
-                        <div class="flex gap-2 align-items-center">
+                            <div class="flex gap-2 align-items-center">
                                 <span class="text-sm"><span class="font-bold">{{project.completedTask}}</span>/{{project.totalTasks}} Tasks</span>
                                 <p-progressBar class="w-full" styleClass="bg-primary-700 border-round-xl" [value]="project.completedTask * (100 / project.totalTasks)" [showValue]="false"></p-progressBar>
+                            </div>
                         </div>
                     </div>
-                    </div>
-                    <div  class="col-4 md:col-4">
+                </ng-container>
+                    <div  class="col-12 md:col-4">
                         <div  class="flex justify-content-between align-items-center p-3 cursor-pointer border-1 surface-border border-round-md h-full">
                         <div class="flex flex-column gap-2">
                             <span>Other Projects</span>
@@ -198,11 +200,41 @@
                         </div>
                         <i class="pi pi-chevron-down"></i>
                         </div>
-                        
                         </div>
-            </div>
+
+                        <div class=" col-12 md:col-4">
+                            <div class="border-1 surface-border p-3 border-round-md flex flex-column gap-3">
+                                <div class="flex justify-content-between align-items-center">
+                                    <div class="flex flex-column gap-1">
+                                        <span class="font-semibold text-900 text-lg">Teams</span>
+                                        <span class="text-sm text-color-secondary">18 Members</span>
+                                    </div>
+                                    <div class="flex align-items-center">
+                                        <span class="p-buttonset">
+                                            <button pButton pRipple label="Team" icon="pi pi-users"></button>
+                                            <button pButton pRipple label="Single" class="p-button-outlined" icon="pi pi-user"></button>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div *ngFor="let member of teamMembers" class="flex justify-content-between align-items-center border-round-md p-3 -mx-2 cursor-pointer hover:surface-hover">
+                                    <div class="flex align-items-center gap-3">
+                                        <div style="width:7px;height:7px;" class="border-circle bg-primary"></div>
+                                       <span>{{member.title}}</span>
+                                    </div>
+                                    <div>
+                                        <p-avatarGroup>
+                                            <p-avatar image="assets/showcase/images/demo/avatar/amyelsner.png" shape="circle"></p-avatar>
+                                            <p-avatar label="+2" shape="circle" [style]="{'background-color':'#9c27b0', 'color': '#ffffff'}"></p-avatar>
+                                        </p-avatarGroup>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 md:col-8">
+                            <div class="border-1 surface-border border-round-md p-3">MAY</div>
+                        </div>
+                    </div>
             </div>
         </div>
     </div>
-    
 </div>
