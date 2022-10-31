@@ -1,43 +1,45 @@
-<div class="pages-body contact-page flex flex-column">
-    <div class="topbar p-3 flex justify-content-between flex-row align-items-center">
-        <div class="topbar-left ml-3 flex" routerLink="/">
-            <div class="logo">
-                <img src="assets/layout/images/logo2x.png" alt=""/>
+<div class="h-screen flex flex-column">
+    <div class="shadow-3 z-3 bg-indigo-600 p-3 flex justify-content-between flex-row align-items-center">
+        <div class="ml-3 flex" routerLink="/">
+            <div>
+                <img class="h-2rem" src="assets/layout/images/logo2x.png" alt="" />
             </div>
         </div>
-        <div class="topbar-right mr-3 flex">
+        <div class="mr-3 flex">
             <button pButton pRipple type="button" label="DASHBOARD" [routerLink]="['/']"
-                    class="p-button-text p-button-plain topbar-button"></button>
+                class="p-button-text text-white"></button>
         </div>
     </div>
 
-    <div class="map">
-        <iframe
+    <div>
+        <iframe style="height:45vh" class="border-none absolute z-1 opacity-50 w-full"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9746.74079475134!2d4.8686484347131325!3d52.35799458335991!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c609e2c5b47ccf%3A0x6cd478550520ca35!2sVondelpark!5e0!3m2!1str!2str!4v1606820468794!5m2!1str!2str"
             aria-hidden="false" tabindex="0" allowtransparency="true"></iframe>
-        <span></span>
+        <span style="height:45vh;
+                background: linear-gradient(180deg, #040B0F 0%, rgba(7, 14, 18, 0) 100%)"
+            class="absolute z-0 w-full"></span>
     </div>
 
-    <div class="pages-panel">
-        <div class="card grid">
-            <div class="left-panel lg:col-6 md:col-6 sm:col-12">
+    <div style="top:33%; max-width:1050px" class="pb-8 md:pb-0 text-left w-9 m-auto z-3 absolute left-0 right-0">
+        <div class="bg-white p-3 mb-5 shadow-2 border-round-md grid">
+            <div class="lg:col-6 md:col-6 sm:col-12">
                 <h4 class="mb-3">Contact Us</h4>
                 <p class="mb-6">Subheader of contact us will come here...</p>
-                <input type="text" class="contact-input mb-3" pInputText placeholder="Your Name">
-                <input type="text" class="contact-input mb-3" pInputText placeholder="Your E-mail">
-                <textarea class="contact-input contact-message mb-6" rows="8" pInputTextarea
-                          placeholder="Your Message"></textarea>
-                <p-button class="mb-3" label="SEND MESSAGE"></p-button>
+                <input type="text" class="w-full mb-3" pInputText placeholder="Your Name">
+                <input type="text" class="w-full mb-3" pInputText placeholder="Your E-mail">
+                <textarea class="w-full mb-6" rows="8" pInputTextarea
+                    placeholder="Your Message"></textarea>
+                <p-button class="mb-3" styleClass="w-full md:w-auto" label="SEND MESSAGE"></p-button>
             </div>
-            <div class="right-panel lg:col-6 md:col-6 sm:col-12 mx-auto">
+            <div class="text-center md:text-left lg:col-6 md:col-6 sm:col-12 mx-auto">
                 <div class="grid">
                     <div class="md:col-offset-3 md:col-6 md:col-offset-3 sm:col-offset-2 sm:col-8 sm:col-offset-2">
-                        <i class="pi pi-home mb-2 mt-5"></i>
-                        <p class="title my-3">Headquarters</p>
+                        <i class="pi pi-home mb-2 mt-5 text-4xl p-2 border-round-md text-blue-800 bg-blue-100 bg-auto"></i>
+                        <p class="font-medium mx-0 my-3">Headquarters</p>
                         <p>Van Beekweg 79-93 7825VC Eexterzandvoort</p>
 
-                        <i class="pi pi-briefcase mb-2 mt-5"></i>
-                        <p class="title my-3">Sales Office</p>
+                        <i class="pi pi-briefcase mb-2 mt-5 text-4xl p-2 border-round-md text-cyan-800 bg-teal-100 bg-auto"></i>
+                        <p class="font-medium mx-0 my-3">Sales Office</p>
                         <p>De Roodreef 89k 8502CA Oosternijkerk</p>
                     </div>
                 </div>

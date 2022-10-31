@@ -1,225 +1,252 @@
 <body class="wizard-body">
     <div class="wizard-wrapper">
-        <div class="wizard-topbar">
-            <div class="logo" [routerLink]="['/']"></div>
-            <div class="profile">
-                <div class="profile-text">
-                    <h1>Welcome to Ultima</h1>
-                    <p>Please complete steps to register</p>
+        <div style="flex-basis:75px; padding:0 5%"
+            class="h-11rem flex flex-column justify-content-around align-items-center flex-grow-0 flex-shrink-0 bg-indigo-500 z-4 shadow-3 lg:h-5rem lg:flex-row lg:justify-content-between">
+            <div style="width:200px; height:30px; background:url('/assets/layout/images/logo.png') top left no-repeat; "
+                class="align-self-start md:align-self-auto inline-block vertical-align-middle" [routerLink]="['/']">
+            </div>
+            <div class="flex justify-content-center align-items-center align-self-end lg:align-self-auto">
+                <div class=" mr-3 text-right">
+                    <h1 class="text-lg text-white m-0">Welcome to Ultima</h1>
+                    <p class="text-lg opacity-60 m-0 text-500">Please complete steps to register</p>
                 </div>
-                <img class="profile-image" src="assets/layout/images/extensions/flag-us@2x.png" alt="ultima-layout" />
+                <img width="40px" class="inline-block vertical-align-middle"
+                    src="assets/layout/images/extensions/flag-us@2x.png" alt="ultima-layout" />
             </div>
         </div>
 
-        <div class="wizard-content">
-            <div class="wizard-card">
-                <div class="wizard-card-header">
+        <div class="flex align-items-center justify-content-center"
+            style="height: calc(100% - 75px); min-height: 600px;">
+            <div style="height: 540px;"
+                class="surface-50 shadow-3 w-11 lg:w-7 flex flex-column flex-shrink-0 flex-grow-0">
+                <div class="w-full shadow-3 relative bg-indigo-500">
                     <div class="grid col">
-                        <div class="col-4 tab register-tab" [ngClass]="{'selected-tab': activeTab == 'register'}" (click)="clickNext('register')">
-                            <div class="icon">
-                                <i class="pi pi-sign-in"></i>
+                        <div class="col-4 cursor-pointer bg-indigo-500 text-center"
+                            [ngClass]="{'transition-duration-500': activeTab == 'register'}"
+                            (click)="clickNext('register')">
+                            <div class="line-height-3">
+                                <i style="width:20px" class="pi pi-sign-in opacity-40 text-white"
+                                    [ngClass]="{'opacity-100': activeTab == 'register'}"></i>
                             </div>
-                            <div class="title">REGISTER</div>
+                            <div class="text-white opacity-40 text-lg line-height-3"
+                                [ngClass]="{'opacity-100': activeTab == 'register'}">REGISTER</div>
                         </div>
-                        <div class="col-4 tab tier-tab" [ngClass]="{'selected-tab': activeTab === 'tier'}" (click)="clickNext('tier')">
-                            <div class="icon">
-                                <i class="pi pi-clone"></i>
+                        <div class="col-4 cursor-pointer bg-indigo-500 text-center"
+                            [ngClass]="{'transition-duration-500': activeTab === 'tier'}" (click)="clickNext('tier')">
+                            <div class="line-height-3">
+                                <i style="width:20px" [ngClass]="{'opacity-100': activeTab === 'tier'}"
+                                    class="pi pi-clone opacity-40 text-white"></i>
                             </div>
-                            <div class="title">CHOOSE TIER</div>
+                            <div class="text-white opacity-40 text-lg line-height-3"
+                                [ngClass]="{'opacity-100': activeTab === 'tier'}">CHOOSE TIER</div>
                         </div>
-                        <div class="col-4 tab payment-tab" [ngClass]="{'selected-tab': activeTab === 'payment'}" (click)="clickNext('payment')">
-                            <div class="icon">
-                                <i class="pi pi-shopping-cart"></i>
+                        <div class="col-4 cursor-pointer bg-indigo-500 text-center"
+                            [ngClass]="{'transition-duration-500': activeTab === 'payment'}"
+                            (click)="clickNext('payment')">
+                            <div class="line-height-3">
+                                <i style="width:20px" [ngClass]="{'opacity-100':activeTab === 'payment'}"
+                                    class="pi pi-shopping-cart opacity-40 text-white"></i>
                             </div>
-                            <div class="title">PAYMENT</div>
+                            <div class="text-white opacity-40 text-lg line-height-3 transition-duration-500 transition-ease-in-out"
+                                [ngClass]="{'opacity-100':activeTab === 'payment'}">PAYMENT</div>
                         </div>
-                        <div class="tab-bar" [@tabBar]="activeTab==='register'?'register':activeTab==='tier'?'tier':'payment'"></div>
+                        <div class="absolute bottom-0 bg-white" style="height:2px; visibility: visible;"
+                            [@tabBar]="activeTab==='register'?'register':activeTab==='tier'?'tier':'payment'">
+                        </div>
                     </div>
                 </div>
-                <div class="wizard-card-content register" [ngClass]="{'active-content': activeTab === 'register'}">
-                    <div class="grid ">
+                <div class="p-5 hidden overflow-auto h-full" [ngClass]="{'flex flex-grow-1': activeTab === 'register'}">
+                    <div class="grid h-full w-full ">
                         <div class="col-12  lg:col-6">
-                            <h1>ESSENTIAL INFORMATION</h1>
-                            <div class="forms">
-                                <div class="p-inputgroup">
-                                        <span class="p-inputgroup-addon">
-											<i class="pi pi-user"></i>
-                                        </span>
+                            <h1 class="text-sm m-0 text-color-secondary">ESSENTIAL INFORMATION</h1>
+                            <div>
+                                <div class="mt-5 p-inputgroup">
+                                    <span class="p-inputgroup-addon">
+                                        <i class="pi pi-user"></i>
+                                    </span>
                                     <span class="p-float-label">
-                                <input id="name" type="text" pInputText/>
-                                <label for="name">Username</label>
+                                        <input class="w-full" id="name" type="text" pInputText />
+                                        <label for="name">Username</label>
                                     </span>
                                 </div>
-                                <div class="p-inputgroup">
-                                        <span class="p-inputgroup-addon">
-											<i class="pi pi-user"></i>
-                                        </span>
+                                <div class="p-inputgroup mt-5">
+                                    <span class="p-inputgroup-addon">
+                                        <i class="pi pi-user"></i>
+                                    </span>
                                     <span class="p-float-label">
-                                <input id="email" type="text" pInputText/>
-                                <label for="email">Email</label>
+                                        <input class="w-full" id="email" type="text" pInputText />
+                                        <label for="email">Email</label>
                                     </span>
                                 </div>
-                                <div class="p-inputgroup">
-                                        <span class="p-inputgroup-addon">
-											<i class="pi pi-sign-in"></i>
-                                        </span>
+                                <div class="p-inputgroup mt-5">
+                                    <span class="p-inputgroup-addon">
+                                        <i class="pi pi-sign-in"></i>
+                                    </span>
                                     <span class="p-float-label">
-                                <input id="password" type="password" pInputText/>
-                                <label for="password">Password</label>
+                                        <input class="w-full" id="password" type="password" pInputText />
+                                        <label for="password">Password</label>
                                     </span>
                                 </div>
-
                             </div>
                         </div>
                         <div class="col-12 lg:col-6">
-                            <h1>OPTIONAL</h1>
-                            <div class="forms">
-                                <p-dropdown id="timezone" [style]="{'margin-bottom':'10px'}" [options]="dropdownOptions1" [(ngModel)]="selectDropdownOptions1"></p-dropdown>
+                            <h1 class="text-sm m-0 text-color-secondary">OPTIONAL</h1>
+                            <div>
+                                <p-dropdown styleClass="mt-5 w-full" id="timezone" [style]="{'margin-bottom':'10px'}"
+                                    [options]="dropdownOptions1" [(ngModel)]="selectDropdownOptions1"></p-dropdown>
 
-                                <div class="calendar">
-                                    <p-calendar id="button" [(ngModel)]="birthdate" placeholder="Birthdate" [showIcon]="true" appendTo="body"></p-calendar>
+                                <div class="mt-3">
+                                    <p-calendar styleClass="w-full relative " id="button" [(ngModel)]="birthdate"
+                                        placeholder="Birthdate" [showIcon]="true" appendTo="body"></p-calendar>
                                 </div>
 
-                                <p-dropdown id="ultima" [options]="dropdownOptions2" [(ngModel)]="selectDropdownOptions2" appendTo="body" [style]="{'margin-bottom':'10px'}"></p-dropdown>
+                                <p-dropdown styleClass="mt-5 w-full" id="ultima" [options]="dropdownOptions2"
+                                    [(ngModel)]="selectDropdownOptions2" appendTo="body"
+                                    [style]="{'margin-bottom':'10px'}"></p-dropdown>
                             </div>
                         </div>
                         <div class="col-12">
-                            <button pButton pRipple class="continue-button" type="button" label="CONTINUE" (click)="clickNext('tier')"></button>
+                            <button pButton pRipple class="w-full mt-5" type="button" label="CONTINUE"
+                                (click)="clickNext('tier')"></button>
                         </div>
                     </div>
                 </div>
 
-                <div class="wizard-card-content tier" [ngClass]="{'active-content': activeTab === 'tier'}">
-                    <div class="grid ">
+                <div class="h-full hidden overflow-auto p-5  " [ngClass]="{'flex flex-grow-1': activeTab === 'tier'}">
+                    <div class="grid w-full h-full">
                         <div class="col-12 md:col-6 lg:col-4">
-                            <div class="card basic">
-                                <div class="card-header">
+                            <div style="min-height: 400px;" class="bg-white shadow-3 p-0 border-round-md relative">
+                                <div class="text-white text-xl py-3 px-2 bg-indigo-500 mb-3">
                                     <div class="grid">
                                         <div class="col-8">
-                                            <h1>BASIC</h1>
+                                            <h1 class="inline text-white pt-5 text-3xl">BASIC</h1>
                                         </div>
                                         <div class="col-4">
-                                            <h1>$5</h1>
+                                            <h1 class="inline text-white pt-5 text-3xl">$5</h1>
                                             <span>/m</span>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="card-content">
-                                        <div class="card-row grid">
-                                            <div class="col-3">
-                                                <i class="pi pi-fw pi-check"></i>
-                                            </div>
-                                            <div class="col-9">Responsive</div>
-                                        </div>
-                                        <div class="card-row grid">
-                                            <div class="col-3">
-                                                <i class="pi pi-fw pi-check"></i>
-                                            </div>
-                                            <div class="col-9">Push Messages</div>
-                                        </div>
-                                    <div class="col-12 tier-button-wrapper">
-                                        <button pButton pRipple class="tier-button basic" type="button" label="BASIC" (click)="selectTier('basic')"></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 md:col-6 lg:col-4">
-                            <div class="card pro">
-                                <div class="card-header">
-                                    <div class="grid">
-                                        <div class="col-7">
-                                            <h1>PRO</h1>
-                                        </div>
-                                        <div class="col-5">
-                                            <h1>$25</h1>
-                                            <span>/m</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card-content">
-                                    <div class="card-row grid">
+                                <div class="text-base p-2">
+                                    <div class="w-full h-3rem grid">
                                         <div class="col-3">
                                             <i class="pi pi-fw pi-check"></i>
                                         </div>
                                         <div class="col-9">Responsive</div>
                                     </div>
-                                    <div class="card-row grid">
+                                    <div class="w-full h-3rem grid">
                                         <div class="col-3">
                                             <i class="pi pi-fw pi-check"></i>
                                         </div>
                                         <div class="col-9">Push Messages</div>
                                     </div>
-                                    <div class="card-row grid">
+                                    <div class="col-12 absolute w-auto" style="bottom:15px;right:10px;left:0px">
+                                        <button pButton pRipple class="w-full" type="button" label="BASIC"
+                                            (click)="selectTier('basic')"></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 md:col-6 lg:col-4">
+                            <!-- <div style="min-height: 400px;" class="card p-0 relative"> -->
+                            <div style="min-height: 400px;" class="bg-white shadow-3 border-round-md p-0 relative">
+                                <div class="text-white text-xl py-3 px-2 bg-pink-500 mb-3">
+                                    <div class="grid">
+                                        <div class="col-7">
+                                            <h1 class="inline text-white pt-5 text-3xl">PRO</h1>
+                                        </div>
+                                        <div class="col-5">
+                                            <h1 class="inline text-white pt-5 text-3xl">$25</h1>
+                                            <span>/m</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-base p-2">
+                                    <div class="w-full h-3rem grid">
+                                        <div class="col-3">
+                                            <i class="pi pi-fw pi-check"></i>
+                                        </div>
+                                        <div class="col-9">Responsive</div>
+                                    </div>
+                                    <div class="w-full h-3rem grid">
+                                        <div class="col-3">
+                                            <i class="pi pi-fw pi-check"></i>
+                                        </div>
+                                        <div class="col-9">Push Messages</div>
+                                    </div>
+                                    <div class="w-full h-3rem grid">
                                         <div class="col-3">
                                             <i class="pi pi-fw pi-check"></i>
                                         </div>
                                         <div class="col-9">7/24 Support</div>
                                     </div>
-                                    <div class="card-row grid">
+                                    <div class="w-full h-3rem grid">
                                         <div class="col-3">
                                             <i class="pi pi-fw pi-check"></i>
                                         </div>
                                         <div class="col-9">Free Shipping</div>
                                     </div>
-                                    <div class="col-12 tier-button-wrapper">
-                                        <button pButton pRipple class="tier-button pro" type="button" label="SELECT PRO" (click)="selectTier('pro')"></button>
+                                    <div class="col-12 absolute w-auto" style="bottom:15px;right:10px;left:0px">
+                                        <button pButton pRipple class="w-full bg-pink-500" type="button"
+                                            label="SELECT PRO" (click)="selectTier('pro')"></button>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                         <div class="col-12 md:col-6 lg:col-4">
-                            <div class="card pro-plus">
-                                <div class="card-header">
+                            <div class="bg-white shadow-3 border-round-md p-0 relative" style="min-height: 400px;">
+                                <div class="text-white text-xl py-3 px-2 bg-bluegray-500 mb-3">
                                     <div class="grid">
                                         <div class="col-7">
-                                            <h1>PRO+</h1>
+                                            <h1 class="inline text-white pt-5 text-3xl">PRO+</h1>
                                         </div>
                                         <div class="col-5">
-                                            <h1>$50</h1>
+                                            <h1 class="inline text-white pt-5 text-3xl">$50</h1>
                                             <span>/m</span>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="card-content">
-                                    <div class="card-row grid">
+                                <div class="text-base p-2">
+                                    <div class="w-full h-3rem grid">
                                         <div class="col-3">
                                             <i class="pi pi-fw pi-check"></i>
                                         </div>
                                         <div class="col-9">Responsive</div>
                                     </div>
-                                    <div class="card-row grid">
+                                    <div class="w-full h-3rem grid">
                                         <div class="col-3">
                                             <i class="pi pi-fw pi-check"></i>
                                         </div>
                                         <div class="col-9">Push Messages</div>
                                     </div>
-                                    <div class="card-row grid">
+                                    <div class="w-full h-3rem grid">
                                         <div class="col-3">
                                             <i class="pi pi-fw pi-check"></i>
                                         </div>
                                         <div class="col-9">7/24 Support</div>
                                     </div>
-                                    <div class="card-row grid">
+                                    <div class="w-full h-3rem grid">
                                         <div class="col-3">
                                             <i class="pi pi-fw pi-check"></i>
                                         </div>
                                         <div class="col-9">Free Shipping</div>
                                     </div>
-                                    <div class="card-row grid">
+                                    <div class="w-full h-3rem grid">
                                         <div class="col-3">
                                             <i class="pi pi-fw pi-check"></i>
                                         </div>
                                         <div class="col-9">Unlimited BW</div>
                                     </div>
-                                    <div class="card-row grid">
+                                    <div class="w-full h-3rem grid">
                                         <div class="col-3">
                                             <i class="pi pi-fw pi-check"></i>
                                         </div>
                                         <div class="col-9">Special Gift Cards</div>
                                     </div>
-                                    <div class="col-12 tier-button-wrapper">
-                                        <button pButton pRipple class="tier-button pro-plus" type="button" label="SELECT PRO+" (click)="selectTier('pro-plus')"></button>
+                                    <div class="col-12 absolute w-auto" style="bottom:15px;right:10px;left:0px">
+                                        <button pButton pRipple class="w-full bg-bluegray-500" type="button"
+                                            label="SELECT PRO+" (click)="selectTier('pro-plus')"></button>
                                     </div>
                                 </div>
                             </div>
@@ -227,33 +254,40 @@
                     </div>
                 </div>
 
-                <div class="wizard-card-content payment" [ngClass]="{'active-content': activeTab === 'payment'}">
-                    <div class="grid grid-nogutter">
-                        <div class="lg:col-8 col-12 payment-info">
-                            <div class="grid col" id="customPanel">
-                                    <div class="col-1 lg:col-1 md:col-1" style="line-height: 2em">
-                                        <p-radioButton name="group1" value="Credit" [(ngModel)]="radioButton1" inputId="credit"></p-radioButton>
+                <div class="wizard-card-content hidden overflow-auto h-full p-0"
+                    [ngClass]="{'flex flex-grow-1': activeTab === 'payment'}">
+                    <div class="grid grid-nogutter w-full h-full">
+                        <div class="lg:col-8 col-12 py-8 px-4">
+                            <div class="grid col w-full">
+                                <div class=" col-1 lg:col-1 md:col-1" style="line-height: 2em">
+                                    <p-radioButton name="group1" value="Credit" [(ngModel)]="radioButton1"
+                                        inputId="credit">
+                                    </p-radioButton>
+                                </div>
+                                <div class="col-11 lg:col-5 md:col-5">
+                                    <div class="credits">
+                                        <img src="assets/layout/images/extensions/asset-mastercard.svg"
+                                            alt="ultima-layout" />
+                                        <img src="assets/layout/images/extensions/asset-visa.svg" alt="ultima-layout" />
+                                        <img src="assets/layout/images/extensions/asset-amex.svg" alt="ultima-layout" />
                                     </div>
-                                    <div class="col-11 lg:col-5 md:col-5">
-                                        <div class="credits">
-                                            <img src="assets/layout/images/extensions/asset-mastercard.svg" alt="ultima-layout" />
-                                            <img src="assets/layout/images/extensions/asset-visa.svg" alt="ultima-layout" />
-                                            <img src="assets/layout/images/extensions/asset-amex.svg" alt="ultima-layout" />
-                                        </div>
+                                </div>
+                                <div class="col-1 lg:col-1 md:col-1" style="line-height: 2em">
+                                    <p-radioButton name="group1" value="Paypal" [(ngModel)]="radioButton1"
+                                        inputId="paypal">
+                                    </p-radioButton>
+                                </div>
+                                <div class="col-11 lg:col-5 md:col-5">
+                                    <div class="paypal">
+                                        <img src="assets/layout/images/extensions/asset-paypal.svg"
+                                            alt="ultima-layout" />
                                     </div>
-                                    <div class="col-1 lg:col-1 md:col-1" style="line-height: 2em">
-                                        <p-radioButton name="group1" value="Paypal" [(ngModel)]="radioButton1" inputId="paypal"></p-radioButton>
-                                    </div>
-                                    <div class="col-11 lg:col-5 md:col-5">
-                                        <div class="paypal">
-                                            <img src="assets/layout/images/extensions/asset-paypal.svg" alt="ultima-layout" />
-                                        </div>
-                                    </div>
+                                </div>
                             </div>
                             <div class="grid col">
                                 <div class="col-12">
                                     <span class="p-float-label">
-                                        <input pInputText type="text"/>
+                                        <input class="w-full pb-3" pInputText type="text" />
                                         <label>Card Holder Name </label>
                                     </span>
                                 </div>
@@ -261,90 +295,95 @@
                             <div class="grid col">
                                 <div class="col-6">
                                     <span class="p-float-label">
-                                        <input pInputText type="text"/>
+                                        <input class="w-full pb-3" pInputText type="text" />
                                         <label>Card No</label>
                                     </span>
                                 </div>
                                 <div class="col-3">
                                     <span class="p-float-label">
-                                        <input pInputText type="text"/>
+                                        <input class="w-full pb-3" pInputText type="text" />
                                         <label>Date</label>
                                     </span>
                                 </div>
                                 <div class="col-3">
                                     <span class="p-float-label">
-                                        <input pInputText type="text"/>
+                                        <input class="w-full pb-3" pInputText type="text" />
                                         <label>CCV</label>
                                     </span>
                                 </div>
                             </div>
-                            <div class="grid col check-info">
-                                <p-checkbox [(ngModel)]="checked" binary="true" label="Save credit card information for future usage"></p-checkbox>
+                            <div class="grid col mt-2">
+                                <p-checkbox [(ngModel)]="checked" binary="true" labelStyleClass="ml-2 text-base"
+                                    label="Save credit card information for future usage"></p-checkbox>
                             </div>
                         </div>
-                        <div class="lg:col-4 col-12 order-info">
+                        <div
+                            class="lg:col-4 col-12 p-3 surface-300 border-left-1 surface-border text-base text-gray-600">
                             <div class="grid col">
                                 <div class="col-12">
-                                    <h1>ORDER SUMMARY</h1>
+                                    <h1 class="mt-3">ORDER SUMMARY</h1>
                                 </div>
                             </div>
-                            <div class="order order-default" [ngClass]="{'selected-order': activeCard === ''}">
+                            <div class="hidden" [ngClass]="{'block': activeCard === ''}">
                                 <div class="grid col">
                                     <div class="col-8">Tier - </div>
-                                    <div class="col-4 price">$0.00</div>
+                                    <div class="col-4 font-bold text-right">$0.00</div>
                                     <div class="col-8">VAT (%18)</div>
-                                    <div class="col-4 price">$0.00</div>
+                                    <div class="col-4 font-bold text-right">$0.00</div>
                                 </div>
-                                <div class="grid col total">
+                                <div class="grid col border-top-1 surface-border py-3 px-0 mt-5">
                                     <div class="col-8">Total</div>
-                                    <div class="col-4 price">$0.00</div>
+                                    <div class="col-4 font-bold text-right">$0.00</div>
                                     <div class="col-12">
                                         Please select one tier.
                                     </div>
                                 </div>
                             </div>
-                            <div class="order order-basic" [ngClass]="{'selected-order': activeCard === 'basic'}">
+                            <div class="hidden" [ngClass]="{'block': activeCard === 'basic'}">
                                 <div class="grid col">
                                     <div class="col-8">Tier - Basic</div>
-                                    <div class="col-4 price">$5.00</div>
+                                    <div class="col-4 font-bold text-right">$5.00</div>
                                     <div class="col-8">VAT (%18)</div>
-                                    <div class="col-4 price">$0.90</div>
+                                    <div class="col-4 font-bold text-right">$0.90</div>
                                 </div>
-                                <div class="grid col total">
+                                <div class="grid col border-top-1 surface-border py-3 px-0 mt-5">
                                     <div class="col-8">Total</div>
-                                    <div class="col-4 price">$5.90</div>
+                                    <div class="col-4 font-bold text-right">$5.90</div>
                                     <div class="col-12">
-                                        <p-button type="button" label="CONFIRM ORDER" styleClass="buy-button" ></p-button>
+                                        <p-button type="button" label="CONFIRM ORDER" styleClass="w-full my-7">
+                                        </p-button>
                                     </div>
                                 </div>
                             </div>
-                            <div class="order order-pro" [ngClass]="{'selected-order': activeCard === 'pro'}">
+                            <div class="hidden" [ngClass]="{'block': activeCard === 'pro'}">
                                 <div class="grid col">
                                     <div class="col-8">Tier - Pro</div>
-                                    <div class="col-4 price">$25.00</div>
+                                    <div class="col-4 font-bold text-right">$25.00</div>
                                     <div class="col-8">VAT (%18)</div>
-                                    <div class="col-4 price">$4.50</div>
+                                    <div class="col-4 font-bold text-right">$4.50</div>
                                 </div>
-                                <div class="grid col total">
+                                <div class="grid col border-top-1 surface-border py-3 px-0 mt-5">
                                     <div class="col-8">Total</div>
-                                    <div class="col-4 price">$29.50</div>
+                                    <div class="col-4 font-bold text-right">$29.50</div>
                                     <div class="col-12">
-                                        <p-button type="button" label="CONFIRM ORDER" styleClass="buy-button" ></p-button>
+                                        <p-button type="button" label="CONFIRM ORDER" styleClass="w-full my-7">
+                                        </p-button>
                                     </div>
                                 </div>
                             </div>
-                            <div class="order order-pro-plus" [ngClass]="{'selected-order': activeCard === 'pro-plus'}">
+                            <div class="hidden" [ngClass]="{'block': activeCard === 'pro-plus'}">
                                 <div class="grid col">
                                     <div class="col-8">Tier - Pro+</div>
-                                    <div class="col-4 price">$50.00</div>
+                                    <div class="col-4 font-bold text-right">$50.00</div>
                                     <div class="col-8">VAT (%18)</div>
-                                    <div class="col-4 price">$9.00</div>
+                                    <div class="col-4 font-bold text-right">$9.00</div>
                                 </div>
-                                <div class="grid col total">
+                                <div class="grid col border-top-1 surface-border py-3 px-0 mt-5">
                                     <div class="col-8">Total</div>
-                                    <div class="col-4 price">$59.00</div>
+                                    <div class="col-4 font-bold text-right">$59.00</div>
                                     <div class="col-12">
-                                        <p-button type="button" label="CONFIRM ORDER" styleClass="buy-button" ></p-button>
+                                        <p-button type="button" label="CONFIRM ORDER" styleClass="w-full my-7">
+                                        </p-button>
                                     </div>
                                 </div>
                             </div>

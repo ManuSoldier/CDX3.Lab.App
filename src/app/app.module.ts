@@ -125,12 +125,20 @@ import {AppCalendarComponent} from './pages/app.calendar.component';
 import {AppInvoiceComponent} from './pages/app.invoice.component';
 import {AppHelpComponent} from './pages/app.help.component';
 import {AppNotfoundComponent} from './pages/app.notfound.component';
+import {AppNotfound2Component} from './pages/app.notfound2.component';
 import {AppErrorComponent} from './pages/app.error.component';
+import {AppError2Component} from './pages/app.error2.component';
 import {AppAccessdeniedComponent} from './pages/app.accessdenied.component';
+import {AppAccessdenied2Component} from './pages/app.accessdenied2.component';
 import {AppLoginComponent} from './pages/app.login.component';
+import {AppLogin2Component} from './pages/app.login2.component';
+import {AppRegisterComponent} from './pages/app.register.component';
+import { AppForgotpasswordComponent } from './pages/app.forgotpassword.component';
+import { AppChangepasswordComponent } from './pages/app.changepassword.component';
 import {AppTimelineDemoComponent} from './pages/app.timelinedemo.component';
 import {AppWizardComponent} from './pages/app.wizard.component';
 import {AppLandingComponent} from './pages/app.landing.component';
+import { AppLanding2Component } from './pages/app.landing2.component';
 import {BlocksComponent} from './blocks/blocks/blocks.component';
 import {BlockViewer} from './blocks/blockviewer/blockviewer.component';
 
@@ -292,7 +300,15 @@ FullCalendarModule.registerPlugins([
         AppWizardComponent,
         AppContactusComponent,
         BlocksComponent,
-        BlockViewer
+        BlockViewer,
+        AppAccessdenied2Component,
+        AppNotfound2Component,
+        AppError2Component,
+        AppLogin2Component,
+        AppRegisterComponent,
+        AppForgotpasswordComponent,
+        AppChangepasswordComponent,
+        AppLanding2Component
     ],
     providers: [
         {provide: LocationStrategy, useClass: HashLocationStrategy},

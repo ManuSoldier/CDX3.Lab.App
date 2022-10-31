@@ -16,9 +16,14 @@ import {FileDemoComponent} from './demo/view/filedemo.component';
 import {DocumentationComponent} from './demo/view/documentation.component';
 import {AppMainComponent} from './app.main.component';
 import {AppNotfoundComponent} from './pages/app.notfound.component';
+import {AppNotfound2Component} from './pages/app.notfound2.component';
 import {AppErrorComponent} from './pages/app.error.component';
+import {AppError2Component} from './pages/app.error2.component';
 import {AppAccessdeniedComponent} from './pages/app.accessdenied.component';
+import {AppAccessdenied2Component} from './pages/app.accessdenied2.component';
 import {AppLoginComponent} from './pages/app.login.component';
+import {AppLogin2Component} from './pages/app.login2.component';
+import { AppRegisterComponent } from './pages/app.register.component';
 import {InputDemoComponent} from './demo/view/inputdemo.component';
 import {ButtonDemoComponent} from './demo/view/buttondemo.component';
 import {TableDemoComponent} from './demo/view/tabledemo.component';
@@ -35,6 +40,9 @@ import {AppWizardComponent} from './pages/app.wizard.component';
 import {AppContactusComponent} from './pages/app.contactus.component';
 import {AppLandingComponent} from './pages/app.landing.component';
 import { DashboardSaasComponent } from './demo/view/dashboardsaas.component';
+import { AppForgotpasswordComponent } from './pages/app.forgotpassword.component';
+import { AppChangepasswordComponent } from './pages/app.changepassword.component';
+import { AppLanding2Component } from './pages/app.landing2.component';
 
 @NgModule({
     imports: [
@@ -73,10 +81,18 @@ import { DashboardSaasComponent } from './demo/view/dashboardsaas.component';
                 ]
             },
             {path: 'pages/landing', component: AppLandingComponent},
+            {path: 'pages/landing2', component: AppLanding2Component},
             {path: 'error', component: AppErrorComponent},
+            {path: 'error2', component: AppError2Component},
             {path: 'access', component: AppAccessdeniedComponent},
+            {path: 'access2', component: AppAccessdenied2Component},
             {path: 'notfound', component: AppNotfoundComponent},
+            {path: 'notfound2', component: AppNotfound2Component},
             {path: 'login', component: AppLoginComponent},
+            {path: 'login2', component: AppLogin2Component},
+            {path: 'register', component: AppRegisterComponent},
+            {path: 'forgot-password', component: AppForgotpasswordComponent},
+            {path: 'change-password', component: AppChangepasswordComponent},
             {path: 'wizard', component: AppWizardComponent},
             {path: 'contactus', component: AppContactusComponent},
             {path: '**', redirectTo: '/notfound'},

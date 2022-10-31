@@ -1,13 +1,14 @@
+<!-- NOT= ACCORDION CLASSI ICIN layout-help-page ve questions classlari kullaniliyor -->
 <div class="grid layout-help-page">
     <div class="col-12">
         <div class="card p-0">
             <div class="grid grid-nogutter">
-                <div class="col-12 layout-help-page-header">
+                <div class="col-12 relative">
                     <img src="assets/layout/images/extensions/help-header@2x.jpg" alt="help-header" style="width: 100%" />
-                    <h1 class="layout-help-page-header-text">Frequently Asked Questions</h1>
-                    <div class="layout-help-page-search p-input-icon-left p-fluid shadow-2">
+                    <h1 class="absolute pl-5 top-50 -mt-4 text-white">Frequently Asked Questions</h1>
+                    <div style="bottom:-1rem; width:calc(100% - 4rem);left:2rem" class="absolute border-round-md p-input-icon-left p-fluid shadow-2">
                         <i class="pi pi-search"></i>
-                        <input type="text" pInputText placeholder="Search">
+                        <input type="text" pInputText placeholder="Search" class="border-none">
                     </div>
                 </div>
                 <div class="col-12 p-5">
@@ -15,7 +16,7 @@
                         <p-accordionTab>
                             <p-header>
                                 <div class="flex align-items-center">
-                                    <i class="pi pi-bookmark fs-xlarge mr-3 pink-color"></i>
+                                    <i class="pi pi-bookmark text-4xl mr-3 text-pink-500"></i>
                                     <div class="flex flex-column">
                                         <h5 class="mb-0">The Basics</h5>
                                         <p>4 articles in this collection</p>
@@ -44,7 +45,7 @@
                         <p-accordionTab>
                             <p-header>
                                 <div class="flex align-items-center">
-                                    <i class="pi pi-bookmark fs-xlarge mr-3 pink-color"></i>
+                                    <i class="pi pi-bookmark text-4xl mr-3 text-pink-500"></i>
                                     <div class="flex flex-column">
                                         <h5 class="mb-0">Questions About Licenses</h5>
                                         <p>3 articles in this collection</p>
@@ -70,7 +71,7 @@
                         <p-accordionTab>
                             <p-header>
                                 <div class="flex align-items-center">
-                                    <i class="pi pi-bookmark fs-xlarge mr-3 pink-color"></i>
+                                    <i class="pi pi-bookmark text-4xl mr-3 text-pink-500"></i>
                                     <div class="flex flex-column">
                                         <h5 class="mb-0">Questions About Frameworks</h5>
                                         <p>6 articles in this collection</p>

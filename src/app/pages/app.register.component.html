@@ -1,0 +1,58 @@
+<div class="h-screen flex w-full">
+    <div class="flex flex-1 flex-column bg-white align-items-center justify-content-center">
+        <div class="w-11 lg:w-7">
+            <div class="flex flex-column">
+                <div style="height:56px; width:56px"
+                    class="bg-primary-50 border-circle flex align-items-center justify-content-center">
+                    <i class="pi pi-users text-primary text-4xl"></i>
+                </div>
+                <div class="mt-4">
+                    <h1 class="m-0 text-primary font-semibold text-4xl">
+                        Join us!
+                    </h1>
+                    <span class="block text-700 mt-2">Please fill the fields to sign-up Ultima network</span>
+                </div>
+            </div>
+            <div class="grid p-fluid mt-6">
+                <div class="col-12">
+                    <div class="p-inputgroup">
+                        <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                        <input type="text" pInputText placeholder="Name">
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="p-inputgroup">
+                        <span class="p-inputgroup-addon"><i class="pi pi-at"></i></span>
+                        <input type="text" pInputText placeholder="Email">
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="p-inputgroup">
+                        <span class="p-inputgroup-addon"><i class="pi pi-key"></i></span>
+                        <input type="password" pInputText placeholder="Password">
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="p-inputgroup">
+                        <span class="p-inputgroup-addon"><i class="pi pi-key"></i></span>
+                        <input type="password" pInputText placeholder="Password Again">
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="p-inputgroup">
+                     <button pButton class="w-full" label="SIGN UP"></button>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="p-inputgroup">
+                     <button pButton class="w-full bg-primary-50 text-primary" label="BACK TO LOGIN"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div [style.background]="'url(assets/layout/images/pages/accessDenied-bg.jpg)'"
+        class="hidden lg:flex flex-1 align-items-center justify-content-center bg-cover">
+        <img src="assets/layout/images/vector_logo.png" alt="">
+    </div>
+</div>

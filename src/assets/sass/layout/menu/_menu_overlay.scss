@@ -3,7 +3,7 @@
         
         .menu-wrapper {
             transform: translate3d(-17rem, 0px, 0px);
-            transition: transform $transitionDuration;
+            transition-duration: 150ms;
             transition-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
         }
 
@@ -24,6 +24,12 @@
                         display: flex;
                     }
                 }
+            }
+        }
+
+        &.layout-wrapper {
+            .layout-main {
+                margin-left: 4.5rem;
             }
         }
     }

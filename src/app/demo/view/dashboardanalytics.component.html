@@ -1,8 +1,8 @@
-<div class="grid dashboard">
+<div class="grid">
     <div class="col-12 md:col-8">
-        <div class="card height-100">
-            <div class="card-header">
-                <h5>Monthly Comparison</h5>
+        <div class="bg-white p-3 shadow-3 border-round-md h-full">
+            <div class="flex align-items-center justify-content-between mb-3">
+                <h5 class="m-0">Monthly Comparison</h5>
                 <button pRipple pButton type="button" label="Vertical/Stacked Data" class="p-button-text" [ngClass]="{'ml-auto': !app.isRTL, 'mr-auto': app.isRTL}" (click)="changeMonthlyDataView()"></button>
             </div>
 
@@ -11,130 +11,132 @@
     </div>
 
     <div class="col-12 md:col-4">
-        <div class="card widget-insights height-100">
-            <div class="card-header mb-2">
-                <h5>Insights</h5>
+        <div class="bg-white p-3 shadow-3 border-round-md h-full">
+            <div class="flex align-items-center justify-content-between mb-2">
+                <h5 class="m-0">Insights</h5>
                 <div>
                     <button pButton pRipple type="button" icon="pi pi-ellipsis-h" class="p-button-rounded p-button-text p-button-plain" (click)="menu11.toggle($event)"></button>
                     <p-menu #menu11 [popup]="true" [model]="[{label: 'Update', icon: 'pi pi-fw pi-refresh'},{label: 'Edit', icon: 'pi pi-fw pi-pencil'}]"></p-menu>
                 </div>
             </div>
-            <div class="card-subheader mb-2 flex align-items-center">
+            <div class="border-bottom-1 surface-border text-sm text-color-secondary mb-2 flex align-items-center">
                 <span>November 22 - November 29</span>
                 <button pRipple pButton type="button" label="Semi/Full Data" class="p-button-text" [ngClass]="{'ml-auto': !app.isRTL, 'mr-auto': app.isRTL}" (click)="changeDoughnutDataView()"></button>
             </div>
             <p-chart #doughnut type="doughnut" [data]="doughnutData" [options]="doughnutOptions" responsive="true" height="200px"></p-chart>
             <div class="flex flex-column justify-content-center">
                 <div class="flex flex-row align-items-center mt-4 px-3">
-                    <i class="pi pi-thumbs-up p-3 rounded-circle lightgreen-bgcolor solid-surface-text-color"></i>
+                    <i class="pi pi-thumbs-up p-3 border-circle bg-green-400 text-white"></i>
                     <div class="flex flex-column" [ngClass]="{'ml-3': !app.isRTL, 'mr-3': app.isRTL}">
                         <span>Best Day of the Week</span>
                         <small>Friday</small>
                     </div>
-                    <span class="indigo-color" [ngClass]="{'ml-auto': !app.isRTL, 'mr-auto': app.isRTL}">95</span>
+                    <span class="text-indigo-500" [ngClass]="{'ml-auto': !app.isRTL, 'mr-auto': app.isRTL}">95</span>
                 </div>
                 <div class="flex flex-row align-items-center my-4 px-3">
-                    <i class="pi pi-thumbs-down rounded-circle p-3 orange-bgcolor solid-surface-text-color"></i>
+                    <i class="pi pi-thumbs-down border-circle p-3 bg-orange-400 text-white"></i>
                     <div class="flex flex-column" [ngClass]="{'ml-3': !app.isRTL, 'mr-3': app.isRTL}">
                         <span>Worst Day of the Week</span>
                         <small>Saturday</small>
                     </div>
-                    <span class="indigo-color" [ngClass]="{'ml-auto': !app.isRTL, 'mr-auto': app.isRTL}">6</span>
+                    <span class="text-indigo-500" [ngClass]="{'ml-auto': !app.isRTL, 'mr-auto': app.isRTL}">6</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PROGRESSBAR UZERINDE STYLE GUNCELLEMELERI YAPINCA CSS DOSYASI GEC YUKLENIYOR  -->
+
+    <div class="col-12 md:col-4">
+        <div class="bg-white p-3 shadow-3 border-round-md">
+            <div class="flex justify-content-between align-items-center p-3">
+                <div>
+                    <i class="pi pi-twitter text-blue-500 text-6xl"></i>
+                </div>
+                <div class="text-right flex flex-column">
+                    <span class="text-4xl">44.995</span>
+                    <span class="text-color-secondary mt-2">Retweets</span>
+                </div>
+            </div>
+
+            <div class="border-top-1 surface-border flex justify-content-between mt-3">
+                <div class="w-6 text-center p-3 flex flex-column border-right-1 surface-border">
+                    <span class="font-medium">Target</span>
+                    <span class="text-color-secondary mb-2">10.000</span>
+                    <p-progressBar style="height:6px;" styleClass="h-full border-round-md surface-200" [value]="50" [showValue]="false"></p-progressBar>
+                </div>
+                <div class="w-6 text-center p-3 flex flex-column">
+                    <span class="font-medium">All Time Record</span>
+                    <span class="text-color-secondary mb-2">50.702</span>
+                    <p-progressBar style="height:6px;" styleClass="h-full border-round-md surface-200" [value]="24" [showValue]="false"></p-progressBar>
                 </div>
             </div>
         </div>
     </div>
 
     <div class="col-12 md:col-4">
-        <div class="card widget-social">
+        <div class="bg-white p-3 shadow-3 border-round-md">
             <div class="flex justify-content-between align-items-center p-3">
-                <div class="social-icon">
-                    <i class="pi pi-twitter blue-color fs-xxlarge"></i>
+                <div>
+                    <i class="pi pi-facebook text-indigo-500 text-6xl"></i>
                 </div>
-                <div class="info flex flex-column">
-                    <span class="value">44.995</span>
-                    <span class="subtext mt-2">Retweets</span>
+                <div class="text-right flex flex-column">
+                    <span class="text-4xl">44.995</span>
+                    <span class="text-color-secondary mt-2">Facebook Interactions</span>
                 </div>
             </div>
 
-            <div class="stats flex justify-content-between mt-3">
-                <div class="left flex flex-column ">
-                    <span class="title">Target</span>
-                    <span class="value mb-2">10.000</span>
-                    <p-progressBar [value]="50" [showValue]="false"></p-progressBar>
+            <div class="border-top-1 surface-border flex justify-content-between mt-3">
+                <div class="w-6 text-center p-3 flex flex-column border-right-1 surface-border">
+                    <span class="font-medium">Target</span>
+                    <span class="text-color-secondary mb-2">10.000</span>
+                    <p-progressBar style="height:6px;" styleClass="h-full border-round-md surface-200" [value]="23" [showValue]="false"></p-progressBar>
                 </div>
-                <div class="right flex flex-column">
-                    <span class="title">All Time Record</span>
-                    <span class="value mb-2">50.702</span>
-                    <p-progressBar [value]="24" [showValue]="false"></p-progressBar>
+                <div class="w-6 text-center p-3 flex flex-column">
+                    <span class="font-medium">All Time Record</span>
+                    <span class="text-color-secondary mb-2">99.028</span>
+                    <p-progressBar style="height:6px;" styleClass="h-full border-round-md surface-200" [value]="38" [showValue]="false"></p-progressBar>
                 </div>
             </div>
         </div>
     </div>
 
     <div class="col-12 md:col-4">
-        <div class="card widget-social">
+        <div class="bg-white p-3 shadow-3 border-round-md">
             <div class="flex justify-content-between align-items-center p-3">
-                <div class="social-icon">
-                    <i class="pi pi-facebook indigo-color fs-xxlarge"></i>
+                <div>
+                    <i class="pi pi-github text-color text-6xl"></i>
                 </div>
-                <div class="info flex flex-column">
-                    <span class="value">44.995</span>
-                    <span class="subtext mt-2">Facebook Interactions</span>
-                </div>
-            </div>
-
-            <div class="stats flex justify-content-between mt-3">
-                <div class="left flex flex-column ">
-                    <span class="title">Target</span>
-                    <span class="value mb-2">10.000</span>
-                    <p-progressBar [value]="23" [showValue]="false"></p-progressBar>
-                </div>
-                <div class="right flex flex-column">
-                    <span class="title">All Time Record</span>
-                    <span class="value mb-2">99.028</span>
-                    <p-progressBar [value]="38" [showValue]="false"></p-progressBar>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-12 md:col-4">
-        <div class="card widget-social">
-            <div class="flex justify-content-between align-items-center p-3">
-                <div class="social-icon">
-                    <i class="pi pi-github text-color fs-xxlarge"></i>
-                </div>
-                <div class="info flex flex-column">
-                    <span class="value">81.002</span>
-                    <span class="subtext mt-2">Star</span>
+                <div class="text-right flex flex-column">
+                    <span class="text-4xl">81.002</span>
+                    <span class="text-color-secondary mt-2">Star</span>
                 </div>
             </div>
 
-            <div class="stats flex justify-content-between mt-3">
-                <div class="left flex flex-column ">
-                    <span class="title">Target</span>
-                    <span class="value mb-2">10.000</span>
-                    <p-progressBar [value]="62" [showValue]="false"></p-progressBar>
+            <div class="border-top-1 surface-border flex justify-content-between mt-3">
+                <div class="w-6 text-center p-3 flex flex-column border-right-1 surface-border">
+                    <span class="font-medium">Target</span>
+                    <span class="text-color-secondary mb-2">10.000</span>
+                    <p-progressBar style="height:6px;" styleClass="h-full border-round-md surface-200" [value]="62" [showValue]="false"></p-progressBar>
                 </div>
-                <div class="right flex flex-column">
-                    <span class="title">All Time Record</span>
-                    <span class="value mb-2">162.550</span>
-                    <p-progressBar [value]="14" [showValue]="false"></p-progressBar>
+                <div class="w-6 text-center p-3 flex flex-column">
+                    <span class="font-medium">All Time Record</span>
+                    <span class="text-color-secondary mb-2">162.550</span>
+                    <p-progressBar style="height:6px;" styleClass="h-full border-round-md surface-200" [value]="14" [showValue]="false"></p-progressBar>
                 </div>
             </div>
         </div>
     </div>
 
     <div class="col-12 md:col-12">
-        <div class="card grid grid-nogutter widget-sales block sm:flex">
+        <div class="bg-white p-3 shadow-3 border-round-md grid grid-nogutter block sm:flex">
             <div class="lg:col-3 md:col-6 sm:col-12 p-0">
-                <div class="sales-info flex flex-column p-4">
-                    <span class="muted-text">Store A Sales</span>
-                    <span class="fs-large mt-2">
-                        <i *ngIf="storeADiff !== 0" class="fw-700 fs-large pi" [ngClass]="{'pr-1': !app.isRTL, 'pl-1': app.isRTL, 'pi-arrow-up green-color': storeADiff > 0, 'pi-arrow-down pink-color': storeADiff < 0}"></i>
+                <div class="flex flex-column p-4">
+                    <span class="text-color-secondary">Store A Sales</span>
+                    <span class="text-2xl mt-2">
+                        <i *ngIf="storeADiff !== 0" class="font-bold text-2xl pi" [ngClass]="{'pr-1': !app.isRTL, 'pl-1': app.isRTL, 'pi-arrow-up text-green-500': storeADiff > 0, 'pi-arrow-down text-pink-500': storeADiff < 0}"></i>
                         ${{storeATotalValue}}
-                        <span *ngIf="storeADiff !== 0" class="fw-500 fs-normal" [ngClass]="{'ml-1': !app.isRTL, 'mr-1': app.isRTL, 'green-color': storeADiff > 0, 'pink-color': storeADiff < 0}">
+                        <span *ngIf="storeADiff !== 0" class="font-medium text-base" [ngClass]="{'ml-1': !app.isRTL, 'mr-1': app.isRTL, 'text-green-500': storeADiff > 0, 'text-pink-500': storeADiff < 0}">
                             {{storeADiff > 0 ? '+' : ''}}{{storeADiff}}
                         </span>
                     </span>
@@ -144,12 +146,12 @@
                 </div>
             </div>
             <div class="lg:col-3 md:col-6 sm:col-12 p-0">
-                <div class="sales-info flex flex-column p-4">
-                    <span class="muted-text">Store B Sales</span>
-                    <span class="fs-large mt-2">
-                        <i *ngIf="storeBDiff !== 0" class="fw-700 fs-large pi" [ngClass]="{'pr-1': !app.isRTL, 'pl-1': app.isRTL, 'pi-arrow-up green-color': storeBDiff > 0, 'pi-arrow-down pink-color': storeBDiff < 0}"></i>
+                <div class="flex flex-column p-4">
+                    <span class="text-color-secondary">Store B Sales</span>
+                    <span class="text-2xl mt-2">
+                        <i *ngIf="storeBDiff !== 0" class="font-bold text-2xl pi" [ngClass]="{'pr-1': !app.isRTL, 'pl-1': app.isRTL, 'pi-arrow-up text-green-500': storeBDiff > 0, 'pi-arrow-down text-pink-500': storeBDiff < 0}"></i>
                         ${{storeBTotalValue}}
-                        <span *ngIf="storeBDiff !== 0" class="fw-500 fs-normal" [ngClass]="{'ml-1': !app.isRTL, 'mr-1': app.isRTL,'green-color': storeBDiff > 0, 'pink-color': storeBDiff < 0}">
+                        <span *ngIf="storeBDiff !== 0" class="font-medium text-base" [ngClass]="{'ml-1': !app.isRTL, 'mr-1': app.isRTL,'text-green-500': storeBDiff > 0, 'text-pink-500': storeBDiff < 0}">
                             {{storeBDiff > 0 ? '+' : ''}}{{storeBDiff}}
                         </span>
                     </span>
@@ -159,12 +161,12 @@
                 </div>
             </div>
             <div class="lg:col-3 md:col-6 sm:col-12 p-0">
-                <div class="sales-info flex flex-column p-4">
-                    <span class="muted-text">Store C Sales</span>
-                    <span class="fs-large mt-2">
-                        <i *ngIf="storeCDiff !== 0" class="fw-700 fs-large pi" [ngClass]="{'pr-1': !app.isRTL, 'pl-1': app.isRTL, 'pi-arrow-up green-color': storeCDiff > 0, 'pi-arrow-down pink-color': storeCDiff < 0}"></i>
+                <div class="flex flex-column p-4">
+                    <span class="text-color-secondary">Store C Sales</span>
+                    <span class="text-2xl mt-2">
+                        <i *ngIf="storeCDiff !== 0" class="font-bold text-2xl pi" [ngClass]="{'pr-1': !app.isRTL, 'pl-1': app.isRTL, 'pi-arrow-up text-green-500': storeCDiff > 0, 'pi-arrow-down text-pink-500': storeCDiff < 0}"></i>
                         ${{storeCTotalValue}}
-                        <span *ngIf="storeCDiff !== 0" class="fw-500 fs-normal" [ngClass]="{'ml-1': !app.isRTL, 'mr-1': app.isRTL, 'green-color': storeCDiff > 0, 'pink-color': storeCDiff < 0}">
+                        <span *ngIf="storeCDiff !== 0" class="font-medium text-base" [ngClass]="{'ml-1': !app.isRTL, 'mr-1': app.isRTL, 'text-green-500': storeCDiff > 0, 'text-pink-500': storeCDiff < 0}">
                             {{storeCDiff > 0 ? '+' : ''}}{{storeCDiff}}
                         </span>
                     </span>
@@ -174,12 +176,12 @@
                 </div>
             </div>
             <div class="lg:col-3 md:col-6 sm:col-12 p-0">
-                <div class="sales-info flex flex-column p-4">
-                    <span class="muted-text">Store D Sales</span>
-                    <span class="fs-large mt-2">
-                        <i *ngIf="storeDDiff !== 0" class="fw-700 fs-large pi" [ngClass]="{'pr-1': !app.isRTL, 'pl-1': app.isRTL, 'pi-arrow-up green-color': storeDDiff > 0, 'pi-arrow-down pink-color': storeDDiff < 0}"></i>
+                <div class="flex flex-column p-4">
+                    <span class="text-color-secondary">Store D Sales</span>
+                    <span class="text-2xl mt-2">
+                        <i *ngIf="storeDDiff !== 0" class="font-bold text-2xl pi" [ngClass]="{'pr-1': !app.isRTL, 'pl-1': app.isRTL, 'pi-arrow-up text-green-500': storeDDiff > 0, 'pi-arrow-down text-pink-500': storeDDiff < 0}"></i>
                         ${{storeDTotalValue}}
-                        <span *ngIf="storeDDiff !== 0" class="fw-500 fs-normal" [ngClass]="{'ml-1': !app.isRTL, 'mr-1': app.isRTL, 'green-color': storeDDiff > 0, 'pink-color': storeDDiff < 0}">
+                        <span *ngIf="storeDDiff !== 0" class="font-medium text-base" [ngClass]="{'ml-1': !app.isRTL, 'mr-1': app.isRTL, 'text-green-500': storeDDiff > 0, 'text-pink-500': storeDDiff < 0}">
                             {{storeDDiff > 0 ? '+' : ''}}{{storeDDiff}}
                         </span>
                     </span>
@@ -190,45 +192,47 @@
             </div>
         </div>
     </div>
-
+    
     <div class="col-12 md:col-6">
-        <div class="card height-100 widget-topsearchs">
-            <div class=card-header>
-                <h5>Top Searchs</h5>
+        <div class="bg-white p-3 shadow-3 border-round-md h-full">
+            <div class="flex align-items-center justify-content-between mb-3">
+                <h5 class="m-0">Top Searchs</h5>
                 <div>
                     <button pButton pRipple type="button" icon="pi pi-ellipsis-h" class="p-button-rounded p-button-text p-button-plain" (click)="menu12.toggle($event)"></button>
                     <p-menu #menu12 [popup]="true" [model]="[{label: 'Update', icon: 'pi pi-fw pi-refresh'},{label: 'Edit', icon: 'pi pi-fw pi-pencil'}]"></p-menu>
                 </div>
             </div>
-            <div class="flex justify-content-between item">
+            <div class="flex justify-content-between surface-200 p-3 border-bottom-1 surface-border">
                 <span>Mat Orange Case</span>
-                <span class="value type-green">82% CONV RATE</span>
+                <span class="font-medium text-green-500">82% CONV RATE</span>
             </div>
-            <div class="flex justify-content-between item">
+            <div class="flex justify-content-between p-3 border-bottom-1 surface-border">
                 <span>Space T-Shirt</span>
-                <span class="value type-green">78% CONV RATE</span>
+                <span class="font-medium text-green-500">78% CONV RATE</span>
             </div>
-            <div class="flex justify-content-between item">
+            <div class="flex justify-content-between surface-200 p-3 border-bottom-1 surface-border">
                 <span>Orange Black Hoodie</span>
-                <span class="value type-green">61% CONV RATE</span>
+                <span class="font-medium text-green-500">61% CONV RATE</span>
             </div>
-            <div class="flex justify-content-between item">
+            <div class="flex justify-content-between p-3 border-bottom-1 surface-border">
                 <span>Wonders Notebook</span>
-                <span class="value type-yellow">48 CONV RATE</span>
+                <span class="font-medium text-orange-500">48% CONV RATE</span>
             </div>
-            <div class="flex justify-content-between item">
+            <div class="flex justify-content-between surface-200 p-3 border-bottom-1 surface-border">
                 <span>Robots T-Shirt</span>
-                <span class="value type-yellow">34% CONV RATE</span>
+                <span class="font-medium text-orange-500">34% CONV RATE</span>
             </div>
-            <div class="flex justify-content-between item">
+            <div class="flex justify-content-between p-3">
                 <span>Green Portal Sticker</span>
-                <span class="value type-pink">11% CONV RATE</span>
+                <span class="font-medium text-pink-500">11% CONV RATE</span>
             </div>
         </div>
     </div>
 
+    <!-- TABLE CSSLERINI DEGISTIRMEDIM -->
+    
     <div class="col-12 md:col-6">
-        <div class="card">
+        <div class="bg-white p-3 shadow-3 border-round-md">
             <p-table [value]="products" [paginator]="true" [rows]="4" styleClass="p-datatable-products">
                 <ng-template pTemplate="header">
                     <tr>
@@ -273,83 +277,83 @@
     </div>
 
     <div class="col-12 md:col-4">
-        <div class="card widget-expenses">
-            <div class=card-header>
-                <h5>Expenses</h5>
+        <div class="bg-white p-3 shadow-3 border-round-md">
+            <div class="flex align-items-center justify-content-between mb-3">
+                <h5 class="m-0">Expenses</h5>
                 <div>
                     <button pButton pRipple type="button" icon="pi pi-ellipsis-h" class="p-button-rounded p-button-text p-button-plain" (click)="menu13.toggle($event)"></button>
                     <p-menu #menu13 [popup]="true" [model]="[{label: 'Update', icon: 'pi pi-fw pi-refresh'},{label: 'Edit', icon: 'pi pi-fw pi-pencil'}]"></p-menu>
                 </div>
             </div>
-            <div class="card-subheader mb-2 pb-3">
+            <div class="border-bottom-1 surface-border text-sm text-color-secondary mb-2 pb-3">
                 November 22 - November 29
             </div>
 
-            <div class="flex justify-content-between align-items-center my-2 item">
+            <div class="flex justify-content-between align-items-center my-2 p-2 border-bottom-1 surface-border">
                 <div class="flex flex-column">
-                    <i class="pi pi-cloud type mb-2"></i>
-                    <span class="value mb-1">$30.247</span>
-                    <span class="subtext">Cloud Infrastructure</span>
+                    <i class="pi pi-cloud text-cyan-700 text-2xl mb-2"></i>
+                    <span class="font-medium mb-1">$30.247</span>
+                    <span class="text-color-secondary">Cloud Infrastructure</span>
                 </div>
-                <span class="item-button"><a href="#"><i class="pi pi-chevron-right"></i></a></span>
+                <span><a href="#" class="text-color-secondary"><i class="pi pi-chevron-right"></i></a></span>
             </div>
-            <div class="flex justify-content-between align-items-center my-2 item">
+            <div class="flex justify-content-between align-items-center my-2 p-2 border-bottom-1 surface-border">
                 <div class="flex flex-column">
-                    <i class="pi pi-tag type mb-2"></i>
-                    <span class="value mb-1">$29.550</span>
-                    <span class="subtext">General Goods</span>
+                    <i class="pi pi-tag text-cyan-700 text-2xl mb-2"></i>
+                    <span class="font-medium mb-1">$29.550</span>
+                    <span class="text-color-secondary">General Goods</span>
                 </div>
-                <span class="item-button"><a href="#"><i class="pi pi-chevron-right"></i></a></span>
+                <span><a href="#" class="text-color-secondary"><i class="pi pi-chevron-right"></i></a></span>
             </div>
-            <div class="flex justify-content-between align-items-center my-2 item">
+            <div class="flex justify-content-between align-items-center my-2 p-2 border-bottom-1 surface-border">
                 <div class="flex flex-column">
-                    <i class="pi pi-desktop type mb-2"></i>
-                    <span class="value mb-1">$16.660</span>
-                    <span class="subtext">Consumer Electronics</span>
+                    <i class="pi pi-desktop text-cyan-700 text-2xl mb-2"></i>
+                    <span class="font-medium mb-1">$16.660</span>
+                    <span class="text-color-secondary">Consumer Electronics</span>
                 </div>
-                <span class="item-button"><a href="#"><i class="pi pi-chevron-right"></i></a></span>
+                <span><a href="#" class="text-color-secondary"><i class="pi pi-chevron-right"></i></a></span>
             </div>
-            <div class="flex justify-content-between align-items-center my-2 item">
+            <div class="flex justify-content-between align-items-center my-2 p-2">
                 <div class="flex flex-column">
-                    <i class="pi pi-compass type mb-2"></i>
-                    <span class="value mb-1">$5.801</span>
-                    <span class="subtext">Incalculables</span>
+                    <i class="pi pi-compass text-cyan-700 text-2xl mb-2"></i>
+                    <span class="font-medium mb-1">$5.801</span>
+                    <span class="text-color-secondary">Incalculables</span>
                 </div>
-                <span class="item-button"><a href="#"><i class="pi pi-chevron-right"></i></a></span>
+                <span><a href="#" class="text-color-secondary"><i class="pi pi-chevron-right"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="col-12 md:col-8">
-        <div class="card widget-traffic height-100">
-            <div class="card-header">
-                <h5>All Traffic Channels</h5>
+        <div class="bg-white p-3 shadow-3 border-round-md h-full">
+            <div class="flex align-items-center justify-content-between mb-3">
+                <h5 class="m-0">All Traffic Channels</h5>
                 <button pRipple pButton type="button" label="Pie/Doughnut Data" class="p-button-text" [ngClass]="{'ml-auto': !app.isRTL, 'mr-auto': app.isRTL}" (click)="togglePieDoughnut()"></button>
                 <button pRipple pButton type="button" label="Semi/Full Data" class="p-button-text mx-2" (click)="changePieDoughnutDataView()"></button>
             </div>
             <div class="flex grid">
-                <div class="col-12 md:col-6 left flex flex-column justify-content-evenly">
-                    <div class="total flex flex-column">
-                        <span class="title mb-2">Total</span>
-                        <span class="value mb-5">66.761</span>
+                <div class="col-12 md:col-6 p-3 flex flex-column justify-content-evenly">
+                    <div class="flex flex-column">
+                        <span class="text-color-secondary mb-2">Total</span>
+                        <span class="text-4xl font-medium mb-5">66.761</span>
                     </div>
 
-                    <div class="info flex justify-content-between">
-                        <div class="organic flex flex-column">
-                            <span class="title mb-1">Organic</span>
-                            <span class="value">51.596</span>
+                    <div class="flex justify-content-between">
+                        <div class="flex flex-column">
+                            <span class="text-color-secondary mb-1">Organic</span>
+                            <span class="font-medium">51.596</span>
                         </div>
-                        <div class="direct flex flex-column">
-                            <span class="title mb-1">Direct</span>
-                            <span class="value">11.421</span>
+                        <div class="flex flex-column">
+                            <span class="text-color-secondary mb-1">Direct</span>
+                            <span class="font-medium">11.421</span>
                         </div>
-                        <div class="referral flex flex-column">
-                            <span class="title mb-1">Referral</span>
-                            <span class="value">3.862</span>
+                        <div class="flex flex-column">
+                            <span class="text-color-secondary mb-1">Referral</span>
+                            <span class="font-medium">3.862</span>
                         </div>
                     </div>
                 </div>
-                <div class="col-12 md:col-6 right flex justify-content-center">
+                <div class="col-12 md:col-6 flex justify-content-center">
                     <p-chart #pie type="pie" [data]="pieData" [options]="pieOptions" [style]="{'width': '70%'}"></p-chart>
                 </div>
             </div>

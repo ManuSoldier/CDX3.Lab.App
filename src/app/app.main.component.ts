@@ -1,4 +1,4 @@
-import {Component, AfterViewInit, Renderer2, OnInit, OnDestroy} from '@angular/core';
+import { Component, AfterViewInit, Renderer2, OnInit, OnDestroy } from '@angular/core';
 import { MenuService } from './app.menu.service';
 import { PrimeNGConfig } from 'primeng/api';
 import { AppComponent } from './app.component';
@@ -187,6 +187,15 @@ export class AppMainComponent implements AfterViewInit, OnInit, OnDestroy {
 
     onConfigClick(event) {
         this.configClick = true;
+    }
+
+    mouseOverMenu() {
+        this.app.menuMode = 'overlay'
+        this.menuActive = this.isOverlay() && !this.isMobile();
+    }
+
+    mouseLeaveMenu() {
+        this.app.menuMode = 'slim'
     }
 
     isDesktop() {
