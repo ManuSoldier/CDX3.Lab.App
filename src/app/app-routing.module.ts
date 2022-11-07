@@ -1,104 +1,36 @@
-import {RouterModule} from '@angular/router';
-import {NgModule} from '@angular/core';
-import {DashboardComponent} from './demo/view/dashboard.component';
-import {DashboardAnalyticsComponent} from './demo/view/dashboardanalytics.component';
-import {FormLayoutDemoComponent} from './demo/view/formlayoutdemo.component';
-import {FloatLabelDemoComponent} from './demo/view/floatlabeldemo.component';
-import {InvalidStateDemoComponent} from './demo/view/invalidstatedemo.component';
-import {PanelsDemoComponent} from './demo/view/panelsdemo.component';
-import {OverlaysDemoComponent} from './demo/view/overlaysdemo.component';
-import {MediaDemoComponent} from './demo/view/mediademo.component';
-import {MessagesDemoComponent} from './demo/view/messagesdemo.component';
-import {MiscDemoComponent} from './demo/view/miscdemo.component';
-import {EmptyDemoComponent} from './demo/view/emptydemo.component';
-import {ChartsDemoComponent} from './demo/view/chartsdemo.component';
-import {FileDemoComponent} from './demo/view/filedemo.component';
-import {DocumentationComponent} from './demo/view/documentation.component';
-import {AppMainComponent} from './app.main.component';
-import {AppNotfoundComponent} from './pages/app.notfound.component';
-import {AppNotfound2Component} from './pages/app.notfound2.component';
-import {AppErrorComponent} from './pages/app.error.component';
-import {AppError2Component} from './pages/app.error2.component';
-import {AppAccessdeniedComponent} from './pages/app.accessdenied.component';
-import {AppAccessdenied2Component} from './pages/app.accessdenied2.component';
-import {AppLoginComponent} from './pages/app.login.component';
-import {AppLogin2Component} from './pages/app.login2.component';
-import { AppRegisterComponent } from './pages/app.register.component';
-import {InputDemoComponent} from './demo/view/inputdemo.component';
-import {ButtonDemoComponent} from './demo/view/buttondemo.component';
-import {TableDemoComponent} from './demo/view/tabledemo.component';
-import {ListDemoComponent} from './demo/view/listdemo.component';
-import {TreeDemoComponent} from './demo/view/treedemo.component';
-import {IconsComponent} from './utilities/icons.component';
-import {AppCrudComponent} from './pages/app.crud.component';
-import {AppCalendarComponent} from './pages/app.calendar.component';
-import {AppTimelineDemoComponent} from './pages/app.timelinedemo.component';
-import {AppInvoiceComponent} from './pages/app.invoice.component';
-import {AppHelpComponent} from './pages/app.help.component';
-import {BlocksComponent} from './blocks/blocks/blocks.component';
-import {AppWizardComponent} from './pages/app.wizard.component';
-import {AppContactusComponent} from './pages/app.contactus.component';
-import {AppLandingComponent} from './pages/app.landing.component';
-import { DashboardSaasComponent } from './demo/view/dashboardsaas.component';
-import { AppForgotpasswordComponent } from './pages/app.forgotpassword.component';
-import { AppChangepasswordComponent } from './pages/app.changepassword.component';
-import { AppLanding2Component } from './pages/app.landing2.component';
+import { NgModule } from '@angular/core';
+import { ExtraOptions, RouterModule, Routes } from '@angular/router';
+import { AppLayoutComponent } from './layout/app.layout.component';
+
+const routerOptions: ExtraOptions = {
+    anchorScrolling: 'enabled'
+};
+
+const routes: Routes = [
+    {
+        path: '', component: AppLayoutComponent,
+        children: [
+            { path: '', loadChildren: () => import('./demo/components/dashboards/dashboards.module').then(m => m.DashboardsModule) },
+            { path: 'uikit', data: { breadcrumb: 'UI Kit' }, loadChildren: () => import('./demo/components/uikit/uikit.module').then(m => m.UIkitModule) },
+            { path: 'utilities', data: { breadcrumb: 'Utilities' }, loadChildren: () => import('./demo/components/utilities/utilities.module').then(m => m.UtilitiesModule) },
+            { path: 'pages', data: { breadcrumb: 'Pages' }, loadChildren: () => import('./demo/components/pages/pages.module').then(m => m.PagesModule) },
+            { path: 'profile', data: { breadcrumb: 'User Management' }, loadChildren: () => import('./demo/components/profile/profile.module').then(m => m.ProfileModule) },
+            { path: 'documentation', data: { breadcrumb: 'Documentation' }, loadChildren: () => import('./demo/components/documentation/documentation.module').then(m => m.DocumentationModule) },
+            { path: 'blocks', data: { breadcrumb: 'Prime Blocks' }, loadChildren: () => import('./demo/components/primeblocks/primeblocks.module').then(m => m.PrimeBlocksModule) },
+            { path: 'ecommerce', data: { breadcrumb: 'E-Commerce' }, loadChildren: () => import('./demo/components/ecommerce/ecommerce.module').then(m => m.EcommerceModule) },
+            { path: 'apps', data: { breadcrumb: 'Apps' }, loadChildren: () => import('./demo/components/apps/apps.module').then(m => m.AppsModule) }
+        ]
+    },
+    { path: 'auth', data: { breadcrumb: 'Auth' }, loadChildren: () => import('./demo/components/auth/auth.module').then(m => m.AuthModule) },
+    { path: 'landing', loadChildren: () => import('./demo/components/landing/landing.module').then(m => m.LandingModule) },
+    { path: 'landing2', loadChildren: () => import('./demo/components/landing2/landing2.module').then(m => m.Landing2Module) },
+    { path: 'notfound', loadChildren: () => import('./demo/components/notfound/notfound.module').then(m => m.NotfoundModule) },
+    { path: 'notfound2', loadChildren: () => import('./demo/components/notfound2/notfound2.module').then(m => m.Notfound2Module) },
+    { path: '**', redirectTo: '/notfound' }
+];
 
 @NgModule({
-    imports: [
-        RouterModule.forRoot([
-            {
-                path: '', component: AppMainComponent,
-                children: [
-                    {path: '', component: DashboardComponent},
-                    {path: 'favorites/dashboardanalytics', component: DashboardAnalyticsComponent},
-                    {path: 'favorites/dashboardsaas', component: DashboardSaasComponent},
-                    {path: 'uikit/formlayout', component: FormLayoutDemoComponent},
-                    {path: 'uikit/floatlabel', component: FloatLabelDemoComponent},
-                    {path: 'uikit/invalidstate', component: InvalidStateDemoComponent},
-                    {path: 'uikit/input', component: InputDemoComponent},
-                    {path: 'uikit/button', component: ButtonDemoComponent},
-                    {path: 'uikit/table', component: TableDemoComponent},
-                    {path: 'uikit/list', component: ListDemoComponent},
-                    {path: 'uikit/tree', component: TreeDemoComponent},
-                    {path: 'uikit/panel', component: PanelsDemoComponent},
-                    {path: 'uikit/overlay', component: OverlaysDemoComponent},
-                    {path: 'uikit/menu', loadChildren: () => import('./demo/view/menus/menus.module').then(m => m.MenusModule)},
-                    {path: 'uikit/media', component: MediaDemoComponent},
-                    {path: 'uikit/message', component: MessagesDemoComponent},
-                    {path: 'uikit/misc', component: MiscDemoComponent},
-                    {path: 'uikit/charts', component: ChartsDemoComponent},
-                    {path: 'uikit/file', component: FileDemoComponent},
-                    {path: 'utilities/icons', component: IconsComponent},
-                    {path: 'pages/crud', component: AppCrudComponent},
-                    {path: 'pages/calendar', component: AppCalendarComponent},
-                    {path: 'pages/timeline', component: AppTimelineDemoComponent},
-                    {path: 'pages/invoice', component: AppInvoiceComponent},
-                    {path: 'pages/help', component: AppHelpComponent},
-                    {path: 'pages/empty', component: EmptyDemoComponent},
-                    {path: 'documentation', component: DocumentationComponent},
-                    {path: 'blocks', component: BlocksComponent},
-                ]
-            },
-            {path: 'pages/landing', component: AppLandingComponent},
-            {path: 'pages/landing2', component: AppLanding2Component},
-            {path: 'error', component: AppErrorComponent},
-            {path: 'error2', component: AppError2Component},
-            {path: 'access', component: AppAccessdeniedComponent},
-            {path: 'access2', component: AppAccessdenied2Component},
-            {path: 'notfound', component: AppNotfoundComponent},
-            {path: 'notfound2', component: AppNotfound2Component},
-            {path: 'login', component: AppLoginComponent},
-            {path: 'login2', component: AppLogin2Component},
-            {path: 'register', component: AppRegisterComponent},
-            {path: 'forgot-password', component: AppForgotpasswordComponent},
-            {path: 'change-password', component: AppChangepasswordComponent},
-            {path: 'wizard', component: AppWizardComponent},
-            {path: 'contactus', component: AppContactusComponent},
-            {path: '**', redirectTo: '/notfound'},
-        ], {scrollPositionRestoration: 'enabled'})
-    ],
+    imports: [RouterModule.forRoot(routes, routerOptions)],
     exports: [RouterModule]
 })
-export class AppRoutingModule {
-}
+export class AppRoutingModule { }

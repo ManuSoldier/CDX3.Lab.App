@@ -1,0 +1,17 @@
+<div class="layout-breadcrumb-container flex justify-content-between align-items-center shadow-1">
+    <nav class="layout-breadcrumb pl-6 py-2">
+        <ol>
+            <li><i class="pi pi-home"></i></li>
+            <li class="layout-breadcrumb-chevron"><i class="pi pi-chevron-right"></i></li>
+            <ng-template ngFor let-item let-last="last" [ngForOf]="breadcrumbs$ | async">
+                <li>{{item.label}}</li>
+                <li *ngIf="!last" class="layout-breadcrumb-chevron"> <i class="pi pi-chevron-right"></i> </li>
+            </ng-template>
+        </ol>
+    </nav>
+    <div class="layout-breadcrumb-buttons flex align-items-center pr-3">
+        <button pButton pRipple type="button" icon="pi pi-cloud-upload" class="p-button-rounded p-button-text p-button-plain mr-1"></button>
+        <button pButton pRipple type="button" icon="pi pi-bookmark" class="p-button-rounded p-button-text p-button-plain mr-1"></button>
+        <button pButton pRipple type="button" icon="pi pi-power-off" class="p-button-rounded p-button-text p-button-plain mr-1"></button>
+    </div>
+</div>

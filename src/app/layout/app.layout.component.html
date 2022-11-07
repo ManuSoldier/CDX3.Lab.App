@@ -1,0 +1,28 @@
+<div class="layout-wrapper layout-menu-light layout-topbar-blue p-input-filled" [ngClass]="containerClass">
+
+    <app-topbar></app-topbar>
+
+    <app-rightmenu></app-rightmenu>
+
+    <div class="menu-wrapper transition-duration-150" (mouseover)="onSidebarMouseOver($event)" (mouseleave)="onSidebarMouseLeave($event)">
+        <div class="layout-menu-container">
+            <app-inline-menu *ngIf="layoutService.config.inlineMenuPosition == 'top' || layoutService.config.inlineMenuPosition == 'both'" key="top"></app-inline-menu>
+            <app-sidebar></app-sidebar>
+            <app-inline-menu *ngIf="layoutService.config.inlineMenuPosition == 'bottom' || layoutService.config.inlineMenuPosition == 'both'" key="bottom"></app-inline-menu>
+        </div>
+    </div>
+
+    <div class="layout-main">
+        <app-breadcrumb></app-breadcrumb>
+
+        <div class="layout-content">
+            <router-outlet></router-outlet>
+        </div>
+
+        <app-footer></app-footer>
+    </div>
+    <app-config></app-config>
+
+    <div *ngIf="layoutService.state.staticMenuMobileActive" class="layout-mask modal-in"></div>
+
+</div>
