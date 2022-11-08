@@ -1,9 +1,7 @@
 import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { SelectItem } from 'primeng/api';
 import { Subscription } from 'rxjs';
-import { AppComponent } from 'src/app/app.component';
 import { Product } from 'src/app/demo/api/product';
-import { EventService } from 'src/app/demo/service/event.service';
 import { ProductService } from 'src/app/demo/service/product.service';
 import { AppConfig, LayoutService } from 'src/app/layout/service/app.layout.service';
 
