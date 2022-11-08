@@ -1,18 +1,13 @@
-import { Component, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { AppConfig, LayoutService } from './service/app.layout.service';
+import { Component } from '@angular/core';
+import { LayoutService } from './service/app.layout.service';
 
 @Component({
     selector: 'app-rightmenu',
     templateUrl: './app.rightmenu.component.html'
 })
-export class AppRightMenuComponent implements OnDestroy {
+export class AppRightMenuComponent {
 
-    config!: AppConfig;
-
-    subscription!: Subscription;
-
-    constructor(public layoutService: LayoutService) {}
+    constructor(public layoutService: LayoutService) { }
 
     get rightMenuActive(): boolean {
         return this.layoutService.state.rightMenuActive;
@@ -22,7 +17,5 @@ export class AppRightMenuComponent implements OnDestroy {
         this.layoutService.state.rightMenuActive = _val;
     }
 
-    ngOnDestroy(): void {
-        this.subscription.unsubscribe();
-    }
+
 }
