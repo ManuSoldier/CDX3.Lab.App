@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { InputNumber } from 'primeng/inputnumber';
 import { LayoutService } from 'src/app/layout/service/app.layout.service';
 
 @Component({
@@ -7,17 +8,21 @@ import { LayoutService } from 'src/app/layout/service/app.layout.service';
 export class VerificationComponent {
 
     val1!: number;
-    
+
     val2!: number;
-    
+
     val3!: number;
-    
+
     val4!: number;
 
-	constructor(private layoutService: LayoutService) {}
+    constructor(private layoutService: LayoutService) { }
 
-	get dark(): boolean {
-		return this.layoutService.config.colorScheme !== 'light';
-	}
-    
+    get dark(): boolean {
+        return this.layoutService.config.colorScheme !== 'light';
+    }
+
+    focusOnNext(inputEl: InputNumber) {
+        inputEl.input.nativeElement.focus();
+    }
+
 }
