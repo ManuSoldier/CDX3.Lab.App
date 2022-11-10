@@ -10,6 +10,8 @@ import { TableModule } from 'primeng/table';
 import { OverlayPanelModule } from 'primeng/overlaypanel';
 import { DashboardSalesComponent } from './dashboardsales.component';
 import { ChartModule } from 'primeng/chart';
+import { CardModule } from 'primeng/card';
+import { InputTextModule } from 'primeng/inputtext';
 
 @NgModule({
     imports: [
@@ -23,6 +25,8 @@ import { ChartModule } from 'primeng/chart';
         TableModule,
         ChartModule,
         OverlayPanelModule,
+        CardModule,
+        InputTextModule
     ],
     declarations: [
         DashboardSalesComponent
