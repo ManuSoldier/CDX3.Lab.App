@@ -45,8 +45,7 @@ testem.log
 .DS_Store
 Thumbs.db
 
+# Compiled files
 theme.css
-src/assets/demo/*.css
-src/assets/theme/*/theme-*.css
-src/assets/layout/css/*.css
-src/assets/sass/theme/designer
+layout.css
+src/assets/layout/styles/theme/designer

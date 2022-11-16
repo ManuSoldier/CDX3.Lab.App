@@ -1,0 +1,111 @@
+.layout-topbar {
+    color: $topbarItemTextColor;
+    background-color: $topbarBgColor;
+
+    a {
+        color: $topbarItemTextColor;
+
+        &:hover {
+            background-color: $topbarItemTextHoverBgColor;
+            transition: background-color var(--transition-duration);
+        }
+    }
+
+    .layout-topbar-left {
+        background-color: $topbarLeftBgColor;
+
+        .layout-menu-button {
+            color: $topbarMenuButtonTextColor;
+            background-color: $topbarMenuButtonBgColor;
+
+            &:hover {
+                background-color: rgba($topbarMenuButtonBgColor,.7);
+                transition: background-color var(--transition-duration);
+            }
+        }
+    }
+
+    .layout-topbar-right {
+        .layout-topbar-actions-left {
+            .layout-megamenu {
+                background: none;
+
+                &.p-megamenu .p-megamenu-root-list > .p-menuitem {
+                    > .p-menuitem-link {
+                        .p-menuitem-text,
+                        .p-menuitem-icon,
+                        .p-submenu-icon {
+                            color: $topbarItemTextColor;
+                        }
+
+                        &:not(.p-disabled):hover {
+                            background: $topbarItemTextHoverBgColor;
+                            transition: background-color var(--transition-duration);
+                        }
+                    }
+                }
+            }
+        }
+
+        .layout-topbar-actions-right {
+            .layout-topbar-items {
+                .layout-topbar-action-panel {
+                    background-color: var(--surface-overlay);
+                    color: var(--text-color);
+
+                    a {
+                        color: var(--text-color);
+
+                        &:hover {
+                            background-color: transparent;
+                            transition: none;
+                        }
+                    }
+
+                    .layout-topbar-action-item {
+                        &:hover {
+                            background-color: var(--surface-hover);
+                            transition: background-color var(--transition-duration);
+                        }
+                    }
+                }
+
+                .layout-topbar-item {
+                    &.layout-search-item {
+                        .layout-search-panel {
+                                input {
+                                    background-color: var(--surface-ground);
+                                    color: var(--text-color);
+
+                                    &:hover {
+                                        background-color: var(--surface-ground);
+                                        color: var(--text-color);
+                                    }
+                                }
+
+                                .p-inputgroup-addon:first-child,
+                                .p-inputgroup button:first-child,
+                                .p-inputgroup input:first-child {
+                                    background-color: var(--surface-ground);
+                                    color: var(--text-color);
+                                }
+
+                                .p-inputgroup-addon:last-child,
+                                .p-inputgroup button:last-child,
+                                .p-inputgroup input:last-child {
+                                    background-color: var(--surface-ground);
+                                    color: var(--text-color);
+                                }
+
+                                .p-inputgroup-addon {
+                                    .p-button-text {
+                                        color: var(--text-color);
+                                    }
+                                }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

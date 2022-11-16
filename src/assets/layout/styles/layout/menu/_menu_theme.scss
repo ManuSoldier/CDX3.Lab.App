@@ -1,0 +1,104 @@
+.menu-wrapper {
+    background-color: $menuBgColor;
+    box-shadow: 2px 0 4px -1px rgba(0, 0, 0, 0.2), 4px 0 5px 0 rgba(0, 0, 0, 0.14), 1px 0 10px 0 rgba(0, 0, 0, 0.12);
+
+    .layout-menu-container {
+        .layout-menu {
+            > li {
+                > div {
+                    .layout-menuitem-text {
+                        color: $rootMenuTextColor;
+                    }
+                }
+
+                > ul {
+                    background-color: $menuBgColor;
+                }
+            }
+
+            li {
+                a {
+                    color: $menuItemTextColor;
+
+                    i {
+                        color: $menuItemTextColor;
+                    }
+
+                    &:hover {
+                        background-color: $menuItemHoverBgColor;
+                    }
+                }
+
+                &.active-menuitem {
+                    > a {
+                        background-color: $activeMenuItemBgColor;
+                        color: $activeMenuItemTextColor;
+
+                        > i {
+                            color: $activeMenuItemTextColor;
+                        }
+                    }
+
+                    a.active-menuitem-routerlink {
+                        background-color: $activeMenuItemBgColor;
+                        color: $activeMenuItemTextColor;
+
+                        > i {
+                            color: $activeMenuItemTextColor;
+                        }
+                    }
+                }
+            }
+        }
+
+        .layout-inline-menu {
+            border-color: $inlineMenuBorderColor;
+
+            a {
+                color: $menuItemTextColor;
+            }
+
+            .layout-inline-menu-action,
+            .layout-inline-menu-action-panel .layout-inline-menu-action-item {
+                color: $menuItemTextColor;
+
+                i {
+                    color: $menuItemTextColor;
+                }
+
+                &:hover {
+                    background-color: $menuItemHoverBgColor;
+                }
+            }
+
+            .layout-inline-menu-action-panel {
+                background-color: $menuBgColor;
+            }
+        }
+    }
+}
+
+@media (min-width: $breakpoint + 1) {
+    &.layout-menu-horizontal,
+    &.layout-menu-slim {
+        .menu-wrapper {
+            .layout-menu-container {
+                .layout-menu {
+                    > li {
+                        > ul {
+                            box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &.layout-menu-horizontal {
+        .layout-inline-menu {
+            .layout-inline-menu-action-panel {
+                box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
+            }
+        }
+    }
+}
