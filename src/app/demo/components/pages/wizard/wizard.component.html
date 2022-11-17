@@ -1,9 +1,9 @@
-<body class="wizard-body">
-    <div class="wizard-wrapper">
+<body class="h-screen bg-no-repeat bg-cover" style="background: url('../../layout/images/extensions/background@2x.jpg')">
+    <div class="flex flex-column h-full">
         <div style="flex-basis:75px; padding:0 5%"
             class="h-11rem flex flex-column justify-content-around align-items-center flex-grow-0 flex-shrink-0 bg-indigo-500 z-4 shadow-3 lg:h-5rem lg:flex-row lg:justify-content-between">
             <div style="width:200px; height:30px; background:url('/assets/layout/images/logo.png') top left no-repeat; "
-                class="align-self-start md:align-self-auto inline-block vertical-align-middle" [routerLink]="['/']">
+                class="align-self-start md:align-self-auto inline-block vertical-align-middle" routerLink="/">
             </div>
             <div class="flex justify-content-center align-items-center align-self-end lg:align-self-auto">
                 <div class=" mr-3 text-right">
@@ -22,7 +22,7 @@
                 <div class="w-full shadow-3 relative bg-indigo-500">
                     <div class="grid col">
                         <div class="col-4 cursor-pointer bg-indigo-500 text-center"
-                            [ngClass]="{'transition-duration-500': activeTab == 'register'}"
+                            [ngClass]="{'transition-duration-500': activeTab === 'register'}"
                             (click)="clickNext('register')">
                             <div class="line-height-3">
                                 <i style="width:20px" class="pi pi-sign-in opacity-40 text-white"
@@ -50,8 +50,8 @@
                             <div class="text-white opacity-40 text-lg line-height-3 transition-duration-500 transition-ease-in-out"
                                 [ngClass]="{'opacity-100':activeTab === 'payment'}">PAYMENT</div>
                         </div>
-                        <div class="absolute bottom-0 bg-white" style="height:2px; visibility: visible;"
-                            [@tabBar]="activeTab==='register'?'register':activeTab==='tier'?'tier':'payment'">
+                        <div class="absolute bottom-0 bg-white" style="height:2px; visibility: hidden;"
+                            [@tabBar]="activeTab === 'register' ? 'register' : activeTab === 'tier' ? 'tier' : 'payment' ">
                         </div>
                     </div>
                 </div>
@@ -148,7 +148,7 @@
                             </div>
                         </div>
                         <div class="col-12 md:col-6 lg:col-4">
-                            <div style="min-height: 400px;" class="card p-0 relative">
+                            <div style="min-height: 400px;" class="p-0 relative">
                                 <div style="min-height: 400px;" class="bg-white shadow-3 border-round-md p-0 relative">
                                     <div class="text-white text-xl py-3 px-2 bg-pink-500 mb-3">
                                         <div class="grid">
@@ -254,7 +254,7 @@
                         </div>
                     </div>
 
-                    <div class="wizard-card-content hidden overflow-auto h-full p-0"
+                    <div class="hidden overflow-auto h-full p-0"
                         [ngClass]="{'flex flex-grow-1': activeTab === 'payment'}">
                         <div class="grid grid-nogutter w-full h-full">
                             <div class="lg:col-8 col-12 py-8 px-4">

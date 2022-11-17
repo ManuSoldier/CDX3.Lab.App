@@ -1,4 +1,4 @@
-<div class="layout-invoice-page">
+<div>
     <button pButton pRipple type="button" label="Print" icon="pi pi-print" (click)="print()" class="mb-3"></button>
 
     <div class="grid">
@@ -13,7 +13,7 @@
                 </div>
 
                 <div class="p-3">
-                    <p-table [columns]="billCols" [value]="billData" styleClass="p-invoice-datatable-responsive pb-3">
+                    <p-table [columns]="billCols" [value]="billData" styleClass="pb-3">
                         <ng-template pTemplate="header" let-columns>
                             <tr>
                                 <th *ngFor="let col of columns">
@@ -31,7 +31,7 @@
                         </ng-template>
                     </p-table>
 
-                    <p-table [columns]="productCols" [value]="productData" styleClass="p-invoice-datatable-responsive p-datatable-sm py-6">
+                    <p-table [columns]="productCols" [value]="productData" styleClass="p-datatable-sm py-6">
                         <ng-template pTemplate="header" let-columns>
                             <tr>
                                 <th *ngFor="let col of columns">

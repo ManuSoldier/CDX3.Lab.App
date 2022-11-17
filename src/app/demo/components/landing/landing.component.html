@@ -1,183 +1,210 @@
-<div class="landing-container">
-    <div id="header" class="section flex flex-column">
-        <div class="header-menu-container flex align-items-center justify-content-between">
-            <a class="layout-topbar-logo" routerLink="/">
+<div>
+    <div id="header" class="p-5 md:py-5 md:px-8 w-full bg-cover flex flex-column"
+        style="background: url('assets/layout/images/landing/landing-header.png'); min-height: 400px;">
+        <div
+            class="z-5 fixed px-3 top-0 left-0 w-full py-5 md:px-8 md:relative flex align-items-center justify-content-between">
+            <a class="text-white cursor-pointer" routerLink="/">
                 <img src="assets/layout/images/logo2x.png" alt="ultima-layout" style="height: 24px">
             </a>
 
             <a id="menu-button" href="#" class="lg:hidden" (click)="onMenuButtonClick($event)">
-                <i class="pi pi-bars fs-xlarge"></i>
+                <i class="pi pi-bars text-2xl text-white"></i>
             </a>
-            <ul #menu id="menu" (animationend)="onMenuAnimationEnd()">
-                <li><a class="flex p-3">Home</a></li>
-                <li><a (click)="smoothScroll('#header')" class="flex p-3">Introduction</a></li>
-                <li><a (click)="smoothScroll('#features')" class="flex p-3">Features</a></li>
-                <li><a (click)="smoothScroll('#promotion')" class="flex p-3">Promotion</a></li>
-                <li><a (click)="smoothScroll('#pricing')" class="flex p-3">Pricing</a></li>
-                <li><a (click)="smoothScroll('#video')" class="flex pl-3 py-3">Video</a></li>
+            <ul #menu
+                class="hidden list-none z-5 fixed top-0 left-0 w-full p-5 p-8 md:relative md:p-0 lg:flex align-items-center justify-content-end"
+                (animationend)="onMenuAnimationEnd()">
+                <li><a class="flex p-3 text-white cursor-pointer">Home</a></li>
+                <li><a (click)="smoothScroll('#header')" class="flex p-3 text-white cursor-pointer">Introduction</a>
+                </li>
+                <li><a (click)="smoothScroll('#features')" class="flex p-3 text-white cursor-pointer">Features</a></li>
+                <li><a (click)="smoothScroll('#promotion')" class="flex p-3 text-white cursor-pointer">Promotion</a>
+                </li>
+                <li><a (click)="smoothScroll('#pricing')" class="flex p-3 text-white cursor-pointer">Pricing</a></li>
+                <li><a (click)="smoothScroll('#video')" class="flex pl-3 py-3 text-white cursor-pointer">Video</a></li>
             </ul>
         </div>
 
-        <div class="header-text flex flex-column align-items-center justify-content-center">
-            <h1 class="mb-6 white-color">Your application slogan comes here</h1>
+        <div class="flex-grow-1 flex flex-column align-items-center justify-content-center">
+            <h1 class="mb-6 text-white font-normal">Your application slogan comes here</h1>
             <button pButton pRipple type="button" label="Sign Up Now" class="p-button-secondary"></button>
         </div>
     </div>
 
-    <div id="features" class="section flex flex-column align-items-center">
-        <h2>The Ultimate Material Application Template for PrimeNG</h2>
-        <p class="text-center">PrimeNG is a collection of rich UI components for Angular. PrimeNG is developed by PrimeTek Informatics, a vendor with years of expertise in developing open source UI solutions.
-            Allocate your valuable time on business logic rather than dealing with the complex user interface requirements.
+    <div id="features" class="p-5 md:py-5 md:px-8 flex flex-column align-items-center">
+        <h2 class="font-normal">The Ultimate Material Application Template for PrimeNG</h2>
+        <p class="text-center">PrimeNG is a collection of rich UI components for Angular. PrimeNG is developed by
+            PrimeTek Informatics, a vendor with years of expertise in developing open source UI solutions.
+            Allocate your valuable time on business logic rather than dealing with the complex user interface
+            requirements.
         </p>
 
         <div class="grid mt-3 mx-0">
             <div class="col-12 md:col-4 text-center">
-                <h3>Creative</h3>
-                <button pButton pRipple type="button" class="feature-button p-button-rounded p-button-plain p-button-text p-button p-component p-button-icon-only">
-                    <span class="p-button-icon pi pi-pencil fs-xlarge" aria-hidden="true"></span>
-                    <span aria-hidden="true" class="p-button-label">&amp;nbsp;</span>
+                <h3 class="font-normal">Creative</h3>
+                <button pButton pRipple type="button" style="width: 100px; height: 100px;"
+                    class="p-button-rounded p-button-plain p-button-text p-button p-component p-button-icon-only">
+                    <span class="p-button-icon pi pi-pencil text-4xl" aria-hidden="true"></span>
+
                 </button>
             </div>
             <div class="col-12 md:col-4 text-center">
-                <h3>Responsive</h3>
-                <button pButton pRipple type="button" class="feature-button p-button-rounded p-button-plain p-button-text p-button p-component p-button-icon-only">
-                    <span class="p-button-icon pi pi-mobile fs-xlarge" aria-hidden="true"></span>
-                    <span aria-hidden="true" class="p-button-label">&amp;nbsp;</span>
+                <h3 class="font-normal">Responsive</h3>
+                <button pButton pRipple type="button" style="width: 100px; height: 100px;"
+                    class=" p-button-rounded p-button-plain p-button-text p-button p-component p-button-icon-only">
+                    <span class="p-button-icon pi pi-mobile text-4xl" aria-hidden="true"></span>
                 </button>
             </div>
             <div class="col-12 md:col-4 text-center">
-                <h3>Cross Browser</h3>
-                <button pButton pRipple type="button" class="feature-button p-button-rounded p-button-plain p-button-text p-button p-component p-button-icon-only">
-                    <span class="p-button-icon pi pi-upload fs-xlarge" aria-hidden="true"></span>
-                    <span aria-hidden="true" class="p-button-label">&amp;nbsp;</span>
+                <h3 class="font-normal">Cross Browser</h3>
+                <button pButton pRipple type="button" style="width: 100px; height: 100px;"
+                    class="p-button-rounded p-button-plain p-button-text p-button p-component p-button-icon-only">
+                    <span class="p-button-icon pi pi-upload text-4xl" aria-hidden="true"></span>
                 </button>
             </div>
 
             <div class="col-12 md:col-4 text-center">
-                <button pButton pRipple type="button" class="feature-button p-button-rounded p-button-plain p-button-text p-button p-component p-button-icon-only">
-                    <span class="p-button-icon pi pi-tag fs-xlarge" aria-hidden="true"></span>
-                    <span aria-hidden="true" class="p-button-label">&amp;nbsp;</span>
+                <button pButton pRipple type="button" style="width: 100px; height: 100px;"
+                    class="p-button-rounded p-button-plain p-button-text p-button p-component p-button-icon-only">
+                    <span class="p-button-icon pi pi-tag text-4xl" aria-hidden="true"></span>
                 </button>
-                <h3>Well Organized</h3>
+                <h3 class="font-normal">Well Organized</h3>
             </div>
             <div class="col-12 md:col-4 text-center">
-                <button pButton pRipple type="button" class="feature-button p-button-rounded p-button-plain p-button-text p-button p-component p-button-icon-only">
-                    <span class="p-button-icon pi pi-palette fs-xlarge" aria-hidden="true"></span>
-                    <span aria-hidden="true" class="p-button-label">&amp;nbsp;</span>
+                <button pButton pRipple type="button" style="width: 100px; height: 100px;"
+                    class="p-button-rounded p-button-plain p-button-text p-button p-component p-button-icon-only">
+                    <span class="p-button-icon pi pi-palette text-4xl" aria-hidden="true"></span>
                 </button>
-                <h3>Beautiful</h3>
+                <h3 class="font-normal">Beautiful</h3>
             </div>
             <div class="col-12 md:col-4 text-center">
-                <button pButton pRipple type="button" class="feature-button p-button-rounded p-button-plain p-button-text p-button p-component p-button-icon-only">
-                    <span class="p-button-icon pi pi-check-circle fs-xlarge" aria-hidden="true"></span>
-                    <span aria-hidden="true" class="p-button-label">&amp;nbsp;</span>
+                <button pButton pRipple type="button" style="width: 100px; height: 100px;"
+                    class="p-button-rounded p-button-plain p-button-text p-button p-component p-button-icon-only">
+                    <span class="p-button-icon pi pi-check-circle text-4xl" aria-hidden="true"></span>
                 </button>
-                <h3>Just For you</h3>
+                <h3 class="font-normal">Just For you</h3>
             </div>
         </div>
     </div>
 
-    <div id="promotion" class="flex flex-column align-items-center">
+    <div id="promotion"
+        style="background: url('assets/layout/images/landing/promotion.png') top left no-repeat; background-size: 100% auto;"
+        class="flex flex-column align-items-center">
         <div class="grid m-0 py-3 pl-xl-6">
-            <div class="col-12 lg:col-8 flex flex-column justify-content-center align-items-center lg:align-items-start pl-6">
-                <h1 class="white-color">Boost Your Productivity.</h1>
+            <div
+                class="col-12 lg:col-8 flex flex-column justify-content-center align-items-center lg:align-items-start pl-6">
+                <h1 class="text-white font-normal">Boost Your Productivity.</h1>
                 <button pButton pRipple type="button" class="p-button-raised p-button p-component">
                     <span class="p-button-label">Sign Up Now</span>
                 </button>
             </div>
             <div class="col-12 lg:col-4">
-                <div class="card mt-3 mb-0">
-                    <h3>Just</h3>
+                <div class="mt-3 mb-0 surface-card p-3 border-round-md">
+                    <h3 class="font-normal">Just</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab perferendis nesciunt ad reiciendis
                         explicabo consequatur sapiente odit ipsa harum illum</p>
                 </div>
 
-                <div class="card mt-3 mb-0">
-                    <h3>Like</h3>
+                <div class="mt-3 mb-0 surface-card p-3 border-round-md">
+                    <h3 class="font-normal">Like</h3>
                     <p>Ab perferendis nesciunt ad reiciendis explicabo consequatur sapiente odit ipsa harum illum</p>
                 </div>
 
-                <div class="card my-3">
-                    <h3>That</h3>
+                <div class="my-3 surface-card p-3 border-round-md">
+                    <h3 class="font-normal">That</h3>
                     <p>Necessitatibus quaerat voluptates aspernatur iure, aperiam possimus sint sit mollitia! </p>
                 </div>
             </div>
         </div>
     </div>
 
-    <div id="pricing" class="section flex flex-column align-items-center">
-        <h2>Pricing</h2>
+    <div id="pricing" class="p-5 md:py-5 md:px-8 flex flex-column align-items-center">
+        <h2 class="font-normal">Pricing</h2>
         <p>Esse delectus sit velit, aspernatur voluptates molestiae, enim recusandae. Odit dicta, maiores quas ad
             nesciunt, illum expedita veritatis illo quam odio id!</p>
 
-        <div class="grid m-0 pricing-content">
+        <div class="grid m-0 w-full">
             <div class="col-12 xl:col-4">
-                <div class="card p-0">
-                    <div class="flex flex-column align-items-center indigo-bgcolor white-color p-6 fs-large">
+                <div class="h-full p-0 shadow-2 border-round-md surface-card">
+                    <div class="flex flex-column align-items-center bg-indigo-500 text-white p-6 text-2xl">
                         <span>BASIC</span>
                         <h1 class="font-bold">$5</h1>
                         <span>Monthly</span>
                     </div>
-                    <ul class="options">
-                        <li><i class="pi pi-check"></i><span>Responsive</span></li>
-                        <li><i class="pi pi-check"></i><span>Push Messages</span></li>
+                    <ul class="py-5 px-6 list-none">
+                        <li class="flex align-items-center"><i class="pi pi-check p-3"></i><span
+                                class="p-3">Responsive</span></li>
+                        <li class="flex align-items-center"><i class="pi pi-check p-3"></i><span class="p-3">Push
+                                Messages</span></li>
                     </ul>
                 </div>
             </div>
             <div class="col-12 xl:col-4">
-                <div class="card p-0">
-                    <div class="flex flex-column align-items-center pink-bgcolor white-color p-6 fs-large">
+                <div class="h-full p-0 shadow-2 border-round-md surface-card">
+                    <div class="flex flex-column align-items-center bg-pink-500 text-white p-6 text-2xl">
                         <span>STANDARD</span>
                         <h1 class="font-bold">$25</h1>
                         <span>Monthly</span>
                     </div>
-                    <ul class="options">
-                        <li><i class="pi pi-check"></i><span>Responsive</span></li>
-                        <li><i class="pi pi-check"></i><span>Push Messages</span></li>
-                        <li><i class="pi pi-check"></i><span>7/24 Support</span></li>
-                        <li><i class="pi pi-check"></i><span>Free Shipping</span></li>
+                    <ul class="py-5 px-6 list-none">
+                        <li class="flex align-items-center"><i class="pi pi-check p-3"></i><span
+                                class="p-3">Responsive</span></li>
+                        <li class="flex align-items-center"><i class="pi pi-check p-3"></i><span class="p-3">Push
+                                Messages</span></li>
+                        <li class="flex align-items-center"><i class="pi pi-check p-3"></i><span class="p-3">7/24
+                                Support</span></li>
+                        <li class="flex align-items-center"><i class="pi pi-check p-3"></i><span class="p-3">Free
+                                Shipping</span></li>
                     </ul>
                 </div>
             </div>
-            <div class="col-12 xl:col-4 pricing-box pricing-professional">
-                <div class="card p-0">
-                    <div class="flex flex-column align-items-center cyan-bgcolor white-color p-6 fs-large">
+            <div class="col-12 xl:col-4">
+                <div class="h-full p-0 shadow-2 border-round-md surface-card">
+                    <div class="flex flex-column align-items-center bg-cyan-500 text-white p-6 text-2xl">
                         <span>PROFESSIONAL</span>
                         <h1 class="font-bold">$50</h1>
                         <span>Monthly</span>
                     </div>
-                    <ul class="options">
-                        <li><i class="pi pi-check"></i><span>Responsive</span></li>
-                        <li><i class="pi pi-check"></i><span>Push Messages</span></li>
-                        <li><i class="pi pi-check"></i><span>7/24 Support</span></li>
-                        <li><i class="pi pi-check"></i><span>Free Shipping</span></li>
-                        <li><i class="pi pi-check"></i><span>Unlimited Bandwidth</span></li>
-                        <li><i class="pi pi-check"></i><span>Unlimited Storage</span></li>
-                        <li><i class="pi pi-check"></i><span>Gift Cards</span></li>
+                    <ul class="py-5 px-6 list-none">
+                        <li class="flex align-items-center"><i class="pi pi-check p-3"></i><span
+                                class="p-3">Responsive</span></li>
+                        <li class="flex align-items-center"><i class="pi pi-check p-3"></i><span class="p-3">Push
+                                Messages</span></li>
+                        <li class="flex align-items-center"><i class="pi pi-check p-3"></i><span class="p-3">7/24
+                                Support</span></li>
+                        <li class="flex align-items-center"><i class="pi pi-check p-3"></i><span class="p-3">Free
+                                Shipping</span></li>
+                        <li class="flex align-items-center"><i class="pi pi-check p-3"></i><span class="p-3">Unlimited
+                                Bandwidth</span></li>
+                        <li class="flex align-items-center"><i class="pi pi-check p-3"></i><span class="p-3">Unlimited
+                                Storage</span></li>
+                        <li class="flex align-items-center"><i class="pi pi-check p-3"></i><span class="p-3">Gift
+                                Cards</span></li>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
 
-    <div id="video" class="section flex flex-column align-items-center justify-content-center">
-        <h2>Video</h2>
+    <div id="video" class="p-5 md:py-5 md:px-8 flex flex-column align-items-center justify-content-center">
+        <h2 class="font-normal">Video</h2>
         <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque.</p>
         <div class="m-3">
-            <iframe src="https://www.youtube.com/embed/B_lYGUtCd0g" frameborder="0" width="560" height="330" class="videoFrame"></iframe>
+            <iframe src="https://www.youtube.com/embed/B_lYGUtCd0g" frameborder="0" width="560" height="330"
+                class="videoFrame"></iframe>
         </div>
     </div>
 
-    <div id="footer" class="section flex align-items-center justify-content-between flex-column lg:flex-row">
+    <div id="footer"
+        class="p-5 md:py-5 md:px-8 border-top-1 surface-border flex align-items-center justify-content-between flex-column lg:flex-row">
         <p>PrimeNG ULTIMA</p>
 
         <div class="py-3 flex align-items-center">
-            <ul class="my-3 mx-6">
+            <ul class="my-3 mx-6 list-none">
                 <li><a href="#mobile">Promotion</a></li>
                 <li><a href="#pricing">Pricing</a></li>
                 <li><a href="#video">Video</a></li>
             </ul>
-            <ul class="my-3 ml-3">
+            <ul class="my-3 ml-3 list-none">
                 <li><a href="#">Home</a></li>
                 <li><a href="#introduction">Introduction</a></li>
                 <li><a href="#features">Features</a></li>
