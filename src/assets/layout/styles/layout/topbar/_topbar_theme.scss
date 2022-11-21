@@ -1,25 +1,25 @@
 .layout-topbar {
-    color: $topbarItemTextColor;
-    background-color: $topbarBgColor;
+    color: var(--topbar-item-text-color);
+    background-color: var(--topbar-bg);
 
     a {
-        color: $topbarItemTextColor;
+        color: var(--topbar-item-text-color);
 
         &:hover {
-            background-color: $topbarItemTextHoverBgColor;
+            background-color: var(--topbar-item-hover-bg);
             transition: background-color var(--transition-duration);
         }
     }
 
     .layout-topbar-left {
-        background-color: $topbarLeftBgColor;
+        background-color: var(--topbar-start-bg);
 
         .layout-menu-button {
-            color: $topbarMenuButtonTextColor;
-            background-color: $topbarMenuButtonBgColor;
+            color: var(--topbar-menu-button-text-color);
+            background-color: var(--topbar-menu-button-bg);
 
             &:hover {
-                background-color: rgba($topbarMenuButtonBgColor,.7);
+                background-color: var(--topbar-menu-button-hover-bg);
                 transition: background-color var(--transition-duration);
             }
         }
@@ -35,11 +35,11 @@
                         .p-menuitem-text,
                         .p-menuitem-icon,
                         .p-submenu-icon {
-                            color: $topbarItemTextColor;
+                            color: var(--topbar-item-text-color);
                         }
 
                         &:not(.p-disabled):hover {
-                            background: $topbarItemTextHoverBgColor;
+                            background: var(--topbar-item-hover-bg);
                             transition: background-color var(--transition-duration);
                         }
                     }
