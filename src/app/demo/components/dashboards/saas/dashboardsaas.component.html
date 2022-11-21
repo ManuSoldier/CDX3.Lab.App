@@ -70,7 +70,7 @@
                             </div>
                         </div>
                         <div class="flex flex-column gap-2 h-21rem overflow-auto -mb-4">
-                        <div *ngFor="let task of dailyTasks" class="flex justify-content-between p-3 bg-bluegray-50 cursor-pointer text-color-secondary border-round-md mx-4  hover:bg-white hover:text-color hover:shadow-2">
+                        <div *ngFor="let task of dailyTasks" class="flex justify-content-between p-3 surface-card cursor-pointer text-color-secondary border-round-md mx-4  hover:shadow-2">
                             <div class="flex gap-3">
                                 <div>
                                     <p-checkbox [(ngModel)]="task.checked"></p-checkbox>
@@ -140,7 +140,7 @@
                         </div>
                     </div>
                     <div class="flex flex-column gap-2 h-21rem overflow-auto -mb-4">
-                    <div *ngFor="let task of dailyTasks" class="flex justify-content-between p-3 border-left-1 border-pink-500 bg-bluegray-50 cursor-pointer mx-4 border-round-md hover:bg-white hover:shadow-2">
+                    <div *ngFor="let task of dailyTasks" class="flex justify-content-between p-3 border-left-1 border-pink-500 surface-card cursor-pointer mx-4 border-round-md hover:shadow-2">
                         <div class="flex justify-content-between gap-3">
                             <div class="flex flex-column justify-content-center gap-2 ">
                                 <span class="font-medium text-base text-color">{{task.label}}</span>

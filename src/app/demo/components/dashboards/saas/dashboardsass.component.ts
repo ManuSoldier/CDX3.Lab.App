@@ -33,6 +33,7 @@ export class DashboardSaasComponent implements OnInit {
         private zone: NgZone,
     ) {
     }
+    ordersOptions: any;
 
     ngOnInit(): void { }
 
@@ -45,6 +46,8 @@ export class DashboardSaasComponent implements OnInit {
     }
 
     ngAfterViewInit() {
+        const primaryColor = getComputedStyle(document.body).getPropertyValue('--primary-color');
+
         this.browserOnly(() => {
             let root = am5.Root.new("chartdiv");
 
@@ -71,7 +74,7 @@ export class DashboardSaasComponent implements OnInit {
                     start: new Date(2016, 1, 4).getTime(),
                     end: new Date(2016, 4, 14).getTime(),
                     columnSettings: {
-                        fill: am5.color("#fff"),
+                        fill: am5.color(primaryColor),
                         shadowColor: am5.color(0x000000),
                         shadowBlur: 10,
                         shadowOffsetX: 3,
@@ -85,7 +88,7 @@ export class DashboardSaasComponent implements OnInit {
                     start: new Date(2016, 0, 8).getTime(),
                     end: new Date(2016, 3, 10).getTime(),
                     columnSettings: {
-                        fill: am5.color("#fff"),
+                        fill: am5.color(primaryColor),
                         shadowColor: am5.color(0x000000),
                         shadowBlur: 10,
                         shadowOffsetX: 3,
@@ -99,7 +102,7 @@ export class DashboardSaasComponent implements OnInit {
                     start: new Date(2016, 2, 23).getTime(),
                     end: new Date(2016, 7, 8).getTime(),
                     columnSettings: {
-                        fill: am5.color("#fff"),
+                        fill: am5.color(primaryColor),
                         shadowColor: am5.color(0x000000),
                         shadowBlur: 10,
                         shadowOffsetX: 3,
@@ -113,7 +116,7 @@ export class DashboardSaasComponent implements OnInit {
                     start: new Date(2016, 3, 27).getTime(),
                     end: new Date(2016, 9, 15).getTime(),
                     columnSettings: {
-                        fill: am5.color("#fff"),
+                        fill: am5.color(primaryColor),
                         shadowColor: am5.color(0x000000),
                         shadowBlur: 10,
                         shadowOffsetX: 3,
@@ -127,7 +130,7 @@ export class DashboardSaasComponent implements OnInit {
                     start: new Date(2016, 2, 8).getTime(),
                     end: new Date(2016, 8, 30).getTime(),
                     columnSettings: {
-                        fill: am5.color("#fff"),
+                        fill: am5.color(primaryColor),
                         shadowColor: am5.color(0x000000),
                         shadowBlur: 10,
                         shadowOffsetX: 3,
@@ -237,6 +240,8 @@ export class DashboardSaasComponent implements OnInit {
         },
     ];
 
+    basicOptions = this.getBasicOptions();
+
     teamMembers: any = [
         {
             title: "UX Researchers",
@@ -312,36 +317,39 @@ export class DashboardSaasComponent implements OnInit {
             },
         ],
     };
-    basicOptions = {
-        plugins: {
-            legend: {
-                labels: {
-                    color: "#495057",
-                    boxWidth: 12,
-                    boxHeight: 4,
-                },
-                position: "bottom",
-            },
-        },
-        elements: { point: { radius: 0 } },
-        scales: {
-            x: {
-                ticks: {
-                    color: "#495057",
-                },
-                grid: {
-                    color: "#ebedef",
+    getBasicOptions() {
+        const textColor = getComputedStyle(document.body).getPropertyValue('--text-color')
+        return {
+            plugins: {
+                legend: {
+                    labels: {
+                        color: textColor,
+                        boxWidth: 12,
+                        boxHeight: 4,
+                    },
+                    position: "bottom",
                 },
             },
-            y: {
-                ticks: {
-                    color: "#495057",
-                    stepSize: 10,
+            elements: { point: { radius: 0 } },
+            scales: {
+                x: {
+                    ticks: {
+                        color: textColor,
+                    },
+                    grid: {
+                        color: "#ebedef",
+                    },
                 },
-                grid: {
-                    color: "#ebedef",
+                y: {
+                    ticks: {
+                        color: textColor,
+                        stepSize: 10,
+                    },
+                    grid: {
+                        color: "#ebedef",
+                    },
                 },
             },
-        },
-    };
+        }
+    }
 }

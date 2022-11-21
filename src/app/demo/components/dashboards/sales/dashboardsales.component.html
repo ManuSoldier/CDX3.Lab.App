@@ -1,9 +1,9 @@
 <div class="grid">
     <div class="col-12 md:col-6 lg:col-3">
-        <div class="bg-white p-3 shadow-3 border-round-md flex flex-column pt-2">
+        <div class="surface-card p-3 shadow-3 border-round-md flex flex-column pt-2">
             <div class="flex align-items-center text-gray-700">
-                <i class="pi pi-shopping-cart"></i>
-                <h6 class="m-0" [ngClass]="{'pl-2': !layoutService.config.isRTL, 'pr-2': layoutService.config.isRTL}">Orders</h6>
+                <i class="pi pi-shopping-cart text-color"></i>
+                <h6 class="m-0 text-color" [ngClass]="{'pl-2': !layoutService.config.isRTL, 'pr-2': layoutService.config.isRTL}">Orders</h6>
                 <div [ngClass]="{'ml-auto': !layoutService.config.isRTL, 'mr-auto': layoutService.config.isRTL}">
                     <button pButton pRipple type="button" icon="pi pi-ellipsis-h"
                         class="p-button-rounded p-button-text" (click)="menu1.toggle($event)"></button>
@@ -25,10 +25,10 @@
         </div>
     </div>
     <div class="col-12 md:col-6 lg:col-3">
-        <div class="bg-white p-3 shadow-3 border-round-md flex flex-column pt-2">
+        <div class="surface-card p-3 shadow-3 border-round-md flex flex-column pt-2">
             <div class="flex align-items-center text-gray-700">
-                <i class="pi pi-dollar"></i>
-                <h6 class="m-0" [ngClass]="{'pl-2': !layoutService.config.isRTL, 'pr-2': layoutService.config.isRTL}">Revenue</h6>
+                <i class="pi pi-dollar text-color"></i>
+                <h6 class="m-0 text-color" [ngClass]="{'pl-2': !layoutService.config.isRTL, 'pr-2': layoutService.config.isRTL}">Revenue</h6>
                 <div [ngClass]="{'ml-auto': !layoutService.config.isRTL, 'mr-auto': layoutService.config.isRTL}">
                     <button pButton pRipple type="button" icon="pi pi-ellipsis-h"
                         class="p-button-rounded p-button-text" (click)="menu2.toggle($event)"></button>
@@ -50,10 +50,10 @@
         </div>
     </div>
     <div class="col-12 md:col-6 lg:col-3">
-        <div class="bg-white p-3 shadow-3 border-round-md flex flex-column pt-2">
+        <div class="surface-card p-3 shadow-3 border-round-md flex flex-column pt-2">
             <div class="flex align-items-center text-gray-700">
-                <i class="pi pi-users"></i>
-                <h6 class="m-0" [ngClass]="{'pl-2': !layoutService.config.isRTL, 'pr-2': layoutService.config.isRTL}">Customers</h6>
+                <i class="pi pi-users text-color"></i>
+                <h6 class="m-0 text-color" [ngClass]="{'pl-2': !layoutService.config.isRTL, 'pr-2': layoutService.config.isRTL}">Customers</h6>
                 <div [ngClass]="{'ml-auto': !layoutService.config.isRTL, 'mr-auto': layoutService.config.isRTL}">
                     <button pButton pRipple type="button" icon="pi pi-ellipsis-h"
                         class="p-button-rounded p-button-text" (click)="menu3.toggle($event)"></button>
@@ -76,10 +76,10 @@
         </div>
     </div>
     <div class="col-12 md:col-6 lg:col-3">
-        <div class="bg-white p-3 shadow-3 border-round-md flex flex-column pt-2">
+        <div class="surface-card p-3 shadow-3 border-round-md flex flex-column pt-2">
             <div class="flex align-items-center text-gray-700">
-                <i class="pi pi-comments"></i>
-                <h6 class="m-0" [ngClass]="{'pl-2': !layoutService.config.isRTL, 'pr-2': layoutService.config.isRTL}">Comments</h6>
+                <i class="pi pi-comments text-color"></i>
+                <h6 class="m-0 text-color" [ngClass]="{'pl-2': !layoutService.config.isRTL, 'pr-2': layoutService.config.isRTL}">Comments</h6>
                 <div [ngClass]="{'ml-auto': !layoutService.config.isRTL, 'mr-auto': layoutService.config.isRTL}">
                     <button pButton pRipple type="button" icon="pi pi-ellipsis-h"
                         class="p-button-rounded p-button-text p-button-plain" (click)="menu4.toggle($event)"></button>
@@ -101,7 +101,7 @@
         </div>
     </div>
     <div class="col-12 lg:col-6">
-        <div class="bg-white p-3 shadow-3 border-round-md height-100">
+        <div class="surface-card p-3 shadow-3 border-round-md height-100">
             <div class="flex align-items-center justify-content-between mb-3">
                 <h5 class="m-0">Contact</h5>
                 <div>
@@ -118,7 +118,7 @@
                         <img src="assets/demo/images/avatar/xuxuefeng.png">
                         <div [ngClass]="{'ml-2': !layoutService.config.isRTL, 'mr-2': layoutService.config.isRTL}">
                             <div>Xuxue Feng</div>
-                            <small class="text-gray-700">feng@ultima.org</small>
+                            <small class="text-color-secondary">feng@ultima.org</small>
                         </div>
                     </div>
                     <span class="bg-indigo-500 p-1 font-medium text-white border-round-xs text-sm"
@@ -132,7 +132,7 @@
                         <img src="assets/demo/images/avatar/elwinsharvill.png">
                         <div [ngClass]="{'ml-2': !layoutService.config.isRTL, 'mr-2': layoutService.config.isRTL}">
                             <div>Elwin Sharvill</div>
-                            <small class="text-gray-700">sharvill@ultima.org</small>
+                            <small class="text-color-secondary">sharvill@ultima.org</small>
                         </div>
                     </div>
                     <span class="bg-teal-500 p-1 text-sm font-medium text-white border-round-xs"
@@ -146,7 +146,7 @@
                         <img src="assets/demo/images/avatar/avatar-1.png">
                         <div [ngClass]="{'ml-2': !layoutService.config.isRTL, 'mr-2': layoutService.config.isRTL}">
                             <div>Anna Fali</div>
-                            <small class="text-gray-700">fali@ultima.org</small>
+                            <small class="text-color-secondary">fali@ultima.org</small>
                         </div>
                     </div>
                     <span class="bg-pink-500 p-1 text-sm font-medium text-white border-round-xs"
@@ -158,7 +158,7 @@
                         <img src="assets/demo/images/avatar/avatar-2.png">
                         <div [ngClass]="{'ml-2': !layoutService.config.isRTL, 'mr-2': layoutService.config.isRTL}">
                             <div>Jon Stone</div>
-                            <small class="text-gray-700">stone@ultima.org</small>
+                            <small class="text-color-secondary">stone@ultima.org</small>
                         </div>
                     </div>
                     <span class="bg-pink-500 p-1 text-sm font-medium text-white border-round-xs"
@@ -172,7 +172,7 @@
                         <img src="assets/demo/images/avatar/avatar-3.png">
                         <div [ngClass]="{'ml-2': !layoutService.config.isRTL, 'mr-2': layoutService.config.isRTL}">
                             <div>Stephen Shaw</div>
-                            <small class="text-gray-700">shaw@ultima.org</small>
+                            <small class="text-color-secondary">shaw@ultima.org</small>
                         </div>
                     </div>
                     <span class="bg-teal-500 p-1 text-sm font-medium text-white border-round-xs"
@@ -182,7 +182,7 @@
         </div>
     </div>
     <div class="col-12 lg:col-6">
-        <div class="bg-white p-3 shadow-3 border-round-md height-100">
+        <div class="surface-card p-3 shadow-3 border-round-md height-100">
             <div class="flex align-items-center justify-content-between mb-3">
                 <h5>Order Graph</h5>
                 <div>
@@ -197,7 +197,7 @@
         </div>
     </div>
     <div class="col-12 lg:col-6">
-        <div class="bg-white p-3 shadow-3 border-round-md height-100 widget-timeline">
+        <div class="surface-card p-3 shadow-3 border-round-md height-100 widget-timeline">
             <div class="flex align-items-center justify-content-between mb-3">
                 <h5>Timeline</h5>
                 <div>
@@ -226,7 +226,7 @@
         </div>
     </div>
     <div class="col-12 md:col-12 lg:col-6">
-        <div class="bg-white p-3 shadow-3 border-round-md height-100">
+        <div class="surface-card p-3 shadow-3 border-round-md height-100">
             <p-table [value]="products" [paginator]="true" [rows]="8" styleClass="p-datatable-products">
                 <ng-template pTemplate="header">
                     <tr>
@@ -273,7 +273,7 @@
         </div>
     </div>
     <div class="col-12 lg:col-6">
-        <div class="bg-white p-3 shadow-3 border-round-md height-100">
+        <div class="surface-card p-3 shadow-3 border-round-md height-100">
             <div class="flex align-items-center justify-content-between mb-3">
                 <h5>Chat</h5>
                 <div>
@@ -327,7 +327,7 @@
     </div>
 
     <div class="col-12 lg:col-3">
-        <div class="bg-white p-3 shadow-3 border-round-md height-100">
+        <div class="surface-card p-3 shadow-3 border-round-md height-100">
             <div class="flex align-items-center justify-content-between mb-3">
                 <h5>Activity</h5>
                 <div>
@@ -338,7 +338,7 @@
                     </p-menu>
                 </div>
             </div>
-            <ul class="widget-activity">
+            <ul class="widget-activity list-none">
                 <li class="py-3 px-0 border-bottom-1 surface-border">
                     <div class="activity-item flex flex-column">
                         <div class="font-medium mb-1">Income</div>
@@ -385,7 +385,7 @@
         </div>
     </div>
     <div class="col-12 lg:col-3">
-        <div class="bg-white p-3 shadow-3 border-round-md height-100">
+        <div class="surface-card p-3 shadow-3 border-round-md height-100">
             <div class="flex align-items-center justify-content-between mb-3">
                 <h5>Best Sellers</h5>
                 <div>
