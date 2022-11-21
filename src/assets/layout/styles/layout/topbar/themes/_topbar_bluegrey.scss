@@ -1,13 +1,11 @@
 .layout-topbar-bluegrey {
-    $topbarBgColor: #546E7A;
-    $topbarLeftBgColor: #37474F;
+    --topbar-bg: #546E7A;
+    --topbar-start-bg: #37474F;
 
-    $topbarMenuButtonBgColor:#0097A7;
-    $topbarMenuButtonTextColor:#ffffff;
+    --topbar-menu-button-bg:#0097A7;
+    --topbar-menu-button-hover-bg:#0097A7;
+    --topbar-menu-button-text-color:#ffffff;
 
-    $topbarItemTextColor: #ffffff;
-    $topbarItemTextHoverBgColor: rgba(255,255,255,.12);
-
-    @import '../_topbar_exports';
-    @import '../_topbar_theme';
+    --topbar-item-text-color: #ffffff;
+    --topbar-item-hover-bg: rgba(255,255,255,.12);
 }

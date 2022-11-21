@@ -1,13 +1,12 @@
 .layout-topbar-green {
-    $topbarBgColor: #43A047;
-    $topbarLeftBgColor: #2E7D32;
+    --topbar-bg: #43A047;
+    --topbar-start-bg: #2E7D32;
 
-    $topbarItemTextColor: #ffffff;
-    $topbarItemTextHoverBgColor: rgba(255,255,255,.12);
+    --topbar-menu-button-bg:#F4511E;
+    --topbar-menu-button-hover-bg:#F4511E;
+    --topbar-menu-button-text-color:#ffffff;
 
-    $topbarMenuButtonBgColor:#F4511E;
-    $topbarMenuButtonTextColor:#ffffff;
+    --topbar-item-text-color: #ffffff;
+    --topbar-item-hover-bg: rgba(255,255,255,.12);
 
-    @import '../_topbar_exports';
-    @import '../_topbar_theme';
 }

@@ -1,13 +1,11 @@
 .layout-topbar-lightblue {
-    $topbarBgColor: #0288D1;
-    $topbarLeftBgColor: #0277BD;
+    --topbar-bg: #0288D1;
+    --topbar-start-bg: #0277BD;
+    
+    --topbar-menu-button-bg:#FDD835;
+    --topbar-menu-button-hover-bg:#FDD835;
+    --topbar-menu-button-text-color:#212121;
 
-    $topbarItemTextColor: #ffffff;
-    $topbarItemTextHoverBgColor: rgba(255,255,255,.12);
-
-    $topbarMenuButtonBgColor:#FDD835;
-    $topbarMenuButtonTextColor:#212121;
-
-    @import '../_topbar_exports';
-    @import '../_topbar_theme';
+    --topbar-item-text-color: #ffffff;
+    --topbar-item-hover-bg: rgba(255,255,255,.12);
 }

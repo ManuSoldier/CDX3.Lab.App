@@ -1,13 +1,11 @@
 .layout-topbar-lime {
-    $topbarBgColor: #AFB42B;
-    $topbarLeftBgColor: #9E9D24;
+    --topbar-bg: #AFB42B;
+    --topbar-start-bg: #9E9D24;
 
-    $topbarMenuButtonBgColor:#F57C00;
-    $topbarMenuButtonTextColor:#212121;
+    --topbar-menu-button-bg:#F57C00;
+    --topbar-menu-button-hover-bg:#F57C00;
+    --topbar-menu-button-text-color:#212121;
 
-    $topbarItemTextColor: #212121;
-    $topbarItemTextHoverBgColor: rgba(0,0,0,.12);
-
-    @import '../_topbar_exports';
-    @import '../_topbar_theme';
+    --topbar-item-text-color: #212121;
+    --topbar-item-hover-bg: rgba(0,0,0,.12);
 }

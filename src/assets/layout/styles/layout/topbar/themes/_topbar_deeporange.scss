@@ -1,13 +1,11 @@
 .layout-topbar-deeporange {
-    $topbarBgColor: #D84315;
-    $topbarLeftBgColor: #BF360C;
+    --topbar-bg: #D84315;
+    --topbar-start-bg: #BF360C;
 
-    $topbarMenuButtonBgColor:#00BCD4;
-    $topbarMenuButtonTextColor:#212121;
+    --topbar-menu-button-bg:#00BCD4;
+    --topbar-menu-button-hover-bg:#00BCD4;
+    --topbar-menu-button-text-color:#212121;
 
-    $topbarItemTextColor: #ffffff;
-    $topbarItemTextHoverBgColor: rgba(255,255,255,.12);
-
-    @import '../_topbar_exports';
-    @import '../_topbar_theme';
+    --topbar-item-text-color: #ffffff;
+    --topbar-item-hover-bg: rgba(255,255,255,.12);
 }
