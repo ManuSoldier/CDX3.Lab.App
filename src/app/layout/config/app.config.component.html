@@ -1,7 +1,7 @@
 <p-button type="button" (click)="onConfigButtonClick()" icon="pi pi-cog" styleClass="layout-config-button"></p-button>
 
 <p-sidebar [(visible)]="visible" [position]="layoutService.config.isRTL ? 'left' : 'right'" [transitionOptions]="'.3s cubic-bezier(0, 0, 0.2, 1)'">
-        
+
     <h5>Layout/Theme Scale</h5>
     <div class="flex align-items-center">
         <button icon="pi pi-minus" type="button" pButton (click)="decrementScale()" class="p-button-text p-button-rounded w-2rem h-2rem mr-2" [disabled]="scale === scales[0]"></button>
@@ -25,7 +25,6 @@
         </div>
 
         <h5>Menu Mode</h5>
-
             <div class="flex gap-4">
                 <div class="field-radiobutton w-4">
                     <p-radioButton name="mode" value="static" [(ngModel)]="menuMode" inputId="mode1" [ngClass]="{'ml-2': rtl}"></p-radioButton>
@@ -96,7 +95,7 @@
                 <button type="button" 
                     class="cursor-pointer p-link w-2rem h-2rem border-round shadow-2 flex-shrink-0 flex justify-content-center align-items-center" 
                     (click)="changeMenuTheme(theme)" 
-                    [ngStyle]="{'background-color': theme.color}"><i *ngIf="selectedMenuTheme === theme.name" class="pi pi-check text-xl" [ngClass]="{'text-white': selectedMenuTheme !== 'light'}"></i></button>
+                    [ngStyle]="{'background-color': theme.color}"><i *ngIf="menuTheme === theme.name" class="pi pi-check text-xl" [ngClass]="{'text-white': menuTheme !== 'light'}"></i></button>
             </div>
         </div>
 
@@ -106,7 +105,7 @@
                 <button type="button" 
                 class="cursor-pointer p-link w-2rem h-2rem border-round shadow-2 flex-shrink-0 flex justify-content-center align-items-center" 
                 (click)="changeTopbarTheme(theme)" 
-                [ngStyle]="{'background-color': theme.color}"><i *ngIf="selectedTopbarTheme === theme.name" class="pi pi-check text-xl" [ngClass]="{'text-white': selectedTopbarTheme !== 'white'}"></i></button>
+                [ngStyle]="{'background-color': theme.color}"><i *ngIf="topbarTheme === theme.name" class="pi pi-check text-xl" [ngClass]="{'text-white': topbarTheme !== 'white'}"></i></button>
             </div>
         </div>
     </ng-container>
@@ -116,8 +115,8 @@
         <div class="w-3" *ngFor="let theme of componentThemes">
             <button type="button" 
             class="cursor-pointer p-link w-2rem h-2rem border-round shadow-2 flex-shrink-0 flex justify-content-center align-items-center" 
-            (click)="changeComponentTheme(theme)" 
-            [ngStyle]="{'background-color': theme.color}"><i *ngIf="selectedComponentTheme === theme.name" class="pi pi-check text-xl text-white"></i></button>
+            (click)="changeTheme(theme.name)"
+            [ngStyle]="{'background-color': theme.color}"><i *ngIf="componentTheme === theme.name" class="pi pi-check text-xl text-white"></i></button>
         </div>
     </div>
     

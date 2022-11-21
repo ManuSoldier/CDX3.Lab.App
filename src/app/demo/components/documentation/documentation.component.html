@@ -50,7 +50,7 @@ Run 'ng help' for more options.
                 the main template. The component class app.main.component.ts implements the logic such as opening menus, layout modes and so on.
             </p>
 <app-code ngPreserveWhitespaces ngNonBindable>
-&lt;div class=&quot;layout-wrapper&quot; [ngClass]=&quot;&#123;'p-input-filled': app.inputStyle === 'filled', 'p-ripple-disabled': !app.ripple,
+&lt;div class=&quot;layout-container&quot; [ngClass]=&quot;&#123;'p-input-filled': app.inputStyle === 'filled', 'p-ripple-disabled': !app.ripple,
     'layout-menu-static': isStatic(),
     'layout-menu-overlay': isOverlay(),
     'layout-menu-horizontal': isHorizontal(),
@@ -1289,7 +1289,7 @@ $splitterGutterHandleBg:rgba(0,0,0,.12);
 
             <p>For example to create a horizontal menu, the div element should be in following form;</p>
 <app-code ngPreserveWhitespaces ngNonBindable lang="javascript">
-&lt;div class="layout-wrapper layout-menu-horizontal"&gt;
+&lt;div class="layout-container layout-menu-horizontal"&gt;
 </app-code>
 
             <p>It is also possible to leave the choice to the user by keeping the preference at a component and usign an expression to bind it so that user can switch between modes. Sample

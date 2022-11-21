@@ -16,12 +16,6 @@ export class AppConfigComponent implements OnInit {
 
     topbarThemes: any[] = [];
 
-    selectedMenuTheme: string;
-
-    selectedComponentTheme: string;
-
-    selectedTopbarTheme: string;
-
     scales: number[] = [12,13,14,15,16];
 
     constructor(public layoutService: LayoutService, public menuService: MenuService) { }
@@ -106,8 +100,12 @@ export class AppConfigComponent implements OnInit {
         return this.layoutService.config.menuTheme;
     }
 
-    set menuTheme(_val: string) {
-        this.layoutService.config.menuTheme = _val;
+    get topbarTheme(): string {
+        return this.layoutService.config.topbarTheme;
+    }
+
+    get componentTheme(): string {
+        return this.layoutService.config.componentTheme;
     }
 
     ngOnInit() {
@@ -168,12 +166,6 @@ export class AppConfigComponent implements OnInit {
             {name: 'bluegrey', color: '#546E7A'},
             {name: 'indigo', color: '#3F51B5'}
         ];
-
-        this.selectedMenuTheme = 'light';
-
-        this.selectedComponentTheme = 'indigo';
-    
-        this.selectedTopbarTheme = 'blue';
     }
 
     onConfigButtonClick() {
@@ -188,30 +180,30 @@ export class AppConfigComponent implements OnInit {
         const newHref = themeLinkHref!.replace(currentColorScheme, newColorScheme);
         this.replaceThemeLink(newHref, () => {
             this.layoutService.config.colorScheme = colorScheme;
+            if (colorScheme === 'dark') {
+                this.layoutService.config.menuTheme = 'dark';
+            }
             this.layoutService.onConfigUpdate();
         });
     }
 
     changeTheme(theme: string) {
         const themeLink = <HTMLLinkElement>document.getElementById('theme-link');
-        const newHref = themeLink.getAttribute('href')!.replace(this.layoutService.config.theme, theme);
+        const newHref = themeLink.getAttribute('href')!.replace(this.layoutService.config.componentTheme, theme);
         this.replaceThemeLink(newHref, () => {
-            this.layoutService.config.theme = theme;
+            this.layoutService.config.componentTheme = theme;
             this.layoutService.onConfigUpdate();
         });
     }
 
-    changeComponentTheme(theme) {
-        this.selectedComponentTheme = theme.name;
-    }
-
     changeTopbarTheme(theme) {
-        this.selectedTopbarTheme = theme.name;
+        this.layoutService.config.topbarTheme = theme.name;
+        this.layoutService.onConfigUpdate();
     }
 
     changeMenuTheme(theme) {
-        console.log(theme)
-        this.selectedMenuTheme = theme.name;
+        this.layoutService.config.menuTheme = theme.name;
+        this.layoutService.onConfigUpdate();
     }
 
     replaceThemeLink(href: string, onComplete: Function) {

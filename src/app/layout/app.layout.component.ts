@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, Renderer2, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, OnDestroy, Renderer2, ViewChild } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter, Subscription } from 'rxjs';
 import { MenuService } from './app.menu.service';
@@ -8,8 +8,7 @@ import { LayoutService } from './service/app.layout.service';
 
 @Component({
     selector: 'app-layout',
-    templateUrl: './app.layout.component.html',
-    changeDetection: ChangeDetectionStrategy.OnPush
+    templateUrl: './app.layout.component.html'
 })
 export class AppLayoutComponent implements OnDestroy {
 
@@ -79,9 +78,7 @@ export class AppLayoutComponent implements OnDestroy {
     }
 
     get containerClass() {
-        return {
-            'layout-menu-dark': this.layoutService.config.menuTheme === 'dark',
-            'layout-topbar-dark': this.layoutService.config.colorScheme === 'dark',
+        let styleClass = {
             'layout-rtl': this.layoutService.config.isRTL,
             'layout-menu-overlay': this.layoutService.config.menuMode === 'overlay',
             'layout-menu-static': this.layoutService.config.menuMode === 'static',
@@ -92,7 +89,11 @@ export class AppLayoutComponent implements OnDestroy {
             'p-ripple-disabled': !this.layoutService.config.ripple,
             'layout-menu-active': this.layoutService.state.menuActive,
             'layout-menu-mobile-active': this.layoutService.state.staticMenuMobileActive
-        }
+        };
+        
+        styleClass['layout-topbar-' + this.layoutService.config.topbarTheme] = true;
+        styleClass['layout-menu-' + this.layoutService.config.menuTheme] = true;
+        return styleClass;
     }
 
     onSidebarMouseOver(event: MouseEvent): void {

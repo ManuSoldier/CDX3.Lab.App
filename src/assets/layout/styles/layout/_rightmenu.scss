@@ -32,7 +32,7 @@
 }
 
 @media (max-width: $breakpoint) {
-    .layout-wrapper {
+    .layout-container {
         &.layout-topbar-mobile-active {
             .layout-rightmenu {
                 top: 12rem;

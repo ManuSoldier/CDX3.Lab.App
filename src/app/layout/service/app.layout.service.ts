@@ -9,11 +9,12 @@ interface InlineMenuActive {
 export interface AppConfig {
     inputStyle: string;
     colorScheme: string;
-    theme: string;
+    componentTheme: string;
     ripple: boolean;
     menuMode: string;
     scale: number;
     menuTheme: string;
+    topbarTheme: string;
     isRTL: boolean;
     inlineMenuPosition: string;
 }
@@ -39,9 +40,10 @@ export class LayoutService {
         inputStyle: 'outlined',
         menuMode: 'static',
         colorScheme: 'light',
-        theme: 'indigo',
+        componentTheme: 'indigo',
         scale: 14,
-        menuTheme: 'colorScheme',
+        menuTheme: 'light',
+        topbarTheme: 'blue',
         isRTL: false,
         inlineMenuPosition: 'bottom'
     };
