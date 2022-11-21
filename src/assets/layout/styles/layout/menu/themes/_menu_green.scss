@@ -1,15 +1,9 @@
 .layout-menu-green {
-    $menuBgColor:#2E7D32;
-
-    $rootMenuTextColor:#ffffff;
-
-    $menuItemTextColor:rgba(255,255,255,.6);
-    $menuItemHoverBgColor:rgba(255,255,255,.12);
-    $activeMenuItemTextColor:#ffffff;
-    $activeMenuItemBgColor: rgba(255,255,255,.24);
-
-    $inlineMenuBorderColor: rgba(255,255,255,.24);
-
-    @import '../_menu_exports';
-    @import '../_menu_theme';
+    --menu-bg:#2E7D32;
+    --root-menu-text-color:#ffffff;
+    --menuitem-text-color:rgba(255,255,255,.6);
+    --menuitem-hover-bg:rgba(255,255,255,.12);
+    --active-menuitem-text-color:#ffffff;
+    --active-menuitem-bg:rgba(255,255,255,.24);
+    --inline-menu-border-color:rgba(255,255,255,.24);
 }
