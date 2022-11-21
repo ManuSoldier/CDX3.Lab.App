@@ -18,7 +18,7 @@
 
         .layout-inline-menu-action-panel {
             padding: 0 .5rem;
-            @include material-overlay-transform;
+            transform-origin: top;
 
             .layout-inline-menu-action-item {
                 margin-top: .2rem;

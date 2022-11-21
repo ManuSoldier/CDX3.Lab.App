@@ -18,7 +18,10 @@
             display: none;
             flex-direction: column-reverse;
             padding: 0;
-            @include material-overlay-animation;
+            transform-origin: top;
+            animation-name: overlayEnter;
+            animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+            animation-duration: .12s;
 
             &.layout-topbar-mobile-active {
                 display: flex;

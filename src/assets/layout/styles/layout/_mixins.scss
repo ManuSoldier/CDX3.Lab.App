@@ -27,13 +27,6 @@
     }
 }
 
-@mixin input-placeholder($color) {
-    &::-webkit-input-placeholder {color: $color}
-    &:-moz-placeholder           {color: $color}
-    &::-moz-placeholder          {color: $color}
-    &:-ms-input-placeholder      {color: $color}
-}
-
 @mixin reset-list {
     margin: 0;
     padding: 0;
@@ -41,15 +34,4 @@
     outline: 0;
     text-decoration: none;
     list-style-type: none;
-}
-
-@mixin material-overlay-transform {
-    transform-origin: top;
-}
-
-@mixin material-overlay-animation {
-    @include material-overlay-transform;
-    animation-name: overlayEnter;
-    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
-    animation-duration: .12s;
 }

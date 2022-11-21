@@ -1,50 +1,49 @@
 .menu-wrapper {
-    background-color: $menuBgColor;
+    background-color: var(--menu-bg);
     box-shadow: 2px 0 4px -1px rgba(0, 0, 0, 0.2), 4px 0 5px 0 rgba(0, 0, 0, 0.14), 1px 0 10px 0 rgba(0, 0, 0, 0.12);
 
     .layout-menu-container {
         .layout-menu {
             > li {
-                > div {
-                    .layout-menuitem-text {
-                        color: $rootMenuTextColor;
-                    }
+                .layout-menuitem-root-text {
+                    font-weight: 700;
+                    color: var(--root-menu-text-color);
                 }
 
                 > ul {
-                    background-color: $menuBgColor;
+                    background-color: var(--menu-bg);
                 }
             }
 
             li {
                 a {
-                    color: $menuItemTextColor;
+                    color: var(--menuitem-text-color);
 
                     i {
-                        color: $menuItemTextColor;
+                        color: var(--menuitem-text-color);
                     }
 
                     &:hover {
-                        background-color: $menuItemHoverBgColor;
+                        background-color: var(--menuitem-hover-bg);
                     }
                 }
 
                 &.active-menuitem {
                     > a {
-                        background-color: $activeMenuItemBgColor;
-                        color: $activeMenuItemTextColor;
+                        background-color: var(--active-menuitem-bg);
+                        color: var(--active-menuitem-text-color);
 
                         > i {
-                            color: $activeMenuItemTextColor;
+                            color: var(--active-menuitem-text-color);
                         }
                     }
 
                     a.active-menuitem-routerlink {
-                        background-color: $activeMenuItemBgColor;
-                        color: $activeMenuItemTextColor;
+                        background-color: var(--active-menuitem-bg);
+                        color: var(--active-menuitem-text-color);
 
                         > i {
-                            color: $activeMenuItemTextColor;
+                            color: var(--active-menuitem-text-color);
                         }
                     }
                 }
@@ -52,35 +51,35 @@
         }
 
         .layout-inline-menu {
-            border-color: $inlineMenuBorderColor;
+            border-color: var(--inline-menu-border-color);
 
             a {
-                color: $menuItemTextColor;
+                color: var(--menuitem-text-color);
             }
 
             .layout-inline-menu-action,
             .layout-inline-menu-action-panel .layout-inline-menu-action-item {
-                color: $menuItemTextColor;
+                color: var(--menuitem-text-color);
 
                 i {
-                    color: $menuItemTextColor;
+                    color: var(--menuitem-text-color);
                 }
 
                 &:hover {
-                    background-color: $menuItemHoverBgColor;
+                    background-color: var(--menuitem-hover-bg);
                 }
             }
 
             .layout-inline-menu-action-panel {
-                background-color: $menuBgColor;
+                background-color: var(--menu-bg);
             }
         }
     }
 }
 
 @media (min-width: $breakpoint + 1) {
-    &.layout-menu-horizontal,
-    &.layout-menu-slim {
+    .layout-menu-horizontal,
+    .layout-menu-slim {
         .menu-wrapper {
             .layout-menu-container {
                 .layout-menu {
@@ -94,7 +93,7 @@
         }
     }
 
-    &.layout-menu-horizontal {
+    .layout-menu-horizontal {
         .layout-inline-menu {
             .layout-inline-menu-action-panel {
                 box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
