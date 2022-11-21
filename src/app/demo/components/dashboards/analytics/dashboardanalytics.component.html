@@ -1,6 +1,6 @@
 <div class="grid">
     <div class="col-12 md:col-8">
-        <div class="bg-white p-3 shadow-3 border-round-md h-full">
+        <div class="surface-card p-3 shadow-3 border-round-md h-full">
             <div class="flex align-items-center justify-content-between mb-3">
                 <h5 class="m-0">Monthly Comparison</h5>
                 <button pRipple pButton type="button" label="Vertical/Stacked Data" class="p-button-text" [ngClass]="{'ml-auto': !layoutService.config.isRTL, 'mr-auto': layoutService.config.isRTL}" (click)="changeMonthlyDataView()"></button>
@@ -11,7 +11,7 @@
     </div>
 
     <div class="col-12 md:col-4">
-        <div class="bg-white p-3 shadow-3 border-round-md h-full">
+        <div class="surface-card p-3 shadow-3 border-round-md h-full">
             <div class="flex align-items-center justify-content-between mb-2">
                 <h5 class="m-0">Insights</h5>
                 <div>
@@ -46,7 +46,7 @@
     </div>
 
     <div class="col-12 md:col-4">
-        <div class="bg-white p-3 shadow-3 border-round-md">
+        <div class="surface-card p-3 shadow-3 border-round-md">
             <div class="flex justify-content-between align-items-center p-3">
                 <div>
                     <i class="pi pi-twitter text-blue-500 text-6xl"></i>
@@ -73,7 +73,7 @@
     </div>
 
     <div class="col-12 md:col-4">
-        <div class="bg-white p-3 shadow-3 border-round-md">
+        <div class="surface-card p-3 shadow-3 border-round-md">
             <div class="flex justify-content-between align-items-center p-3">
                 <div>
                     <i class="pi pi-facebook text-indigo-500 text-6xl"></i>
@@ -100,7 +100,7 @@
     </div>
 
     <div class="col-12 md:col-4">
-        <div class="bg-white p-3 shadow-3 border-round-md">
+        <div class="surface-card p-3 shadow-3 border-round-md">
             <div class="flex justify-content-between align-items-center p-3">
                 <div>
                     <i class="pi pi-github text-color text-6xl"></i>
@@ -127,7 +127,7 @@
     </div>
 
     <div class="col-12 md:col-12">
-        <div class="bg-white p-3 shadow-3 border-round-md grid grid-nogutter block sm:flex">
+        <div class="surface-card p-3 shadow-3 border-round-md grid grid-nogutter block sm:flex">
             <div class="lg:col-3 md:col-6 sm:col-12 p-0">
                 <div class="flex flex-column p-4">
                     <span class="text-color-secondary">Store A Sales</span>
@@ -192,7 +192,7 @@
     </div>
     
     <div class="col-12 md:col-6">
-        <div class="bg-white p-3 shadow-3 border-round-md h-full">
+        <div class="surface-card p-3 shadow-3 border-round-md h-full">
             <div class="flex align-items-center justify-content-between mb-3">
                 <h5 class="m-0">Top Searchs</h5>
                 <div>
@@ -228,7 +228,7 @@
     </div>
     
     <div class="col-12 md:col-6">
-        <div class="bg-white p-3 shadow-3 border-round-md">
+        <div class="surface-card p-3 shadow-3 border-round-md">
             <p-table [value]="products" [paginator]="true" [rows]="4" styleClass="p-datatable-products">
                 <ng-template pTemplate="header">
                     <tr>
@@ -273,7 +273,7 @@
     </div>
 
     <div class="col-12 md:col-4">
-        <div class="bg-white p-3 shadow-3 border-round-md">
+        <div class="surface-card p-3 shadow-3 border-round-md">
             <div class="flex align-items-center justify-content-between mb-3">
                 <h5 class="m-0">Expenses</h5>
                 <div>
@@ -321,7 +321,7 @@
     </div>
 
     <div class="col-12 md:col-8">
-        <div class="bg-white p-3 shadow-3 border-round-md h-full">
+        <div class="surface-card p-3 shadow-3 border-round-md h-full">
             <div class="flex align-items-center justify-content-between mb-3">
                 <h5 class="m-0">All Traffic Channels</h5>
                 <button pRipple pButton type="button" label="Pie/Doughnut Data" class="p-button-text" [ngClass]="{'ml-auto': !layoutService.config.isRTL, 'mr-auto': layoutService.config.isRTL}" (click)="togglePieDoughnut()"></button>
