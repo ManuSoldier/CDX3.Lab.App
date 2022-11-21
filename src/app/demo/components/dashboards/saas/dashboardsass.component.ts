@@ -33,6 +33,7 @@ export class DashboardSaasComponent implements OnInit {
         private zone: NgZone,
     ) {
     }
+    ordersOptions: any;
 
     ngOnInit(): void { }
 
@@ -239,6 +240,8 @@ export class DashboardSaasComponent implements OnInit {
         },
     ];
 
+    basicOptions = this.getBasicOptions();
+
     teamMembers: any = [
         {
             title: "UX Researchers",
@@ -314,36 +317,39 @@ export class DashboardSaasComponent implements OnInit {
             },
         ],
     };
-    basicOptions = {
-        plugins: {
-            legend: {
-                labels: {
-                    color: "#495057",
-                    boxWidth: 12,
-                    boxHeight: 4,
-                },
-                position: "bottom",
-            },
-        },
-        elements: { point: { radius: 0 } },
-        scales: {
-            x: {
-                ticks: {
-                    color: "#495057",
-                },
-                grid: {
-                    color: "#ebedef",
+    getBasicOptions() {
+        const textColor = getComputedStyle(document.body).getPropertyValue('--text-color')
+        return {
+            plugins: {
+                legend: {
+                    labels: {
+                        color: textColor,
+                        boxWidth: 12,
+                        boxHeight: 4,
+                    },
+                    position: "bottom",
                 },
             },
-            y: {
-                ticks: {
-                    color: "#495057",
-                    stepSize: 10,
+            elements: { point: { radius: 0 } },
+            scales: {
+                x: {
+                    ticks: {
+                        color: textColor,
+                    },
+                    grid: {
+                        color: "#ebedef",
+                    },
                 },
-                grid: {
-                    color: "#ebedef",
+                y: {
+                    ticks: {
+                        color: textColor,
+                        stepSize: 10,
+                    },
+                    grid: {
+                        color: "#ebedef",
+                    },
                 },
             },
-        },
-    };
+        }
+    }
 }
