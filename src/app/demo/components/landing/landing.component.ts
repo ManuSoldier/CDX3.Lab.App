@@ -14,7 +14,6 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
                 width: 300px;
             }
         }
-
     `]
 })
 export class LandingComponent {
