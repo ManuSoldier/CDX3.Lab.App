@@ -19,9 +19,9 @@
             flex-direction: column-reverse;
             padding: 0;
             transform-origin: top;
-            animation-name: overlayEnter;
+            animation-name: topbar-enter;
             animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
-            animation-duration: .12s;
+            animation-duration: 1s;
 
             &.layout-topbar-mobile-active {
                 display: flex;

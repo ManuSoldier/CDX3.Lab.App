@@ -1,7 +1,6 @@
 <p-button type="button" (click)="onConfigButtonClick()" icon="pi pi-cog" styleClass="layout-config-button"></p-button>
 
 <p-sidebar [(visible)]="visible" [position]="layoutService.config.isRTL ? 'left' : 'right'" [transitionOptions]="'.3s cubic-bezier(0, 0, 0.2, 1)'">
-
     <h5>Layout/Theme Scale</h5>
     <div class="flex align-items-center">
         <button icon="pi pi-minus" type="button" pButton (click)="decrementScale()" class="p-button-text p-button-rounded w-2rem h-2rem mr-2" [disabled]="scale === scales[0]"></button>

@@ -2,10 +2,9 @@
     <nav class="layout-breadcrumb">
         <ol>
             <li><i class="pi pi-home"></i></li>
-            <li class="layout-breadcrumb-chevron"><i class="pi pi-chevron-right"></i></li>
             <ng-template ngFor let-item let-last="last" [ngForOf]="breadcrumbs$ | async">
-                <li>{{item.label}}</li>
-                <li *ngIf="!last" class="layout-breadcrumb-chevron"> <i class="pi pi-chevron-right"></i> </li>
+                <li><i class="pi pi-angle-right"></i></li>
+                <li><span>{{item.label}}</span></li>
             </ng-template>
         </ol>
     </nav>

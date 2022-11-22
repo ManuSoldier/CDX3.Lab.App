@@ -1,3 +1,4 @@
+
 @media (min-width: $breakpoint + 1) {
     .layout-menu-slim {
         .menu-wrapper {
@@ -70,6 +71,39 @@
         &.layout-container {
             .layout-main {
                 margin-left: 4.5rem;
+            }
+        }
+    }
+}
+
+
+@media (min-width: 992px) {
+    .layout-menu-slim {
+        .layout-inline-menu {
+            .layout-inline-menu-action {
+                justify-content: center;
+
+                > span,
+                > i {
+                    display: none !important;
+                }
+            }
+
+            .layout-inline-menu-action-panel {
+                .layout-inline-menu-action-item {
+                    > a {
+                        justify-content: center;
+
+                        > i {
+                            font-size: 1.5rem;
+                            margin-right: 0 !important;
+                        }
+
+                        > span {
+                            display: none;
+                        }
+                    }
+                }
             }
         }
     }

@@ -61,7 +61,9 @@ $parallax__layers: 3;
     }
 
     ul {
-        @include reset-list;
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
     }
 
     .section {

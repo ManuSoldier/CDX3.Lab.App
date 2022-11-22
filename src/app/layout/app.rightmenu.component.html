@@ -1,4 +1,4 @@
-<p-sidebar [(visible)]="rightMenuActive" [position]="layoutService.config.isRTL ? 'left' : 'right'" [blockScroll]="true" [showCloseIcon]="false" [baseZIndex]="1000" [styleClass]="'layout-rightmenu p-sidebar-sm fs-small py-3 ' + (layoutService.config.isRTL ? 'pl-0 pr-3' : 'pl-3 pr-0')">
+<p-sidebar [(visible)]="rightMenuActive" [position]="layoutService.config.isRTL ? 'left' : 'right'" [blockScroll]="true" [showCloseIcon]="false" [baseZIndex]="1000">
     <div class="online-members flex flex-column mt-3" [ngClass]="{'ml-3': !layoutService.config.isRTL, 'mr-3': layoutService.config.isRTL}">
         <h6 class="header">ONLINE MEMBERS</h6>
         <div class="flex flex-row flex-wrap">
@@ -30,7 +30,7 @@
                 <span class="mb-2">Richard Jones has purchased a blue t-shirt for $79.</span>
                 <span class="flex align-items-center">
                     <img [ngClass]="{'mr-2': !layoutService.config.isRTL, 'ml-2': layoutService.config.isRTL}" src="assets/demo/images/avatar/activity-1.png" alt=""/>
-                    <small class="muted-text">Emmy Adams, 21.40</small>
+                    <small>Emmy Adams, 21.40</small>
                 </span>
             </div>
         </div>
@@ -41,7 +41,7 @@
                 <span class="mb-2">Your request for withdrawal of $2500 has been initiated.</span>
                 <span class="flex align-items-center">
                     <img [ngClass]="{'mr-2': !layoutService.config.isRTL, 'ml-2': layoutService.config.isRTL}" src="assets/demo/images/avatar/activity-2.png" alt="avatar-2"/>
-                    <small class="muted-text">Emily Walter, 21.40</small>
+                    <small>Emily Walter, 21.40</small>
                 </span>
             </div>
         </div>
@@ -52,7 +52,7 @@
                 <span class="mb-2">Jane Davis has posted a new question about your product.</span>
                 <span class="flex align-items-center">
                     <img [ngClass]="{'mr-2': !layoutService.config.isRTL, 'ml-2': layoutService.config.isRTL}" src="assets/demo/images/avatar/activity-3.png" alt="avatar-3"/>
-                    <small class="muted-text">Jane Davis, 21.45</small>
+                    <small>Jane Davis, 21.45</small>
                 </span>
             </div>
         </div>

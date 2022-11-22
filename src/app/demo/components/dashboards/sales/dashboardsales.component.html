@@ -101,7 +101,7 @@
         </div>
     </div>
     <div class="col-12 lg:col-6">
-        <div class="surface-card p-3 shadow-3 border-round-md height-100">
+        <div class="surface-card p-3 shadow-3 border-round-md h-full">
             <div class="flex align-items-center justify-content-between mb-3">
                 <h5 class="m-0">Contact</h5>
                 <div>
@@ -182,7 +182,7 @@
         </div>
     </div>
     <div class="col-12 lg:col-6">
-        <div class="surface-card p-3 shadow-3 border-round-md height-100">
+        <div class="surface-card p-3 shadow-3 border-round-md h-full">
             <div class="flex align-items-center justify-content-between mb-3">
                 <h5>Order Graph</h5>
                 <div>
@@ -197,7 +197,7 @@
         </div>
     </div>
     <div class="col-12 lg:col-6">
-        <div class="surface-card p-3 shadow-3 border-round-md height-100 widget-timeline">
+        <div class="surface-card p-3 shadow-3 border-round-md h-full widget-timeline">
             <div class="flex align-items-center justify-content-between mb-3">
                 <h5>Timeline</h5>
                 <div>
@@ -226,8 +226,8 @@
         </div>
     </div>
     <div class="col-12 md:col-12 lg:col-6">
-        <div class="surface-card p-3 shadow-3 border-round-md height-100">
-            <p-table [value]="products" [paginator]="true" [rows]="8" styleClass="p-datatable-products">
+        <div class="surface-card p-3 shadow-3 border-round-md h-full">
+            <p-table [value]="products" [paginator]="true" [rows]="8"  [tableStyle]="{'min-width': '40rem'}">
                 <ng-template pTemplate="header">
                     <tr>
                         <th class="w-5rem">Image</th>
@@ -250,19 +250,15 @@
                                 width="50px" class="shadow-4" />
                         </td>
                         <td>
-                            <span class="hidden">Name</span>
                             {{product.name}}
                         </td>
                         <td>
-                            <span class="hidden">Category</span>
                             {{product.category}}
                         </td>
                         <td>
-                            <span class="hidden">Price</span>
                             {{product.price | currency:'USD'}}
                         </td>
                         <td>
-                            <span class="hidden">View</span>
                             <button pRipple pButton type="button" icon="pi pi-search"
                                 class="p-button-rounded p-button-text mb-1"
                                 [ngClass]="{'mr-2': !layoutService.config.isRTL, 'ml-2': layoutService.config.isRTL}"></button>
@@ -273,7 +269,7 @@
         </div>
     </div>
     <div class="col-12 lg:col-6">
-        <div class="surface-card p-3 shadow-3 border-round-md height-100">
+        <div class="surface-card p-3 shadow-3 border-round-md h-full">
             <div class="flex align-items-center justify-content-between mb-3">
                 <h5>Chat</h5>
                 <div>
@@ -327,7 +323,7 @@
     </div>
 
     <div class="col-12 lg:col-3">
-        <div class="surface-card p-3 shadow-3 border-round-md height-100">
+        <div class="surface-card p-3 shadow-3 border-round-md h-full">
             <div class="flex align-items-center justify-content-between mb-3">
                 <h5>Activity</h5>
                 <div>
@@ -385,7 +381,7 @@
         </div>
     </div>
     <div class="col-12 lg:col-3">
-        <div class="surface-card p-3 shadow-3 border-round-md height-100">
+        <div class="surface-card p-3 shadow-3 border-round-md h-full">
             <div class="flex align-items-center justify-content-between mb-3">
                 <h5>Best Sellers</h5>
                 <div>

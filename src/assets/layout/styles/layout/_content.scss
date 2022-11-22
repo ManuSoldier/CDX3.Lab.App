@@ -1,0 +1,15 @@
+.layout-container {
+    .layout-main {
+        padding-top: 4rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 100vh;
+
+        .layout-content {
+            padding: 2rem;
+            padding-top: 1rem;
+            flex: 1 1 0;
+        }
+    }
+}
