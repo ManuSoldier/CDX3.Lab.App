@@ -868,5 +868,6 @@ $imagePreviewActionIconBorderRadius:50% !default;
     --surface-hover:hsla(0,0%,100%,.04);
     --maskbg: #{$maskBg};
     --focus-ring: #{$focusShadow};
+    --transition-duration: #{$transitionDuration};
 }
 

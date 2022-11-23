@@ -42,12 +42,6 @@ export class AppConfigComponent implements OnInit {
 
     set menuMode(_val: string) {
         this.layoutService.config.menuMode = _val;
-        if (_val === 'overlay') {
-            this.layoutService.state.menuActive = false;
-        }
-        else {
-            this.layoutService.state.menuActive = true;
-        }
         if (this.layoutService.isSlim() || this.layoutService.isHorizontal()) {
             this.menuService.reset();
         }

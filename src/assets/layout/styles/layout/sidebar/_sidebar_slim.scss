@@ -1,0 +1,114 @@
+@media screen and (min-width: $breakpoint) {
+    .layout-container {
+        &.layout-slim {
+            .layout-sidebar {
+                width: 5rem;
+                overflow: visible;
+                z-index: 999;
+
+                .layout-menu-container {
+                    overflow: visible;
+                }
+            }
+
+            .layout-content-wrapper {
+                margin-left: 5rem;
+            }
+
+            .layout-menu {
+                .layout-root-menuitem {
+                    position: relative;
+
+                    > .layout-menuitem-root-text {
+                        display: none;
+                    }
+
+                    > a {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        border-radius: 50%;
+                        cursor: pointer;
+                        outline: none;
+                        transition: background-color var(--transition-duration);
+                        width: 3rem;
+                        height: 3rem;
+                        margin: 0 auto 1rem auto;
+
+                        .layout-submenu-toggler {
+                            display: none;
+                        }
+
+                        .layout-menuitem-icon {
+                            font-size: 1.5rem;
+                            color: var(--menuitem-text-color);
+                        }
+
+                        .layout-menuitem-text {
+                            display: none;
+                        }
+
+                        &:hover {
+                            background-color: var(--menuitem-hover-bg);
+                        }
+                    }
+
+                    > ul {
+                        position: absolute;
+                        left: 5rem;
+                        top: 0;
+                        min-width: 15rem;
+                        background-color: var(--menu-bg);
+                        border-radius: var(--border-radius);
+                        padding: 1rem;
+                        max-height: 20rem;
+                        overflow: auto;
+                        z-index: 999;
+                        box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
+
+                        a {
+                            padding-right: .5rem;
+                            border-radius: var(--border-radius);
+                        }
+
+                        li {
+                            a {
+                                padding-left: 0.5rem;
+                            }
+            
+                            li {
+                                a {
+                                    padding-left: 1rem;
+                                }
+            
+                                li {
+                                    a {
+                                        padding-left: 1.5rem;
+                                    }
+            
+                                    li {
+                                        a {
+                                            padding-left: 2rem;
+                                        }
+            
+                                        li {
+                                            a {
+                                                padding-left: 2.5rem;
+                                            }
+            
+                                            li {
+                                                a {
+                                                    padding-left: 3rem;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

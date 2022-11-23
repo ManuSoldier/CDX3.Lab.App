@@ -20,10 +20,10 @@ export interface AppConfig {
 }
 
 interface LayoutState {
-    menuActive: boolean;
-    overlayMenuActive: boolean;
-    configSidebarVisible: boolean;
     staticMenuMobileActive: boolean;
+    overlayMenuActive: boolean;
+    staticMenuDesktopInactive: boolean;
+    configSidebarVisible: boolean;
     menuHoverActive: boolean;
     rightMenuActive: boolean;
     mobileTopbarActive: boolean;
@@ -38,7 +38,7 @@ export class LayoutService {
     config: AppConfig = {
         ripple: false,
         inputStyle: 'outlined',
-        menuMode: 'static',
+        menuMode: 'horizontal',
         colorScheme: 'light',
         componentTheme: 'indigo',
         scale: 14,
@@ -49,7 +49,7 @@ export class LayoutService {
     };
 
     state: LayoutState = {
-        menuActive: true,
+        staticMenuDesktopInactive: false,
         overlayMenuActive: false,
         configSidebarVisible: false,
         staticMenuMobileActive: false,
@@ -80,7 +80,7 @@ export class LayoutService {
         }
 
         if (this.isDesktop()) {
-            this.state.menuActive = !this.state.menuActive;
+            this.state.staticMenuDesktopInactive = !this.state.staticMenuDesktopInactive;
         }
         else {
             this.state.staticMenuMobileActive = !this.state.staticMenuMobileActive;

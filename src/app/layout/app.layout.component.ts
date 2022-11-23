@@ -66,9 +66,6 @@ export class AppLayoutComponent implements OnDestroy {
         this.layoutService.state.overlayMenuActive = false;
         this.layoutService.state.staticMenuMobileActive = false;
         this.layoutService.state.menuHoverActive = false;
-        if (this.layoutService.isOverlay()) {
-            this.layoutService.state.menuActive = false;
-        }
         this.menuService.reset();
         if(this.menuOutsideClickListener) {
             this.menuOutsideClickListener();
@@ -80,15 +77,17 @@ export class AppLayoutComponent implements OnDestroy {
     get containerClass() {
         let styleClass = {
             'layout-rtl': this.layoutService.config.isRTL,
-            'layout-menu-overlay': this.layoutService.config.menuMode === 'overlay',
-            'layout-menu-static': this.layoutService.config.menuMode === 'static',
-            'layout-menu-slim': this.layoutService.config.menuMode === 'slim',
-            'layout-menu-sidebar': this.layoutService.config.menuMode === 'sidebar',  
-            'layout-menu-horizontal': this.layoutService.config.menuMode === 'horizontal',
+            'layout-overlay': this.layoutService.config.menuMode === 'overlay',
+            'layout-static': this.layoutService.config.menuMode === 'static',
+            'layout-slim': this.layoutService.config.menuMode === 'slim',
+            'layout-sidebar': this.layoutService.config.menuMode === 'sidebar',  
+            'layout-horizontal': this.layoutService.config.menuMode === 'horizontal',
             'p-input-filled': this.layoutService.config.inputStyle === 'filled',
             'p-ripple-disabled': !this.layoutService.config.ripple,
-            'layout-menu-active': this.layoutService.state.menuActive,
-            'layout-menu-mobile-active': this.layoutService.state.staticMenuMobileActive
+            'layout-menu-mobile-active': this.layoutService.state.staticMenuMobileActive,
+            'layout-static-inactive': this.layoutService.state.staticMenuDesktopInactive && this.layoutService.config.menuMode === 'static',
+            'layout-overlay-active': this.layoutService.state.overlayMenuActive,
+            'layout-mobile-active': this.layoutService.state.staticMenuMobileActive,
         };
         
         styleClass['layout-topbar-' + this.layoutService.config.topbarTheme] = true;
@@ -97,15 +96,15 @@ export class AppLayoutComponent implements OnDestroy {
     }
 
     onSidebarMouseOver(event: MouseEvent): void {
-        if (this.layoutService.config.menuMode === 'sidebar' && this.layoutService.isDesktop()) {
+        /*if (this.layoutService.config.menuMode === 'sidebar' && this.layoutService.isDesktop()) {
             this.layoutService.state.menuActive = true;
-        }
+        }*/
     }
 
     onSidebarMouseLeave(event: MouseEvent): void {
-        if (this.layoutService.config.menuMode === 'sidebar' && this.layoutService.isDesktop() ) {
+        /*if (this.layoutService.config.menuMode === 'sidebar' && this.layoutService.isDesktop() ) {
             this.layoutService.state.menuActive = false;
-        }
+        }*/
     }
 
     ngOnDestroy() {
