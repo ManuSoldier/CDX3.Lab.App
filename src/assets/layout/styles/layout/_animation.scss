@@ -19,3 +19,32 @@
         background-color: var(--maskbg);
     }
 }
+
+@keyframes scalein {
+    0% {
+      opacity: 0;
+      transform: scaleY(0.8);
+      transition: transform .12s cubic-bezier(0, 0, 0.2, 1), opacity .12s cubic-bezier(0, 0, 0.2, 1);
+    }
+    100% {
+      opacity: 1;
+      transform: scaleY(1);
+    }
+}
+
+@keyframes fadeout {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+}
+
+.ng-scalein {
+    animation: scalein .15s linear;
+}
+
+.ng-fadeout {
+    animation: fadeout .15s linear;
+}

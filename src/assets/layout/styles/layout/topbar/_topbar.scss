@@ -1,6 +1,3 @@
-@import './_topbar_common';
-@import './topbar_responsive';
-
 @import './themes/_topbar_blue';
 @import './themes/_topbar_lightblue';
 @import './themes/_topbar_white';
@@ -21,5 +18,7 @@
 @import './themes/_topbar_grey';
 @import './themes/_topbar_bluegrey';
 @import './themes/_topbar_indigo';
-
-@import './topbar_theme';
+@import './_topbar_main';
+/*@import './_topbar_theme';
+@import './_topbar_common';
+@import './_topbar_responsive';*/

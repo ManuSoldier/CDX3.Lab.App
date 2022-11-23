@@ -1,5 +1,5 @@
 <div class="layout-topbar shadow-4">
-    <div class="layout-topbar-left" [ngClass]="{'layout-topbar-mobile-active': layoutService.state.mobileTopbarActive}">
+    <div class="layout-topbar-start" [ngClass]="{'layout-topbar-mobile-active': layoutService.state.mobileTopbarActive}">
         <a class="layout-topbar-logo" routerLink="/">
             <svg width="167" height="32" viewBox="0 0 167 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M76.5469 5.25V20.7812C76.5365 22.3125 76.1979 23.6458 75.5312 24.7812C74.8646 25.9167 73.9219 26.7917 72.7031 27.4062C71.4948 28.0104 70.1042 28.3125 68.5312 28.3125C66.1354 28.3125 64.2135 27.6615 62.7656 26.3594C61.3281 25.0469 60.5833 23.2344 60.5312 20.9219V5.25H62.4375V20.6406C62.4375 22.5573 62.9844 24.0469 64.0781 25.1094C65.1719 26.1615 66.6562 26.6875 68.5312 26.6875C70.4062 26.6875 71.8854 26.1562 72.9688 25.0938C74.0625 24.0312 74.6094 22.5521 74.6094 20.6562V5.25H76.5469Z" fill="var(--topbar-item-text-color)"/>
@@ -12,7 +12,7 @@
             </svg>
         </a>
 
-        <a #menuButton class="layout-menu-button shadow-6" (click)="onMenuButtonClick()" pRipple>
+        <a #menuButton class="layout-menu-button" (click)="onMenuButtonClick()" pRipple>
             <i class="pi pi-chevron-right"></i>
         </a>
 
@@ -21,27 +21,27 @@
         </a>
     </div>
 
-    <div class="layout-topbar-right" [ngClass]="{'layout-topbar-mobile-active': mobileTopbarActive}">
-        <div class="layout-topbar-actions-left">
+    <div class="layout-topbar-end" [ngClass]="{'layout-topbar-mobile-active': mobileTopbarActive}">
+        <div class="layout-topbar-actions-start">
             <p-megaMenu [model]="model" styleClass="layout-megamenu"></p-megaMenu>
         </div>
-        <div class="layout-topbar-actions-right">
+        <div class="layout-topbar-actions-end">
             <ul class="layout-topbar-items">
                 <li class="layout-topbar-item layout-search-item">
-                    <a class="layout-topbar-action rounded-circle" pStyleClass="@next" enterClass="hidden" enterActiveClass="scalein" leaveToClass="hidden" leaveActiveClass="fadeout" [hideOnOutsideClick]="true" pRipple>
+                    <a class="layout-topbar-action" pStyleClass="@next" enterClass="ng-hidden" enterActiveClass="ng-scalein" leaveToClass="ng-hidden" leaveActiveClass="ng-fadeout" [hideOnOutsideClick]="true" pRipple>
                         <i class="pi pi-search"></i>
                     </a>
 
-                    <div class="layout-search-panel p-inputgroup absolute hidden top-0 left-auto w-screen" style="right: -16rem;">
+                    <div class="layout-search-panel p-inputgroup ng-hidden">
                         <span class="p-inputgroup-addon"><i class="pi pi-search"></i></span>
                         <input #searchInput type="text" pInputText placeholder="Search">
                         <span class="p-inputgroup-addon">
-                            <button pButton pRipple type="button" icon="pi pi-times" class="p-button-rounded p-button-text p-button-plain" pStyleClass=".layout-search-panel" enterClass="hidden" enterActiveClass="scalein" leaveToClass="hidden" leaveActiveClass="fadeout"></button>
+                            <button pButton pRipple type="button" icon="pi pi-times" class="p-button-rounded p-button-text p-button-plain" pStyleClass=".layout-search-panel" leaveToClass="ng-hidden" leaveActiveClass="ng-fadeout"></button>
                         </span>
                     </div>
                 </li>
                 <li class="layout-topbar-item notifications relative">
-                    <a class="layout-topbar-action rounded-circle" pStyleClass="@next" enterClass="hidden" enterActiveClass="scalein" leaveToClass="hidden" leaveActiveClass="fadeout" [hideOnOutsideClick]="true" pRipple>
+                    <a class="layout-topbar-action" pStyleClass="@next" enterClass="hidden" enterActiveClass="scalein" leaveToClass="hidden" leaveActiveClass="fadeout" [hideOnOutsideClick]="true" pRipple>
                         <span class="p-overlay-badge">
                             <i class="pi pi-bell"></i>
                             <span class="p-badge p-badge-warning p-badge-dot"></span>
@@ -102,7 +102,7 @@
                     </ul>
                 </li>
                 <li class="layout-topbar-item app">
-                    <a class="layout-topbar-action rounded-circle" pStyleClass="@next" enterClass="hidden" enterActiveClass="scalein" leaveToClass="hidden" leaveActiveClass="fadeout" [hideOnOutsideClick]="true" pRipple>
+                    <a class="layout-topbar-action" pStyleClass="@next" enterClass="hidden" enterActiveClass="scalein" leaveToClass="hidden" leaveActiveClass="fadeout" [hideOnOutsideClick]="true" pRipple>
                         <i class="pi pi-table"></i>
                     </a>
                     <div class="layout-topbar-action-panel list-none shadow-6 absolute surface-overlay text-900 hidden top-0 mt-7" style="right: 10%">
@@ -147,7 +147,7 @@
                     </div>
                 </li>
                 <li class="layout-topbar-item">
-                    <a class="layout-topbar-action flex flex-row justify-content-center align-items-center px-2 rounded-circle" pStyleClass="@next" enterClass="hidden" enterActiveClass="scalein" leaveToClass="hidden" leaveActiveClass="fadeout" [hideOnOutsideClick]="true" pRipple>
+                    <a class="layout-topbar-action flex flex-row justify-content-center align-items-center px-2" pStyleClass="@next" enterClass="hidden" enterActiveClass="scalein" leaveToClass="hidden" leaveActiveClass="fadeout" [hideOnOutsideClick]="true" pRipple>
                         <img src="assets/demo/images/avatar/amyelsner.png" alt="avatar" style="width: 32px; height: 32px;">
                     </a>
 
@@ -179,7 +179,7 @@
                     </ul>
                 </li>
                 <li class="layout-topbar-item">
-                    <a class="layout-topbar-action rounded-circle" (click)="onRightMenuButtonClick()" pRipple>
+                    <a class="layout-topbar-action" (click)="onRightMenuButtonClick()" pRipple>
                         <i class="pi" [ngClass]="{'pi-arrow-left': !layoutService.config.isRTL, 'pi-arrow-right': layoutService.config.isRTL}"></i>
                     </a>
                 </li>
