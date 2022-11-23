@@ -33,13 +33,13 @@ import { LayoutService } from './service/app.layout.service';
 })
 export class AppInlineMenuComponent {
 
-    @Input() key: string;
+    @Input() key!: string;
 
     @Input() style: any;
 
-    @Input() styleClass: string;
+    @Input() styleClass!: string;
 
-    active: boolean;
+    active!: boolean;
 
     tabIndex: number = -1;
 

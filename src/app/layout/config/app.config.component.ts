@@ -190,13 +190,13 @@ export class AppConfigComponent implements OnInit {
         });
     }
 
-    changeTopbarTheme(theme) {
-        this.layoutService.config.topbarTheme = theme.name;
+    changeTopbarTheme(theme:string) {
+        this.layoutService.config.topbarTheme = theme;
         this.layoutService.onConfigUpdate();
     }
 
-    changeMenuTheme(theme) {
-        this.layoutService.config.menuTheme = theme.name;
+    changeMenuTheme(theme:string) {
+        this.layoutService.config.menuTheme = theme;
         this.layoutService.onConfigUpdate();
     }
 

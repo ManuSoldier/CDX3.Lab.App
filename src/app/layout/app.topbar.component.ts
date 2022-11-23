@@ -14,7 +14,7 @@ export class AppTopbarComponent {
     
     constructor(public layoutService: LayoutService) { }
 
-    activeItem: number;
+    activeItem!: number;
 
     model: MegaMenuItem[] = [
         {

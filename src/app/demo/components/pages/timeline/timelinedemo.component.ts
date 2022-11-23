@@ -48,9 +48,9 @@ import {PrimeIcons} from 'primeng/api';
 })
 export class TimelineDemoComponent implements OnInit{
 
-    customEvents: any[];
+    customEvents: any[] = [];
 
-    horizontalEvents: any[];
+    horizontalEvents: any[] = [];
 
     ngOnInit() {
         this.customEvents = [

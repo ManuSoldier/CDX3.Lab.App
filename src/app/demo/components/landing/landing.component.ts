@@ -1,8 +1,8 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
-  selector: 'app-landing',
-  templateUrl: './landing.component.html',
+    selector: 'app-landing',
+    templateUrl: './landing.component.html',
     styles: [`
         .videoFrame{
             width: 560px;
@@ -20,15 +20,15 @@ export class LandingComponent {
 
     isMenuActive = false;
 
-    @ViewChild('menu') menuViewChild: ElementRef;
+    @ViewChild('menu') menuViewChild!: ElementRef;
 
-    smoothScroll(id){
+    smoothScroll(id: any) {
         document.querySelector(id).scrollIntoView({
             behavior: 'smooth'
         });
     }
 
-    onMenuButtonClick(e) {
+    onMenuButtonClick(e: MouseEvent) {
         let menu = this.menuViewChild.nativeElement;
 
         if (this.isMenuActive) {
@@ -53,7 +53,7 @@ export class LandingComponent {
         }
     }
 
-    addClass(element, classNames) {
+    addClass(element: HTMLElement, classNames: string) {
         let classNamesArr = classNames.split(' ');
         for (var i = 0; i < classNamesArr.length; i++) {
             let className = classNamesArr[i];
@@ -64,7 +64,7 @@ export class LandingComponent {
         }
     }
 
-    removeClass(element, classNames) {
+    removeClass(element: HTMLElement, classNames: string) {
         let classNamesArr = classNames.split(' ');
         for (var i = 0; i < classNamesArr.length; i++) {
             let className = classNamesArr[i];

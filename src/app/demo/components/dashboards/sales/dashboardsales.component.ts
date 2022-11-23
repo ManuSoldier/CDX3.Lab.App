@@ -8,11 +8,11 @@ import { AppConfig, LayoutService } from 'src/app/layout/service/app.layout.serv
 @Component({
     templateUrl: './dashboardsales.component.html'
 })
-export class DashboardSalesComponent implements OnInit, OnDestroy{
+export class DashboardSalesComponent implements OnInit, OnDestroy {
 
-    cities: SelectItem[];
+    cities: SelectItem[] = [];
 
-    products: Product[];
+    products: Product[] = [];
 
     ordersChart: any;
 
@@ -20,7 +20,7 @@ export class DashboardSalesComponent implements OnInit, OnDestroy{
 
     selectedCity: any;
 
-    timelineEvents: any[];
+    timelineEvents: any[] = [];
 
     overviewChartData1: any;
 
@@ -38,15 +38,15 @@ export class DashboardSalesComponent implements OnInit, OnDestroy{
 
     overviewChartOptions4: any;
 
-    chatMessages: any[];
+    chatMessages: any[] = [];
 
-    chatEmojis: any[];
+    chatEmojis: any[] = [];
 
     config!: AppConfig;
 
     subscription!: Subscription;
 
-    @ViewChild('chatcontainer') chatContainerViewChild: ElementRef;
+    @ViewChild('chatcontainer') chatContainerViewChild!: ElementRef;
 
     constructor(private productService: ProductService, public layoutService: LayoutService) {
         this.subscription = this.layoutService.configUpdate$.subscribe(config => {
@@ -294,16 +294,16 @@ export class DashboardSalesComponent implements OnInit, OnDestroy{
         ];
     }
 
-    onEmojiClick(chatInput, emoji) {
+    onEmojiClick(chatInput: any, emoji: string) {
         if (chatInput) {
             chatInput.value += emoji;
             chatInput.focus();
         }
     }
 
-    onChatKeydown(event) {
+    onChatKeydown(event: KeyboardEvent) {
         if (event.key === 'Enter') {
-            const message = event.currentTarget.value;
+            const message = (<HTMLInputElement>event.currentTarget).value;
             const lastMessage = this.chatMessages[this.chatMessages.length - 1];
 
             if (lastMessage.from) {
@@ -317,7 +317,7 @@ export class DashboardSalesComponent implements OnInit, OnDestroy{
                 this.chatMessages.push({ from: 'Ioni Bowcher', url: 'assets/demo/images/avatar/ionibowcher.png', messages: ['Always bet on Prime!'] });
             }
 
-            event.currentTarget.value = '';
+            (<HTMLInputElement>event.currentTarget).value = '';
 
             const el = this.chatContainerViewChild.nativeElement;
             setTimeout(() => {

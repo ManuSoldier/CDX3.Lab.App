@@ -95,7 +95,7 @@
                 <div class="w-3" *ngFor="let theme of menuThemes">
                     <button type="button" 
                         class="cursor-pointer p-link w-2rem h-2rem border-round shadow-2 flex-shrink-0 flex justify-content-center align-items-center" 
-                        (click)="changeMenuTheme(theme)" 
+                        (click)="changeMenuTheme(theme.name)" 
                         [ngStyle]="{'background-color': theme.color}"><i *ngIf="menuTheme === theme.name" class="pi pi-check text-xl" [ngClass]="{'text-white': menuTheme !== 'light'}"></i></button>
                 </div>
             </div>
@@ -106,7 +106,7 @@
             <div class="w-3" *ngFor="let theme of topbarThemes">
                 <button type="button" 
                 class="cursor-pointer p-link w-2rem h-2rem border-round shadow-2 flex-shrink-0 flex justify-content-center align-items-center" 
-                (click)="changeTopbarTheme(theme)" 
+                (click)="changeTopbarTheme(theme.name)" 
                 [ngStyle]="{'background-color': theme.color}"><i *ngIf="topbarTheme === theme.name" class="pi pi-check text-xl" [ngClass]="{'text-white': topbarTheme !== 'white'}"></i></button>
             </div>
         </div>

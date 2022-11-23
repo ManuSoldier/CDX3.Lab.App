@@ -6,13 +6,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InvoiceComponent implements OnInit {
 
-    billData: any[];
+    billData: any[] = [];
 
-    billCols: any[];
+    billCols: any[] = [];
 
-    productData: any[];
+    productData: any[] = [];
 
-    productCols: any[];
+    productCols: any[] = [];
 
     ngOnInit() {
         this.billData = [

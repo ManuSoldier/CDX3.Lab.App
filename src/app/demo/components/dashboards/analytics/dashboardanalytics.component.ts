@@ -13,9 +13,9 @@ import { AppConfig, LayoutService } from 'src/app/layout/service/app.layout.serv
 })
 export class DashboardAnalyticsComponent implements OnInit, OnDestroy {
 
-    cities: SelectItem[];
+    cities: SelectItem[] = [];
 
-    products: Product[];
+    products: Product[] = [];
 
     chartMonthlyData: any;
 
@@ -73,7 +73,7 @@ export class DashboardAnalyticsComponent implements OnInit, OnDestroy {
 
     mainData: any;
 
-    events: any[];
+    events: any[] = [];
 
     selectedCity: any;
 
@@ -81,23 +81,23 @@ export class DashboardAnalyticsComponent implements OnInit, OnDestroy {
 
     subscription!: Subscription;
 
-    @ViewChild('doughnut') doughnutViewChild: UIChart;
+    @ViewChild('doughnut') doughnutViewChild!: UIChart;
 
-    @ViewChild('bar') chartViewChild: UIChart;
+    @ViewChild('bar') chartViewChild!: UIChart;
 
-    @ViewChild('storeA') storeAViewChild: UIChart;
+    @ViewChild('storeA') storeAViewChild!: UIChart;
 
-    @ViewChild('storeB') storeBViewChild: UIChart;
+    @ViewChild('storeB') storeBViewChild!: UIChart;
 
-    @ViewChild('storeC') storeCViewChild: UIChart;
+    @ViewChild('storeC') storeCViewChild!: UIChart;
 
-    @ViewChild('storeD') storeDViewChild: UIChart;
+    @ViewChild('storeD') storeDViewChild!: UIChart;
 
-    @ViewChild('pie') pieViewChild: UIChart;
+    @ViewChild('pie') pieViewChild!: UIChart;
 
     constructor(public app: AppComponent, private productService: ProductService, private eventService: EventService, public layoutService: LayoutService) {
         this.subscription = this.layoutService.configUpdate$.subscribe(config => {
-            this.config = config;    
+            this.config = config;
         });
     }
 
@@ -304,7 +304,7 @@ export class DashboardAnalyticsComponent implements OnInit, OnDestroy {
             },
         };
 
-        const calculateStore = (storeData, totalValue) => {
+        const calculateStore = (storeData: any, totalValue: number) => {
             let randomNumber = +((Math.random() * 500).toFixed(2));
             let data = [...storeData.datasets[0].data];
             let length = data.length;
