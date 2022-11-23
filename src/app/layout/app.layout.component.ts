@@ -6,6 +6,10 @@ import { AppSidebarComponent } from './app.sidebar.component';
 import { AppTopbarComponent } from './app.topbar.component';
 import { LayoutService } from './service/app.layout.service';
 
+interface StyleClass {
+    [key: string]: any
+}
+
 @Component({
     selector: 'app-layout',
     templateUrl: './app.layout.component.html'
@@ -25,7 +29,7 @@ export class AppLayoutComponent implements OnDestroy {
             if (!this.menuOutsideClickListener) {
                 this.menuOutsideClickListener = this.renderer.listen('document', 'click', event => {
                     const isOutsideClicked = !(this.appSidebar.el.nativeElement.isSameNode(event.target) || this.appSidebar.el.nativeElement.contains(event.target)
-                    || this.appTopbar.menuButton.nativeElement.isSameNode(event.target) || this.appTopbar.menuButton.nativeElement.contains(event.target));
+                        || this.appTopbar.menuButton.nativeElement.isSameNode(event.target) || this.appTopbar.menuButton.nativeElement.contains(event.target));
                     if (isOutsideClicked) {
                         this.hideMenu();
                     }
@@ -67,7 +71,7 @@ export class AppLayoutComponent implements OnDestroy {
         this.layoutService.state.staticMenuMobileActive = false;
         this.layoutService.state.menuHoverActive = false;
         this.menuService.reset();
-        if(this.menuOutsideClickListener) {
+        if (this.menuOutsideClickListener) {
             this.menuOutsideClickListener();
             this.menuOutsideClickListener = null;
         }
@@ -75,12 +79,12 @@ export class AppLayoutComponent implements OnDestroy {
     }
 
     get containerClass() {
-        let styleClass = {
+        let styleClass: StyleClass = {
             'layout-rtl': this.layoutService.config.isRTL,
             'layout-overlay': this.layoutService.config.menuMode === 'overlay',
             'layout-static': this.layoutService.config.menuMode === 'static',
             'layout-slim': this.layoutService.config.menuMode === 'slim',
-            'layout-sidebar': this.layoutService.config.menuMode === 'sidebar',  
+            'layout-sidebar': this.layoutService.config.menuMode === 'sidebar',
             'layout-horizontal': this.layoutService.config.menuMode === 'horizontal',
             'p-input-filled': this.layoutService.config.inputStyle === 'filled',
             'p-ripple-disabled': !this.layoutService.config.ripple,
@@ -89,7 +93,7 @@ export class AppLayoutComponent implements OnDestroy {
             'layout-overlay-active': this.layoutService.state.overlayMenuActive,
             'layout-mobile-active': this.layoutService.state.staticMenuMobileActive,
         };
-        
+
         styleClass['layout-topbar-' + this.layoutService.config.topbarTheme] = true;
         styleClass['layout-menu-' + this.layoutService.config.menuTheme] = true;
         return styleClass;

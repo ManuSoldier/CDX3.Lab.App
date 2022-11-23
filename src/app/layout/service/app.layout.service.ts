@@ -2,8 +2,7 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 
 interface InlineMenuActive {
-    top: boolean;
-    bottom: boolean;
+    [key: string]: boolean
 }
 
 export interface AppConfig {
