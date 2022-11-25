@@ -9,7 +9,14 @@ import { ProductService } from 'src/app/demo/service/product.service';
 import { AppConfig, LayoutService } from 'src/app/layout/service/app.layout.service';
 
 @Component({
-    templateUrl: './dashboardanalytics.component.html'
+    templateUrl: './dashboardanalytics.component.html',
+    styles: [
+        `
+            :host ::ng-deep .p-progressbar {
+                height: 6px;
+            }
+        `,
+    ],
 })
 export class DashboardAnalyticsComponent implements OnInit, OnDestroy {
 
@@ -98,6 +105,9 @@ export class DashboardAnalyticsComponent implements OnInit, OnDestroy {
     constructor(public app: AppComponent, private productService: ProductService, private eventService: EventService, public layoutService: LayoutService) {
         this.subscription = this.layoutService.configUpdate$.subscribe(config => {
             this.config = config;
+            this.monthlyChartInit();
+            this.pieChartInit()
+            this.doughnutChartInit()
         });
     }
 
@@ -114,23 +124,11 @@ export class DashboardAnalyticsComponent implements OnInit, OnDestroy {
         this.cities.push({ label: 'Istanbul', value: { id: 4, name: 'Istanbul', code: 'IST' } });
         this.cities.push({ label: 'Paris', value: { id: 5, name: 'Paris', code: 'PRS' } });
 
-        this.chartMonthlyData = this.getChartData();
-        this.chartMonthlyOptions = this.getChartOptions();
+        this.monthlyChartInit();
 
-        this.doughnutData = this.getDoughnutData();
-        this.doughnutOptions = this.getDoughnutOptions();
+        this.doughnutChartInit();
 
-        this.pieData = this.getPieData();
-        this.pieOptions = this.getPieOptions();
-
-        // this.appMain['refreshChart'] = () => {
-        //     this.chartMonthlyData = this.getChartData();
-        //     this.chartMonthlyOptions = this.getChartOptions();
-        //     this.doughnutData = this.getDoughnutData();
-        //     this.doughnutOptions = this.getDoughnutOptions();
-        //     this.pieData = this.getPieData();
-        //     this.pieOptions = this.getPieOptions();
-        // };
+        this.pieChartInit();
 
         this.storeAData = {
             labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September'],
@@ -352,6 +350,22 @@ export class DashboardAnalyticsComponent implements OnInit, OnDestroy {
         }, 2000);
     }
 
+
+    monthlyChartInit() {
+        this.chartMonthlyData = this.getChartData();
+        this.chartMonthlyOptions = this.getChartOptions();
+    }
+
+    doughnutChartInit() {
+        this.doughnutData = this.getDoughnutData();
+        this.doughnutOptions = this.getDoughnutOptions();
+    }
+
+    pieChartInit() {
+        this.pieData = this.getPieData();
+        this.pieOptions = this.getPieOptions();
+    }
+
     get isRTL(): boolean {
         return this.layoutService.config.isRTL;
     }
@@ -360,8 +374,9 @@ export class DashboardAnalyticsComponent implements OnInit, OnDestroy {
         if (this.storeInterval) {
             clearInterval(this.storeInterval);
         }
-
-        this.subscription.unsubscribe();
+        if (this.subscription) {
+            this.subscription.unsubscribe();
+        }
     }
 
     getColors() {
