@@ -51,6 +51,7 @@ export class DashboardSalesComponent implements OnInit, OnDestroy {
     constructor(private productService: ProductService, public layoutService: LayoutService) {
         this.subscription = this.layoutService.configUpdate$.subscribe(config => {
             this.config = config;
+            this.orderGraphChartInit()
         });
     }
 
@@ -80,36 +81,7 @@ export class DashboardSalesComponent implements OnInit, OnDestroy {
             '😟', '😠', '😡', '🤬', '😔', '😕', '🙁', '😬', '🥺', '😣', '😖', '😫', '😩', '🥱', '😤', '😮', '😱', '😨', '😰', '😯', '😦', '😧', '😢', '😥', '😪', '🤤'
         ];
 
-        this.ordersChart = {
-            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September'],
-            datasets: [{
-                label: 'New Orders',
-                data: [31, 83, 69, 29, 62, 25, 59, 26, 46],
-                borderColor: [
-                    '#4DD0E1',
-                ],
-                backgroundColor: [
-                    'rgba(77, 208, 225, 0.8)',
-                ],
-                borderWidth: 2,
-                fill: true,
-                tension: .4
-            }, {
-                label: 'Completed Orders',
-                data: [67, 98, 27, 88, 38, 3, 22, 60, 56],
-                borderColor: [
-                    '#3F51B5',
-                ],
-                backgroundColor: [
-                    'rgba(63, 81, 181, 0.8)',
-                ],
-                borderWidth: 2,
-                fill: true,
-                tension: .4
-            }]
-        };
-
-        this.ordersOptions = this.getOrdersOptions();
+        this.orderGraphChartInit()
 
         this.overviewChartData1 = {
             labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September'],
@@ -391,6 +363,39 @@ export class DashboardSalesComponent implements OnInit, OnDestroy {
                 }
             }
         };
+    }
+
+    orderGraphChartInit() {
+        this.ordersChart = {
+            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September'],
+            datasets: [{
+                label: 'New Orders',
+                data: [31, 83, 69, 29, 62, 25, 59, 26, 46],
+                borderColor: [
+                    '#4DD0E1',
+                ],
+                backgroundColor: [
+                    'rgba(77, 208, 225, 0.8)',
+                ],
+                borderWidth: 2,
+                fill: true,
+                tension: .4
+            }, {
+                label: 'Completed Orders',
+                data: [67, 98, 27, 88, 38, 3, 22, 60, 56],
+                borderColor: [
+                    '#3F51B5',
+                ],
+                backgroundColor: [
+                    'rgba(63, 81, 181, 0.8)',
+                ],
+                borderWidth: 2,
+                fill: true,
+                tension: .4
+            }]
+        };
+
+        this.ordersOptions = this.getOrdersOptions();
     }
 
     ngOnDestroy() {

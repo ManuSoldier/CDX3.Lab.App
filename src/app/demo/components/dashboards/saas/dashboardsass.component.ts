@@ -1,9 +1,10 @@
 import { Component, Inject, NgZone, OnInit, PLATFORM_ID } from "@angular/core";
 import { isPlatformBrowser } from "@angular/common";
-
 import * as am5 from "@amcharts/amcharts5";
 import * as am5xy from "@amcharts/amcharts5/xy";
 import am5themes_Animated from "@amcharts/amcharts5/themes/Animated";
+import { Subscription } from "rxjs";
+import { LayoutService } from "src/app/layout/service/app.layout.service";
 
 interface DailyTask {
     id: number;
@@ -28,14 +29,25 @@ interface DailyTask {
 export class DashboardSaasComponent implements OnInit {
     private root!: am5.Root;
 
+    subscription!: Subscription
+
     constructor(
         @Inject(PLATFORM_ID) private platformId: Object,
-        private zone: NgZone,
+        private zone: NgZone, private layoutService: LayoutService
     ) {
+        this.subscription = this.layoutService.configUpdate$.subscribe(config => {
+            this.chartInit()
+        })
     }
     ordersOptions: any;
 
-    ngOnInit(): void { }
+    basicData: any;
+
+    basicOptions: any;
+
+    ngOnInit(): void {
+        this.chartInit()
+    }
 
     browserOnly(f: () => void) {
         if (isPlatformBrowser(this.platformId)) {
@@ -193,12 +205,28 @@ export class DashboardSaasComponent implements OnInit {
         });
     }
 
-    ngOnDestroy() {
-        this.browserOnly(() => {
-            if (this.root) {
-                this.root.dispose();
-            }
-        });
+    chartInit() {
+        this.basicData = {
+            labels: ["January", "February", "March", "April", "May"],
+            datasets: [
+                {
+                    label: "Previous Month",
+                    data: [22, 36, 11, 33, 2],
+                    fill: false,
+                    borderColor: "#E0E0E0",
+                    tension: 0.5,
+                },
+                {
+                    label: "Current Month",
+                    data: [22, 16, 31, 11, 38],
+                    fill: false,
+                    borderColor: "#6366F1",
+                    tension: 0.5,
+                },
+            ],
+        };
+        this.basicOptions = this.getBasicOptions();
+
     }
 
     progressValue: number = 25;
@@ -239,8 +267,6 @@ export class DashboardSaasComponent implements OnInit {
             completedTask: 25,
         },
     ];
-
-    basicOptions = this.getBasicOptions();
 
     teamMembers: any = [
         {
@@ -298,25 +324,6 @@ export class DashboardSaasComponent implements OnInit {
         },
     ];
 
-    basicData: any = {
-        labels: ["January", "February", "March", "April", "May"],
-        datasets: [
-            {
-                label: "Previous Month",
-                data: [22, 36, 11, 33, 2],
-                fill: false,
-                borderColor: "#E0E0E0",
-                tension: 0.5,
-            },
-            {
-                label: "Current Month",
-                data: [22, 16, 31, 11, 38],
-                fill: false,
-                borderColor: "#6366F1",
-                tension: 0.5,
-            },
-        ],
-    };
     getBasicOptions() {
         const textColor = getComputedStyle(document.body).getPropertyValue('--text-color')
         return {
@@ -350,6 +357,17 @@ export class DashboardSaasComponent implements OnInit {
                     },
                 },
             },
+        }
+    }
+
+    ngOnDestroy() {
+        this.browserOnly(() => {
+            if (this.root) {
+                this.root.dispose();
+            }
+        });
+        if (this.subscription) {
+            this.subscription.unsubscribe()
         }
     }
 }
