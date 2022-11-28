@@ -6,7 +6,13 @@ import { ProductService } from 'src/app/demo/service/product.service';
 import { AppConfig, LayoutService } from 'src/app/layout/service/app.layout.service';
 
 @Component({
-    templateUrl: './dashboardsales.component.html'
+    templateUrl: './dashboardsales.component.html',
+    styles: [`
+    :host ::ng-deep .p-timeline-event-opposite {
+        flex: 0;
+        padding: 0 !important;
+    }
+`,]
 })
 export class DashboardSalesComponent implements OnInit, OnDestroy {
 
