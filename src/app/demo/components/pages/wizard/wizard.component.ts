@@ -36,11 +36,11 @@ export class WizardComponent {
 
     selectDropdownOptions2: any;
 
-    birthdate: Date;
+    birthdate!: Date;
 
     checked = false;
 
-    radioButton1: string;
+    radioButton1!: string;
 
     constructor() {
         this.dropdownOptions1 = [
@@ -97,11 +97,11 @@ export class WizardComponent {
         ];
     }
 
-    clickNext(step) {
+    clickNext(step: string) {
         this.activeTab = step;
     }
 
-    selectTier(card) {
+    selectTier(card: string) {
         this.activeCard = card;
         this.activeTab = 'payment';
     }

@@ -323,6 +323,11 @@ export class AppMenuComponent implements OnInit {
                         routerLink: ['/pages/invoice']
                     },
                     {
+                        label: 'Wizard',
+                        icon: 'pi pi-fw pi-star',
+                        routerLink: ['/wizard']
+                    },
+                    {
                         label: 'Help',
                         icon: 'pi pi-fw pi-question-circle',
                         routerLink: ['/pages/help']
