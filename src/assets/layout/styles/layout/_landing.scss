@@ -1,43 +1,5 @@
 @use 'sass:math';
 
-.parallax {
-    perspective: 100px;
-    height: 100vh;
-    overflow-x: hidden;
-    overflow-y: auto;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    min-width: 100%;
-}
-
-.parallax__layer {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-
-    img {
-        display: block;
-        position: absolute;
-        bottom: 0;
-    }
-}
-
-.parallax__cover {
-    background-color: #000;
-    display: block;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    height: 100%;
-    z-index: 2;
-}
-
 $parallax__layers: 3;
 
 @for $i from 0 through $parallax__layers {
