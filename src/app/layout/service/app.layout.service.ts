@@ -64,10 +64,14 @@ export class LayoutService {
     private configUpdate = new Subject<AppConfig>();
 
     private overlayOpen = new Subject<any>();
+
+    private topbarMenuOpen = new Subject<any>();
     
     configUpdate$ = this.configUpdate.asObservable();
 
     overlayOpen$ = this.overlayOpen.asObservable();
+
+    topbarMenuOpen$ = this.topbarMenuOpen.asObservable();
 
     onMenuToggle() {
         if (this.isOverlay()) {
@@ -92,6 +96,7 @@ export class LayoutService {
 
     onTopbarMenuToggle() {
         this.state.topbarMenuActive = !this.state.topbarMenuActive;
+        this.topbarMenuOpen.next(null);
     }
 
     onOverlaySubmenuOpen() {

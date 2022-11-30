@@ -12,7 +12,7 @@ export class AppTopbarComponent {
 
     @ViewChild('mobileMenuButton') mobileMenuButton!: ElementRef;
     
-    constructor(public layoutService: LayoutService) { }
+    constructor(public layoutService: LayoutService, public el: ElementRef) {}
 
     activeItem!: number;
 

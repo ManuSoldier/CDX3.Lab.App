@@ -18,6 +18,8 @@ export class AppLayoutComponent implements OnDestroy {
 
     overlayMenuOpenSubscription: Subscription;
 
+    topbarMenuOpenSubscription: Subscription;
+
     menuOutsideClickListener: any;
 
     topbarMenuOutsideClickListener: any;
@@ -43,9 +45,26 @@ export class AppLayoutComponent implements OnDestroy {
             }
         });
 
+        this.topbarMenuOpenSubscription = this.layoutService.topbarMenuOpen$.subscribe(() => {
+            if (!this.topbarMenuOutsideClickListener) {
+                this.topbarMenuOutsideClickListener = this.renderer.listen('document', 'click', event => {
+                    const isOutsideClicked = !(this.appTopbar.el.nativeElement.isSameNode(event.target) || this.appTopbar.el.nativeElement.contains(event.target)
+                        || this.appTopbar.mobileMenuButton.nativeElement.isSameNode(event.target) || this.appTopbar.mobileMenuButton.nativeElement.contains(event.target));
+                    if (isOutsideClicked) {
+                        this.hideTopbarMenu();
+                    }
+                });
+            }
+
+            if (this.layoutService.state.staticMenuMobileActive) {
+                this.blockBodyScroll();
+            }
+        });
+
         this.router.events.pipe(filter(event => event instanceof NavigationEnd))
             .subscribe(() => {
                 this.hideMenu();
+                this.hideTopbarMenu();
             });
     }
 
@@ -79,6 +98,15 @@ export class AppLayoutComponent implements OnDestroy {
             this.menuOutsideClickListener = null;
         }
         this.unblockBodyScroll();
+    }
+
+    hideTopbarMenu() {
+        this.layoutService.state.topbarMenuActive = false;
+        
+        if (this.topbarMenuOutsideClickListener) {
+            this.topbarMenuOutsideClickListener();
+            this.topbarMenuOutsideClickListener = null;
+        }
     }
 
     get containerClass() {
