@@ -25,7 +25,7 @@ interface LayoutState {
     configSidebarVisible: boolean;
     menuHoverActive: boolean;
     rightMenuActive: boolean;
-    mobileTopbarActive: boolean;
+    topbarMenuActive: boolean;
     inlineMenuActive: InlineMenuActive;
 }
 
@@ -35,7 +35,7 @@ interface LayoutState {
 export class LayoutService {
 
     config: AppConfig = {
-        ripple: false,
+        ripple: true,
         inputStyle: 'outlined',
         menuMode: 'static',
         colorScheme: 'light',
@@ -54,7 +54,7 @@ export class LayoutService {
         staticMenuMobileActive: false,
         menuHoverActive: false,
         rightMenuActive: false,
-        mobileTopbarActive: false,
+        topbarMenuActive: false,
         inlineMenuActive: {
             top: false,
             bottom: false
@@ -64,7 +64,7 @@ export class LayoutService {
     private configUpdate = new Subject<AppConfig>();
 
     private overlayOpen = new Subject<any>();
-
+    
     configUpdate$ = this.configUpdate.asObservable();
 
     overlayOpen$ = this.overlayOpen.asObservable();
@@ -88,6 +88,10 @@ export class LayoutService {
                 this.overlayOpen.next(null);
             }
         }
+    }
+
+    onTopbarMenuToggle() {
+        this.state.topbarMenuActive = !this.state.topbarMenuActive;
     }
 
     onOverlaySubmenuOpen() {
@@ -128,6 +132,10 @@ export class LayoutService {
 
     isRightMenuActive(): boolean {
         return this.state.rightMenuActive;
+    }
+
+    openRightSidebar(): void {
+        this.state.rightMenuActive = true;
     }
 
     onInlineMenuToggle(key: string) {

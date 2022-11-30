@@ -76,7 +76,7 @@ export class AppTopbarComponent {
     ];
 
     get mobileTopbarActive(): boolean {
-        return this.layoutService.state.mobileTopbarActive;
+        return this.layoutService.state.topbarMenuActive;
     }
 
     onMenuButtonClick() {
@@ -84,10 +84,10 @@ export class AppTopbarComponent {
     }
 
     onRightMenuButtonClick() {
-        this.layoutService.state.rightMenuActive = !this.layoutService.state.rightMenuActive;
+        this.layoutService.openRightSidebar();
     }
 
-    onMobileMenuButtonClick() {
-        this.layoutService.state.mobileTopbarActive = !this.layoutService.state.mobileTopbarActive;
+    onMobileTopbarMenuButtonClick() {
+        this.layoutService.onTopbarMenuToggle();
     }
 }

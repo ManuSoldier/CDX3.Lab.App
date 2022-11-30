@@ -78,5 +78,97 @@
             height: 100%;
             background-color: var(--maskbg);
         }
+
+        &.layout-topbar-menu-active {
+            .layout-topbar {
+                .layout-topbar-end {
+                    display: flex;
+                    flex-direction: column-reverse;
+                    align-items: stretch;
+                    position: fixed;
+                    top: 4rem;
+                    width: 100%;
+                    background-color: var(--topbar-bg);
+                    padding-left: 0;
+
+                    .layout-megamenu {   
+                        height: 3rem;
+
+                        &.p-megamenu .p-megamenu-root-list > .p-menuitem {
+                            position: static;
+
+                            .p-megamenu-panel {
+                                position: absolute;
+                                left: 1rem;
+                                right: 1rem;
+                                max-height: 20rem;
+                                overflow: auto;
+                            }
+
+                            .p-megamenu-grid {
+                                flex-direction: column;
+                            }
+                        }
+                    }
+
+                    .layout-topbar-items {
+                        justify-content: space-between;
+                        align-items: center;
+                        height: 3rem;
+                        padding: 0 1rem;
+
+                        > li {
+                            position: static;
+
+                            > div {
+                                left: 1rem;
+                                right: 1rem;
+                            }
+                        }
+                    }
+                }
+
+                .layout-topbar-actions-start {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 3rem;
+                }
+            }
+        }
+    }
+
+    .layout-topbar {
+        display: flex;
+        flex-direction: column;
+
+        .layout-topbar-start {
+            padding: 0 1rem;
+            width: 100%;
+            height: 4rem;
+            justify-content: start;
+
+            .layout-menu-button {
+                position: static;
+                margin-top: 0;
+                margin-left: 1rem;
+            }
+
+            .layout-topbar-mobile-button {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-left: auto;
+                transition: background-color var(--transition-duration);
+
+                &:hover {
+                    background-color: var(--topbar-bg);
+                }
+            }
+        }
+
+        .layout-topbar-end {
+            display: none;
+        }
     }
 }

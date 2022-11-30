@@ -20,6 +20,8 @@ export class AppLayoutComponent implements OnDestroy {
 
     menuOutsideClickListener: any;
 
+    topbarMenuOutsideClickListener: any;
+
     @ViewChild(AppSidebarComponent) appSidebar!: AppSidebarComponent;
 
     @ViewChild(AppTopbarComponent) appTopbar!: AppTopbarComponent;
@@ -71,6 +73,7 @@ export class AppLayoutComponent implements OnDestroy {
         this.layoutService.state.staticMenuMobileActive = false;
         this.layoutService.state.menuHoverActive = false;
         this.menuService.reset();
+        
         if (this.menuOutsideClickListener) {
             this.menuOutsideClickListener();
             this.menuOutsideClickListener = null;
@@ -88,10 +91,10 @@ export class AppLayoutComponent implements OnDestroy {
             'layout-horizontal': this.layoutService.config.menuMode === 'horizontal',
             'p-input-filled': this.layoutService.config.inputStyle === 'filled',
             'p-ripple-disabled': !this.layoutService.config.ripple,
-            'layout-menu-mobile-active': this.layoutService.state.staticMenuMobileActive,
             'layout-static-inactive': this.layoutService.state.staticMenuDesktopInactive && this.layoutService.config.menuMode === 'static',
             'layout-overlay-active': this.layoutService.state.overlayMenuActive,
             'layout-mobile-active': this.layoutService.state.staticMenuMobileActive,
+            'layout-topbar-menu-active': this.layoutService.state.topbarMenuActive
         };
 
         styleClass['layout-topbar-' + this.layoutService.config.topbarTheme] = true;
