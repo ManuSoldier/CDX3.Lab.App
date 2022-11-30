@@ -6,10 +6,6 @@ import { AppSidebarComponent } from './app.sidebar.component';
 import { AppTopbarComponent } from './app.topbar.component';
 import { LayoutService } from './service/app.layout.service';
 
-interface StyleClass {
-    [key: string]: any
-}
-
 @Component({
     selector: 'app-layout',
     templateUrl: './app.layout.component.html'
@@ -110,7 +106,7 @@ export class AppLayoutComponent implements OnDestroy {
     }
 
     get containerClass() {
-        let styleClass: StyleClass = {
+        let styleClass: {[key: string]: any} = {
             'layout-rtl': this.layoutService.config.isRTL,
             'layout-overlay': this.layoutService.config.menuMode === 'overlay',
             'layout-static': this.layoutService.config.menuMode === 'static',
