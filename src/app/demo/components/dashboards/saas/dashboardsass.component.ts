@@ -37,6 +37,7 @@ export class DashboardSaasComponent implements OnInit {
     ) {
         this.subscription = this.layoutService.configUpdate$.subscribe(config => {
             this.chartInit()
+            this.ganttChartInit()
         })
     }
     ordersOptions: any;
@@ -44,6 +45,8 @@ export class DashboardSaasComponent implements OnInit {
     basicData: any;
 
     basicOptions: any;
+
+    currentTeamsTab: string = 'team'
 
     ngOnInit(): void {
         this.chartInit()
@@ -58,7 +61,11 @@ export class DashboardSaasComponent implements OnInit {
     }
 
     ngAfterViewInit() {
-        const primaryColor = getComputedStyle(document.body).getPropertyValue('--primary-color');
+        this.ganttChartInit()
+    }
+
+    ganttChartInit() {
+        const surfaceCard = getComputedStyle(document.body).getPropertyValue('--surface-card');
 
         this.browserOnly(() => {
             let root = am5.Root.new("chartdiv");
@@ -86,7 +93,7 @@ export class DashboardSaasComponent implements OnInit {
                     start: new Date(2016, 1, 4).getTime(),
                     end: new Date(2016, 4, 14).getTime(),
                     columnSettings: {
-                        fill: am5.color(primaryColor),
+                        fill: am5.color(surfaceCard),
                         shadowColor: am5.color(0x000000),
                         shadowBlur: 10,
                         shadowOffsetX: 3,
@@ -100,7 +107,7 @@ export class DashboardSaasComponent implements OnInit {
                     start: new Date(2016, 0, 8).getTime(),
                     end: new Date(2016, 3, 10).getTime(),
                     columnSettings: {
-                        fill: am5.color(primaryColor),
+                        fill: am5.color(surfaceCard),
                         shadowColor: am5.color(0x000000),
                         shadowBlur: 10,
                         shadowOffsetX: 3,
@@ -114,7 +121,7 @@ export class DashboardSaasComponent implements OnInit {
                     start: new Date(2016, 2, 23).getTime(),
                     end: new Date(2016, 7, 8).getTime(),
                     columnSettings: {
-                        fill: am5.color(primaryColor),
+                        fill: am5.color(surfaceCard),
                         shadowColor: am5.color(0x000000),
                         shadowBlur: 10,
                         shadowOffsetX: 3,
@@ -128,7 +135,7 @@ export class DashboardSaasComponent implements OnInit {
                     start: new Date(2016, 3, 27).getTime(),
                     end: new Date(2016, 9, 15).getTime(),
                     columnSettings: {
-                        fill: am5.color(primaryColor),
+                        fill: am5.color(surfaceCard),
                         shadowColor: am5.color(0x000000),
                         shadowBlur: 10,
                         shadowOffsetX: 3,
@@ -142,7 +149,7 @@ export class DashboardSaasComponent implements OnInit {
                     start: new Date(2016, 2, 8).getTime(),
                     end: new Date(2016, 8, 30).getTime(),
                     columnSettings: {
-                        fill: am5.color(primaryColor),
+                        fill: am5.color(surfaceCard),
                         shadowColor: am5.color(0x000000),
                         shadowBlur: 10,
                         shadowOffsetX: 3,
@@ -323,6 +330,10 @@ export class DashboardSaasComponent implements OnInit {
             images: ["sd", "asdas"],
         },
     ];
+
+    changeChecked() {
+        this.completeTask = this.dailyTasks.filter((task) => task.checked).length
+    }
 
     getBasicOptions() {
         const textColor = getComputedStyle(document.body).getPropertyValue('--text-color')
