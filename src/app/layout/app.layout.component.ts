@@ -107,7 +107,6 @@ export class AppLayoutComponent implements OnDestroy {
 
     get containerClass() {
         let styleClass: {[key: string]: any} = {
-            'layout-rtl': this.layoutService.config.isRTL,
             'layout-overlay': this.layoutService.config.menuMode === 'overlay',
             'layout-static': this.layoutService.config.menuMode === 'static',
             'layout-slim': this.layoutService.config.menuMode === 'slim',

@@ -3,8 +3,8 @@
         <div class="surface-card p-3 shadow-3 border-round-md flex flex-column pt-2">
             <div class="flex align-items-center text-gray-700">
                 <i class="pi pi-shopping-cart text-color"></i>
-                <h6 class="m-0 text-color" [ngClass]="{'pl-2': !layoutService.config.isRTL, 'pr-2': layoutService.config.isRTL}">Orders</h6>
-                <div [ngClass]="{'ml-auto': !layoutService.config.isRTL, 'mr-auto': layoutService.config.isRTL}">
+                <h6 class="m-0 text-color pl-2">Orders</h6>
+                <div class="ml-auto">
                     <button pButton pRipple type="button" icon="pi pi-ellipsis-h"
                         class="p-button-rounded p-button-text" (click)="menu1.toggle($event)"></button>
                     <p-menu #menu1 [popup]="true"
@@ -28,8 +28,8 @@
         <div class="surface-card p-3 shadow-3 border-round-md flex flex-column pt-2">
             <div class="flex align-items-center text-gray-700">
                 <i class="pi pi-dollar text-color"></i>
-                <h6 class="m-0 text-color" [ngClass]="{'pl-2': !layoutService.config.isRTL, 'pr-2': layoutService.config.isRTL}">Revenue</h6>
-                <div [ngClass]="{'ml-auto': !layoutService.config.isRTL, 'mr-auto': layoutService.config.isRTL}">
+                <h6 class="m-0 text-color pl-2">Revenue</h6>
+                <div class="ml-auto">
                     <button pButton pRipple type="button" icon="pi pi-ellipsis-h"
                         class="p-button-rounded p-button-text" (click)="menu2.toggle($event)"></button>
                     <p-menu #menu2 [popup]="true"
@@ -53,8 +53,8 @@
         <div class="surface-card p-3 shadow-3 border-round-md flex flex-column pt-2">
             <div class="flex align-items-center text-gray-700">
                 <i class="pi pi-users text-color"></i>
-                <h6 class="m-0 text-color" [ngClass]="{'pl-2': !layoutService.config.isRTL, 'pr-2': layoutService.config.isRTL}">Customers</h6>
-                <div [ngClass]="{'ml-auto': !layoutService.config.isRTL, 'mr-auto': layoutService.config.isRTL}">
+                <h6 class="m-0 text-color pl-2">Customers</h6>
+                <div class="ml-auto">
                     <button pButton pRipple type="button" icon="pi pi-ellipsis-h"
                         class="p-button-rounded p-button-text" (click)="menu3.toggle($event)"></button>
                     <p-menu #menu3 [popup]="true"
@@ -79,8 +79,8 @@
         <div class="surface-card p-3 shadow-3 border-round-md flex flex-column pt-2">
             <div class="flex align-items-center text-gray-700">
                 <i class="pi pi-comments text-color"></i>
-                <h6 class="m-0 text-color" [ngClass]="{'pl-2': !layoutService.config.isRTL, 'pr-2': layoutService.config.isRTL}">Comments</h6>
-                <div [ngClass]="{'ml-auto': !layoutService.config.isRTL, 'mr-auto': layoutService.config.isRTL}">
+                <h6 class="m-0 text-color pl-2">Comments</h6>
+                <div class="ml-auto">
                     <button pButton pRipple type="button" icon="pi pi-ellipsis-h"
                         class="p-button-rounded p-button-text p-button-plain" (click)="menu4.toggle($event)"></button>
                     <p-menu #menu4 [popup]="true"
@@ -116,67 +116,59 @@
                 <li class="flex align-items-center py-3">
                     <div class="flex align-items-center">
                         <img src="assets/demo/images/avatar/xuxuefeng.png">
-                        <div [ngClass]="{'ml-2': !layoutService.config.isRTL, 'mr-2': layoutService.config.isRTL}">
+                        <div class="ml-2">
                             <div>Xuxue Feng</div>
                             <small class="text-color-secondary">feng@ultima.org</small>
                         </div>
                     </div>
-                    <span class="bg-indigo-500 p-1 font-medium text-white border-round-xs text-sm"
-                        [ngClass]="{'ml-auto': !layoutService.config.isRTL, 'mr-auto': layoutService.config.isRTL}">Accounting</span>
-                    <span class="bg-orange-500 p-1 text-sm font-medium text-white border-round-xs"
-                        [ngClass]="{'ml-2': !layoutService.config.isRTL, 'mr-2': layoutService.config.isRTL}">Sales</span>
+                    <span class="bg-indigo-500 p-1 font-medium text-white border-round-xs text-sm ml-auto">Accounting</span>
+                    <span class="bg-orange-500 p-1 text-sm font-medium text-white border-round-xs ml-2">Sales</span>
                 </li>
 
                 <li class="flex align-items-center py-3">
                     <div class="flex align-items-center">
                         <img src="assets/demo/images/avatar/elwinsharvill.png">
-                        <div [ngClass]="{'ml-2': !layoutService.config.isRTL, 'mr-2': layoutService.config.isRTL}">
+                        <div class="ml-2">
                             <div>Elwin Sharvill</div>
                             <small class="text-color-secondary">sharvill@ultima.org</small>
                         </div>
                     </div>
-                    <span class="bg-teal-500 p-1 text-sm font-medium text-white border-round-xs"
-                        [ngClass]="{'ml-auto': !layoutService.config.isRTL, 'mr-auto': layoutService.config.isRTL}">Finance</span>
-                    <span class="bg-orange-500 p-1 text-sm font-medium text-white border-round-xs"
-                        [ngClass]="{'ml-2': !layoutService.config.isRTL, 'mr-2': layoutService.config.isRTL}">Sales</span>
+                    <span class="bg-teal-500 p-1 text-sm font-medium text-white border-round-xs ml-auto">Finance</span>
+                    <span class="bg-orange-500 p-1 text-sm font-medium text-white border-round-xs ml-2">Sales</span>
                 </li>
 
                 <li class="flex align-items-center py-3">
                     <div class="flex align-items-center">
                         <img src="assets/demo/images/avatar/avatar-1.png">
-                        <div [ngClass]="{'ml-2': !layoutService.config.isRTL, 'mr-2': layoutService.config.isRTL}">
+                        <div class="ml-2">
                             <div>Anna Fali</div>
                             <small class="text-color-secondary">fali@ultima.org</small>
                         </div>
                     </div>
-                    <span class="bg-pink-500 p-1 text-sm font-medium text-white border-round-xs"
-                        [ngClass]="{'ml-auto': !layoutService.config.isRTL, 'mr-auto': layoutService.config.isRTL}">Management</span>
+                    <span class="bg-pink-500 p-1 text-sm font-medium text-white border-round-xs ml-auto">Management</span>
                 </li>
 
                 <li class="flex align-items-center py-3">
                     <div class="flex align-items-center">
                         <img src="assets/demo/images/avatar/avatar-2.png">
-                        <div [ngClass]="{'ml-2': !layoutService.config.isRTL, 'mr-2': layoutService.config.isRTL}">
+                        <div class="ml-2">
                             <div>Jon Stone</div>
                             <small class="text-color-secondary">stone@ultima.org</small>
                         </div>
                     </div>
-                    <span class="bg-pink-500 p-1 text-sm font-medium text-white border-round-xs"
-                        [ngClass]="{'ml-auto': !layoutService.config.isRTL, 'mr-auto': layoutService.config.isRTL}">Management</span>
-                    <span class="bg-teal-500 p-1 text-sm font-medium text-white border-round-xs"
-                        [ngClass]="{'ml-2': !layoutService.config.isRTL, 'mr-2': layoutService.config.isRTL}">Finance</span>
+                    <span class="bg-pink-500 p-1 text-sm font-medium text-white border-round-xs ml-auto">Management</span>
+                    <span class="bg-teal-500 p-1 text-sm font-medium text-white border-round-xs ml-2">Finance</span>
                 </li>
 
                 <li class="flex align-items-center py-3">
                     <div class="flex align-items-center">
                         <img src="assets/demo/images/avatar/avatar-3.png">
-                        <div [ngClass]="{'ml-2': !layoutService.config.isRTL, 'mr-2': layoutService.config.isRTL}">
+                        <div class="ml-2">
                             <div>Stephen Shaw</div>
                             <small class="text-color-secondary">shaw@ultima.org</small>
                         </div>
                     </div>
-                    <span class="bg-teal-500 p-1 text-sm font-medium text-white border-round-xs"
-                        [ngClass]="{'ml-auto': !layoutService.config.isRTL, 'mr-auto': layoutService.config.isRTL}">Finance</span>
+                    <span class="bg-teal-500 p-1 text-sm font-medium text-white border-round-xs ml-auto">Finance</span>
                 </li>
             </ul>
         </div>
@@ -260,8 +252,7 @@
                         </td>
                         <td>
                             <button pRipple pButton type="button" icon="pi pi-search"
-                                class="p-button-rounded p-button-text mb-1"
-                                [ngClass]="{'mr-2': !layoutService.config.isRTL, 'ml-2': layoutService.config.isRTL}"></button>
+                                class="p-button-rounded p-button-text mb-1 mr-2"></button>
                         </td>
                     </tr>
                 </ng-template>
@@ -284,8 +275,7 @@
                 <ul class="m-0 px-3 pt-3 pb-0 border-none list-none h-30rem overflow-y-auto outline-none" #chatcontainer>
                     <li *ngFor="let chartMessage of chatMessages; let last = last;" class="flex align-items-start"
                         [ngClass]="{'from': !!chartMessage.from, 'text-right justify-content-end': !chartMessage.from, 'mb-3': !last, 'mb-1': last}">
-                        <img *ngIf="!!chartMessage.url" [src]="chartMessage.url" alt="avatar" width="32px"
-                            [ngClass]="{'mr-2': !layoutService.config.isRTL, 'ml-2': layoutService.config.isRTL}">
+                        <img *ngIf="!!chartMessage.url" [src]="chartMessage.url" alt="avatar" width="32px" class="mr-2">
                         <div class="flex flex-column"
                             [ngClass]="{'align-items-start': !!chartMessage.from, 'align-items-end': !chartMessage.from}">
                             <span *ngFor="let message of chartMessage.messages; let first = first" class="p-3 border-round-3xl text-white"
@@ -395,57 +385,49 @@
             <ul class="m-0 p-0 border-none outline-none list-none">
                 <li class="py-3 px-0">
                     <div class="border-round-sm h-4rem surface-200 transition-transform transition-duration-200 flex align-items-center p-3 mb-2 cursor-pointer hover:surface-100">
-                        <img width="32px" height="32px" class="border-circle" src="assets/demo/images/product/blue-band.jpg" alt="product"
-                            [ngClass]="{'mr-3': !layoutService.config.isRTL, 'ml-3': layoutService.config.isRTL}">
+                        <img width="32px" height="32px" class="border-circle mr-3" src="assets/demo/images/product/blue-band.jpg" alt="product">
                         <span>Blue Band</span>
                         <span class="ml-auto"><a href="#"><i class="pi pi-chevron-right text-color-secondary"></i></a></span>
                     </div>
 
                     <div class="border-round-sm h-4rem surface-200 transition-transform transition-duration-200 flex align-items-center p-3 mb-2 cursor-pointer hover:surface-100">
-                        <img width="32px" height="32px" class="border-circle" src="assets/demo/images/product/bracelet.jpg" alt="product"
-                            [ngClass]="{'mr-3': !layoutService.config.isRTL, 'ml-3': layoutService.config.isRTL}">
+                        <img width="32px" height="32px" class="border-circle mr-3" src="assets/demo/images/product/bracelet.jpg" alt="product">
                         <span>Bracelet</span>
                         <span class="ml-auto"><a href="#"><i class="pi pi-chevron-right text-color-secondary"></i></a></span>
                     </div>
 
                     <div class="border-round-sm h-4rem surface-200 transition-transform transition-duration-200 flex align-items-center p-3 mb-2 cursor-pointer hover:surface-100">
-                        <img width="32px" height="32px" class="border-circle" src="assets/demo/images/product/black-watch.jpg" alt="product"
-                            [ngClass]="{'mr-3': !layoutService.config.isRTL, 'ml-3': layoutService.config.isRTL}">
+                        <img width="32px" height="32px" class="border-circle mr-3" src="assets/demo/images/product/black-watch.jpg" alt="product">
                         <span>Black Watch</span>
                         <span class="ml-auto"><a href="#"><i class="pi pi-chevron-right text-color-secondary"></i></a></span>
                     </div>
 
                     <div class="border-round-sm h-4rem surface-200 transition-transform transition-duration-200 flex align-items-center p-3 mb-2 cursor-pointer hover:surface-100">
-                        <img width="32px" height="32px" class="border-circle"  src="assets/demo/images/product/bamboo-watch.jpg" alt="product"
-                            [ngClass]="{'mr-3': !layoutService.config.isRTL, 'ml-3': layoutService.config.isRTL}">
+                        <img width="32px" height="32px" class="border-circle mr-3"  src="assets/demo/images/product/bamboo-watch.jpg" alt="product">
                         <span>Bamboo Watch</span>
                         <span class="ml-auto"><a href="#"><i class="pi pi-chevron-right text-color-secondary"></i></a></span>
                     </div>
 
                     <div class="border-round-sm h-4rem surface-200 transition-transform transition-duration-200 flex align-items-center p-3 mb-2 cursor-pointer hover:surface-100">
-                        <img width="32px" height="32px" class="border-circle" src="assets/demo/images/product/blue-t-shirt.jpg" alt="product"
-                            [ngClass]="{'mr-3': !layoutService.config.isRTL, 'ml-3': layoutService.config.isRTL}">
+                        <img width="32px" height="32px" class="border-circle mr-3" src="assets/demo/images/product/blue-t-shirt.jpg" alt="product">
                         <span>Blue T-Shirt</span>
                         <span class="ml-auto"><a href="#"><i class="pi pi-chevron-right text-color-secondary"></i></a></span>
                     </div>
 
                     <div class="border-round-sm h-4rem surface-200 transition-transform transition-duration-200 flex align-items-center p-3 mb-2 cursor-pointer hover:surface-100">
-                        <img width="32px" height="32px" class="border-circle" src="assets/demo/images/product/game-controller.jpg" alt="product"
-                            [ngClass]="{'mr-3': !layoutService.config.isRTL, 'ml-3': layoutService.config.isRTL}">
+                        <img width="32px" height="32px" class="border-circle mr-3" src="assets/demo/images/product/game-controller.jpg" alt="product">
                         <span>Game Controller</span>
                         <span class="ml-auto"><a href="#"><i class="pi pi-chevron-right text-color-secondary"></i></a></span>
                     </div>
 
                     <div class="border-round-sm h-4rem surface-200 transition-transform transition-duration-200 flex align-items-center p-3 mb-2 cursor-pointer hover:surface-100">
-                        <img width="32px" height="32px" class="border-circle" src="assets/demo/images/product/gold-phone-case.jpg" alt="product"
-                            [ngClass]="{'mr-3': !layoutService.config.isRTL, 'ml-3': layoutService.config.isRTL}">
+                        <img width="32px" height="32px" class="border-circle mr-3" src="assets/demo/images/product/gold-phone-case.jpg" alt="product">
                         <span>Phone Case</span>
                         <span class="ml-auto"><a href="#"><i class="pi pi-chevron-right text-color-secondary"></i></a></span>
                     </div>
 
                     <div class="border-round-sm h-4rem surface-200 transition-transform transition-duration-200 flex align-items-center p-3 mb-2 cursor-pointer hover:surface-100">
-                        <img width="32px" height="32px" class="border-circle" src="assets/demo/images/product/purple-t-shirt.jpg" alt="product"
-                            [ngClass]="{'mr-3': !layoutService.config.isRTL, 'ml-3': layoutService.config.isRTL}">
+                        <img width="32px" height="32px" class="border-circle mr-3" src="assets/demo/images/product/purple-t-shirt.jpg" alt="product">
                         <span>Purple T-Shirt</span>
                         <span class="ml-auto"><a href="#"><i class="pi pi-chevron-right text-color-secondary"></i></a></span>
                     </div>

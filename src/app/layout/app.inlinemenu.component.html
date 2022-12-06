@@ -3,11 +3,11 @@
     [ngClass]="layoutService.isHorizontal() ? 'p-3 py-3' : 'p-3'" (click)="onClick()"
         pTooltip="Amy Elsner" [tooltipDisabled]="isTooltipDisabled">
         <img src="assets/demo/images/avatar/amyelsner.png" alt="avatar" style="width: 32px; height: 32px;">
-        <span class="flex flex-column" [ngClass]="{'ml-2': !layoutService.config.isRTL, 'mr-2': layoutService.config.isRTL}">
+        <span class="flex flex-column ml-2">
             <span class="font-bold">Amy Elsner</span>
             <small>Webmaster</small>
         </span>
-        <i class="layout-inline-menu-icon pi pi-angle-down" [ngClass]="{'ml-auto': !layoutService.config.isRTL, 'mr-auto': layoutService.config.isRTL}"></i>
+        <i class="layout-inline-menu-icon pi pi-angle-down ml-auto"></i>
     </a>
 
     <ul class="layout-inline-menu-action-panel" [@menu]="layoutService.state.inlineMenuActive[key] ? isHorizontalActive() ? 'visible' : 'visibleAnimated' : isHorizontalActive() ? 'hidden' : 'hiddenAnimated'">

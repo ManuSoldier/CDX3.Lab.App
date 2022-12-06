@@ -82,14 +82,6 @@ export class AppConfigComponent implements OnInit {
         this.layoutService.config.ripple = _val;
     }
 
-    get rtl(): boolean {
-        return this.layoutService.config.isRTL;
-    }
-
-    set rtl(_val: boolean) {
-        this.layoutService.config.isRTL = _val;
-    }
-
     get menuTheme(): string {
         return this.layoutService.config.menuTheme;
     }

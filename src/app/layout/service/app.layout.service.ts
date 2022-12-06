@@ -14,7 +14,6 @@ export interface AppConfig {
     scale: number;
     menuTheme: string;
     topbarTheme: string;
-    isRTL: boolean;
     inlineMenuPosition: string;
 }
 
@@ -43,7 +42,6 @@ export class LayoutService {
         scale: 14,
         menuTheme: 'light',
         topbarTheme: 'blue',
-        isRTL: false,
         inlineMenuPosition: 'bottom'
     };
 
@@ -129,10 +127,6 @@ export class LayoutService {
 
     onConfigUpdate() {
         this.configUpdate.next(this.config);
-    }
-
-    isRTL() {
-        return this.config.isRTL;
     }
 
     isRightMenuActive(): boolean {

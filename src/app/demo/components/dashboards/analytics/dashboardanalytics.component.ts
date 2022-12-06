@@ -366,10 +366,6 @@ export class DashboardAnalyticsComponent implements OnInit, OnDestroy {
         this.pieOptions = this.getPieOptions();
     }
 
-    get isRTL(): boolean {
-        return this.layoutService.config.isRTL;
-    }
-
     ngOnDestroy() {
         if (this.storeInterval) {
             clearInterval(this.storeInterval);
