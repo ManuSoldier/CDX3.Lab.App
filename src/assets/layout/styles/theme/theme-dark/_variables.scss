@@ -824,12 +824,6 @@ $imagePreviewActionIconBorderRadius:50% !default;
 
 
 :root {
-    --surface-a:#1e1e1e;
-    --surface-b:#121212;
-    --surface-c:hsla(0,0%,100%,.04);
-    --surface-d:hsla(0,0%,100%,.12);
-    --surface-e:#1e1e1e;
-    --surface-f:#262626;
     --text-color:#{$textColor};
     --text-color-secondary:#{$textSecondaryColor};
     --primary-color:#{$primaryColor};
@@ -869,5 +863,6 @@ $imagePreviewActionIconBorderRadius:50% !default;
     --maskbg: #{$maskBg};
     --focus-ring: #{$focusShadow};
     --transition-duration: #{$transitionDuration};
+    color-scheme: light;
 }
 
