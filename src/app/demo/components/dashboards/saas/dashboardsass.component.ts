@@ -1,4 +1,4 @@
-import { Component, Inject, NgZone, OnInit, PLATFORM_ID } from "@angular/core";
+import { AfterViewInit, Component, Inject, NgZone, OnDestroy, OnInit, PLATFORM_ID } from "@angular/core";
 import { isPlatformBrowser } from "@angular/common";
 import * as am5 from "@amcharts/amcharts5";
 import * as am5xy from "@amcharts/amcharts5/xy";
@@ -26,20 +26,18 @@ interface DailyTask {
         `,
     ],
 })
-export class DashboardSaasComponent implements OnInit {
+export class DashboardSaasComponent implements OnInit, AfterViewInit, OnDestroy {
     private root!: am5.Root;
 
     subscription!: Subscription
 
-    constructor(
-        @Inject(PLATFORM_ID) private platformId: Object,
-        private zone: NgZone, private layoutService: LayoutService
-    ) {
+    constructor(@Inject(PLATFORM_ID) private platformId: Object,private zone: NgZone, private layoutService: LayoutService) {
         this.subscription = this.layoutService.configUpdate$.subscribe(config => {
             this.chartInit()
             this.ganttChartInit()
         })
     }
+
     ordersOptions: any;
 
     basicData: any;

@@ -12,10 +12,10 @@
                             (click)="clickNext('register')">
                             <div class="line-height-3">
                                 <i style="width:20px" class="pi pi-sign-in opacity-40 text-white"
-                                    [ngClass]="{'opacity-100': activeTab == 'register'}"></i>
+                                    [ngClass]="{'opacity-100': activeTab === 'register'}"></i>
                             </div>
                             <div class="text-white opacity-40 text-lg line-height-3"
-                                [ngClass]="{'opacity-100': activeTab == 'register'}">REGISTER</div>
+                                [ngClass]="{'opacity-100': activeTab === 'register'}">REGISTER</div>
                         </div>
                         <div class="col-4 cursor-pointer bg-indigo-500 text-center"
                             [ngClass]="{'transition-duration-500': activeTab === 'tier'}" (click)="clickNext('tier')">
