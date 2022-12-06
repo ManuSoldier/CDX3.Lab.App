@@ -1,105 +1,99 @@
-<div class="grid">
-    <div class="col-12">
-        <div class="card p-0">
-            <div class="grid grid-nogutter">
-                <div class="col-12 relative">
-                    <img src="assets/layout/images/extensions/help-header@2x.jpg" alt="help-header" style="width: 100%" />
-                    <h1 class="absolute pl-5 top-50 -mt-4 text-white">Frequently Asked Questions</h1>
-                    <div style="bottom:-1rem; width:calc(100% - 4rem);left:2rem" class="absolute border-round-md p-input-icon-left p-fluid shadow-2">
-                        <i class="pi pi-search"></i>
-                        <input type="text" pInputText placeholder="Search" class="border-none">
-                    </div>
+<div>
+    <div class="card">
+        <div class="relative overflow-hidden h-20rem bg-primary flex flex-column align-items-center justify-content-center border-round mb-8">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="absolute w-full top-0 left-0">
+                <path fill="var(--primary-600)" fill-opacity="1" d="M0,64L48,90.7C96,117,192,171,288,208C384,245,480,267,576,256C672,245,768,203,864,165.3C960,128,1056,96,1152,74.7C1248,53,1344,43,1392,37.3L1440,32L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path>
+            </svg>
+            <div class="font-bold mb-5 text-4xl z-1">How can we help?</div>
+            <span class="p-input-icon-left w-9 md:w-6">
+                <i class="pi pi-search"></i>
+                <input type="text" pInputText placeholder="Search" style="border-radius:2rem" class="w-full "/>
+            </span>
+        </div>
+
+        <div class="grid mb-5">
+            <div class="col-12 md:col-4 mb-5">
+                <div class="flex flex-column align-items-center">
+                    <span class="inline-flex align-items-center justify-content-center border-circle w-5rem h-5rem bg-primary-100 mb-5">
+                        <i class="pi pi-power-off text-4xl text-primary-700"></i>
+                    </span>
+                    <div class="text-2xl mb-3 font-medium">Getting Started</div>
+                    <ul class="list-none m-0 p-0 text-center">
+                        <li class="line-height-3 mb-1"><a class="text-color-secondary hover:text-primary cursor-pointer">Lorem ipsum dolor</a></li>
+                        <li class="line-height-3 mb-1"><a class="text-color-secondary hover:text-primary cursor-pointer">Consectetur adipiscing elit</a></li>
+                        <li class="line-height-3 mb-3"><a class="text-color-secondary hover:text-primary cursor-pointer">Sed do eiusmod tempor</a></li>
+                        <li><a class="text-primary hover:underline cursor-pointer font-medium">View all</a></li>
+                    </ul>
                 </div>
-                <div class="col-12 p-5">
-                    <p-accordion>
-                        <p-accordionTab>
-                            <p-header>
-                                <div class="flex align-items-center">
-                                    <i class="pi pi-bookmark text-4xl mr-3 text-pink-500"></i>
-                                    <div class="flex flex-column">
-                                        <h5 class="mb-0">The Basics</h5>
-                                        <p>4 articles in this collection</p>
-                                    </div>
-                                </div>
-                            </p-header>
-
-                            <p-accordion styleClass="mt-3 overflow-hidden">
-                                <p-accordionTab header="Which do I need to develop a SaaS application?">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent pellentesque ligula dolor, pretium tincidunt libero sodales in. Integer at eros posuere, elementum felis a, laoreet libero. In sed nunc accumsan, dapibus nibh sit amet, aliquet ipsum.
-                                </p-accordionTab>
-                                <p-accordionTab header="I’m a freelancer/agency. Can I use the item for an end product I’m doing for a client?">
-                                    Aliquam erat volutpat. Nulla hendrerit, arcu non lobortis fringilla, ipsum orci condimentum risus, ac hendrerit mauris justo eget lectus.
-                                </p-accordionTab>
-                                <p-accordionTab header="We’re a reseller, are we able to purchase a license on behalf of our client? ">
-                                    Ut leo tellus, imperdiet tristique turpis eu, eleifend rhoncus dolor. Fusce eu feugiat urna. Nullam venenatis nisi varius justo ultrices, non aliquam nisi dapibus. Duis viverra nulla ipsum, ac laoreet mauris dapibus eu.
-                                </p-accordionTab>
-                                <p-accordionTab header="Is there a recurring fee or is it perpetual? ">
-                                    Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur eu consequat libero. Donec euismod facilisis pulvinar.
-                                </p-accordionTab>
-                            </p-accordion>
-                        </p-accordionTab>
-                    </p-accordion>
-
-                    <p-accordion styleClass="mt-3">
-                        <p-accordionTab>
-                            <p-header>
-                                <div class="flex align-items-center">
-                                    <i class="pi pi-bookmark text-4xl mr-3 text-pink-500"></i>
-                                    <div class="flex flex-column">
-                                        <h5 class="mb-0">Questions About Licenses</h5>
-                                        <p>3 articles in this collection</p>
-                                    </div>
-                                </div>
-                            </p-header>
-
-                            <p-accordion styleClass="mt-3 overflow-hidden">
-                                <p-accordionTab header="Pellentesque faucibus convallis dolor ?">
-                                    Donec facilisis, magna aliquam venenatis lobortis, nulla diam euismod orci, ac pharetra risus mi eget mauris. Praesent eleifend.
-                                </p-accordionTab>
-                                <p-accordionTab header="Sed rhoncus, lacus a volutpat elementum ?">
-                                    Cras vel ullamcorper metus, vel faucibus ex. Nullam finibus ligula quis dolor aliquet, quis tempor lectus posuere. In sed mattis dui. Interdum et malesuada fames ac ante ipsum primis in faucibus.
-                                </p-accordionTab>
-                                <p-accordionTab header="Fusce porttitor augue turpis, vitae malesuada elit condimentum ?">
-                                    Proin dapibus ipsum eget libero elementum, a consectetur tortor tristique. Suspendisse potenti. Aenean dictum blandit mauris, a sollicitudin ex sagittis sit amet.
-                                </p-accordionTab>
-                            </p-accordion>
-                        </p-accordionTab>
-                    </p-accordion>
-
-                    <p-accordion styleClass="mt-3">
-                        <p-accordionTab>
-                            <p-header>
-                                <div class="flex align-items-center">
-                                    <i class="pi pi-bookmark text-4xl mr-3 text-pink-500"></i>
-                                    <div class="flex flex-column">
-                                        <h5 class="mb-0">Questions About Frameworks</h5>
-                                        <p>6 articles in this collection</p>
-                                    </div>
-                                </div>
-                            </p-header>
-
-                            <p-accordion styleClass="mt-3 overflow-hidden">
-                                <p-accordionTab header="Lorem ipsum dolor sit amet, consectetur adipiscing elit ?">
-                                    Vivamus in tortor arcu. Morbi ornare ex mi, sit amet pretium nibh sollicitudin eu.
-                                </p-accordionTab>
-                                <p-accordionTab header="Sed ut massa accumsan, consequat ligula sit amet, dignissim diam ?">
-                                    Curabitur elit enim, scelerisque at eros ac, sagittis volutpat ante. Mauris ac accumsan lorem, in viverra turpis.
-                                </p-accordionTab>
-                                <p-accordionTab header=" Vivamus lobortis lacinia eros vel viverra. Vestibulum molestie tortor metus, ac dapibus massa sodales eget ?">
-                                    Donec ut justo sit amet erat eleifend vulputate ut at mi.
-                                </p-accordionTab>
-                                <p-accordionTab header="Donec finibus tristique leo, consectetur tincidunt velit ?">
-                                    Maecenas mattis malesuada lobortis. Praesent hendrerit eros quam. Praesent volutpat mauris ut dignissim maximus.
-                                </p-accordionTab>
-                                <p-accordionTab header="Praesent suscipit, magna at lacinia tempor ?">
-                                    Velit leo commodo magna, at pharetra risus libero vitae urna.
-                                </p-accordionTab>
-                                <p-accordionTab header="Nulla auctor urna eget purus placerat maximus. Interdum ?">
-                                    Et malesuada fames ac ante ipsum primis in faucibus.
-                                </p-accordionTab>
-                            </p-accordion>
-                        </p-accordionTab>
-                    </p-accordion>
+            </div>
+            <div class="col-12 md:col-4 mb-5">
+                <div class="flex flex-column align-items-center">
+                    <span class="inline-flex align-items-center justify-content-center border-circle w-5rem h-5rem bg-primary-100 mb-5">
+                        <i class="pi pi-arrows-h text-4xl text-primary-700"></i>
+                    </span>
+                    <div class="text-2xl mb-3 font-medium">Transactions</div>
+                    <ul class="list-none m-0 p-0 text-center">
+                        <li class="line-height-3 mb-1"><a class="text-color-secondary hover:text-primary cursor-pointer">Lorem ipsum dolor</a></li>
+                        <li class="line-height-3 mb-1"><a class="text-color-secondary hover:text-primary cursor-pointer">Consectetur adipiscing elit</a></li>
+                        <li class="line-height-3 mb-3"><a class="text-color-secondary hover:text-primary cursor-pointer">Sed do eiusmod tempor</a></li>
+                        <li><a class="text-primary hover:underline cursor-pointer font-medium">View all</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-12 md:col-4 mb-5">
+                <div class="flex flex-column align-items-center">
+                    <span class="inline-flex align-items-center justify-content-center border-circle w-5rem h-5rem bg-primary-100 mb-5">
+                        <i class="pi pi-user text-4xl text-primary-700"></i>
+                    </span>
+                    <div class="text-2xl mb-3 font-medium">Profile</div>
+                    <ul class="list-none m-0 p-0 text-center">
+                        <li class="line-height-3 mb-1"><a class="text-color-secondary hover:text-primary cursor-pointer">Lorem ipsum dolor</a></li>
+                        <li class="line-height-3 mb-1"><a class="text-color-secondary hover:text-primary cursor-pointer">Consectetur adipiscing elit</a></li>
+                        <li class="line-height-3 mb-3"><a class="text-color-secondary hover:text-primary cursor-pointer">Sed do eiusmod tempor</a></li>
+                        <li><a class="text-primary hover:underline cursor-pointer font-medium">View all</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-12 md:col-4 mb-5">
+                <div class="flex flex-column align-items-center">
+                    <span class="inline-flex align-items-center justify-content-center border-circle w-5rem h-5rem bg-primary-100 mb-5">
+                        <i class="pi pi-money-bill text-4xl text-primary-700"></i>
+                    </span>
+                    <div class="text-2xl mb-3 font-medium">Billing</div>
+                    <ul class="list-none m-0 p-0 text-center">
+                        <li class="line-height-3 mb-1"><a class="text-color-secondary hover:text-primary cursor-pointer">Lorem ipsum dolor</a></li>
+                        <li class="line-height-3 mb-1"><a class="text-color-secondary hover:text-primary cursor-pointer">Consectetur adipiscing elit</a></li>
+                        <li class="line-height-3 mb-3"><a class="text-color-secondary hover:text-primary cursor-pointer">Sed do eiusmod tempor</a></li>
+                        <li><a class="text-primary hover:underline cursor-pointer font-medium">View all</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-12 md:col-4 mb-5">
+                <div class="flex flex-column align-items-center">
+                    <span class="inline-flex align-items-center justify-content-center border-circle w-5rem h-5rem bg-primary-100 mb-5">
+                        <i class="pi pi-database text-4xl text-primary-700"></i>
+                    </span>
+                    <div class="text-2xl mb-3 font-medium">Integrations</div>
+                    <ul class="list-none m-0 p-0 text-center">
+                        <li class="line-height-3 mb-1"><a class="text-color-secondary hover:text-primary cursor-pointer">Lorem ipsum dolor</a></li>
+                        <li class="line-height-3 mb-1"><a class="text-color-secondary hover:text-primary cursor-pointer">Consectetur adipiscing elit</a></li>
+                        <li class="line-height-3 mb-3"><a class="text-color-secondary hover:text-primary cursor-pointer">Sed do eiusmod tempor</a></li>
+                        <li><a class="text-primary hover:underline cursor-pointer font-medium">View all</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-12 md:col-4 mb-5">
+                <div class="flex flex-column align-items-center">
+                    <span class="inline-flex align-items-center justify-content-center border-circle w-5rem h-5rem bg-primary-100 mb-5">
+                        <i class="pi pi-lock text-4xl text-primary-700"></i>
+                    </span>
+                    <div class="text-2xl mb-3 font-medium">Security</div>
+                    <ul class="list-none m-0 p-0 text-center">
+                        <li class="line-height-3 mb-1"><a class="text-color-secondary hover:text-primary cursor-pointer">Lorem ipsum dolor</a></li>
+                        <li class="line-height-3 mb-1"><a class="text-color-secondary hover:text-primary cursor-pointer">Consectetur adipiscing elit</a></li>
+                        <li class="line-height-3 mb-3"><a class="text-color-secondary hover:text-primary cursor-pointer">Sed do eiusmod tempor</a></li>
+                        <li><a class="text-primary hover:underline cursor-pointer font-medium">View all</a></li>
+                    </ul>
                 </div>
             </div>
         </div>

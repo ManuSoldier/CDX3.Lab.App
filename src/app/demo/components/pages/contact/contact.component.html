@@ -1,36 +1,43 @@
-<div class="h-screen flex flex-column">
-    <div>
-        <iframe style="height:45vh" class="border-none absolute z-1 opacity-50 w-full"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9746.74079475134!2d4.8686484347131325!3d52.35799458335991!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c609e2c5b47ccf%3A0x6cd478550520ca35!2sVondelpark!5e0!3m2!1str!2str!4v1606820468794!5m2!1str!2str"
-            aria-hidden="false" tabindex="0" allowtransparency="true"></iframe>
-        <span style="height:45vh;
-                background: linear-gradient(180deg, #040B0F 0%, rgba(7, 14, 18, 0) 100%)"
-            class="absolute z-0 w-full"></span>
+<div class="grid surface-card grid-nogutter p-6 border-1 surface-border" style="column-gap: 2rem; row-gap: 2rem; border-radius: 6px;">
+    <div class="col-12">
+        <p class="text-900 font-bold">Contact Us</p>
+    </div>
+    <div class="col-12 mt-3 h-20rem border-1 surface-border p-0 w-full bg-cover border-round" [ngStyle]="mapStyle">
+        
+    </div>
+    <div class="col-12 mt-5">
+        <div class="grid grid-nogutter px-2 flex-column md:flex-row" style="column-gap: 2rem; row-gap: 2rem;">
+            <div *ngFor="let item of content" class="col flex flex-column justify-content-center text-center align-items-center border-1 surface-border py-5 px-4 border-round">
+                <i class="pi pi-fw text-2xl text-primary" [class]="item.icon"></i>
+                <span class="text-900 font-bold mt-4 mb-1">{{item.title}}</span>
+                <span class="text-500">{{item.info}}</span>
+            </div>
+        </div>
     </div>
 
-    <div style="top:33%; max-width:1050px" class="pb-8 md:pb-0 text-left w-9 m-auto z-3 absolute left-0 right-0">
-        <div class="surface-ground p-3 mb-5 shadow-2 border-round-md grid">
-            <div class="lg:col-6 md:col-6 sm:col-12">
-                <h4 class="mb-3">Contact Us</h4>
-                <p class="mb-6">Subheader of contact us will come here...</p>
-                <input type="text" class="w-full mb-3" pInputText placeholder="Your Name">
-                <input type="text" class="w-full mb-3" pInputText placeholder="Your E-mail">
-                <textarea class="w-full mb-6" rows="8" pInputTextarea
-                    placeholder="Your Message"></textarea>
-                <p-button class="mb-3" styleClass="w-full md:w-auto" label="SEND MESSAGE"></p-button>
+    <div class="col-12 mt-5">
+        <p class="text-900 font-bold">Send Us Email</p>
+        <div class="grid flex-column md:flex-row formgrid grid-nogutter mt-6" style="row-gap: 2rem; column-gap: 2rem;">
+            <div class="field col">
+                <label for="name" class="block text-indigo-300 font-bold">Name</label>
+                <span class="p-input-icon-left w-full" style="height: 3.5rem;">
+                    <i class="pi pi-user" style="left: 1.5rem;"></i>
+                    <input type="text" pInputText placeholder="Name" class="w-full px-7 text-900 font-semibold" [(ngModel)]="name" style="height: 3.5rem"/>
+                </span>
             </div>
-            <div class="text-center md:text-left lg:col-6 md:col-6 sm:col-12 mx-auto">
-                <div class="grid">
-                    <div class="md:col-offset-3 md:col-6 md:col-offset-3 sm:col-offset-2 sm:col-8 sm:col-offset-2">
-                        <i class="pi pi-home mb-2 mt-5 text-4xl p-2 border-round-md text-blue-800 bg-blue-100 bg-auto"></i>
-                        <p class="font-medium mx-0 my-3">Headquarters</p>
-                        <p>Van Beekweg 79-93 7825VC Eexterzandvoort</p>
 
-                        <i class="pi pi-briefcase mb-2 mt-5 text-4xl p-2 border-round-md text-cyan-800 bg-teal-100 bg-auto"></i>
-                        <p class="font-medium mx-0 my-3">Sales Office</p>
-                        <p>De Roodreef 89k 8502CA Oosternijkerk</p>
-                    </div>
-                </div>
+            <div class="field col">
+                <label for="email" class="block text-indigo-300 font-bold">Email Address</label>
+                <span class="p-input-icon-left w-full" style="height: 3.5rem;">
+                    <i class="pi pi-envelope" style="left: 1.5rem;"></i>
+                    <input type="text" pInputText placeholder="Email" class="w-full px-7 text-900 font-semibold" [(ngModel)]="email" style="height: 3.5rem"/>
+                </span>
+            </div>
+
+            <div class="field col-12 flex flex-column">
+                <label for="message" class="block text-indigo-300 font-bold">Message</label>
+                <textarea id="message" rows="5" pInputTextarea class="w-full surface-border p-4 text-900 font-semibold border-round" [autoResize]="true" [(ngModel)]="message"></textarea>
+                <button pButton class="p-button-primary ml-auto mt-3 border-round" label="Send Message"></button>
             </div>
         </div>
     </div>

@@ -4,15 +4,13 @@ import { InvoiceRoutingModule } from './invoice-routing.module';
 import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
 import { InvoiceComponent } from './invoice.component';
-import { PanelModule } from 'primeng/panel';
 
 @NgModule({
 	imports: [
 		CommonModule,
 		InvoiceRoutingModule,
 		ButtonModule,
-		TableModule,
-        PanelModule
+		TableModule
 	],
 	declarations: [InvoiceComponent]
 })
