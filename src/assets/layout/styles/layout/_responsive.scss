@@ -2,12 +2,12 @@
     .layout-container {
         &.layout-static {
             .layout-sidebar {
-                transition: transform var(--transition-duration);
+                transition: transform .3s cubic-bezier(0, 0, 0.2, 1);
             }
             
             .layout-content-wrapper {
                 margin-left: 17rem;
-                transition: margin-left var(--transition-duration);
+                transition: margin-left .3s cubic-bezier(0, 0, 0.2, 1);
             }
         }
 
@@ -29,7 +29,7 @@
             .layout-sidebar {
                 z-index: 999;
                 transform: translateX(-100%);
-                transition: transform var(--transition-duration);
+                transition: transform .3s cubic-bezier(0, 0, 0.2, 1);
             }
 
             &.layout-overlay-active {
@@ -54,7 +54,7 @@
         .layout-sidebar {
             z-index: 999;
             transform: translateX(-100%);
-            transition: transform var(--transition-duration);
+            transition: transform .3s cubic-bezier(0, 0, 0.2, 1);
         }
 
         &.layout-mobile-active {
@@ -64,7 +64,7 @@
 
             .layout-mask {
                 display: block;
-                animation: px-mask-in var(--transition-duration);
+                animation: px-mask-in .3s cubic-bezier(0, 0, 0.2, 1);
             }
         }
 
