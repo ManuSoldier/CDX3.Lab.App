@@ -1,6 +1,6 @@
 .layout-sidebar {
     position: fixed;
-    height: 100%;
+    height: calc(100% - 4rem);
     top: 4rem;
     left: 0;
     width: 17rem;
@@ -10,9 +10,9 @@
     flex-direction: column;
 
     .layout-menu-container {
-        overflow: auto;
         flex: 1;
         padding-bottom: 2rem;
+        overflow: auto;
     }
 
     .layout-menu {

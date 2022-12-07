@@ -1,10 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 
-interface InlineMenuActive {
-    [key: string]: boolean
-}
-
 export interface AppConfig {
     inputStyle: string;
     colorScheme: string;
@@ -14,7 +10,7 @@ export interface AppConfig {
     scale: number;
     menuTheme: string;
     topbarTheme: string;
-    inlineMenuPosition: string;
+    menuProfilePosition: string;
 }
 
 interface LayoutState {
@@ -25,7 +21,7 @@ interface LayoutState {
     menuHoverActive: boolean;
     rightMenuActive: boolean;
     topbarMenuActive: boolean;
-    inlineMenuActive: InlineMenuActive;
+    menuProfileActive: boolean;
 }
 
 @Injectable({
@@ -36,13 +32,13 @@ export class LayoutService {
     config: AppConfig = {
         ripple: true,
         inputStyle: 'outlined',
-        menuMode: 'static',
+        menuMode: 'horizontal',
         colorScheme: 'light',
         componentTheme: 'indigo',
         scale: 14,
         menuTheme: 'light',
         topbarTheme: 'blue',
-        inlineMenuPosition: 'bottom'
+        menuProfilePosition: 'end'
     };
 
     state: LayoutState = {
@@ -53,10 +49,7 @@ export class LayoutService {
         menuHoverActive: false,
         rightMenuActive: false,
         topbarMenuActive: false,
-        inlineMenuActive: {
-            top: false,
-            bottom: false
-        }
+        menuProfileActive: false
     };
 
     private configUpdate = new Subject<AppConfig>();
@@ -137,11 +130,12 @@ export class LayoutService {
         this.state.rightMenuActive = true;
     }
 
-    onInlineMenuToggle(key: string) {
-        if (key !== this.config.inlineMenuPosition) {
+    onMenuProfileToggle() {
+        this.state.menuProfileActive = !this.state.menuProfileActive;
+        /*if (key !== this.config.inlineMenuPosition) {
             this.state.inlineMenuActive[this.config.inlineMenuPosition] = false;
         }
 
-        this.state.inlineMenuActive[key] = !this.state.inlineMenuActive[key];
+        this.state.inlineMenuActive[key] = !this.state.inlineMenuActive[key];*/
     }
 }

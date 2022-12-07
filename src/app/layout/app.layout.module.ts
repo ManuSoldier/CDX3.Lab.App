@@ -13,7 +13,7 @@ import { RippleModule } from 'primeng/ripple';
 import { AppConfigModule } from './config/app.config.module';
 import { AppLayoutComponent } from './app.layout.component';
 import { AppBreadcrumbComponent } from './app.breadcrumb.component';
-import { AppInlineMenuComponent } from './app.inlinemenu.component';
+import { AppMenuProfileComponent } from './app.menuprofile.component';
 import { AppTopbarComponent } from './app.topbar.component';
 import { AppRightMenuComponent } from './app.rightmenu.component';
 import { AppMenuComponent } from './app.menu.component';
@@ -30,7 +30,7 @@ import { StyleClassModule } from 'primeng/styleclass';
     declarations: [
         AppLayoutComponent,
         AppBreadcrumbComponent,
-        AppInlineMenuComponent,
+        AppMenuProfileComponent,
         AppTopbarComponent,
         AppRightMenuComponent,
         AppMenuComponent,

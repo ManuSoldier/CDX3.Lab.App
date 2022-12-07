@@ -47,12 +47,12 @@ export class AppConfigComponent implements OnInit {
         }
     }
 
-    get inlineMenuPosition(): string {
-        return this.layoutService.config.inlineMenuPosition;
+    get menuProfilePosition(): string {
+        return this.layoutService.config.menuProfilePosition;
     }
 
-    set inlineMenuPosition(_val: string) {
-        this.layoutService.config.inlineMenuPosition = _val;
+    set menuProfilePosition(_val: string) {
+        this.layoutService.config.menuProfilePosition = _val;
         if (this.layoutService.isSlim() || this.layoutService.isHorizontal()) {
             this.menuService.reset();
         }

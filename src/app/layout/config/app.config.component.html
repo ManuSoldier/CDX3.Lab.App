@@ -52,19 +52,15 @@
                 </div>
             </div>
     
-            <h5>Inline Menu Position</h5>
+            <h5>Menu Profile Position</h5>
             <div class="flex gap-4">
                 <div class="field-radiobutton">
-                    <p-radioButton name="position" value="top" [(ngModel)]="inlineMenuPosition" inputId="top"></p-radioButton>
-                    <label for="top">Top</label>
+                    <p-radioButton name="position" value="start" [(ngModel)]="menuProfilePosition" inputId="start"></p-radioButton>
+                    <label for="star">Start</label>
                 </div>
                 <div class="field-radiobutton">
-                    <p-radioButton name="position" value="bottom" [(ngModel)]="inlineMenuPosition" inputId="bottom"></p-radioButton>
-                    <label for="bottom">Bottom</label>
-                </div>
-                <div class="field-radiobutton">
-                    <p-radioButton name="position" value="both" [(ngModel)]="inlineMenuPosition" inputId="both"></p-radioButton>
-                    <label for="both">Both</label>
+                    <p-radioButton name="position" value="end" [(ngModel)]="menuProfilePosition" inputId="end"></p-radioButton>
+                    <label for="end">End</label>
                 </div>
             </div>
         </ng-container>

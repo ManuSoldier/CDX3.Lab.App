@@ -117,11 +117,13 @@ export class AppLayoutComponent implements OnDestroy {
             'layout-static-inactive': this.layoutService.state.staticMenuDesktopInactive && this.layoutService.config.menuMode === 'static',
             'layout-overlay-active': this.layoutService.state.overlayMenuActive,
             'layout-mobile-active': this.layoutService.state.staticMenuMobileActive,
-            'layout-topbar-menu-active': this.layoutService.state.topbarMenuActive
+            'layout-topbar-menu-active': this.layoutService.state.topbarMenuActive,
+            'layout-menu-profile-active': this.layoutService.state.menuProfileActive
         };
 
         styleClass['layout-topbar-' + this.layoutService.config.topbarTheme] = true;
         styleClass['layout-menu-' + this.layoutService.config.menuTheme] = true;
+        styleClass['layout-menu-profile-' + this.layoutService.config.menuProfilePosition] = true;
         return styleClass;
     }
 
