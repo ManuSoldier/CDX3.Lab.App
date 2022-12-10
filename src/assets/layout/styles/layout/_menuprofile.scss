@@ -8,18 +8,12 @@
     &.layout-menu-profile-end {
         .layout-menu-profile {
             border-top: 1px solid var(--surface-border);
-            bottom: 0;
         }
     }
 
-    &.layout-menu-profile-start {
-        .layout-sidebar {
-            flex-direction: column-reverse;
-        }
-        
+    &.layout-menu-profile-start {        
         .layout-menu-profile {
             border-bottom: 1px solid var(--surface-border);
-            top: 0;
         }
     }
 }
@@ -35,6 +29,7 @@
         align-items: center;
         padding: 0.75rem 2rem;
         color: var(--menuitem-text-color);
+        transition: background-color var(--transition-duration);
 
         > span {
             display: flex;

@@ -72,7 +72,7 @@
         flex-grow: 1;
         align-items: center;
         justify-content: space-between;
-        padding-left: 2rem;
+        padding: 0 2rem;
 
         .layout-megamenu {
             background: none;
@@ -97,6 +97,7 @@
             .layout-topbar-items {
                 display: flex;
                 flex-direction: row;
+                gap: 1rem;
 
                 > li {
                     position: relative;
@@ -104,7 +105,6 @@
                     > a {
                         width: 2.5rem;
                         height: 2.5rem;
-                        margin-right: 1rem;
                         user-select: none;
                         border-radius: 50%;
                         display: flex;

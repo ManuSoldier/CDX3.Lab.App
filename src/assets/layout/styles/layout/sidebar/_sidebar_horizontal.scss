@@ -9,6 +9,7 @@
                 z-index: 999;
                 overflow: visible;
                 flex-direction: row;
+                padding: 0 2rem;
 
                 .layout-menu-container {
                     overflow: visible;
@@ -130,13 +131,44 @@
                 }
             }
 
+            &.layout-menu-profile-start {
+                .layout-menu-profile {
+                    border-bottom: 0 none;
+
+                    > ul {
+                        left: 0;
+                    }
+                }
+            }
+            
+            &.layout-menu-profile-end {
+                .layout-menu-profile {
+                    border-top: 0 none;
+
+                    > ul {
+                        right: 0;
+                    }
+                }
+            }
+
             .layout-menu-profile {
                 position: relative;
                 overflow: visible;
+                width: auto;
+                height: 100%;
+
+                > button {
+                    padding: 0 .75rem;
+                    width: auto;
+                    height: 100%;
+
+                    .layout-menu-profile-toggler  {
+                        margin-left: .5rem;
+                    }
+                }
 
                 > ul {
                     position: absolute;
-                    left: 0;
                     top: 3rem;
                     min-width: 15rem;
                     background-color: var(--menu-bg);
@@ -147,6 +179,12 @@
                     overflow: auto;
                     z-index: 999;
                     transform-origin: center top;
+
+                    > li {
+                        > button {
+                            padding: 0.75rem .5rem;
+                        }
+                    }
                 }
             }
         }
