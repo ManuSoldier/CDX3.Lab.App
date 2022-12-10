@@ -62,6 +62,12 @@
                 }
             }
         }
+
+        &.layout-reveal {
+            .layout-content-wrapper {
+                margin-left: 4.25rem;
+            }
+        }
     }
 }
 

@@ -22,6 +22,8 @@ interface LayoutState {
     rightMenuActive: boolean;
     topbarMenuActive: boolean;
     menuProfileActive: boolean;
+    revealMenuActive: boolean;
+    anchored: boolean;
 }
 
 @Injectable({
@@ -32,7 +34,7 @@ export class LayoutService {
     config: AppConfig = {
         ripple: true,
         inputStyle: 'outlined',
-        menuMode: 'static',
+        menuMode: 'reveal',
         colorScheme: 'light',
         componentTheme: 'indigo',
         scale: 14,
@@ -49,7 +51,9 @@ export class LayoutService {
         menuHoverActive: false,
         rightMenuActive: false,
         topbarMenuActive: false,
-        menuProfileActive: false
+        menuProfileActive: false,
+        revealMenuActive: false,
+        anchored: false
     };
 
     private configUpdate = new Subject<AppConfig>();

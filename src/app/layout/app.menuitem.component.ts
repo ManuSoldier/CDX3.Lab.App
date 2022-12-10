@@ -11,7 +11,10 @@ import { LayoutService } from './service/app.layout.service';
     selector: '[app-menuitem]',
     template: `
 		<ng-container>
-            <div *ngIf="root && item.visible !== false" class="layout-menuitem-root-text">{{item.label}}</div>
+            <div *ngIf="root && item.visible !== false" class="layout-menuitem-root-text">
+                <span>{{item.label}}</span>
+                <i class="layout-menuitem-root-icon pi pi-fw pi-ellipsis-h"></i>
+            </div>
 			<a *ngIf="(!item.routerLink || item.items) && item.visible !== false" [attr.href]="item.url" (click)="itemClick($event)"  (mouseenter)="onMouseEnter()"
 			   [ngClass]="item.class" [attr.target]="item.target" tabindex="0" pRipple [pTooltip]="item.label" [tooltipDisabled]="!(isSlim && root && !active)">
 				<i [ngClass]="item.icon" class="layout-menuitem-icon"></i>

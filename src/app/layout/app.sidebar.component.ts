@@ -7,6 +7,8 @@ import { LayoutService } from './service/app.layout.service';
 })
 export class AppSidebarComponent implements OnDestroy {
 
+    timeout: any = null;
+
     constructor(public layoutService: LayoutService, public el: ElementRef) {}
 
     resetOverlay() {
@@ -17,6 +19,28 @@ export class AppSidebarComponent implements OnDestroy {
 
     get menuProfilePosition(): string {
         return this.layoutService.config.menuProfilePosition;
+    }
+
+    onMouseEnter() {
+        if (!this.layoutService.state.anchored) {
+            if (this.timeout) {
+                clearTimeout(this.timeout);
+                this.timeout = null;
+            }
+            this.layoutService.state.revealMenuActive = true;
+        }
+    }
+
+    onMouseLeave() {
+        if (!this.layoutService.state.anchored) {
+            if (!this.timeout) {
+                this.timeout = setTimeout(() => this.layoutService.state.revealMenuActive = false, 300);
+            }
+        }
+    }
+
+    anchor() {
+        this.layoutService.state.anchored = !this.layoutService.state.anchored;
     }
 
     ngOnDestroy() {
