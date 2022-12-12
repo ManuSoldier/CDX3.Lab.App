@@ -14,11 +14,11 @@
         <ng-container *ngIf="!minimal">
             <h5>Color Scheme</h5>
             <div class="flex gap-4">
-                <div class="field-radiobutton">
+                <div class="field-radiobutton flex-1">
                     <p-radioButton name="colorScheme" value="light" [(ngModel)]="colorScheme" inputId="light"></p-radioButton>
                     <label for="light">Light</label>
                 </div>
-                <div class="field-radiobutton">
+                <div class="field-radiobutton flex-1">
                     <p-radioButton name="colorScheme" value="dark" [(ngModel)]="colorScheme" inputId="dark"></p-radioButton>
                     <label for="dark">Dark</label>
                 </div>
@@ -26,27 +26,27 @@
     
             <h5>Menu Mode</h5>
             <div class="flex gap-4">
-                <div class="field-radiobutton w-4">
+                <div class="field-radiobutton flex-1">
                     <p-radioButton name="mode" value="static" [(ngModel)]="menuMode" inputId="mode1"></p-radioButton>
                     <label for="mode1">Static</label>
                 </div>
-                <div class="field-radiobutton w-4">
+                <div class="field-radiobutton flex-1">
                     <p-radioButton name="mode" value="overlay" [(ngModel)]="menuMode" inputId="mode2"></p-radioButton>
                     <label for="mode2">Overlay</label>
                 </div>
             </div>
             <div class="flex gap-4">
-                <div class="field-radiobutton w-4">
+                <div class="field-radiobutton flex-1">
                     <p-radioButton name="mode" value="slim" [(ngModel)]="menuMode" inputId="mode3"></p-radioButton>
                     <label for="mode3">Slim</label>
                 </div>
-                <div class="field-radiobutton w-4">
+                <div class="field-radiobutton flex-1">
                     <p-radioButton name="mode" value="horizontal" [(ngModel)]="menuMode" inputId="mode4"></p-radioButton>
                     <label for="mode4">Horizontal</label>
                 </div>
             </div>
             <div class="flex gap-4">
-                <div class="field-radiobutton w-4">
+                <div class="field-radiobutton flex-1">
                     <p-radioButton name="mode" value="reveal" [(ngModel)]="menuMode" inputId="mode5"></p-radioButton>
                     <label for="mode5">Reveal</label>
                 </div>
@@ -54,11 +54,11 @@
     
             <h5>Menu Profile Position</h5>
             <div class="flex gap-4">
-                <div class="field-radiobutton">
+                <div class="field-radiobutton flex-1">
                     <p-radioButton name="position" value="start" [(ngModel)]="menuProfilePosition" inputId="start"></p-radioButton>
                     <label for="star">Start</label>
                 </div>
-                <div class="field-radiobutton">
+                <div class="field-radiobutton flex-1">
                     <p-radioButton name="position" value="end" [(ngModel)]="menuProfilePosition" inputId="end"></p-radioButton>
                     <label for="end">End</label>
                 </div>
@@ -67,7 +67,7 @@
     
         <ng-container *ngIf="!minimal">
             <h5>Input Background</h5>
-            <div class="flex">
+            <div class="flex gap-4">
                 <div class="field-radiobutton flex-1">
                     <p-radioButton name="inputStyle" value="outlined" [(ngModel)]="inputStyle" inputId="outlined_input"></p-radioButton>
                     <label for="outlined_input">Outlined</label>
@@ -89,9 +89,9 @@
                 <div class="flex flex-wrap row-gap-3">
                     <div class="w-3" *ngFor="let theme of menuThemes">
                         <button type="button" 
-                            class="cursor-pointer p-link w-2rem h-2rem border-round shadow-2 flex-shrink-0 flex justify-content-center align-items-center" 
+                            class="cursor-pointer p-link w-2rem h-2rem border-round shadow-2 flex-shrink-0 flex justify-content-center align-items-center border-circle" 
                             (click)="changeMenuTheme(theme.name)" 
-                            [ngStyle]="{'background-color': theme.color}"><i *ngIf="menuTheme === theme.name" class="pi pi-check text-xl" [ngClass]="{'text-white': menuTheme !== 'light'}"></i></button>
+                            [ngStyle]="{'background-color': theme.color}"><i *ngIf="menuTheme === theme.name" class="pi pi-check text-lg" [ngClass]="{'text-white': menuTheme !== 'light'}"></i></button>
                     </div>
                 </div>
             </ng-template>
@@ -100,9 +100,9 @@
             <div class="flex flex-wrap row-gap-3">
                 <div class="w-3" *ngFor="let theme of topbarThemes">
                     <button type="button" 
-                    class="cursor-pointer p-link w-2rem h-2rem border-round shadow-2 flex-shrink-0 flex justify-content-center align-items-center" 
+                    class="cursor-pointer p-link w-2rem h-2rem border-round shadow-2 flex-shrink-0 flex justify-content-center align-items-center border-circle" 
                     (click)="changeTopbarTheme(theme.name)" 
-                    [ngStyle]="{'background-color': theme.color}"><i *ngIf="topbarTheme === theme.name" class="pi pi-check text-xl" [ngClass]="{'text-white': topbarTheme !== 'white'}"></i></button>
+                    [ngStyle]="{'background-color': theme.color}"><i *ngIf="topbarTheme === theme.name" class="pi pi-check text-lg" [ngClass]="{'text-white': topbarTheme !== 'white'}"></i></button>
                 </div>
             </div>
         </ng-container>
@@ -111,9 +111,9 @@
         <div class="flex flex-wrap row-gap-3">
             <div class="w-3" *ngFor="let theme of componentThemes">
                 <button type="button" 
-                class="cursor-pointer p-link w-2rem h-2rem border-round shadow-2 flex-shrink-0 flex justify-content-center align-items-center" 
+                class="cursor-pointer p-link w-2rem h-2rem border-round shadow-2 flex-shrink-0 flex justify-content-center align-items-center border-circle" 
                 (click)="changeTheme(theme.name)"
-                [ngStyle]="{'background-color': theme.color}"><i *ngIf="componentTheme === theme.name" class="pi pi-check text-xl text-white"></i></button>
+                [ngStyle]="{'background-color': theme.color}"><i *ngIf="componentTheme === theme.name" class="pi pi-check text-lg text-white"></i></button>
             </div>
         </div>
     </div>
