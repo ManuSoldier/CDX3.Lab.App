@@ -335,7 +335,7 @@ export class DashboardSalesComponent implements OnInit, OnDestroy {
 
     getOrdersOptions() {
         const textColor = getComputedStyle(document.body).getPropertyValue('--text-color') || 'rgba(0, 0, 0, 0.87)';
-        const gridLinesColor = getComputedStyle(document.body).getPropertyValue('--divider-color') || 'rgba(160, 167, 181, .3)';
+        const gridLinesColor = getComputedStyle(document.body).getPropertyValue('--surface-border') || 'rgba(160, 167, 181, .3)';
         const fontFamily = getComputedStyle(document.body).getPropertyValue('--font-family');
         return {
             plugins: {

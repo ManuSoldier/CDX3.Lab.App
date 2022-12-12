@@ -399,7 +399,7 @@ export class DashboardAnalyticsComponent implements OnInit, OnDestroy {
 
     getPieData() {
         const { limeColor, blueColor, tealColor } = this.getColors();
-        const borderColor = getComputedStyle(document.body).getPropertyValue('--divider-color') || 'rgba(160, 167, 181, .3)';
+        const borderColor = getComputedStyle(document.body).getPropertyValue('--surface-border') || 'rgba(160, 167, 181, .3)';
         return {
             labels: ['O', 'D', 'R'],
             datasets: [
@@ -524,7 +524,7 @@ export class DashboardAnalyticsComponent implements OnInit, OnDestroy {
 
     getChartOptions() {
         const textColor = getComputedStyle(document.body).getPropertyValue('--text-color') || 'rgba(0, 0, 0, 0.87)';
-        const gridLinesColor = getComputedStyle(document.body).getPropertyValue('--divider-color') || 'rgba(160, 167, 181, .3)';
+        const gridLinesColor = getComputedStyle(document.body).getPropertyValue('--surface-border') || 'rgba(160, 167, 181, .3)';
         const fontFamily = getComputedStyle(document.body).getPropertyValue('--font-family');
         return {
             plugins: {
@@ -570,7 +570,7 @@ export class DashboardAnalyticsComponent implements OnInit, OnDestroy {
     getDoughnutData() {
         const { blueColor, lightblueColor, cyanColor, tealColor, greenColor,
             lightgreenColor, orangeColor } = this.getColors();
-        const borderColor = getComputedStyle(document.body).getPropertyValue('--divider-color') || 'rgba(160, 167, 181, .3)';
+        const borderColor = getComputedStyle(document.body).getPropertyValue('--surface-border') || 'rgba(160, 167, 181, .3)';
 
         return {
             labels: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
