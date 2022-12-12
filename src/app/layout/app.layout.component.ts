@@ -76,6 +76,7 @@ export class AppLayoutComponent implements OnDestroy {
             .subscribe(() => {
                 this.hideMenu();
                 this.hideTopbarMenu();
+                this.hideMenuProfile();
             });
     }
 
