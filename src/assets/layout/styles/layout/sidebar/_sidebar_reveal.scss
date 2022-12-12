@@ -20,6 +20,7 @@
             }
 
             .layout-sidebar-anchor {
+                display: none;
                 width: 1.25rem;
                 height: 1.25rem;
                 border-radius: 50%;
@@ -99,11 +100,18 @@
         .layout-sidebar {
             transform: translateX(0);
 
+            .layout-sidebar-top {
+                .layout-sidebar-anchor {
+                    display: block;
+                    animation: px-fadein .15s linear;
+                }
+            } 
+
             .layout-menu {
                 .layout-root-menuitem {
                     > .layout-menuitem-root-text {
                         > .layout-menuitem-root-icon {
-                            /*display: none;*/
+                            display: none;
                         }
                     }
                 }
