@@ -34,12 +34,12 @@ export class LayoutService {
     config: AppConfig = {
         ripple: true,
         inputStyle: 'outlined',
-        menuMode: 'reveal',
+        menuMode: 'static',
         colorScheme: 'light',
         componentTheme: 'indigo',
         scale: 14,
         menuTheme: 'light',
-        topbarTheme: 'blue',
+        topbarTheme: 'indigo',
         menuProfilePosition: 'end'
     };
 
