@@ -6,7 +6,7 @@ import { NewPasswordRoutingModule } from './newpassword-routing.module';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { RippleModule } from 'primeng/ripple';
-// import { AppConfigModule } from 'src/app/layout/config/app.config.module';
+import { AppConfigModule } from 'src/app/layout/config/app.config.module';
 
 @NgModule({
     imports: [
@@ -16,7 +16,7 @@ import { RippleModule } from 'primeng/ripple';
         ButtonModule,
         InputTextModule,
         RippleModule,
-        // AppConfigModule
+        AppConfigModule
     ],
     declarations: [NewPasswordComponent]
 })
