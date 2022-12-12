@@ -11,19 +11,19 @@
             <button icon="pi pi-plus"  type="button" pButton (click)="incrementScale()" class="p-button-text p-button-rounded w-2rem h-2rem ml-2" [disabled]="scale === scales[scales.length - 1]"></button>
         </div>
     
-        <ng-container *ngIf="!minimal">
-            <h5>Color Scheme</h5>
-            <div class="flex gap-4">
-                <div class="field-radiobutton flex-1">
-                    <p-radioButton name="colorScheme" value="light" [(ngModel)]="colorScheme" inputId="light"></p-radioButton>
-                    <label for="light">Light</label>
-                </div>
-                <div class="field-radiobutton flex-1">
-                    <p-radioButton name="colorScheme" value="dark" [(ngModel)]="colorScheme" inputId="dark"></p-radioButton>
-                    <label for="dark">Dark</label>
-                </div>
+        <h5>Color Scheme</h5>
+        <div class="flex gap-4">
+            <div class="field-radiobutton flex-1">
+                <p-radioButton name="colorScheme" value="light" [(ngModel)]="colorScheme" inputId="light"></p-radioButton>
+                <label for="light">Light</label>
             </div>
+            <div class="field-radiobutton flex-1">
+                <p-radioButton name="colorScheme" value="dark" [(ngModel)]="colorScheme" inputId="dark"></p-radioButton>
+                <label for="dark">Dark</label>
+            </div>
+        </div>
     
+        <ng-container *ngIf="!minimal">
             <h5>Menu Mode</h5>
             <div class="flex gap-4">
                 <div class="field-radiobutton flex-1">
@@ -64,24 +64,22 @@
                 </div>
             </div>
         </ng-container>
-    
-        <ng-container *ngIf="!minimal">
-            <h5>Input Background</h5>
-            <div class="flex gap-4">
-                <div class="field-radiobutton flex-1">
-                    <p-radioButton name="inputStyle" value="outlined" [(ngModel)]="inputStyle" inputId="outlined_input"></p-radioButton>
-                    <label for="outlined_input">Outlined</label>
-                </div>
-                <div class="field-radiobutton flex-1">
-                    <p-radioButton name="inputStyle" value="filled" [(ngModel)]="inputStyle" inputId="filled_input"></p-radioButton>
-                    <label for="filled_input">Filled</label>
-                </div>
+
+        <h5>Input Style</h5>
+        <div class="flex gap-4">
+            <div class="field-radiobutton flex-1">
+                <p-radioButton name="inputStyle" value="outlined" [(ngModel)]="inputStyle" inputId="outlined_input"></p-radioButton>
+                <label for="outlined_input">Outlined</label>
             </div>
+            <div class="field-radiobutton flex-1">
+                <p-radioButton name="inputStyle" value="filled" [(ngModel)]="inputStyle" inputId="filled_input"></p-radioButton>
+                <label for="filled_input">Filled</label>
+            </div>
+        </div>
+
+        <h5>Ripple Effect</h5>
+        <p-inputSwitch [(ngModel)]="ripple"></p-inputSwitch>
         
-            <h5>Ripple Effect</h5>
-            <p-inputSwitch [(ngModel)]="ripple"></p-inputSwitch>
-        </ng-container>
-    
         <ng-container *ngIf="!minimal">
             <h5>Menu Themes</h5>
             <p *ngIf="colorScheme === 'dark';else menu_theme_selector">Menu themes are only available in light mode by design as large surfaces can emit too much brightness in dark mode.</p>
@@ -95,7 +93,7 @@
                     </div>
                 </div>
             </ng-template>
-    
+            
             <h5>Topbar Themes</h5>
             <div class="flex flex-wrap row-gap-3">
                 <div class="w-3" *ngFor="let theme of topbarThemes">
@@ -106,6 +104,7 @@
                 </div>
             </div>
         </ng-container>
+
     
         <h5>Component Themes</h5>
         <div class="flex flex-wrap row-gap-3">

@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { trigger, state, transition, style, animate } from '@angular/animations';
+import { Component, ElementRef } from '@angular/core';
+import { trigger, transition, style, animate } from '@angular/animations';
 import { LayoutService } from './service/app.layout.service';
 
 @Component({
@@ -26,7 +26,7 @@ import { LayoutService } from './service/app.layout.service';
 })
 export class AppMenuProfileComponent {
 
-    constructor(public layoutService: LayoutService) { }
+    constructor(public layoutService: LayoutService, public el: ElementRef) { }
 
     toggleMenu() {
         this.layoutService.onMenuProfileToggle();

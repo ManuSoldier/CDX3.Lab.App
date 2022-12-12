@@ -61,12 +61,16 @@ export class LayoutService {
     private overlayOpen = new Subject<any>();
 
     private topbarMenuOpen = new Subject<any>();
+
+    private menuProfileOpen = new Subject<any>();
     
     configUpdate$ = this.configUpdate.asObservable();
 
     overlayOpen$ = this.overlayOpen.asObservable();
 
     topbarMenuOpen$ = this.topbarMenuOpen.asObservable();
+
+    menuProfileOpen$ = this.menuProfileOpen.asObservable();
 
     onMenuToggle() {
         if (this.isOverlay()) {
@@ -91,7 +95,9 @@ export class LayoutService {
 
     onTopbarMenuToggle() {
         this.state.topbarMenuActive = !this.state.topbarMenuActive;
-        this.topbarMenuOpen.next(null);
+        if (this.state.topbarMenuActive) {
+            this.topbarMenuOpen.next(null);
+        }
     }
 
     onOverlaySubmenuOpen() {
@@ -136,10 +142,8 @@ export class LayoutService {
 
     onMenuProfileToggle() {
         this.state.menuProfileActive = !this.state.menuProfileActive;
-        /*if (key !== this.config.inlineMenuPosition) {
-            this.state.inlineMenuActive[this.config.inlineMenuPosition] = false;
+        if (this.state.menuProfileActive && this.isHorizontal() && this.isDesktop()) {
+            this.menuProfileOpen.next(null);
         }
-
-        this.state.inlineMenuActive[key] = !this.state.inlineMenuActive[key];*/
     }
 }

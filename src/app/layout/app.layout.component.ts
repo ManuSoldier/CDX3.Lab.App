@@ -16,9 +16,13 @@ export class AppLayoutComponent implements OnDestroy {
 
     topbarMenuOpenSubscription: Subscription;
 
+    menuProfileOpenSubscription: Subscription;
+
     menuOutsideClickListener: any;
 
     topbarMenuOutsideClickListener: any;
+
+    menuProfileOutsideClickListener: any;
 
     @ViewChild(AppSidebarComponent) appSidebar!: AppSidebarComponent;
 
@@ -54,6 +58,17 @@ export class AppLayoutComponent implements OnDestroy {
 
             if (this.layoutService.state.staticMenuMobileActive) {
                 this.blockBodyScroll();
+            }
+        });
+
+        this.menuProfileOpenSubscription = this.layoutService.menuProfileOpen$.subscribe(() => {
+            if (!this.menuProfileOutsideClickListener) {
+                this.menuProfileOutsideClickListener = this.renderer.listen('document', 'click', event => {
+                    const isOutsideClicked = !(this.appSidebar.menuProfile.el.nativeElement.isSameNode(event.target) || this.appSidebar.menuProfile.el.nativeElement.contains(event.target));
+                    if (isOutsideClicked) {
+                        this.hideMenuProfile();
+                    }
+                });
             }
         });
 
@@ -102,6 +117,15 @@ export class AppLayoutComponent implements OnDestroy {
         if (this.topbarMenuOutsideClickListener) {
             this.topbarMenuOutsideClickListener();
             this.topbarMenuOutsideClickListener = null;
+        }
+    }
+
+    hideMenuProfile() {
+        this.layoutService.state.menuProfileActive = false;
+        
+        if (this.menuProfileOutsideClickListener) {
+            this.menuProfileOutsideClickListener();
+            this.menuProfileOutsideClickListener = null;
         }
     }
 
