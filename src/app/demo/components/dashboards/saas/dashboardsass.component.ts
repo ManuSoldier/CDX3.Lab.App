@@ -335,6 +335,7 @@ export class DashboardSaasComponent implements OnInit, AfterViewInit, OnDestroy 
 
     getBasicOptions() {
         const textColor = getComputedStyle(document.body).getPropertyValue('--text-color')
+        const surfaceLight = getComputedStyle(document.body).getPropertyValue('--surface-100')
         return {
             plugins: {
                 legend: {
@@ -353,7 +354,7 @@ export class DashboardSaasComponent implements OnInit, AfterViewInit, OnDestroy 
                         color: textColor,
                     },
                     grid: {
-                        color: "#ebedef",
+                        color: surfaceLight,
                     },
                 },
                 y: {
@@ -362,7 +363,7 @@ export class DashboardSaasComponent implements OnInit, AfterViewInit, OnDestroy 
                         stepSize: 10,
                     },
                     grid: {
-                        color: "#ebedef",
+                        color: surfaceLight,
                     },
                 },
             },
