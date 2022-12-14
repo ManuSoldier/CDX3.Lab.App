@@ -52,6 +52,11 @@
             > a {
                 color: var(--active-menuitem-text-color);
                 background-color: var(--active-menuitem-bg);
+
+                .layout-menuitem-icon {
+                    margin-right: .5rem;
+                    color: var(--active-menuitem-text-color);
+                }
                 
                 .layout-submenu-toggler {
                     transform: rotate(-180deg);
