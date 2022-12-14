@@ -276,23 +276,23 @@ export class DashboardSaasComponent implements OnInit, AfterViewInit, OnDestroy 
     teamMembers: any = [
         {
             title: "UX Researchers",
-            avatarts: ["asdas", "asdsd", "asdsad"],
+            avatar: 'assets/demo/images/avatar/circle/avatar-f-1.png'
         },
         {
             title: "UX Designers",
-            avatarts: ["asdas", "asdsd", "asdsad"],
+            avatar: 'assets/demo/images/avatar/circle/avatar-f-2.png'
         },
         {
             title: "UI Designers",
-            avatarts: ["asdas", "asdsd", "asdsad"],
+            avatar: 'assets/demo/images/avatar/circle/avatar-f-3.png'
         },
         {
             title: "Front-End Developers",
-            avatarts: ["asdas", "asdsd", "asdsad"],
+            avatar: 'assets/demo/images/avatar/circle/avatar-f-4.png'
         },
         {
             title: "Back-End Developers",
-            avatarts: ["asdas", "asdsd", "asdsad"],
+            avatar: 'assets/demo/images/avatar/circle/avatar-f-5.png'
         },
     ];
 
