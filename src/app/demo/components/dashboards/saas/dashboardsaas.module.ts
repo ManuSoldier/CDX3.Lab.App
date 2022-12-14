@@ -11,6 +11,7 @@ import { AvatarGroupModule } from 'primeng/avatargroup';
 import { AvatarModule } from 'primeng/avatar';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { ButtonModule } from 'primeng/button';
+import { RippleModule } from 'primeng/ripple';
 
 @NgModule({
     imports: [
@@ -25,6 +26,7 @@ import { ButtonModule } from 'primeng/button';
         AvatarModule,
         ProgressBarModule,
         ButtonModule,
+        RippleModule
     ],
     declarations: [
         DashboardSaasComponent
