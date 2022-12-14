@@ -278,7 +278,7 @@
                         <img *ngIf="!!chartMessage.url" [src]="chartMessage.url" alt="avatar" width="32px" class="mr-2">
                         <div class="flex flex-column"
                             [ngClass]="{'align-items-start': !!chartMessage.from, 'align-items-end': !chartMessage.from}">
-                            <span *ngFor="let message of chartMessage.messages; let first = first" class="p-3 border-round-3xl text-white"
+                            <span style="word-break: break-word;" *ngFor="let message of chartMessage.messages; let first = first" class="p-3 border-round-3xl text-white"
                                 [ngClass]="{'bg-cyan-500': !!chartMessage.from, 'bg-pink-500': !chartMessage.from, 'mt-1': !first}">
                                 {{message}}
                             </span>
