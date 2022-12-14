@@ -3,12 +3,14 @@ import { CommonModule } from '@angular/common';
 import { NotfoundRoutingModule } from './notfound-routing.module';
 import { NotfoundComponent } from './notfound.component';
 import { ButtonModule } from 'primeng/button';
+import { RippleModule } from 'primeng/ripple';
 
 @NgModule({
     imports: [
         CommonModule,
         NotfoundRoutingModule,
-        ButtonModule
+        ButtonModule,
+        RippleModule
     ],
     declarations: [NotfoundComponent]
 })

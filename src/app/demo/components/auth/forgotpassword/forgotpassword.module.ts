@@ -5,6 +5,7 @@ import { ForgotPasswordComponent } from './forgotpassword.component';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { AppConfigModule } from 'src/app/layout/config/app.config.module';
+import { RippleModule } from 'primeng/ripple';
 
 @NgModule({
     imports: [
@@ -12,7 +13,8 @@ import { AppConfigModule } from 'src/app/layout/config/app.config.module';
         ButtonModule,
         InputTextModule,
         ForgotPasswordRoutingModule,
-        AppConfigModule
+        AppConfigModule,
+        RippleModule
     ],
     declarations: [ForgotPasswordComponent]
 })

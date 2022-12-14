@@ -18,7 +18,8 @@ import { AppConfigModule } from 'src/app/layout/config/app.config.module';
         RippleModule,
         InputTextModule,
         CheckboxModule,
-        AppConfigModule
+        AppConfigModule,
+        RippleModule
     ],
     declarations: [RegisterComponent]
 })
