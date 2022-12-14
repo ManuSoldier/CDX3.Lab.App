@@ -10,7 +10,7 @@ interface DailyTask {
     id: number;
     checked: boolean;
     label: string;
-    images: string[];
+    avatar: string;
 }
 
 @Component({
@@ -301,31 +301,31 @@ export class DashboardSaasComponent implements OnInit, AfterViewInit, OnDestroy 
             id: 1,
             checked: true,
             label: "Prepare personas",
-            images: ["sd", "asdas"],
+            avatar: 'assets/demo/images/avatar/circle/avatar-f-6.png'
         },
         {
             id: 2,
             checked: false,
             label: "Prepare a user journey map",
-            images: ["sd", "asdas"],
+            avatar: 'assets/demo/images/avatar/circle/avatar-f-7.png'
         },
         {
             id: 3,
             checked: false,
             label: "Prepare wireframes for onboarding screen",
-            images: ["sd", "asdas"],
+            avatar: 'assets/demo/images/avatar/circle/avatar-f-8.png'
         },
         {
             id: 4,
             checked: false,
             label: "Review benchmarks",
-            images: ["sd", "asdas"],
+            avatar: 'assets/demo/images/avatar/circle/avatar-f-9.png'
         },
         {
             id: 3,
             checked: false,
             label: "Let a plan with UI Team",
-            images: ["sd", "asdas"],
+            avatar: 'assets/demo/images/avatar/circle/avatar-f-10.png'
         },
     ];
 
