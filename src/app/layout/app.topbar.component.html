@@ -28,7 +28,7 @@
         <div class="layout-topbar-actions-end">
             <ul class="layout-topbar-items">
                 <li class="layout-topbar-search">
-                    <a pStyleClass="@next" enterClass="ng-hidden" enterActiveClass="px-scalein" leaveToClass="ng-hidden" leaveActiveClass="px-fadeout" [hideOnOutsideClick]="true" pRipple>
+                    <a pStyleClass="@next" enterClass="ng-hidden" enterActiveClass="px-scalein" leaveToClass="ng-hidden" leaveActiveClass="px-fadeout" [hideOnOutsideClick]="true" pRipple (click)="focusSearchInput()">
                         <i class="pi pi-search"></i>
                     </a>
 

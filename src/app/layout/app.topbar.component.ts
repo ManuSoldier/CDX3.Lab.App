@@ -11,6 +11,8 @@ export class AppTopbarComponent {
     @ViewChild('menuButton') menuButton!: ElementRef;
 
     @ViewChild('mobileMenuButton') mobileMenuButton!: ElementRef;
+
+    @ViewChild('searchInput') searchInput!: ElementRef;
     
     constructor(public layoutService: LayoutService, public el: ElementRef) {}
 
@@ -89,5 +91,11 @@ export class AppTopbarComponent {
 
     onMobileTopbarMenuButtonClick() {
         this.layoutService.onTopbarMenuToggle();
+    }
+
+    focusSearchInput(){
+       setTimeout(() => {
+         this.searchInput.nativeElement.focus()
+       }, 0);
     }
 }
