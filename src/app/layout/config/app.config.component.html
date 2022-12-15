@@ -65,17 +65,19 @@
             </div>
         </ng-container>
 
-        <h5>Input Style</h5>
-        <div class="flex gap-4">
-            <div class="field-radiobutton flex-1">
-                <p-radioButton name="inputStyle" value="outlined" [(ngModel)]="inputStyle" inputId="outlined_input"></p-radioButton>
-                <label for="outlined_input">Outlined</label>
+        <ng-container *ngIf="!minimal">
+            <h5>Input Style</h5>
+            <div class="flex gap-4">
+                <div class="field-radiobutton flex-1">
+                    <p-radioButton name="inputStyle" value="outlined" [(ngModel)]="inputStyle" inputId="outlined_input"></p-radioButton>
+                    <label for="outlined_input">Outlined</label>
+                </div>
+                <div class="field-radiobutton flex-1">
+                    <p-radioButton name="inputStyle" value="filled" [(ngModel)]="inputStyle" inputId="filled_input"></p-radioButton>
+                    <label for="filled_input">Filled</label>
+                </div>
             </div>
-            <div class="field-radiobutton flex-1">
-                <p-radioButton name="inputStyle" value="filled" [(ngModel)]="inputStyle" inputId="filled_input"></p-radioButton>
-                <label for="filled_input">Filled</label>
-            </div>
-        </div>
+        </ng-container>
 
         <h5>Ripple Effect</h5>
         <p-inputSwitch [(ngModel)]="ripple"></p-inputSwitch>
