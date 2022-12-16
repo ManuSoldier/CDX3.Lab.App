@@ -288,17 +288,17 @@
                 <div class="p-inputgroup mt-3">
                     <span class="p-inputgroup-addon p-0 overflow-hidden border-round-3xl border-noround-right">
                         <button pButton pRipple type="button" icon="pi pi-plus-circle"
-                            class="p-button-text p-button-plain"></button>
+                            class="p-button-text p-button-plain h-full"></button>
                     </span>
                     <input #chatInput type="text" pInputText placeholder="Write your message (Hint: 'PrimeNG')"
                         (keydown)="onChatKeydown($event)">
                     <span class="p-inputgroup-addon p-0 overflow-hidden">
                         <button pButton pRipple type="button" icon="pi pi-video"
-                            class="p-button-text p-button-plain"></button>
+                            class="p-button-text p-button-plain h-full"></button>
                     </span>
                     <span class="p-inputgroup-addon p-0 overflow-hidden border-round-3xl border-noround-left">
                         <button pButton pRipple type="button" icon="pi pi-clock" (click)="op.toggle($event)"
-                            class="p-button-text p-button-plain"></button>
+                            class="p-button-text p-button-plain h-full"></button>
                         <p-overlayPanel #op styleClass="w-11">
                             <ng-template pTemplate>
                                 <button *ngFor="let emoji of chatEmojis;" pButton pRipple
