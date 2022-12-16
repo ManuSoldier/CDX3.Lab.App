@@ -64,6 +64,11 @@ export class CreateTaskComponent implements OnInit, OnDestroy {
         this.taskService.closeDialog();
     }
 
+    cancelTask(){
+        this.resetTask()
+        this.taskService.closeDialog();
+    }
+
     resetTask() {
         this.task = { id: this.task && this.task.id ? this.task.id : Math.floor(Math.random() * 1000), status: 'Waiting' };
     }
