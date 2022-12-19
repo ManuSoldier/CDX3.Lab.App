@@ -80,13 +80,13 @@
         </ng-container>
 
         <h5>Ripple Effect</h5>
-        <p-inputSwitch [(ngModel)]="ripple"></p-inputSwitch>
+        <p-inputSwitch [(ngModel)]="ripple" styleClass="mb-3"></p-inputSwitch>
         
         <ng-container *ngIf="!minimal">
             <h5>Menu Themes</h5>
             <p *ngIf="colorScheme === 'dark';else menu_theme_selector">Menu themes are only available in light mode by design as large surfaces can emit too much brightness in dark mode.</p>
             <ng-template #menu_theme_selector>
-                <div class="flex flex-wrap row-gap-3">
+                <div class="flex flex-wrap row-gap-3 pb-3">
                     <div class="w-3" *ngFor="let theme of menuThemes">
                         <button type="button" 
                             class="cursor-pointer p-link w-2rem h-2rem border-round shadow-2 flex-shrink-0 flex justify-content-center align-items-center border-circle" 
@@ -97,7 +97,7 @@
             </ng-template>
             
             <h5>Topbar Themes</h5>
-            <div class="flex flex-wrap row-gap-3">
+            <div class="flex flex-wrap row-gap-3 pb-3">
                 <div class="w-3" *ngFor="let theme of topbarThemes">
                     <button type="button" 
                     class="cursor-pointer p-link w-2rem h-2rem border-round shadow-2 flex-shrink-0 flex justify-content-center align-items-center border-circle" 
