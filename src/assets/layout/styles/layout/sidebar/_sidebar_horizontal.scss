@@ -17,6 +17,14 @@
                 }
             }
 
+            .layout-topbar {
+                .layout-topbar-start {
+                    .layout-menu-button {
+                        display: none;
+                    }
+                }
+            }
+
             .layout-content-wrapper {
                 padding-top: 7rem;
             }

@@ -11,6 +11,14 @@
                 }
             }
 
+            .layout-topbar {
+                .layout-topbar-start {
+                    .layout-menu-button {
+                        display: none;
+                    }
+                }
+            }
+
             .layout-content-wrapper {
                 margin-left: 5rem;
             }
