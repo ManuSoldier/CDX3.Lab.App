@@ -12,7 +12,6 @@
     0% {
         opacity: 0;
         transform: scaleY(0.8);
-        transition: transform .12s cubic-bezier(0, 0, 0.2, 1), opacity .12s cubic-bezier(0, 0, 0.2, 1);
     }
 
     100% {
@@ -42,7 +41,7 @@
 }
 
 .px-scalein {
-    animation: px-scalein .15s linear;
+    animation: px-scalein .12s cubic-bezier(0, 0, 0.2, 1);
 }
 
 .px-fadein {
