@@ -2,7 +2,7 @@
     .layout-sidebar {
         height: 100%;
         top: 0;
-        transition: transform 2s cubic-bezier(0, 0, 0.2, 1);
+        transition: transform .3s cubic-bezier(0, 0, 0.2, 1);
         transform: translateX(-12.75rem);
         z-index: 999;
 
