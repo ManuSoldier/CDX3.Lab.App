@@ -20,6 +20,8 @@ export class AppLayoutComponent implements OnDestroy {
 
     menuOutsideClickListener: any;
 
+    menuScrollListener: any;
+
     topbarMenuOutsideClickListener: any;
 
     menuProfileOutsideClickListener: any;
@@ -32,14 +34,21 @@ export class AppLayoutComponent implements OnDestroy {
         this.hideMenuProfile();
         
         this.overlayMenuOpenSubscription = this.layoutService.overlayOpen$.subscribe(() => {
+            this.hideTopbarMenu();
+            
             if (!this.menuOutsideClickListener) {
-                this.hideTopbarMenu();
                 this.menuOutsideClickListener = this.renderer.listen('document', 'click', event => {
                     const isOutsideClicked = !(this.appSidebar.el.nativeElement.isSameNode(event.target) || this.appSidebar.el.nativeElement.contains(event.target)
                         || this.appTopbar.menuButton.nativeElement.isSameNode(event.target) || this.appTopbar.menuButton.nativeElement.contains(event.target));
                     if (isOutsideClicked) {
                         this.hideMenu();
                     }
+                });
+            }
+
+            if (!this.menuScrollListener) {
+                this.menuScrollListener = this.renderer.listen(this.appSidebar.menuContainer.nativeElement, 'scroll', event => {
+                    this.hideMenu();
                 });
             }
 
@@ -113,6 +122,11 @@ export class AppLayoutComponent implements OnDestroy {
         if (this.menuOutsideClickListener) {
             this.menuOutsideClickListener();
             this.menuOutsideClickListener = null;
+        }
+
+        if (this.menuScrollListener) {
+            this.menuScrollListener();
+            this.menuScrollListener = null;
         }
         this.unblockBodyScroll();
     }

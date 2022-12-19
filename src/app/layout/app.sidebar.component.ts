@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnDestroy, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnDestroy, ViewChild } from '@angular/core';
 import { AppMenuProfileComponent } from './app.menuprofile.component';
 import { LayoutService } from './service/app.layout.service';
 
@@ -11,6 +11,8 @@ export class AppSidebarComponent implements OnDestroy {
     timeout: any = null;
 
     @ViewChild(AppMenuProfileComponent) menuProfile!: AppMenuProfileComponent;
+
+    @ViewChild('menuContainer') menuContainer!: ElementRef;
 
     constructor(public layoutService: LayoutService, public el: ElementRef) {}
 
@@ -49,4 +51,5 @@ export class AppSidebarComponent implements OnDestroy {
     ngOnDestroy() {
         this.resetOverlay();
     }
+
 }

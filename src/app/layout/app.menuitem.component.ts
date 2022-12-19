@@ -1,10 +1,11 @@
 import { ChangeDetectorRef, Component, HostBinding, Input, OnDestroy, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
-import { animate, state, style, transition, trigger } from '@angular/animations';
+import { animate, AnimationEvent, state, style, transition, trigger } from '@angular/animations';
 import { Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
 import { MenuService } from './app.menu.service';
 import { LayoutService } from './service/app.layout.service';
+import { AppSidebarComponent } from './app.sidebar.component';
 
 @Component({
     // eslint-disable-next-line @angular-eslint/component-selector
@@ -31,7 +32,7 @@ import { LayoutService } from './service/app.layout.service';
 				<i class="pi pi-fw pi-angle-down layout-submenu-toggler" *ngIf="item.items"></i>
 			</a>
 
-			<ul *ngIf="item.items && item.visible !== false" [@children]="submenuAnimation">
+			<ul *ngIf="item.items && item.visible !== false" [@children]="submenuAnimation" (@children.done)="onSubmenuAnimated($event)">
 				<ng-template ngFor let-child let-i="index" [ngForOf]="item.items">
 					<li app-menuitem [item]="child" [index]="i" [parentKey]="key" [class]="child.badgeClass"></li>
 				</ng-template>
@@ -74,7 +75,7 @@ export class AppMenuitemComponent implements OnInit, OnDestroy {
 
     key: string = "";
 
-    constructor(public layoutService: LayoutService, private cd: ChangeDetectorRef, public router: Router, private menuService: MenuService) {
+    constructor(public layoutService: LayoutService, private cd: ChangeDetectorRef, public router: Router, private menuService: MenuService, private appSidebar: AppSidebarComponent) {
         this.menuSourceSubscription = this.menuService.menuSource$.subscribe(value => {
             Promise.resolve(null).then(() => {
                 if (value.routeEvent) {
@@ -118,6 +119,16 @@ export class AppMenuitemComponent implements OnInit, OnDestroy {
 
         if (activeRoute) {
             this.menuService.onMenuStateChange({key: this.key, routeEvent: true});
+        }
+    }
+
+    onSubmenuAnimated(event: AnimationEvent) {
+        if (event.toState === 'visible') {
+            const el = <HTMLUListElement> event.element;
+            const container = <HTMLDivElement> this.appSidebar.menuContainer.nativeElement;
+            const scrollLeft = container.scrollLeft;
+            const offsetLeft = el.parentElement?.offsetLeft || 0;
+            el.style.left = (offsetLeft - scrollLeft) + 'px';
         }
     }
 
