@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Inject, NgZone, OnDestroy, OnInit, PLATFORM_ID } from "@angular/core";
+import { Component, Inject, NgZone, OnDestroy, OnInit, PLATFORM_ID } from "@angular/core";
 import { isPlatformBrowser } from "@angular/common";
 import * as am5 from "@amcharts/amcharts5";
 import * as am5xy from "@amcharts/amcharts5/xy";
@@ -26,12 +26,12 @@ interface DailyTask {
         `,
     ],
 })
-export class DashboardSaasComponent implements OnInit, AfterViewInit, OnDestroy {
+export class DashboardSaasComponent implements OnInit, OnDestroy {
     private root!: am5.Root;
 
     subscription!: Subscription
 
-    constructor(@Inject(PLATFORM_ID) private platformId: Object,private zone: NgZone, private layoutService: LayoutService) {
+    constructor(@Inject(PLATFORM_ID) private platformId: Object, private zone: NgZone, private layoutService: LayoutService) {
         this.subscription = this.layoutService.configUpdate$.subscribe(config => {
             this.chartInit()
             this.ganttChartInit()
@@ -48,6 +48,7 @@ export class DashboardSaasComponent implements OnInit, AfterViewInit, OnDestroy 
 
     ngOnInit(): void {
         this.chartInit()
+        this.ganttChartInit()
     }
 
     browserOnly(f: () => void) {
@@ -58,15 +59,18 @@ export class DashboardSaasComponent implements OnInit, AfterViewInit, OnDestroy 
         }
     }
 
-    ngAfterViewInit() {
-        this.ganttChartInit()
-    }
-
     ganttChartInit() {
-        const surfaceCard = getComputedStyle(document.body).getPropertyValue('--surface-card');
+        const primaryColor = getComputedStyle(document.body).getPropertyValue('--primary-color');
+        const textColor = getComputedStyle(document.body).getPropertyValue('--text-color');
 
         this.browserOnly(() => {
-            let root = am5.Root.new("chartdiv");
+            am5.array.each(am5.registry.rootElements, function(root) {
+                if (root.dom.id == 'ganttChartContainer') {
+                  root.dispose();
+                }
+              });
+            
+            let root = am5.Root.new("ganttChartContainer");
 
             root.setThemes([am5themes_Animated.new(root)]);
 
@@ -91,7 +95,6 @@ export class DashboardSaasComponent implements OnInit, AfterViewInit, OnDestroy 
                     start: new Date(2016, 1, 4).getTime(),
                     end: new Date(2016, 4, 14).getTime(),
                     columnSettings: {
-                        fill: am5.color(surfaceCard),
                         shadowColor: am5.color(0x000000),
                         shadowBlur: 10,
                         shadowOffsetX: 3,
@@ -105,7 +108,6 @@ export class DashboardSaasComponent implements OnInit, AfterViewInit, OnDestroy 
                     start: new Date(2016, 0, 8).getTime(),
                     end: new Date(2016, 3, 10).getTime(),
                     columnSettings: {
-                        fill: am5.color(surfaceCard),
                         shadowColor: am5.color(0x000000),
                         shadowBlur: 10,
                         shadowOffsetX: 3,
@@ -117,9 +119,8 @@ export class DashboardSaasComponent implements OnInit, AfterViewInit, OnDestroy 
                 {
                     category: "Module #3",
                     start: new Date(2016, 2, 23).getTime(),
-                    end: new Date(2016, 7, 8).getTime(),
+                    end: new Date(2016, 5, 8).getTime(),
                     columnSettings: {
-                        fill: am5.color(surfaceCard),
                         shadowColor: am5.color(0x000000),
                         shadowBlur: 10,
                         shadowOffsetX: 3,
@@ -131,9 +132,8 @@ export class DashboardSaasComponent implements OnInit, AfterViewInit, OnDestroy 
                 {
                     category: "Module #4",
                     start: new Date(2016, 3, 27).getTime(),
-                    end: new Date(2016, 9, 15).getTime(),
+                    end: new Date(2016, 6, 15).getTime(),
                     columnSettings: {
-                        fill: am5.color(surfaceCard),
                         shadowColor: am5.color(0x000000),
                         shadowBlur: 10,
                         shadowOffsetX: 3,
@@ -144,10 +144,9 @@ export class DashboardSaasComponent implements OnInit, AfterViewInit, OnDestroy 
                 },
                 {
                     category: "Module #5",
-                    start: new Date(2016, 2, 8).getTime(),
-                    end: new Date(2016, 8, 30).getTime(),
+                    start: new Date(2016, 5, 8).getTime(),
+                    end: new Date(2016, 7, 30).getTime(),
                     columnSettings: {
-                        fill: am5.color(surfaceCard),
                         shadowColor: am5.color(0x000000),
                         shadowBlur: 10,
                         shadowOffsetX: 3,
@@ -166,6 +165,11 @@ export class DashboardSaasComponent implements OnInit, AfterViewInit, OnDestroy 
                 })
             );
 
+            yAxis.get('renderer').labels.template.setAll({
+                fill: am5.color(textColor),
+                fontWeight: '500'
+            })
+
             yAxis.data.setAll([
                 { category: "Module #1" },
                 { category: "Module #2" },
@@ -181,6 +185,10 @@ export class DashboardSaasComponent implements OnInit, AfterViewInit, OnDestroy 
                 })
             );
 
+            xAxis.get("renderer").labels.template.adapters.add("html", function () {
+                return "<div class=\"text-center font-bold text-color\">{value.formatDate('d MMM')}</div><div class=\"text-center\">{value.formatDate('EEE')}</div>";
+            });
+
             let series = chart.series.push(
                 am5xy.ColumnSeries.new(root, {
                     xAxis: xAxis,
@@ -189,6 +197,7 @@ export class DashboardSaasComponent implements OnInit, AfterViewInit, OnDestroy 
                     valueXField: "end",
                     categoryYField: "category",
                     sequencedInterpolation: true,
+                    fill: am5.color(primaryColor)
                 })
             );
 
