@@ -22,6 +22,8 @@ export class TableDemoComponent implements OnInit {
 
     customers3: Customer[] = [];
 
+    customers4: Customer[] = [];
+
     selectedCustomers1: Customer[] = [];
 
     selectedCustomer: Customer = {};
@@ -57,7 +59,8 @@ export class TableDemoComponent implements OnInit {
             this.customers1.forEach(customer => customer.date = new Date(customer.date));
         });
         this.customerService.getCustomersMedium().then(customers => this.customers2 = customers);
-        this.customerService.getCustomersLarge().then(customers => this.customers3 = customers);
+        this.customerService.getCustomersMedium().then(customers => this.customers3 = customers);
+        this.customerService.getCustomersLarge().then(customers => this.customers4 = customers);
         this.productService.getProductsWithOrdersSmall().then(data => this.products = data);
 
         this.representatives = [
@@ -133,6 +136,20 @@ export class TableDemoComponent implements OnInit {
     clear(table: Table) {
         table.clear();
         this.filter.nativeElement.value = '';
+    }
+
+    calculateCustomerTotal(name: string) {
+        let total = 0;
+
+        if (this.customers4) {
+            for (let customer of this.customers4) {
+                if (customer?.representative?.name === name) {
+                    total++;
+                }
+            }
+        }
+
+        return total;
     }
     
 }
