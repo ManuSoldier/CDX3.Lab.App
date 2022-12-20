@@ -1,6 +1,6 @@
 <div class="grid dashboard">
     <div class="col-12 md:col-8">
-        <div class="surface-card p-3 shadow-2 border-round-md h-full">
+        <div class="card h-full">
             <div class="p-2 h-full flex flex-column justify-content-between">
                 <div class="flex aling-items-center justify-content-between mb-3">
                     <div class="flex gap-3 flex-column justify-content-between w-full md:flex-row md:align-items-center">
@@ -47,7 +47,7 @@
     </div>
 
     <div class="col-12">
-        <div class="flex justify-content-between align-items-center border-round-md surface-card shadow-2 p-3">
+        <div class="card flex justify-content-between align-items-center">
             <div class="p-2 h-full w-full flex flex-column justify-content-between">
                 <div class="flex align-items-center justify-content-between mb-3">
                     <span class="font-semibold text-lg text-900">My Workspace</span>
@@ -70,97 +70,98 @@
                             </div>
                         </div>
                         <div class="flex flex-column gap-2 h-21rem overflow-auto -mb-4">
-                        <div *ngFor="let task of dailyTasks" class="flex justify-content-between p-3 surface-50 cursor-pointer text-color-secondary border-round-md mx-4 hover:surface-card hover:shadow-2">
-                            <div class="flex gap-3">
-                                <div>
-                                    <p-checkbox (onChange)="changeChecked()" [(ngModel)]="task.checked" [binary]="true"></p-checkbox>
-                                </div>
-                                <div class="flex flex-column gap-2">
-                                    <span class="font-medium text-sm">{{task.label}}</span>
-                                    <div class="flex gap-2 align-items-center">
-                                        <i class="pi pi-align-left text-color-secondary "></i>
-                                        <i class="pi pi-file text-color-secondary"></i>
-                                        <i class="pi pi-image text-color-secondary"></i>
+                            <div *ngFor="let task of dailyTasks" class="flex justify-content-between p-3 surface-50 cursor-pointer text-color-secondary border-round-md mx-4 hover:surface-card hover:shadow-2">
+                                <div class="flex gap-3">
+                                    <div>
+                                        <p-checkbox (onChange)="changeChecked()" [(ngModel)]="task.checked" [binary]="true"></p-checkbox>
+                                    </div>
+                                    <div class="flex flex-column gap-2">
+                                        <span class="font-medium text-sm">{{task.label}}</span>
+                                        <div class="flex gap-2 align-items-center">
+                                            <i class="pi pi-align-left text-color-secondary "></i>
+                                            <i class="pi pi-file text-color-secondary"></i>
+                                            <i class="pi pi-image text-color-secondary"></i>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="flex gap-3">
-                                <div class="flex align-items-end">
-                                    <p-avatarGroup>
-                                        <p-avatar [image]="task.avatar" shape="circle"></p-avatar>
-                                        <p-avatar label="+2" shape="circle" styleClass="surface-200 text-color-secondary"></p-avatar>
-                                    </p-avatarGroup>
-                                </div>
-                                <div class="flex align-items-center">
-                                    <i class="pi pi-ellipsis-h text-color-secondary"></i>
+                                <div class="flex gap-3">
+                                    <div class="flex align-items-end">
+                                        <p-avatarGroup>
+                                            <p-avatar [image]="task.avatar" shape="circle"></p-avatar>
+                                            <p-avatar label="+2" shape="circle" styleClass="surface-200 text-color-secondary"></p-avatar>
+                                        </p-avatarGroup>
+                                    </div>
+                                    <div class="flex align-items-center">
+                                        <i class="pi pi-ellipsis-h text-color-secondary"></i>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
                 </div>
                 <div class="col-12 md:col-4">
-                        <div class="flex flex-column gap-3 border-round-md border-1 h-full surface-border p-4">
-                            <div class="flex justify-content-between align-items-center">
-                                 <div class="flex align-items-center gap-3">
-                                     <div>
-                                        <i class="pi pi-chart-bar text-primary text-3xl"></i>
-                                    </div>
-                                     <div class="flex flex-column justify-content-between gap-1">
-                                         <span class="font-bold text-900">My Performance</span>
-                                    </div>
+                    <div class="flex flex-column gap-3 border-round-md border-1 h-full surface-border p-4">
+                        <div class="flex justify-content-between align-items-center">
+                            <div class="flex align-items-center gap-3">
+                                <div>
+                                    <i class="pi pi-chart-bar text-primary text-3xl"></i>
+                                </div>
+                                <div class="flex flex-column justify-content-between gap-1">
+                                    <span class="font-bold text-900">My Performance</span>
+                                </div>
+                            </div>
+                            <div class="flex align-items-center gap-1">
+                                <div
+                                    class="flex align-items-center justify-content-center gap-1 border-round-md p-2 bg-red-100 text-red-400">
+                                    <i class="pi pi-arrow-down-right"></i>
+                                    <span>-13%</span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="flex align-items-center gap-1">
-                           <div class="flex align-items-center justify-content-center gap-1 border-round-md p-2 bg-red-100 text-red-400">
-                            <i class="pi pi-arrow-down-right"></i>
-                            <span>-13%</span>
-                           </div>
+                        <div class="flex flex-column gap-2 h-21rem overflow-auto -mb-4 relative">
+                            <p-chart height="294" type="line" [data]="basicData" [options]="basicOptions"></p-chart>
                         </div>
-                    </div>
-                    <div class="flex flex-column gap-2 h-21rem overflow-auto -mb-4 relative">
-                        <p-chart height="294" type="line" [data]="basicData" [options]="basicOptions"></p-chart>
-                    </div>
                     </div> 
-                 </div> 
+                </div> 
                 <div class="col-12 md:col-4">
                     <div class="flex flex-column gap-3 border-round-md border-1 h-full surface-border py-4">
-                    <div class="flex justify-content-between align-items-center mx-4">
-                        <div class="flex align-items-center gap-3">
-                            <div>
-                                <i class="pi pi-calendar text-primary text-3xl"></i>
-                            </div>
-                           <div class="flex flex-column justify-content-between gap-1">
-                            <span class="font-bold text-900">My Calendar</span>
-                            <span class="text-color-secondary text-sm"><span class="font-bold">19</span> Events on this month</span>
-                           </div>
-                        </div>
-                        <div class="flex align-items-center gap-1">
-                            <button pButton pRipple type="button" icon="pi pi-filter" class="p-button-outlined"></button>
-                            <button pButton pRipple type="button" icon="pi pi-plus" class="p-button-outlined"></button>
-                        </div>
-                    </div>
-                    <div class="flex flex-column gap-2 h-21rem overflow-auto -mb-4">
-                    <div *ngFor="let task of dailyTasks" class="flex justify-content-between p-3 border-left-1 border-pink-500 cursor-pointer mx-4 border-round-md surface-50 hover:shadow-2 hover:surface-card">
-                        <div class="flex justify-content-between gap-3">
-                            <div class="flex flex-column justify-content-center gap-2 ">
-                                <span class="font-medium text-base text-color">{{task.label}}</span>
-                                <span class="text-color-secondary text-sm">I’ll tell to my team what i did, what i will to?</span>
-                                <span class="flex align-items-center font-medium gap-1 text-color-secondary text-xs"><i class="pi pi-clock"></i> 10:30 AM</span>
+                        <div class="flex justify-content-between align-items-center mx-4">
+                            <div class="flex align-items-center gap-3">
+                                <div>
+                                    <i class="pi pi-calendar text-primary text-3xl"></i>
                                 </div>
+                            <div class="flex flex-column justify-content-between gap-1">
+                                <span class="font-bold text-900">My Calendar</span>
+                                <span class="text-color-secondary text-sm"><span class="font-bold">19</span> Events on this month</span>
                             </div>
-                            <div class="flex align-items-center">
-                                <i class="pi pi-ellipsis-h text-color-secondary"></i> 
+                            </div>
+                            <div class="flex align-items-center gap-1">
+                                <button pButton pRipple type="button" icon="pi pi-filter" class="p-button-outlined"></button>
+                                <button pButton pRipple type="button" icon="pi pi-plus" class="p-button-outlined"></button>
+                            </div>
+                        </div>
+                        <div class="flex flex-column gap-2 h-21rem overflow-auto -mb-4">
+                            <div *ngFor="let task of dailyTasks" class="flex justify-content-between p-3 border-left-1 border-pink-500 cursor-pointer mx-4 border-round-md surface-50 hover:shadow-2 hover:surface-card">
+                                <div class="flex justify-content-between gap-3">
+                                    <div class="flex flex-column justify-content-center gap-2 ">
+                                        <span class="font-medium text-base text-color">{{task.label}}</span>
+                                        <span class="text-color-secondary text-sm">{{task.description}}</span>
+                                        <span class="flex align-items-center font-medium gap-1 text-color-secondary text-xs"><i class="pi pi-clock"></i> 10:30 AM</span>
+                                        </div>
+                                    </div>
+                                    <div class="flex align-items-center">
+                                        <i class="pi pi-ellipsis-h text-color-secondary"></i> 
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            </div>
             </div>
         </div>
     </div>
     <div class="col-12">
-        <div class="flex justify-content-between align-items-center border-round-md surface-card p-3 shadow-2">
+        <div class="card flex justify-content-between align-items-center">
             <div class="p-2 h-full w-full flex flex-column justify-content-between">
                 <div class="flex align-items-center justify-content-between mb-3">
                     <span class="font-semibold text-lg text-900">Projects Overview</span>

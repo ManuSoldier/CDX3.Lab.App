@@ -10,6 +10,7 @@ interface DailyTask {
     id: number;
     checked: boolean;
     label: string;
+    description: string;
     avatar: string;
 }
 
@@ -310,30 +311,35 @@ export class DashboardSaasComponent implements OnInit, OnDestroy {
             id: 1,
             checked: true,
             label: "Prepare personas",
+            description: "Create profiles of fictional users representing target audience for product or service.",
             avatar: 'assets/demo/images/avatar/circle/avatar-f-6.png'
         },
         {
             id: 2,
             checked: false,
             label: "Prepare a user journey map",
+            description: "Visual representation of steps a user takes to accomplish a goal within product or service.",
             avatar: 'assets/demo/images/avatar/circle/avatar-f-7.png'
         },
         {
             id: 3,
             checked: false,
             label: "Prepare wireframes for onboarding screen",
+            description: "Create low-fidelity mockups of onboarding screen. Include layout, hierarchy, functionality.",
             avatar: 'assets/demo/images/avatar/circle/avatar-f-8.png'
         },
         {
             id: 4,
             checked: false,
             label: "Review benchmarks",
+            description: "Conduct research on similar products or services to understand market standards and identify opportunities.",
             avatar: 'assets/demo/images/avatar/circle/avatar-f-9.png'
         },
         {
             id: 3,
             checked: false,
             label: "Let a plan with UI Team",
+            description: "Collaborate with UI design team to create plan for visual design of product or service.",
             avatar: 'assets/demo/images/avatar/circle/avatar-f-10.png'
         },
     ];
