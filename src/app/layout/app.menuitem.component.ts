@@ -123,7 +123,7 @@ export class AppMenuitemComponent implements OnInit, OnDestroy {
     }
 
     onSubmenuAnimated(event: AnimationEvent) {
-        if (event.toState === 'visible') {
+        if (event.toState === 'visible' && this.layoutService.isDesktop() && this.layoutService.isHorizontal()) {
             const el = <HTMLUListElement> event.element;
             const container = <HTMLDivElement> this.appSidebar.menuContainer.nativeElement;
             const scrollLeft = container.scrollLeft;
