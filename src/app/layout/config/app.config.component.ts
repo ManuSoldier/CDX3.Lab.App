@@ -159,24 +159,13 @@ export class AppConfigComponent implements OnInit {
     }
 
     changeColorScheme(colorScheme: string) {
-        const themeLink = <HTMLLinkElement>document.getElementById('theme-link');
-        const themeLinkHref = themeLink.getAttribute('href');
-        const currentColorScheme = 'theme-' + this.layoutService.config.colorScheme;
-        const newColorScheme = 'theme-' + colorScheme;
-        const newHref = themeLinkHref!.replace(currentColorScheme, newColorScheme);
-        this.replaceThemeLink(newHref, () => {
-            this.layoutService.config.colorScheme = colorScheme;
-            if (colorScheme === 'dark') {
-                this.layoutService.config.menuTheme = 'dark';
-            }
-            this.layoutService.onConfigUpdate();
-        });
+        this.layoutService.onColorSchemeChange(colorScheme);
     }
 
     changeTheme(theme: string) {
         const themeLink = <HTMLLinkElement>document.getElementById('theme-link');
         const newHref = themeLink.getAttribute('href')!.replace(this.layoutService.config.componentTheme, theme);
-        this.replaceThemeLink(newHref, () => {
+        this.layoutService.replaceThemeLink(newHref, () => {
             this.layoutService.config.componentTheme = theme;
             this.layoutService.onConfigUpdate();
         });
@@ -190,23 +179,6 @@ export class AppConfigComponent implements OnInit {
     changeMenuTheme(theme:string) {
         this.layoutService.config.menuTheme = theme;
         this.layoutService.onConfigUpdate();
-    }
-
-    replaceThemeLink(href: string, onComplete: Function) {
-        const id = 'theme-link';
-        const themeLink = <HTMLLinkElement>document.getElementById(id);
-        const cloneLinkElement = <HTMLLinkElement>themeLink.cloneNode(true);
-
-        cloneLinkElement.setAttribute('href', href);
-        cloneLinkElement.setAttribute('id', id + '-clone');
-
-        themeLink.parentNode!.insertBefore(cloneLinkElement, themeLink.nextSibling);
-
-        cloneLinkElement.addEventListener('load', () => {
-            themeLink.remove();
-            cloneLinkElement.setAttribute('id', id);
-            onComplete();
-        });
     }
 
     decrementScale() {
