@@ -62,15 +62,14 @@ export class DashboardSaasComponent implements OnInit, OnDestroy {
 
     ganttChartInit() {
         const primaryColor = getComputedStyle(document.body).getPropertyValue('--primary-color');
-        const textColor = getComputedStyle(document.body).getPropertyValue('--text-color');
 
         this.browserOnly(() => {
-            am5.array.each(am5.registry.rootElements, function(root) {
+            am5.array.each(am5.registry.rootElements, function (root) {
                 if (root.dom.id == 'ganttChartContainer') {
-                  root.dispose();
+                    root.dispose();
                 }
-              });
-            
+            });
+
             let root = am5.Root.new("ganttChartContainer");
 
             root.setThemes([am5themes_Animated.new(root)]);
@@ -165,10 +164,10 @@ export class DashboardSaasComponent implements OnInit, OnDestroy {
                     tooltip: am5.Tooltip.new(root, {}),
                 })
             );
-
+            
             yAxis.get('renderer').labels.template.setAll({
-                fill: am5.color(textColor),
-                fontWeight: '500'
+                html: "<div class=\"text-center flex flex-column gap-1 font-bold text-color\"><div>{category}</div></div>",
+                centerX: 0
             })
 
             yAxis.data.setAll([
