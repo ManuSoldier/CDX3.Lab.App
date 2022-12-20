@@ -16,4 +16,8 @@ export class LandingComponent implements OnInit {
     ngOnInit() {
         this.layoutService.onColorSchemeChange('dark');
     }
+
+    scrollBehavior(el: HTMLElement) {
+        el.scrollIntoView({behavior:'smooth'});
+    }
 }

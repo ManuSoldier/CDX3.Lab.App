@@ -70,6 +70,7 @@
 
             <div class="absolute flex justify-content-center align-items-center w-full h-full parallax__layer__3" style="top:112px;">
                     <button pButton label="GET STARTED"
+                    (click)="scrollBehavior(parallax_body)"
                     style="backdrop-filter:blur(7px)"
                     class="p-button-text text-900 bg-white-alpha-20 text-lg px-5 py-3 font-semibold hover:bg-white hover:text-0 border-round-xl border-white-alpha-30 border-1"></button>
             </div>
@@ -77,7 +78,7 @@
             <div class="block lg:hidden h-28rem bg-center bg-no-repeat bg-cover"
                 style="top: 68px; background:url(assets/layout/images/landing/landing-hero-image.jpg)"></div>
 
-            <div style="top: 38%" class="lg:top-100 block absolute left-0 right-0 h-full z-2">
+            <div #parallax_body style="top: 38%" class="lg:top-100 block absolute left-0 right-0 h-full z-2">
                 <div>
                     <div class="grid grid-nogutter p-2 lg:p-5" style="background-color: #000;">
                         <div class="col-6 lg:col-3 flex align-items-center justify-content-center gap-3">
