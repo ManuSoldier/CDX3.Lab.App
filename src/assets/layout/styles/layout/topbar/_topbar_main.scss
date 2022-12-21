@@ -29,6 +29,10 @@
             display: flex;
             align-items: center;
             justify-content: center;
+
+            .layout-topbar-logo-slim {
+                display: none;
+            }
         }
 
         .layout-menu-button {

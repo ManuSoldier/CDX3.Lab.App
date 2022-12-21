@@ -13,6 +13,18 @@
 
             .layout-topbar {
                 .layout-topbar-start {
+                    width: 5rem;
+
+                    .layout-topbar-logo {
+                        .layout-topbar-logo-full {
+                            display: none;
+                        }
+
+                        .layout-topbar-logo-slim {
+                            display: block;
+                        }
+                    }
+
                     .layout-menu-button {
                         display: none;
                     }
