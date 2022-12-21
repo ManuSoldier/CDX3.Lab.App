@@ -58,7 +58,7 @@
                         <div class="flex justify-content-between align-items-center mx-4">
                             <div class="flex align-items-center gap-3">
                                 <div>
-                                    <p-knob [size]="36" rangeColor="#EEEEEE" [readonly]="true" [max]="5" [(ngModel)]="completeTask"></p-knob>
+                                    <p-knob [showValue]="false" [size]="36" rangeColor="#EEEEEE" [readonly]="true" [max]="5" [(ngModel)]="completeTask"></p-knob>
                                 </div>
                                <div class="flex flex-column justify-content-between gap-1">
                                 <span class="font-bold text-900">My Daily Tasks</span>
@@ -141,7 +141,7 @@
                             </div>
                         </div>
                         <div class="flex flex-column gap-2 h-21rem overflow-auto -mb-4">
-                            <div *ngFor="let task of dailyTasks" class="flex justify-content-between p-3 border-left-1 border-pink-500 cursor-pointer mx-4 border-round-md surface-50 hover:shadow-2 hover:surface-card">
+                            <div *ngFor="let task of dailyTasks" class="flex justify-content-between px-3 py-2 border-left-2 cursor-pointer mx-4 border-round-md surface-50 hover:shadow-2 hover:surface-card" [class]="task.borderColor">
                                 <div class="flex justify-content-between gap-3">
                                     <div class="flex flex-column justify-content-center gap-2 ">
                                         <span class="font-medium text-base text-color">{{task.label}}</span>
@@ -225,13 +225,13 @@
                                 </div>
                                 <div *ngFor="let member of teamMembers" class="flex justify-content-between align-items-center border-round-md p-3 -mx-2 cursor-pointer hover:surface-hover">
                                     <div class="flex align-items-center gap-3">
-                                        <div style="width:7px;height:7px;" class="border-circle bg-primary"></div>
+                                        <div style="width:7px;height:7px;" class="border-circle" [class]="member.badgeClass"></div>
                                        <span>{{member.title}}</span>
                                     </div>
                                     <div>
                                         <p-avatarGroup>
-                                            <p-avatar [image]="member.avatar" shape="circle"></p-avatar>
-                                            <p-avatar label="+2" shape="circle" styleClass="surface-200 text-color-secondary" [style]="{'color': '#ffffff'}"></p-avatar>
+                                            <p-avatar *ngFor="let avatar of member.avatar" [image]="avatar" shape="circle"></p-avatar>
+                                            <p-avatar *ngIf="member.avatarText" [label]="member.avatarText" shape="circle" styleClass="surface-200 text-color-secondary" [style]="{'color': '#ffffff'}"></p-avatar>
                                         </p-avatarGroup>
                                     </div>
                                 </div>

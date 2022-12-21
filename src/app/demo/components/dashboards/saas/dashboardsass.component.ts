@@ -12,6 +12,7 @@ interface DailyTask {
     label: string;
     description: string;
     avatar: string;
+    borderColor: string
 }
 
 @Component({
@@ -81,7 +82,7 @@ export class DashboardSaasComponent implements OnInit, OnDestroy {
 
             let data = [
                 {
-                    category: "Module #1",
+                    category: "UX Researchers",
                     start: new Date(2016, 1, 4).getTime(),
                     end: new Date(2016, 4, 14).getTime(),
                     columnSettings: {
@@ -94,7 +95,7 @@ export class DashboardSaasComponent implements OnInit, OnDestroy {
                     task: "UX Researchers",
                 },
                 {
-                    category: "Module #2",
+                    category: "UX Designers",
                     start: new Date(2016, 0, 8).getTime(),
                     end: new Date(2016, 3, 10).getTime(),
                     columnSettings: {
@@ -107,7 +108,7 @@ export class DashboardSaasComponent implements OnInit, OnDestroy {
                     task: "UX Designers",
                 },
                 {
-                    category: "Module #3",
+                    category: "UI Designers",
                     start: new Date(2016, 2, 23).getTime(),
                     end: new Date(2016, 5, 8).getTime(),
                     columnSettings: {
@@ -120,7 +121,7 @@ export class DashboardSaasComponent implements OnInit, OnDestroy {
                     task: "UI Designers",
                 },
                 {
-                    category: "Module #4",
+                    category: "Front-End Devolopers",
                     start: new Date(2016, 3, 27).getTime(),
                     end: new Date(2016, 6, 15).getTime(),
                     columnSettings: {
@@ -133,7 +134,7 @@ export class DashboardSaasComponent implements OnInit, OnDestroy {
                     task: "Front-End Devolopers",
                 },
                 {
-                    category: "Module #5",
+                    category: "Back-End Devolopers",
                     start: new Date(2016, 5, 8).getTime(),
                     end: new Date(2016, 7, 30).getTime(),
                     columnSettings: {
@@ -156,16 +157,18 @@ export class DashboardSaasComponent implements OnInit, OnDestroy {
             );
             
             yAxis.get('renderer').labels.template.setAll({
-                html: "<div class=\"text-center flex flex-column gap-1 font-bold text-color\"><div>{category}</div></div>",
-                centerX: 0
+                html: `<div class=\"flex flex-column gap-1 font-medium text-sm\"> <div>{category}</div> <div class=\"text-bluegray-300\">8 tasks for {totalWeek} weeks</div> </div>`,
+                centerX: 0,
             })
 
+
+
             yAxis.data.setAll([
-                { category: "Module #1" },
-                { category: "Module #2" },
-                { category: "Module #3" },
-                { category: "Module #4" },
-                { category: "Module #5" },
+                { category: "Back-End Devolopers", totalWeek: 4 },
+                { category: "Front-End Devolopers", totalWeek: 6 },
+                { category: "UI Designers", totalWeek: 8 },
+                { category: "UX Designers", totalWeek: 5 },
+                { category: "UX Researchers", totalWeek: 12 },
             ]);
 
             let xAxis = chart.xAxes.push(
@@ -275,23 +278,30 @@ export class DashboardSaasComponent implements OnInit, OnDestroy {
     teamMembers: any = [
         {
             title: "UX Researchers",
-            avatar: 'assets/demo/images/avatar/circle/avatar-f-1.png'
+            avatar: ['assets/demo/images/avatar/circle/avatar-f-1.png', 'assets/demo/images/avatar/circle/avatar-f-6.png', 'assets/demo/images/avatar/circle/avatar-f-11.png', 'assets/demo/images/avatar/circle/avatar-f-12.png'],
+            avatarText: '+4',
+            badgeClass: 'bg-pink-500'
         },
         {
             title: "UX Designers",
-            avatar: 'assets/demo/images/avatar/circle/avatar-f-2.png'
+            avatar: ['assets/demo/images/avatar/circle/avatar-f-2.png'],
+            badgeClass: 'bg-blue-500'
         },
         {
             title: "UI Designers",
-            avatar: 'assets/demo/images/avatar/circle/avatar-f-3.png'
+            avatar: ['assets/demo/images/avatar/circle/avatar-f-3.png', 'assets/demo/images/avatar/circle/avatar-f-8.png'],
+            avatarText: '+1',
+            badgeClass: 'bg-green-500'
         },
         {
             title: "Front-End Developers",
-            avatar: 'assets/demo/images/avatar/circle/avatar-f-4.png'
+            avatar: ['assets/demo/images/avatar/circle/avatar-f-4.png', 'assets/demo/images/avatar/circle/avatar-f-9.png'],
+            badgeClass: 'bg-yellow-500'
         },
         {
             title: "Back-End Developers",
-            avatar: 'assets/demo/images/avatar/circle/avatar-f-5.png'
+            avatar: ['assets/demo/images/avatar/circle/avatar-f-10.png'],
+            badgeClass: 'bg-purple-500'
         },
     ];
 
@@ -301,35 +311,42 @@ export class DashboardSaasComponent implements OnInit, OnDestroy {
             checked: true,
             label: "Prepare personas",
             description: "Create profiles of fictional users representing target audience for product or service.",
-            avatar: 'assets/demo/images/avatar/circle/avatar-f-6.png'
+            avatar: 'assets/demo/images/avatar/circle/avatar-f-6.png',
+            borderColor: 'border-pink-500'
         },
         {
             id: 2,
             checked: false,
             label: "Prepare a user journey map",
             description: "Visual representation of steps a user takes to accomplish a goal within product or service.",
-            avatar: 'assets/demo/images/avatar/circle/avatar-f-7.png'
+            avatar: 'assets/demo/images/avatar/circle/avatar-f-7.png',
+            borderColor: 'border-purple-500'
+
         },
         {
             id: 3,
             checked: false,
             label: "Prepare wireframes for onboarding screen",
             description: "Create low-fidelity mockups of onboarding screen. Include layout, hierarchy, functionality.",
-            avatar: 'assets/demo/images/avatar/circle/avatar-f-8.png'
+            avatar: 'assets/demo/images/avatar/circle/avatar-f-8.png',
+            borderColor: 'border-blue-500'
         },
         {
             id: 4,
             checked: false,
             label: "Review benchmarks",
             description: "Conduct research on similar products or services to understand market standards and identify opportunities.",
-            avatar: 'assets/demo/images/avatar/circle/avatar-f-9.png'
+            avatar: 'assets/demo/images/avatar/circle/avatar-f-9.png',
+            borderColor: 'border-green-500'
         },
         {
             id: 3,
             checked: false,
             label: "Let a plan with UI Team",
             description: "Collaborate with UI design team to create plan for visual design of product or service.",
-            avatar: 'assets/demo/images/avatar/circle/avatar-f-10.png'
+            avatar: 'assets/demo/images/avatar/circle/avatar-f-10.png',
+            borderColor: 'border-yellow-500'
+
         },
     ];
 
