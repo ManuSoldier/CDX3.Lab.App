@@ -22,12 +22,12 @@ export class AppMenuComponent implements OnInit {
                     },
                     {
                         label: 'Analytics Dashboard',
-                        icon: 'pi pi-fw pi-chart-bar',
+                        icon: 'pi pi-fw pi-chart-pie',
                         routerLink: ['/dashboard-analytics']
                     },
                     {
                         label: 'SaaS Dashboard',
-                        icon: 'pi pi-fw pi-image',
+                        icon: 'pi pi-fw pi-bolt',
                         routerLink: ['/dashboard-saas']
                     },
                 ]
