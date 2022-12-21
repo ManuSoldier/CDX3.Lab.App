@@ -353,7 +353,7 @@
     <div class="col-12 md:col-8">
         <div class="card h-full">
             <div class="flex flex-column gap-3">
-                <div class="flex flex-column gap-5 bg-primary-50 border-round-lg p-4 flex-1">
+                <div [ngClass]="{'bg-primary-800':layoutService.config.colorScheme  === 'dark'}" class="flex flex-column gap-5 bg-primary-50 border-round-lg p-4 flex-1">
                     <div class="flex justify-content-between align-items-center">
                         <h5 class="m-0 text-900 text-2xl font-medium">Expenses</h5>
                         <p-selectButton [options]="stateOptions" [(ngModel)]="optionValue" optionLabel="label" optionValue="value"></p-selectButton>
@@ -363,7 +363,8 @@
                     </div>
                 </div>
                 <div class="flex flex-column lg:flex-row gap-3 justify-content-between flex-1">
-                    <div class="flex flex-column p-3 bg-red-50 w-full justify-content-between border-round-md">
+                    <div [ngClass]="{'bg-red-800':layoutService.config.colorScheme  === 'dark'}"
+                     class="flex flex-column p-3 bg-red-50 w-full justify-content-between border-round-md">
                         <div class="flex justify-content-between">
                             <div class="flex flex-column gap-1">
                                 <span class="text-900 text-4xl">23</span>
@@ -390,7 +391,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="flex flex-column p-3 bg-teal-50 w-full justify-content-between border-round-md">
+                    <div [ngClass]="{'bg-teal-800':layoutService.config.colorScheme  === 'dark'}" class="flex flex-column p-3 bg-teal-50 w-full justify-content-between border-round-md">
                         <div class="flex justify-content-between">
                             <div class="flex flex-column gap-1">
                                 <span class="text-900 text-4xl">54</span>
@@ -417,7 +418,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="flex flex-column p-3 gap-3 bg-yellow-50 w-full justify-content-between border-round-md">
+                    <div [ngClass]="{'bg-yellow-800':layoutService.config.colorScheme  === 'dark'}" class="flex flex-column p-3 gap-3 bg-yellow-50 w-full justify-content-between border-round-md">
                         <div class="flex justify-content-between">
                             <div class="flex flex-column gap-1">
                                 <span class="text-900 text-4xl">99+</span>
