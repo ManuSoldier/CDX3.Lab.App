@@ -3,10 +3,12 @@
         <div class="card h-full">
             <div class="flex align-items-center justify-content-between mb-3">
                 <h5 class="m-0">Monthly Comparison</h5>
-                <button pRipple pButton type="button" label="Vertical/Stacked Data" class="p-button-text ml-auto" (click)="changeMonthlyDataView()"></button>
+                <button pRipple pButton type="button" label="Vertical/Stacked Data" class="p-button-text ml-auto"
+                    (click)="changeMonthlyDataView()"></button>
             </div>
 
-            <p-chart #bar type="bar" [data]="chartMonthlyData" [options]="chartMonthlyOptions" [responsive]="true" height="400px"></p-chart>
+            <p-chart #bar type="bar" [data]="chartMonthlyData" [options]="chartMonthlyOptions" [responsive]="true"
+                height="400px"></p-chart>
         </div>
     </div>
 
@@ -15,15 +17,19 @@
             <div class="flex align-items-center justify-content-between mb-2">
                 <h5 class="m-0">Insights</h5>
                 <div>
-                    <button pButton pRipple type="button" icon="pi pi-ellipsis-h" class="p-button-rounded p-button-text p-button-plain" (click)="menu11.toggle($event)"></button>
-                    <p-menu #menu11 [popup]="true" [model]="[{label: 'Update', icon: 'pi pi-fw pi-refresh'},{label: 'Edit', icon: 'pi pi-fw pi-pencil'}]"></p-menu>
+                    <button pButton pRipple type="button" icon="pi pi-ellipsis-h"
+                        class="p-button-rounded p-button-text p-button-plain" (click)="menu11.toggle($event)"></button>
+                    <p-menu #menu11 [popup]="true"
+                        [model]="[{label: 'Update', icon: 'pi pi-fw pi-refresh'},{label: 'Edit', icon: 'pi pi-fw pi-pencil'}]"></p-menu>
                 </div>
             </div>
             <div class="border-bottom-1 surface-border text-sm text-color-secondary mb-2 flex align-items-center">
                 <span>November 22 - November 29</span>
-                <button pRipple pButton type="button" label="Semi/Full Data" class="p-button-text ml-auto" (click)="changeDoughnutDataView()"></button>
+                <button pRipple pButton type="button" label="Semi/Full Data" class="p-button-text ml-auto"
+                    (click)="changeDoughnutDataView()"></button>
             </div>
-            <p-chart #doughnut type="doughnut" [data]="doughnutData" [options]="doughnutOptions" [responsive]="true" height="200px"></p-chart>
+            <p-chart #doughnut type="doughnut" [data]="doughnutData" [options]="doughnutOptions" [responsive]="true"
+                height="200px"></p-chart>
             <div class="flex flex-column justify-content-center">
                 <div class="flex flex-row align-items-center mt-4 px-3">
                     <i class="pi pi-thumbs-up p-3 border-circle bg-green-400 text-white"></i>
@@ -61,12 +67,14 @@
                 <div class="w-6 text-center p-3 flex flex-column border-right-1 surface-border">
                     <span class="font-medium">Target</span>
                     <span class="text-color-secondary mb-2">10.000</span>
-                    <p-progressBar styleClass="border-round-md surface-200" [value]="50" [showValue]="false"></p-progressBar>
+                    <p-progressBar styleClass="border-round-md surface-200" [value]="50"
+                        [showValue]="false"></p-progressBar>
                 </div>
                 <div class="w-6 text-center p-3 flex flex-column">
                     <span class="font-medium">All Time Record</span>
                     <span class="text-color-secondary mb-2">50.702</span>
-                    <p-progressBar styleClass="border-round-md surface-200" [value]="24" [showValue]="false"></p-progressBar>
+                    <p-progressBar styleClass="border-round-md surface-200" [value]="24"
+                        [showValue]="false"></p-progressBar>
                 </div>
             </div>
         </div>
@@ -88,12 +96,14 @@
                 <div class="w-6 text-center p-3 flex flex-column border-right-1 surface-border">
                     <span class="font-medium">Target</span>
                     <span class="text-color-secondary mb-2">10.000</span>
-                    <p-progressBar styleClass="border-round-md surface-200" [value]="23" [showValue]="false"></p-progressBar>
+                    <p-progressBar styleClass="border-round-md surface-200" [value]="23"
+                        [showValue]="false"></p-progressBar>
                 </div>
                 <div class="w-6 text-center p-3 flex flex-column">
                     <span class="font-medium">All Time Record</span>
                     <span class="text-color-secondary mb-2">99.028</span>
-                    <p-progressBar styleClass="border-round-md surface-200" [value]="38" [showValue]="false"></p-progressBar>
+                    <p-progressBar styleClass="border-round-md surface-200" [value]="38"
+                        [showValue]="false"></p-progressBar>
                 </div>
             </div>
         </div>
@@ -115,12 +125,14 @@
                 <div class="w-6 text-center p-3 flex flex-column border-right-1 surface-border">
                     <span class="font-medium">Target</span>
                     <span class="text-color-secondary mb-2">10.000</span>
-                    <p-progressBar styleClass="border-round-md surface-200" [value]="62" [showValue]="false"></p-progressBar>
+                    <p-progressBar styleClass="border-round-md surface-200" [value]="62"
+                        [showValue]="false"></p-progressBar>
                 </div>
                 <div class="w-6 text-center p-3 flex flex-column">
                     <span class="font-medium">All Time Record</span>
                     <span class="text-color-secondary mb-2">162.550</span>
-                    <p-progressBar styleClass="border-round-md surface-200" [value]="14" [showValue]="false"></p-progressBar>
+                    <p-progressBar styleClass="border-round-md surface-200" [value]="14"
+                        [showValue]="false"></p-progressBar>
                 </div>
             </div>
         </div>
@@ -132,72 +144,86 @@
                 <div class="flex flex-column p-4">
                     <span class="text-color-secondary">Store A Sales</span>
                     <span class="text-2xl mt-2">
-                        <i *ngIf="storeADiff !== 0" class="font-bold text-2xl pi pr-1" [ngClass]="{'pi-arrow-up text-green-500': storeADiff > 0, 'pi-arrow-down text-pink-500': storeADiff < 0}"></i>
+                        <i *ngIf="storeADiff !== 0" class="font-bold text-2xl pi pr-1"
+                            [ngClass]="{'pi-arrow-up text-green-500': storeADiff > 0, 'pi-arrow-down text-pink-500': storeADiff < 0}"></i>
                         ${{storeATotalValue}}
-                        <span *ngIf="storeADiff !== 0" class="font-medium text-base ml-1" [ngClass]="{'text-green-500': storeADiff > 0, 'text-pink-500': storeADiff < 0}">
+                        <span *ngIf="storeADiff !== 0" class="font-medium text-base ml-1"
+                            [ngClass]="{'text-green-500': storeADiff > 0, 'text-pink-500': storeADiff < 0}">
                             {{storeADiff > 0 ? '+' : ''}}{{storeADiff}}
                         </span>
                     </span>
                 </div>
                 <div class="px-4">
-                    <p-chart #storeA type="line" [data]="storeAData" [options]="storeAOptions" [responsive]="true"></p-chart>
+                    <p-chart #storeA type="line" [data]="storeAData" [options]="storeAOptions"
+                        [responsive]="true"></p-chart>
                 </div>
             </div>
             <div class="lg:col-3 md:col-6 sm:col-12 p-0">
                 <div class="flex flex-column p-4">
                     <span class="text-color-secondary">Store B Sales</span>
                     <span class="text-2xl mt-2">
-                        <i *ngIf="storeBDiff !== 0" class="font-bold text-2xl pi pr-1" [ngClass]="{'pi-arrow-up text-green-500': storeBDiff > 0, 'pi-arrow-down text-pink-500': storeBDiff < 0}"></i>
+                        <i *ngIf="storeBDiff !== 0" class="font-bold text-2xl pi pr-1"
+                            [ngClass]="{'pi-arrow-up text-green-500': storeBDiff > 0, 'pi-arrow-down text-pink-500': storeBDiff < 0}"></i>
                         ${{storeBTotalValue}}
-                        <span *ngIf="storeBDiff !== 0" class="font-medium text-base ml-1" [ngClass]="{'text-green-500': storeBDiff > 0, 'text-pink-500': storeBDiff < 0}">
+                        <span *ngIf="storeBDiff !== 0" class="font-medium text-base ml-1"
+                            [ngClass]="{'text-green-500': storeBDiff > 0, 'text-pink-500': storeBDiff < 0}">
                             {{storeBDiff > 0 ? '+' : ''}}{{storeBDiff}}
                         </span>
                     </span>
                 </div>
                 <div class="px-4">
-                    <p-chart #storeB type="line" [data]="storeBData" [options]="storeBOptions" [responsive]="true"></p-chart>
+                    <p-chart #storeB type="line" [data]="storeBData" [options]="storeBOptions"
+                        [responsive]="true"></p-chart>
                 </div>
             </div>
             <div class="lg:col-3 md:col-6 sm:col-12 p-0">
                 <div class="flex flex-column p-4">
                     <span class="text-color-secondary">Store C Sales</span>
                     <span class="text-2xl mt-2">
-                        <i *ngIf="storeCDiff !== 0" class="font-bold text-2xl pi pr-1" [ngClass]="{'pi-arrow-up text-green-500': storeCDiff > 0, 'pi-arrow-down text-pink-500': storeCDiff < 0}"></i>
+                        <i *ngIf="storeCDiff !== 0" class="font-bold text-2xl pi pr-1"
+                            [ngClass]="{'pi-arrow-up text-green-500': storeCDiff > 0, 'pi-arrow-down text-pink-500': storeCDiff < 0}"></i>
                         ${{storeCTotalValue}}
-                        <span *ngIf="storeCDiff !== 0" class="font-medium text-base ml-1" [ngClass]="{'text-green-500': storeCDiff > 0, 'text-pink-500': storeCDiff < 0}">
+                        <span *ngIf="storeCDiff !== 0" class="font-medium text-base ml-1"
+                            [ngClass]="{'text-green-500': storeCDiff > 0, 'text-pink-500': storeCDiff < 0}">
                             {{storeCDiff > 0 ? '+' : ''}}{{storeCDiff}}
                         </span>
                     </span>
                 </div>
                 <div class="px-4">
-                    <p-chart #storeC type="line" [data]="storeCData" [options]="storeCOptions" [responsive]="true"></p-chart>
+                    <p-chart #storeC type="line" [data]="storeCData" [options]="storeCOptions"
+                        [responsive]="true"></p-chart>
                 </div>
             </div>
             <div class="lg:col-3 md:col-6 sm:col-12 p-0">
                 <div class="flex flex-column p-4">
                     <span class="text-color-secondary">Store D Sales</span>
                     <span class="text-2xl mt-2">
-                        <i *ngIf="storeDDiff !== 0" class="font-bold text-2xl pi pr-1" [ngClass]="{'pi-arrow-up text-green-500': storeDDiff > 0, 'pi-arrow-down text-pink-500': storeDDiff < 0}"></i>
+                        <i *ngIf="storeDDiff !== 0" class="font-bold text-2xl pi pr-1"
+                            [ngClass]="{'pi-arrow-up text-green-500': storeDDiff > 0, 'pi-arrow-down text-pink-500': storeDDiff < 0}"></i>
                         ${{storeDTotalValue}}
-                        <span *ngIf="storeDDiff !== 0" class="font-medium text-base ml-1" [ngClass]="{'text-green-500': storeDDiff > 0, 'text-pink-500': storeDDiff < 0}">
+                        <span *ngIf="storeDDiff !== 0" class="font-medium text-base ml-1"
+                            [ngClass]="{'text-green-500': storeDDiff > 0, 'text-pink-500': storeDDiff < 0}">
                             {{storeDDiff > 0 ? '+' : ''}}{{storeDDiff}}
                         </span>
                     </span>
                 </div>
                 <div class="px-4">
-                    <p-chart #storeD type="line" [data]="storeDData" [options]="storeDOptions" [responsive]="true"></p-chart>
+                    <p-chart #storeD type="line" [data]="storeDData" [options]="storeDOptions"
+                        [responsive]="true"></p-chart>
                 </div>
             </div>
         </div>
     </div>
-    
+
     <div class="col-12 md:col-6">
         <div class="card h-full">
             <div class="flex align-items-center justify-content-between mb-3">
                 <h5 class="m-0">Top Searchs</h5>
                 <div>
-                    <button pButton pRipple type="button" icon="pi pi-ellipsis-h" class="p-button-rounded p-button-text p-button-plain" (click)="menu12.toggle($event)"></button>
-                    <p-menu #menu12 [popup]="true" [model]="[{label: 'Update', icon: 'pi pi-fw pi-refresh'},{label: 'Edit', icon: 'pi pi-fw pi-pencil'}]"></p-menu>
+                    <button pButton pRipple type="button" icon="pi pi-ellipsis-h"
+                        class="p-button-rounded p-button-text p-button-plain" (click)="menu12.toggle($event)"></button>
+                    <p-menu #menu12 [popup]="true"
+                        [model]="[{label: 'Update', icon: 'pi pi-fw pi-refresh'},{label: 'Edit', icon: 'pi pi-fw pi-pencil'}]"></p-menu>
                 </div>
             </div>
             <div class="flex justify-content-between surface-200 p-3 border-bottom-1 surface-border">
@@ -226,10 +252,10 @@
             </div>
         </div>
     </div>
-    
+
     <div class="col-12 md:col-6">
         <div class="card">
-            <p-table [value]="products" [paginator]="true" [rows]="4"  [tableStyle]="{'min-width': '40rem'}">
+            <p-table [value]="products" [paginator]="true" [rows]="4" [tableStyle]="{'min-width': '40rem'}">
                 <ng-template pTemplate="header">
                     <tr>
                         <th style="width:5rem">Image</th>
@@ -248,7 +274,8 @@
                 <ng-template pTemplate="body" let-product>
                     <tr>
                         <td>
-                            <img [src]="'assets/demo/images/product/' + product.image" [alt]="product.image" width="50px" class="shadow-4" />
+                            <img [src]="'assets/demo/images/product/' + product.image" [alt]="product.image"
+                                width="50px" class="shadow-4" />
                         </td>
                         <td>
                             <span class="p-column-title">Name</span>
@@ -264,7 +291,8 @@
                         </td>
                         <td>
                             <span class="p-column-title">View</span>
-                            <button pRipple pButton type="button" icon="pi pi-search" class="p-button-rounded p-button-text mb-1 mr-2"></button>
+                            <button pRipple pButton type="button" icon="pi pi-search"
+                                class="p-button-rounded p-button-text mb-1 mr-2"></button>
                         </td>
                     </tr>
                 </ng-template>
@@ -273,12 +301,14 @@
     </div>
 
     <div class="col-12 md:col-4">
-        <div class="card">
+        <div class="card h-full">
             <div class="flex align-items-center justify-content-between mb-3">
                 <h5 class="m-0">Expenses</h5>
                 <div>
-                    <button pButton pRipple type="button" icon="pi pi-ellipsis-h" class="p-button-rounded p-button-text p-button-plain" (click)="menu13.toggle($event)"></button>
-                    <p-menu #menu13 [popup]="true" [model]="[{label: 'Update', icon: 'pi pi-fw pi-refresh'},{label: 'Edit', icon: 'pi pi-fw pi-pencil'}]"></p-menu>
+                    <button pButton pRipple type="button" icon="pi pi-ellipsis-h"
+                        class="p-button-rounded p-button-text p-button-plain" (click)="menu13.toggle($event)"></button>
+                    <p-menu #menu13 [popup]="true"
+                        [model]="[{label: 'Update', icon: 'pi pi-fw pi-refresh'},{label: 'Edit', icon: 'pi pi-fw pi-pencil'}]"></p-menu>
                 </div>
             </div>
             <div class="border-bottom-1 surface-border text-sm text-color-secondary mb-2 pb-3">
@@ -322,35 +352,106 @@
 
     <div class="col-12 md:col-8">
         <div class="card h-full">
-            <div class="flex align-items-center justify-content-between mb-3">
-                <h5 class="m-0">All Traffic Channels</h5>
-                <button pRipple pButton type="button" label="Pie/Doughnut Data" class="p-button-text ml-auto" (click)="togglePieDoughnut()"></button>
-                <button pRipple pButton type="button" label="Semi/Full Data" class="p-button-text mx-2" (click)="changePieDoughnutDataView()"></button>
-            </div>
-            <div class="flex grid">
-                <div class="col-12 md:col-6 p-3 flex flex-column justify-content-evenly">
-                    <div class="flex flex-column">
-                        <span class="text-color-secondary mb-2">Total</span>
-                        <span class="text-4xl font-medium mb-5">66.761</span>
+            <div class="flex flex-column gap-3">
+                <div class="flex flex-column gap-5 bg-primary-50 border-round-lg p-4 flex-1">
+                    <div class="flex justify-content-between align-items-center">
+                        <h5 class="m-0 text-900 text-2xl font-medium">Expenses</h5>
+                        <p-selectButton [options]="stateOptions" [(ngModel)]="optionValue" optionLabel="label" optionValue="value"></p-selectButton>
                     </div>
-
-                    <div class="flex justify-content-between">
-                        <div class="flex flex-column">
-                            <span class="text-color-secondary mb-1">Organic</span>
-                            <span class="font-medium">51.596</span>
-                        </div>
-                        <div class="flex flex-column">
-                            <span class="text-color-secondary mb-1">Direct</span>
-                            <span class="font-medium">11.421</span>
-                        </div>
-                        <div class="flex flex-column">
-                            <span class="text-color-secondary mb-1">Referral</span>
-                            <span class="font-medium">3.862</span>
-                        </div>
+                    <div>
+                        <p-chart type="line" [data]="expensesData" [options]="expensesOptions" [responsive]="true"></p-chart>
                     </div>
                 </div>
-                <div class="col-12 md:col-6 flex justify-content-center">
-                    <p-chart #pie type="pie" [data]="pieData" [options]="pieOptions" [style]="{'width': '70%'}"></p-chart>
+                <div class="flex flex-column lg:flex-row gap-3 justify-content-between flex-1">
+                    <div class="flex flex-column p-3 bg-red-50 w-full justify-content-between border-round-md">
+                        <div class="flex justify-content-between">
+                            <div class="flex flex-column gap-1">
+                                <span class="text-900 text-4xl">23</span>
+                                <span class="text-700">Product Questions</span>
+                            </div>
+                            <i class="pi pi-arrow-up-right text-900 text-2xl"></i>
+                        </div>
+                        <div class="flex flex-column gap-2">
+                            <div class="flex gap-2 p-2 surface-0 shadow-1 border-round-md">
+                                <img src="/assets/demo/images/product/black-watch.jpg"
+                                    class="w-2rem h-2rem border-circle">
+                                <div class="flex flex-column gap-1">
+                                    <span class="text-sm font-medium text-900">Black Watch</span>
+                                    <span class="text-sm text-900">Is the Black Watch product water-resistant?</span>
+                                </div>
+                            </div>
+                            <div class="flex gap-2 p-2 surface-0 shadow-1 border-round-md">
+                                <img src="/assets/demo/images/product/blue-t-shirt.jpg"
+                                    class="w-2rem h-2rem border-circle">
+                                <div class="flex flex-column gap-1">
+                                    <span class="text-sm font-medium text-900">Blue T-Shirt</span>
+                                    <span class="text-sm text-900">Can I return or exchange the blue t-shirt if I am not satisfied with it?</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-column p-3 bg-teal-50 w-full justify-content-between border-round-md">
+                        <div class="flex justify-content-between">
+                            <div class="flex flex-column gap-1">
+                                <span class="text-900 text-4xl">54</span>
+                                <span class="text-700">Product Reviews</span>
+                            </div>
+                            <i class="pi pi-arrow-up-right text-900 text-2xl"></i>
+                        </div>
+                        <div class="flex flex-column gap-2">
+                            <div class="flex gap-2 p-2 surface-0 shadow-1 border-round-md">
+                                <img src="/assets/demo/images/product/blue-band.jpg"
+                                    class="w-2rem h-2rem border-circle">
+                                <div class="flex flex-column gap-1">
+                                    <span class="text-sm font-medium text-900">Blue Band</span>
+                                    <span class="text-sm text-900">Loved the blue band from this e-commerce site!</span>
+                                </div>
+                            </div>
+                            <div class="flex gap-2 p-2 surface-0 shadow-1 border-round-md">
+                                <img src="/assets/demo/images/product/bamboo-watch.jpg"
+                                    class="w-2rem h-2rem border-circle">
+                                <div class="flex flex-column gap-1">
+                                    <span class="text-sm font-medium text-900">Bamboo Watch</span>
+                                    <span class="text-sm text-900">I purchased the bamboo watch and I'm really happy with it.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-column p-3 gap-3 bg-yellow-50 w-full justify-content-between border-round-md">
+                        <div class="flex justify-content-between">
+                            <div class="flex flex-column gap-1">
+                                <span class="text-900 text-4xl">99+</span>
+                                <span class="text-700">Will Shipping Orders</span>
+                            </div>
+                            <i class="pi pi-arrow-up-right text-900 text-2xl"></i>
+                        </div>
+                        <div class="flex flex-column gap-2">
+                            <div class="flex gap-2 p-2 surface-0 shadow-1 border-round-md">
+                                <img src="/assets/demo/images/product/blue-t-shirt.jpg"
+                                    class="w-2rem h-2rem border-circle">
+                                <div class="flex flex-column gap-1">
+                                    <span class="text-sm font-medium text-900">Black Tshirt</span>
+                                    <span class="text-sm text-900">Last Shipping Date</span>
+                                </div>
+                            </div>
+                            <div class="flex gap-2 p-2 surface-0 shadow-1 border-round-md">
+                                <img src="/assets/demo/images/product/black-watch.jpg"
+                                    class="w-2rem h-2rem border-circle">
+                                <div class="flex flex-column gap-1">
+                                    <span class="text-sm font-medium text-900">Black Watch</span>
+                                    <span class="text-sm text-900">Last Shipping Date</span>
+                                </div>
+                            </div>
+                            <div class="flex gap-2 p-2 surface-0 shadow-1 border-round-md">
+                                <img src="/assets/demo/images/product/bamboo-watch.jpg"
+                                    class="w-2rem h-2rem border-circle">
+                                <div class="flex flex-column gap-1">
+                                    <span class="text-sm font-medium text-900">Blue T-Shirt</span>
+                                    <span class="text-sm text-900">Last Shipping Date</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

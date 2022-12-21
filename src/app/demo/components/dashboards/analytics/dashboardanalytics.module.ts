@@ -8,6 +8,8 @@ import { MenuModule } from 'primeng/menu';
 import { ButtonModule } from 'primeng/button';
 import { RippleModule } from 'primeng/ripple';
 import { ChartModule } from 'primeng/chart';
+import { SelectButtonModule } from 'primeng/selectbutton';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
     imports: [
@@ -18,7 +20,9 @@ import { ChartModule } from 'primeng/chart';
         MenuModule,
         ButtonModule,
         RippleModule,
-        ChartModule
+        ChartModule,
+        SelectButtonModule,
+        FormsModule
     ],
     declarations: [
         DashboardAnalyticsComponent
