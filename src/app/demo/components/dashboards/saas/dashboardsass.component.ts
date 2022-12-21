@@ -16,16 +16,6 @@ interface DailyTask {
 
 @Component({
     templateUrl: "./dashboardsaas.component.html",
-    styles: [
-        `
-            :host ::ng-deep .p-progressbar {
-                height: 6px;
-            }
-            :host ::ng-deep .p-progressbar-value {
-                background: #fff;
-            }
-        `,
-    ],
 })
 export class DashboardSaasComponent implements OnInit, OnDestroy {
     private root!: am5.Root;
