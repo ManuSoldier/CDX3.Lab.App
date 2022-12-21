@@ -74,6 +74,10 @@ export class DashboardAnalyticsComponent implements OnInit, OnDestroy {
 
     storeInterval: any;
 
+    expensesData: any;
+
+    expensesOptions: any;
+
     pieData: any;
 
     pieOptions: any;
@@ -81,6 +85,10 @@ export class DashboardAnalyticsComponent implements OnInit, OnDestroy {
     mainData: any;
 
     events: any[] = [];
+
+    stateOptions: any[];
+
+    optionValue: string = 'weekly'
 
     selectedCity: any;
 
@@ -103,6 +111,7 @@ export class DashboardAnalyticsComponent implements OnInit, OnDestroy {
     @ViewChild('pie') pieViewChild!: UIChart;
 
     constructor(public app: AppComponent, private productService: ProductService, private eventService: EventService, public layoutService: LayoutService) {
+        this.stateOptions = [{label: 'Weekly', value: 'weekly'}, {label: 'Monthly', value: 'monthly'}];
         this.subscription = this.layoutService.configUpdate$.subscribe(config => {
             this.config = config;
             this.monthlyChartInit();
@@ -302,6 +311,52 @@ export class DashboardAnalyticsComponent implements OnInit, OnDestroy {
             },
         };
 
+        this.expensesData = {
+            labels: ['January', 'February', 'March', 'April', 'May', 'June', ],
+            datasets: [{
+                data: [44, 59, 32, 44, 58, 52],
+                borderColor: [
+                    '#00000',
+                ],
+                backgroundColor: [
+                    'rgba(0, 0, 0, 0.1)'
+                ],
+                borderWidth: 2,
+                fill: true,
+                tension: .4,
+            }
+            ]
+        };
+
+        this.expensesOptions = {
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
+            maintainAspectRatio: false,
+            responsive: true,
+            aspectRatio: 4,
+            scales: {
+                y: {
+                    display: false,
+                    beginAtZero: true
+                },
+                x: {
+                    display: false
+                }
+            },
+            tooltips: {
+                enabled: false,
+            },
+            elements: {
+                point: {
+                    radius: 5,
+                    pointBackgroundColor: '#000'
+                }
+            },
+        };
+        
         const calculateStore = (storeData: any, totalValue: number) => {
             let randomNumber = +((Math.random() * 500).toFixed(2));
             let data = [...storeData.datasets[0].data];
