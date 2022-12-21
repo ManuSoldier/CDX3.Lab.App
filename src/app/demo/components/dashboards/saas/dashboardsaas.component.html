@@ -192,7 +192,9 @@
                             </div>
                             <div class="flex gap-2 align-items-center">
                                 <span class="text-sm" [ngClass]="{'text-color-secondary':selectedProjectID !== project.id}"><span class="font-bold" >{{project.completedTask}}</span>/{{project.totalTasks}} Tasks</span>
-                                <p-progressBar class="w-full" styleClass="bg-primary-700 border-round-xl" [value]="project.completedTask * (100 / project.totalTasks)" [showValue]="false"></p-progressBar>
+                                <div class="surface-200 w-full border-round-lg" [ngClass]="{'bg-primary-700': selectedProjectID === project.id}">
+                                    <div style="height: 6px;" class="surface-0 w-5 border-round-left-lg" [ngClass]="{'bg-primary-700': selectedProjectID !== project.id}"></div>
+                                </div>
                             </div>
                         </div>
                     </div>

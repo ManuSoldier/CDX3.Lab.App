@@ -9,7 +9,6 @@ import { ChartModule } from 'primeng/chart';
 import { CheckboxModule } from 'primeng/checkbox';
 import { AvatarGroupModule } from 'primeng/avatargroup';
 import { AvatarModule } from 'primeng/avatar';
-import { ProgressBarModule } from 'primeng/progressbar';
 import { ButtonModule } from 'primeng/button';
 import { RippleModule } from 'primeng/ripple';
 
@@ -24,7 +23,6 @@ import { RippleModule } from 'primeng/ripple';
         CheckboxModule,
         AvatarGroupModule,
         AvatarModule,
-        ProgressBarModule,
         ButtonModule,
         RippleModule
     ],
