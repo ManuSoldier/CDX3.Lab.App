@@ -91,7 +91,7 @@
                         min-width: 15rem;
                         background-color: var(--menu-bg);
                         border-radius: var(--border-radius);
-                        padding: 1rem;
+                        padding: .5rem 0;
                         max-height: 20rem;
                         overflow: auto;
                         z-index: 999;
@@ -99,7 +99,6 @@
 
                         a {
                             padding-right: .5rem;
-                            border-radius: var(--border-radius);
                         }
 
                         li {
