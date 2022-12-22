@@ -84,7 +84,7 @@ export class KanbanSidebarComponent implements OnDestroy {
     onComment(event: Event) {
         event.preventDefault();
         if (this.comment.trim().length > 0) {
-            this.newComment.text = this.comment;
+            this.newComment = { ...this.newComment, text: this.comment }
             this.card?.comments?.unshift(this.newComment);
             this.comment = '';
         }
