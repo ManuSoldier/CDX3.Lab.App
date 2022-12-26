@@ -251,7 +251,7 @@
                                 <button pButton pRipple label="New Team" icon="pi pi-users"></button>
                             </div>
                             <div class="flex flex-column gap-1">
-                                <div (click)="selectedTeam = team.title" *ngFor="let team of teams" class="flex justify-content-between align-items-center border-1 border-transparent border-round-md p-3 -mx-2 cursor-pointer hover:surface-hover" [ngClass]="{'bg-primary-50 border-primary-100':selectedTeam === team.title }">
+                                <div (click)="teamFilter(team.title)" *ngFor="let team of teams" class="flex justify-content-between align-items-center border-1 border-transparent border-round-md p-3 -mx-2 cursor-pointer hover:surface-hover" [ngClass]="{'bg-primary-50 border-primary-100':selectedTeam === team.title }">
                                     <div class="flex align-items-center gap-3">
                                         <div style="width:7px;height:7px;" class="border-circle" [class]="team.badgeClass"></div>
                                         <span>{{team.title}}</span>
@@ -269,33 +269,33 @@
                     </div>
                     <div class="col-12 md:col-8">
                         <div class="border-1 surface-border border-round-md h-28rem overflow-y-auto">
-                            <div class="grid grid-nogutter align-items-center p-2 border-bottom-1 surface-border text-700 cursor-pointer hover:text-color">
+                            <div *ngFor="let member of filteredTeamMembers" class="grid grid-nogutter align-items-center p-2 border-bottom-1 surface-border text-700 cursor-pointer hover:text-color">
                                 <div class="col-4">
                                     <div class="flex align-items-center gap-3">
-                                        <p-avatar size="large" shape="circle" image="assets/demo/images/avatar/circle/avatar-f-1.png"></p-avatar>
+                                        <p-avatar size="large" shape="circle" [image]="member.avatar"></p-avatar>
                                         <div class="flex flex-column flex-wrap">
-                                            <span class="font-medium">Theresa Webb</span>
-                                            <span class="text-sm">Dog Trainer</span>
+                                            <span class="font-medium">{{member.name}}</span>
+                                            <span class="text-sm">{{member.title}}</span>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="flex justify-content-between gap-5 flex-1">
                                         <div class="flex flex-column" style="flex-basis: 100%;">
-                                            <span class="font-medium">79</span>
-                                            <span class="text-sm">Tasksa</span>
-                                        </div>
-                                        <div class="flex flex-column" style="flex-basis: 100%;">
-                                            <span class="font-medium">79</span>
+                                            <span class="font-medium">{{member.taskCount}}</span>
                                             <span class="text-sm">Task</span>
                                         </div>
                                         <div class="flex flex-column" style="flex-basis: 100%;">
-                                            <span class="font-medium">79</span>
-                                            <span class="text-sm">Task</span>
+                                            <span class="font-medium">{{member.doneCount}}</span>
+                                            <span class="text-sm">Done</span>
                                         </div>
                                         <div class="flex flex-column" style="flex-basis: 100%;">
-                                            <span class="font-medium">79</span>
-                                            <span class="text-sm">Task</span>
+                                            <span class="font-medium">{{member.sprintCount}}</span>
+                                            <span class="text-sm">Sprint</span>
+                                        </div>
+                                        <div class="flex flex-column" style="flex-basis: 100%;">
+                                            <span class="font-medium">{{member.onProjectsCount}}</span>
+                                            <span class="text-sm">On Projects</span>
                                         </div>
                                     </div>
                                 </div>

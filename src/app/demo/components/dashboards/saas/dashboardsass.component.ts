@@ -1,8 +1,5 @@
-import { Component, Inject, NgZone, OnDestroy, OnInit, PLATFORM_ID } from "@angular/core";
+import { AfterViewInit, Component, Inject, NgZone, OnDestroy, OnInit, PLATFORM_ID } from "@angular/core";
 import { isPlatformBrowser } from "@angular/common";
-import * as am5 from "@amcharts/amcharts5";
-import * as am5xy from "@amcharts/amcharts5/xy";
-import am5themes_Animated from "@amcharts/amcharts5/themes/Animated";
 import { Subscription } from "rxjs";
 import { LayoutService } from "src/app/layout/service/app.layout.service";
 
@@ -18,15 +15,12 @@ interface DailyTask {
 @Component({
     templateUrl: "./dashboardsaas.component.html",
 })
-export class DashboardSaasComponent implements OnInit, OnDestroy {
-    private root!: am5.Root;
-
+export class DashboardSaasComponent implements OnInit, AfterViewInit, OnDestroy {
     subscription!: Subscription
 
     constructor(@Inject(PLATFORM_ID) private platformId: Object, private zone: NgZone, private layoutService: LayoutService) {
         this.subscription = this.layoutService.configUpdate$.subscribe(config => {
             this.chartInit()
-            this.ganttChartInit()
         })
     }
 
@@ -38,9 +32,14 @@ export class DashboardSaasComponent implements OnInit, OnDestroy {
 
     selectedTeam: string = 'UX Researchers';
 
+    filteredTeamMembers: any = []
+
     ngOnInit(): void {
         this.chartInit()
-        this.ganttChartInit()
+    }
+
+    ngAfterViewInit(): void {
+        this.filteredTeamMembers = this.teamMembers.filter(item => item.team === this.selectedTeam)
     }
 
     browserOnly(f: () => void) {
@@ -49,167 +48,6 @@ export class DashboardSaasComponent implements OnInit, OnDestroy {
                 f();
             });
         }
-    }
-
-    ganttChartInit() {
-        const primaryColor = getComputedStyle(document.body).getPropertyValue('--primary-color');
-
-        this.browserOnly(() => {
-            am5.array.each(am5.registry.rootElements, function (root) {
-                if (root.dom.id == 'ganttChartContainer') {
-                    root.dispose();
-                }
-            });
-
-            let root = am5.Root.new("ganttChartContainer");
-
-            root.setThemes([am5themes_Animated.new(root)]);
-
-            root.dateFormatter.setAll({
-                dateFormat: "yyyy-MM-dd",
-                dateFields: ["valueX", "openValueX"],
-            });
-
-            let chart = root.container.children.push(
-                am5xy.XYChart.new(root, {
-                    panX: false,
-                    panY: false,
-                    wheelX: "panX",
-                    wheelY: "zoomX",
-                    layout: root.verticalLayout,
-                })
-            );
-
-            let data = [
-                {
-                    category: "UX Researchers",
-                    start: new Date(2016, 1, 4).getTime(),
-                    end: new Date(2016, 4, 14).getTime(),
-                    columnSettings: {
-                        shadowColor: am5.color(0x000000),
-                        shadowBlur: 10,
-                        shadowOffsetX: 3,
-                        shadowOffsetY: 5,
-                        shadowOpacity: 0.3,
-                    },
-                    task: "UX Researchers",
-                },
-                {
-                    category: "UX Designers",
-                    start: new Date(2016, 0, 8).getTime(),
-                    end: new Date(2016, 3, 10).getTime(),
-                    columnSettings: {
-                        shadowColor: am5.color(0x000000),
-                        shadowBlur: 10,
-                        shadowOffsetX: 3,
-                        shadowOffsetY: 5,
-                        shadowOpacity: 0.3,
-                    },
-                    task: "UX Designers",
-                },
-                {
-                    category: "UI Designers",
-                    start: new Date(2016, 2, 23).getTime(),
-                    end: new Date(2016, 5, 8).getTime(),
-                    columnSettings: {
-                        shadowColor: am5.color(0x000000),
-                        shadowBlur: 10,
-                        shadowOffsetX: 3,
-                        shadowOffsetY: 5,
-                        shadowOpacity: 0.3,
-                    },
-                    task: "UI Designers",
-                },
-                {
-                    category: "Front-End Devolopers",
-                    start: new Date(2016, 3, 27).getTime(),
-                    end: new Date(2016, 6, 15).getTime(),
-                    columnSettings: {
-                        shadowColor: am5.color(0x000000),
-                        shadowBlur: 10,
-                        shadowOffsetX: 3,
-                        shadowOffsetY: 5,
-                        shadowOpacity: 0.3,
-                    },
-                    task: "Front-End Devolopers",
-                },
-                {
-                    category: "Back-End Devolopers",
-                    start: new Date(2016, 5, 8).getTime(),
-                    end: new Date(2016, 7, 30).getTime(),
-                    columnSettings: {
-                        shadowColor: am5.color(0x000000),
-                        shadowBlur: 10,
-                        shadowOffsetX: 3,
-                        shadowOffsetY: 5,
-                        shadowOpacity: 0.3,
-                    },
-                    task: "Back-End Devolopers",
-                },
-            ];
-
-            let yAxis = chart.yAxes.push(
-                am5xy.CategoryAxis.new(root, {
-                    categoryField: "category",
-                    renderer: am5xy.AxisRendererY.new(root, {}),
-                    tooltip: am5.Tooltip.new(root, {}),
-                })
-            );
-            
-            yAxis.get('renderer').labels.template.setAll({
-                html: `<div class=\"flex flex-column gap-1 font-medium text-sm\"> <div>{category}</div> <div class=\"text-bluegray-300\">8 tasks for {totalWeek} weeks</div> </div>`,
-                centerX: 0,
-            })
-
-
-
-            yAxis.data.setAll([
-                { category: "Back-End Devolopers", totalWeek: 4 },
-                { category: "Front-End Devolopers", totalWeek: 6 },
-                { category: "UI Designers", totalWeek: 8 },
-                { category: "UX Designers", totalWeek: 5 },
-                { category: "UX Researchers", totalWeek: 12 },
-            ]);
-
-            let xAxis = chart.xAxes.push(
-                am5xy.DateAxis.new(root, {
-                    baseInterval: { timeUnit: "minute", count: 1 },
-                    renderer: am5xy.AxisRendererX.new(root, {}),
-                })
-            );
-
-            xAxis.get("renderer").labels.template.adapters.add("html", function () {
-                return "<div class=\"text-center font-bold text-color\">{value.formatDate('d MMM')}</div><div class=\"text-center\">{value.formatDate('EEE')}</div>";
-            });
-
-            let series = chart.series.push(
-                am5xy.ColumnSeries.new(root, {
-                    xAxis: xAxis,
-                    yAxis: yAxis,
-                    openValueXField: "start",
-                    valueXField: "end",
-                    categoryYField: "category",
-                    sequencedInterpolation: true,
-                    fill: am5.color(primaryColor)
-                })
-            );
-
-            series.columns.template.setAll({
-                templateField: "columnSettings",
-                strokeOpacity: 0,
-                tooltipText:
-                    "{task}:\n[bold]{openValueX}[/] - [bold]{valueX}[/]",
-                cornerRadiusTL: 4,
-                cornerRadiusTR: 4,
-                cornerRadiusBL: 4,
-                cornerRadiusBR: 4,
-            });
-
-            series.data.setAll(data);
-
-            series.appear();
-            chart.appear(1000, 100);
-        });
     }
 
     chartInit() {
@@ -350,6 +188,171 @@ export class DashboardSaasComponent implements OnInit, OnDestroy {
         },
     ];
 
+    teamMembers = [
+        {
+            avatar: 'assets/demo/images/avatar/circle/avatar-f-1.png',
+            name: 'Theresa Webb',
+            title: 'UX Researchers',
+            taskCount: 79,
+            doneCount: 15,
+            sprintCount: 72,
+            onProjectsCount: 33,
+            team: 'UX Researchers'
+        },
+        {
+            avatar: 'assets/demo/images/avatar/circle/avatar-f-2.png',
+            name: 'Courtney Henry',
+            title: 'President of Sales',
+            taskCount: 22,
+            doneCount: 11,
+            sprintCount: 3,
+            onProjectsCount: 12,
+            team: 'UX Researchers'
+        },
+        {
+            avatar: 'assets/demo/images/avatar/circle/avatar-f-3.png',
+            name: 'Kathryn Murphy',
+            title: 'Web Designer',
+            taskCount: 21,
+            doneCount: 33,
+            sprintCount: 11,
+            onProjectsCount: 44,
+            team: 'UX Researchers'
+        },
+        {
+            avatar: 'assets/demo/images/avatar/circle/avatar-f-4.png',
+            name: 'Diana Ross',
+            title: 'Project Manager',
+            taskCount: 34,
+            doneCount: 11,
+            sprintCount: 45,
+            onProjectsCount: 23,
+            team: 'UX Researchers'
+        },
+        {
+            avatar: 'assets/demo/images/avatar/circle/avatar-f-5.png',
+            name: 'Emily Smith',
+            title: 'Software Engineer',
+            taskCount: 22,
+            doneCount: 3,
+            sprintCount: 12,
+            onProjectsCount: 1,
+            team: 'UX Researchers'
+        },
+        {
+            avatar: 'assets/demo/images/avatar/circle/avatar-f-6.png',
+            name: 'Olivia Johnson',
+            title: 'Human Resources Manager',
+            taskCount: 54,
+            doneCount: 23,
+            sprintCount: 29,
+            onProjectsCount: 14,
+            team: 'UX Researchers'
+        },
+        {
+            avatar: 'assets/demo/images/avatar/circle/avatar-f-7.png',
+            name: 'Sarah Williams',
+            title: 'Marketing Specialist',
+            taskCount: 46,
+            doneCount: 33,
+            sprintCount: 12,
+            onProjectsCount: 14,
+            team: 'UX Researchers'
+        },
+        {
+            avatar: 'assets/demo/images/avatar/circle/avatar-f-8.png',
+            name: 'Madison Davis',
+            title: 'Graphic Designer',
+            taskCount: 23,
+            doneCount: 55,
+            sprintCount: 31,
+            onProjectsCount: 15,
+            team: 'UX Researchers'
+        },
+
+        {
+            avatar: 'assets/demo/images/avatar/circle/avatar-f-9.png',
+            name: 'Abigail Rodriguez',
+            title: 'Content Writer',
+            taskCount: 79,
+            doneCount: 15,
+            sprintCount: 72,
+            onProjectsCount: 33,
+            team: 'UX Designers'
+        },
+
+        {
+            avatar: 'assets/demo/images/avatar/circle/avatar-f-10.png',
+            name: 'Elizabeth Taylor',
+            title: 'Customer Support Representative',
+            taskCount: 12,
+            doneCount: 32,
+            sprintCount: 14,
+            onProjectsCount: 16,
+            team: 'UX Designers'
+        },
+
+        {
+            avatar: 'assets/demo/images/avatar/circle/avatar-f-11.png',
+            name: 'Chloe Anderson',
+            title: 'Financial Analyst',
+            taskCount: 11,
+            doneCount: 17,
+            sprintCount: 12,
+            onProjectsCount: 14,
+            team: 'UI Designers'
+        },
+
+        {
+            avatar: 'assets/demo/images/avatar/circle/avatar-f-12.png',
+            name: 'Sophia Lee',
+            title: 'Product Manager',
+            taskCount: 79,
+            doneCount: 15,
+            sprintCount: 72,
+            onProjectsCount: 33,
+            team: 'UI Designer'
+        },
+
+        {
+            avatar: 'assets/demo/images/avatar/circle/avatar-f-3.png',
+            name: 'Aria Jackson',
+            title: 'Product Manager',
+            taskCount: 79,
+            doneCount: 15,
+            sprintCount: 72,
+            onProjectsCount: 33,
+            team: 'Front-End Developers'
+        },
+
+        {
+            avatar: 'assets/demo/images/avatar/circle/avatar-f-7.png',
+            name: 'Aria Jackson',
+            title: 'Product Manager',
+            taskCount: 79,
+            doneCount: 15,
+            sprintCount: 72,
+            onProjectsCount: 33,
+            team: 'Front-End Developers'
+        },
+
+        {
+            avatar: 'assets/demo/images/avatar/circle/avatar-f-9.png',
+            name: 'John Doe',
+            title: 'Product Manager',
+            taskCount: 79,
+            doneCount: 15,
+            sprintCount: 72,
+            onProjectsCount: 33,
+            team: 'Back-End Developers'
+        },
+    ]
+
+    teamFilter(team: string) {
+        this.selectedTeam = team
+        this.filteredTeamMembers = this.teamMembers.filter(item => item.team === team)
+    }
+
     changeChecked() {
         this.completeTask = this.dailyTasks.filter((task) => task.checked).length
     }
@@ -392,11 +395,6 @@ export class DashboardSaasComponent implements OnInit, OnDestroy {
     }
 
     ngOnDestroy() {
-        this.browserOnly(() => {
-            if (this.root) {
-                this.root.dispose();
-            }
-        });
         if (this.subscription) {
             this.subscription.unsubscribe()
         }
