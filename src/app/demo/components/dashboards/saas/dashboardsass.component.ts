@@ -36,7 +36,7 @@ export class DashboardSaasComponent implements OnInit, OnDestroy {
 
     basicOptions: any;
 
-    currentTeamsTab: string = 'team'
+    selectedTeam: string = 'UX Researchers';
 
     ngOnInit(): void {
         this.chartInit()
@@ -275,7 +275,7 @@ export class DashboardSaasComponent implements OnInit, OnDestroy {
         },
     ];
 
-    teamMembers: any = [
+    teams: any = [
         {
             title: "UX Researchers",
             avatar: ['assets/demo/images/avatar/circle/avatar-f-1.png', 'assets/demo/images/avatar/circle/avatar-f-6.png', 'assets/demo/images/avatar/circle/avatar-f-11.png', 'assets/demo/images/avatar/circle/avatar-f-12.png'],
