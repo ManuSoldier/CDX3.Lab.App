@@ -27,7 +27,8 @@ export class MailService {
     }
 
     onStar(id: number) {
-        this._mails = this._mails.map(m => m.id === id ? ({ ...m, starred: !m.starred }) : m);
+        const mail = this._mails.find(m => m.id === id)
+        mail && (mail['starred'] = !mail?.starred)
         this.mails.next(this._mails);
     }
 
@@ -37,7 +38,8 @@ export class MailService {
     }
 
     onBookmark(id: number) {
-        this._mails = this._mails.map(m => m.id === id ? ({ ...m, important: !m.important }) : m);
+        const mail = this._mails.find(m => m.id === id)
+        mail && (mail['important'] = !mail?.important)
         this.mails.next(this._mails);
     }
 
