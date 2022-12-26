@@ -46,9 +46,11 @@ export class AppLayoutComponent implements OnDestroy {
                 });
             }
 
-            if (!this.menuScrollListener) {
+            if (this.layoutService.isHorizontal() && !this.menuScrollListener) {
                 this.menuScrollListener = this.renderer.listen(this.appSidebar.menuContainer.nativeElement, 'scroll', event => {
-                    this.hideMenu();
+                    if (this.layoutService.isDesktop()) {
+                        this.hideMenu();
+                    }
                 });
             }
 
