@@ -7,7 +7,7 @@
                 z-index: 998;
 
                 .layout-menu-container {
-                    overflow: visible;
+                    overflow: auto;
                 }
             }
 
@@ -39,7 +39,6 @@
                 padding: 1rem 0;
 
                 .layout-root-menuitem {
-                    position: relative;
                     margin: .75rem 0;
                     
                     &:first-child {
