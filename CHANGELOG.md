@@ -1,5 +1,12 @@
 # Changelog
 
+## 14.1.0
+- Migrated to NextGen implementation.
+- New sample apps
+- New sample pages
+- New landing
+- New dashboards
+
 ## 14.0.1
 **Fixed bugs:**
 - Fixed a bug causes menu malfunction in menu service.
