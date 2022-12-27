@@ -1,6 +1,6 @@
 {
   "name": "ultima-ng",
-  "version": "14.1.0-SNAPSHOT",
+  "version": "14.1.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
