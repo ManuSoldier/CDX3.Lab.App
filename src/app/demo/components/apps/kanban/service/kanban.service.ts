@@ -64,6 +64,11 @@ export class KanbanService {
         this.updateLists(lists);
     }
 
+    updateCard(card: KanbanCard, listId: string) {
+        let lists = this._lists.map(l => l.listId === listId ? ({...l, cards: l.cards.map(c => c.id === card.id ? {...card} : c)}) : l);
+        this.updateLists(lists);
+    }
+
     deleteList(id: string) {
         this._lists = this._lists.filter(l => l.listId !== id);
         this.lists.next(this._lists);
