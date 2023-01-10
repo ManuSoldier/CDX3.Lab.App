@@ -92,7 +92,7 @@
         }
     
         .layout-topbar {
-            left: 4.25rem;
+            padding-left: 4.25rem;
     
             .layout-topbar-start {
                 display: none;
@@ -138,16 +138,16 @@
         }
     
         &.layout-reveal-anchored {
+            .layout-topbar {
+                padding-left: 17rem;
+            }
+            
             .layout-sidebar-top {
                 .layout-sidebar-anchor {
                     background-color: var(--topbar-menu-button-bg);
                 }
             }  
 
-            .layout-topbar-end {
-                margin-left: 12.75rem;
-            }
-    
             .layout-content-wrapper {
                 margin-left: 17rem;
             }

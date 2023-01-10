@@ -1,5 +1,8 @@
 # Changelog
 
+## 14.1.1
+- Fixed topbar position with reveal menu mode
+
 ## 14.1.0
 - Migrated to NextGen implementation.
 - New sample apps
