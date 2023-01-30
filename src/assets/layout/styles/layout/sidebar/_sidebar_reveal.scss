@@ -31,44 +31,48 @@
                 }
             }
     
-            .layout-menu {
-                .layout-root-menuitem {
-                    > .layout-menuitem-root-text {
-                        > span {
-                            margin-right: auto;
-                        }
-    
-                        > .layout-menuitem-root-icon {
-                            display: block;
-                            margin-right: .125rem;
+          .layout-menu-container{
+            overflow: hidden;
+            
+              .layout-menu {
+                  .layout-root-menuitem {
+                      > .layout-menuitem-root-text {
+                          > span {
+                              margin-right: auto;
+                            }
+                            
+                            > .layout-menuitem-root-icon {
+                                display: block;
+                                margin-right: .125rem;
+                            }
                         }
                     }
-                }
-    
-                ul {
-                    margin: 0;
-                    padding: 0;
-                    list-style-type: none;
-            
-                    a {
-                        .layout-menuitem-text {
-                            order: 1;
-                            margin-right: auto;
+                    
+                    ul {
+                        margin: 0;
+                        padding: 0;
+                        list-style-type: none;
+                        
+                        a {
+                            .layout-menuitem-text {
+                                order: 1;
+                                margin-right: auto;
+                            }
+                            
+                            .layout-submenu-toggler {
+                                order: 2;
+                                display: none;
+                                margin-right: .5rem;
+                            }
+                            
+                            .layout-menuitem-icon {
+                                order: 3;
+                                margin-right: 0;
+                                font-size: 1.25rem;
+                                width: auto;
+                            }
+                            
                         }
-    
-                        .layout-submenu-toggler {
-                            order: 2;
-                            display: none;
-                            margin-right: .5rem;
-                        }
-    
-                        .layout-menuitem-icon {
-                            order: 3;
-                            margin-right: 0;
-                            font-size: 1.25rem;
-                            width: auto;
-                        }
-    
                     }
                 }
             }
@@ -117,19 +121,23 @@
                     }
                 } 
     
-                .layout-menu {
-                    .layout-root-menuitem {
-                        > .layout-menuitem-root-text {
-                            > .layout-menuitem-root-icon {
-                                display: none;
+                .layout-menu-container {
+                    overflow: auto;
+                    
+                    .layout-menu {
+                        .layout-root-menuitem {
+                            > .layout-menuitem-root-text {
+                                > .layout-menuitem-root-icon {
+                                    display: none;
+                                }
                             }
                         }
-                    }
-    
-                    ul {
-                        a {
-                            .layout-submenu-toggler {
-                                display: block;
+                        
+                        ul {
+                            a {
+                                .layout-submenu-toggler {
+                                    display: block;
+                                }
                             }
                         }
                     }
