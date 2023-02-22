@@ -15,12 +15,12 @@ interface DailyTask {
 @Component({
     templateUrl: "./dashboardsaas.component.html",
 })
-export class DashboardSaasComponent implements OnInit, AfterViewInit, OnDestroy {
-    subscription!: Subscription
+export class DashboardSaasComponent implements OnInit, OnDestroy {
+    subscription!: Subscription;
 
     constructor(@Inject(PLATFORM_ID) private platformId: Object, private zone: NgZone, private layoutService: LayoutService) {
         this.subscription = this.layoutService.configUpdate$.subscribe(config => {
-            this.chartInit()
+            this.chartInit();
         })
     }
 
@@ -32,14 +32,11 @@ export class DashboardSaasComponent implements OnInit, AfterViewInit, OnDestroy 
 
     selectedTeam: string = 'UX Researchers';
 
-    filteredTeamMembers: any = []
+    filteredTeamMembers: any = [];
 
     ngOnInit(): void {
-        this.chartInit()
-    }
-
-    ngAfterViewInit(): void {
-        this.filteredTeamMembers = this.teamMembers.filter(item => item.team === this.selectedTeam)
+        this.chartInit();
+        this.filteredTeamMembers = this.teamMembers.filter(item => item.team === this.selectedTeam);
     }
 
     browserOnly(f: () => void) {
@@ -396,7 +393,7 @@ export class DashboardSaasComponent implements OnInit, AfterViewInit, OnDestroy 
 
     ngOnDestroy() {
         if (this.subscription) {
-            this.subscription.unsubscribe()
+            this.subscription.unsubscribe();
         }
     }
 }

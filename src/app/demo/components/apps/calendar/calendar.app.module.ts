@@ -10,9 +10,9 @@ import { RippleModule } from 'primeng/ripple';
 import { InputTextModule } from 'primeng/inputtext';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { DropdownModule } from 'primeng/dropdown';
-import { ToastModule } from 'primeng/toast'
+import { ToastModule } from 'primeng/toast';
 import { EventService } from 'src/app/demo/service/event.service';
-
+import { FullCalendarModule } from '@fullcalendar/angular';
 @NgModule({
     imports: [
         CommonModule,
@@ -25,10 +25,10 @@ import { EventService } from 'src/app/demo/service/event.service';
         InputTextModule,
         DropdownModule,
         ToastModule,
-        RippleModule
+        RippleModule,
+        FullCalendarModule
     ],
     declarations: [CalendarAppComponent],
-    providers: [EventService],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA]
+    providers: [EventService]
 })
-export class CalendarAppModule { }
+export class CalendarAppModule {}

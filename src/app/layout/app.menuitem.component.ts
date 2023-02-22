@@ -128,13 +128,13 @@ export class AppMenuitemComponent implements OnInit, OnDestroy {
             const container = <HTMLDivElement> this.appSidebar.menuContainer.nativeElement;
 
             if (this.layoutService.isHorizontal()) {
-                el.style.top = '3rem'
+                el.style.removeProperty('top');
                 const scrollLeft = container.scrollLeft;
                 const offsetLeft = el.parentElement?.offsetLeft || 0;
                 el.style.left = (offsetLeft - scrollLeft) + 'px';
             }
             else if (this.layoutService.isSlim()) {
-                el.style.left = '5rem'
+                el.style.removeProperty('left');
                 const scrollTop = container.scrollTop;
                 const offsetTop = el.parentElement?.offsetTop || 0;
                 el.style.top = (offsetTop - scrollTop) + 'px';
