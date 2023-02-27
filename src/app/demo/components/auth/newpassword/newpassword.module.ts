@@ -7,7 +7,7 @@ import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { RippleModule } from 'primeng/ripple';
 import { AppConfigModule } from 'src/app/layout/config/app.config.module';
-
+import { PasswordModule } from 'primeng/password';
 @NgModule({
     imports: [
         CommonModule,
@@ -16,7 +16,8 @@ import { AppConfigModule } from 'src/app/layout/config/app.config.module';
         ButtonModule,
         InputTextModule,
         RippleModule,
-        AppConfigModule
+        AppConfigModule,
+        PasswordModule
     ],
     declarations: [NewPasswordComponent]
 })

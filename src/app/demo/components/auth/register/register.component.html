@@ -24,11 +24,12 @@
                 </div>
                 <div class="p-inputgroup">
                     <span class="p-inputgroup-addon"><i class="pi pi-key"></i></span>
-                    <input type="password" pInputText placeholder="Password">
+                    <p-password id="password" placeholder="Password" styleClass="w-full"  [toggleMask]="true" [feedback]="true"></p-password>
                 </div>
                 <div class="p-inputgroup">
                     <span class="p-inputgroup-addon"><i class="pi pi-key"></i></span>
-                    <input type="password" pInputText placeholder="Password Again">
+                    <p-password id="password" placeholder="Password Again" styleClass="w-full"  [toggleMask]="true" [feedback]="false"></p-password>
+
                 </div>
                 <div>
                     <button pButton pRipple class="w-full" label="SIGN UP"></button>
