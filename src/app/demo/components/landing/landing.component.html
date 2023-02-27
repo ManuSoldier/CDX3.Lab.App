@@ -9,47 +9,47 @@
             <i class="pi pi-bars text-4xl"></i>
         </a>
         
-        <div class="align-items-center flex-grow-1 hidden lg:flex absolute lg:static w-full lg:px-0 z-3 shadow-2 lg:shadow-none fadein" style="top:68px; right: 0%;">
+        <div id="menu" class="align-items-center flex-grow-1 hidden lg:flex absolute lg:static w-full lg:px-0 z-3 shadow-2 lg:shadow-none fadein" style="top:68px; right: 0%;">
             <ul class="list-none p-3 lg:p-0 m-0 ml-auto flex lg:align-items-center select-none flex-column lg:flex-row cursor-pointer surface-0 lg:bg-transparent">
                 <li>
-                    <a class="flex m-0 md:ml-5 px-0 py-3 text-900 line-height-3">
+                    <a class="flex m-0 md:ml-5 px-0 py-3 text-900 line-height-3" pStyleClass="#menu" enterClass="hidden" leaveToClass="hidden">
                         <span>HOME</span>
                     </a>
                 </li>
                 <li>
-                    <a class="flex m-0 md:ml-5 px-0 py-3 text-900 line-height-3">
+                    <a class="flex m-0 md:ml-5 px-0 py-3 text-900 line-height-3" (click)="scrollToElement(features)" pStyleClass="#menu" enterClass="hidden" leaveToClass="hidden">
                         <span>FEATURES</span>
                     </a>
                 </li>
                 <li>
-                    <a class="flex m-0 md:ml-5 px-0 py-3 text-900 line-height-3" >
+                    <a class="flex m-0 md:ml-5 px-0 py-3 text-900 line-height-3" (click)="scrollToElement(collaboration)" pStyleClass="#menu" enterClass="hidden" leaveToClass="hidden">
                         <span>COLLABORATION</span>
                     </a>
                 </li>
                 <li>
-                    <a class="flex m-0 md:ml-5 px-0 py-3 text-900 line-height-3">
+                    <a class="flex m-0 md:ml-5 px-0 py-3 text-900 line-height-3" (click)="scrollToElement(events)" pStyleClass="#menu" enterClass="hidden" leaveToClass="hidden">
                         <span>EVENTS</span>
                     </a>
                 </li>
                 <li>
-                    <a class="flex m-0 md:ml-5 px-0 py-3 text-900 line-height-3">
+                    <a class="flex m-0 md:ml-5 px-0 py-3 text-900 line-height-3" (click)="scrollToElement(video)" pStyleClass="#menu" enterClass="hidden" leaveToClass="hidden">
                         <span>VIDEO</span>
                     </a>
                 </li>
                 <li>
-                    <button pButton pRipple type="button" label="LET'S TRY" class="surface-900 text-0 m-0 mt-3 md:mt-0 md:ml-5"></button>
+                    <button pButton pRipple type="button" label="LET'S TRY" class="surface-900 text-0 m-0 mt-3 md:mt-0 md:ml-5" pStyleClass="#menu" enterClass="hidden" leaveToClass="hidden"></button>
                 </li>
             </ul>
         </div>
     </div>
-    <div class="h-screen">
-        <div style="perspective: 101px;"
+    <div  class="h-screen">
+        <div  style="perspective: 101px;"
             class="h-screen overflow-x-hidden overflow-y-auto absolute top-0 left-0 right-0 bottom-0">
-            <div class="hidden lg:block absolute top-0 right-0 bottom-0 left-0  parallax__layer__0">
+            <div   class="hidden lg:block absolute top-0 right-0 bottom-0 left-0  parallax__layer__0">
                 <img draggable="false" src="assets/layout/images/landing/layer-0-opt.jpg"
                     class="w-full h-full block absolute bottom-0" />
             </div>
-            <div class="hidden lg:block absolute top-0 right-0 bottom-0 left-0  parallax__layer__1">
+            <div  class="hidden lg:block absolute top-0 right-0 bottom-0 left-0  parallax__layer__1">
                 <img draggable="false" src="assets/layout/images/landing/layer-1-opt.png"
                     class="w-full block absolute bottom-0" />
             </div>
@@ -109,7 +109,7 @@
                     </div>
                 </div>
                 <div class="pt-5" style="background-color: #000;">
-                    <div class="flex flex-column align-items-center gap-3">
+                    <div #features class="flex flex-column align-items-center gap-3">
                         <div class="surface-500 text-white text-sm p-2 border-round-lg">FEATURES</div>
                         <span class="text-white text-2xl uppercase">All you need is the Ultima.</span>
                         <h1 class="m-0 text-6xl"
@@ -179,7 +179,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div style="max-width: 1200px;"
+                        <div #collaboration style="max-width: 1200px;"
                             class="flex flex-column lg:flex-row gap-8 mt-6 py-6 px-4 w-full">
                             <div class="flex flex-column align-items-end justify-content-center">
                                 <div class="surface-50 text-white text-sm p-2 border-round-lg mb-4">PLAY AS A TEAM
@@ -199,7 +199,7 @@
                             </div>
                             <img draggable="false" src="assets/layout/images/landing/collaboration-image.png" alt="">
                         </div>
-                        <div style="max-width: 1200px;"
+                        <div #events style="max-width: 1200px;"
                             class="flex flex-column lg:flex-row gap-8 mt-6 py-6 px-4 w-full">
                             <img draggable="false" src="assets/layout/images/landing/easyfollow-image.png" alt="">
                             <div class="flex flex-column align-items-start justify-content-center">
@@ -215,7 +215,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div style="max-width: 1200px;"
+                        <div #video style="max-width: 1200px;"
                             class="flex gap-4 mt-6 py-6 flex-column align-items-center w-full">
                             <div class="surface-50 text-white text-sm p-2 border-round-lg">VIDEO</div>
                             <h1 class="m-0 text-6xl font-bold"
