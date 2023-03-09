@@ -14,7 +14,7 @@
                 .layout-menu-container {
                     overflow: auto;
                     padding-bottom: 0;
-                    
+                    width: calc(100% - 300px);
                     &::-webkit-scrollbar {
                         display: none;
                     }
@@ -27,6 +27,9 @@
                     .layout-menu-button {
                         display: none;
                     }
+                }
+                .layout-topbar-end {
+                   width: 300px;
                 }
             }
 

@@ -22,7 +22,7 @@ interface LayoutState {
     rightMenuActive: boolean;
     topbarMenuActive: boolean;
     menuProfileActive: boolean;
-    revealMenuActive: boolean;
+    sidebarActive: boolean;
     anchored: boolean;
 }
 
@@ -52,7 +52,7 @@ export class LayoutService {
         rightMenuActive: false,
         topbarMenuActive: false,
         menuProfileActive: false,
-        revealMenuActive: false,
+        sidebarActive: false,
         anchored: false
     };
 
