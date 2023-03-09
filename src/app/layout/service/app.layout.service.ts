@@ -1,12 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 
+export type MenuMode = 'static' | 'overlay' | 'horizontal' | 'slim' | 'slim-plus' | 'reveal' | 'drawer';
+
+export type ColorScheme = 'light' | 'dark';
+
 export interface AppConfig {
     inputStyle: string;
-    colorScheme: string;
+    colorScheme: ColorScheme;
     componentTheme: string;
     ripple: boolean;
-    menuMode: string;
+    menuMode: MenuMode;
     scale: number;
     menuTheme: string;
     topbarTheme: string;
@@ -168,7 +172,7 @@ export class LayoutService {
         });
     }
 
-    onColorSchemeChange(colorScheme: string) {
+    onColorSchemeChange(colorScheme: ColorScheme) {
         const themeLink = <HTMLLinkElement>document.getElementById('theme-link');
         const themeLinkHref = themeLink.getAttribute('href');
         const currentColorScheme = 'theme-' + this.config.colorScheme;

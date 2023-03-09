@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MenuService } from '../app.menu.service';
-import { LayoutService } from '../service/app.layout.service';
+import { ColorScheme, LayoutService, MenuMode } from '../service/app.layout.service';
 
 @Component({
     selector: 'app-config',
@@ -36,11 +36,11 @@ export class AppConfigComponent implements OnInit {
         this.layoutService.config.scale = _val;
     }
 
-    get menuMode(): string {
+    get menuMode(): MenuMode {
         return this.layoutService.config.menuMode;
     }
 
-    set menuMode(_val: string) {
+    set menuMode(_val: MenuMode) {
         this.layoutService.config.menuMode = _val;
         if (this.layoutService.isSlim() || this.layoutService.isHorizontal()) {
             this.menuService.reset();
@@ -58,11 +58,11 @@ export class AppConfigComponent implements OnInit {
         }
     }
 
-    get colorScheme(): string {
+    get colorScheme(): ColorScheme {
         return this.layoutService.config.colorScheme;
     }
 
-    set colorScheme(_val: string) {
+    set colorScheme(_val: ColorScheme) {
         this.changeColorScheme(_val);
     }
 
@@ -158,7 +158,7 @@ export class AppConfigComponent implements OnInit {
         this.layoutService.showConfigSidebar();
     }
 
-    changeColorScheme(colorScheme: string) {
+    changeColorScheme(colorScheme: ColorScheme) {
         this.layoutService.onColorSchemeChange(colorScheme);
     }
 
