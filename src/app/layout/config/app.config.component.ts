@@ -53,7 +53,7 @@ export class AppConfigComponent implements OnInit {
 
     set menuProfilePosition(_val: string) {
         this.layoutService.config.menuProfilePosition = _val;
-        if (this.layoutService.isSlim() || this.layoutService.isHorizontal()) {
+        if (this.layoutService.isSlimPlus() || this.layoutService.isSlim() || this.layoutService.isHorizontal()) {
             this.menuService.reset();
         }
     }
