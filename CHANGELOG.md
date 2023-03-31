@@ -1,4 +1,12 @@
 # Changelog
+# 15.1.0
+
+- General style adjustments
+
+**Implemented New Features and Enhancements:**
+- New Drawer menu
+- Horizontal & Slim & SlimPlus menu scroll
+
 
 # 15.0.1
 **Fixed bugs:**
