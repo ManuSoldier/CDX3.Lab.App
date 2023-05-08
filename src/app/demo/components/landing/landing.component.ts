@@ -22,7 +22,6 @@ export class LandingComponent implements OnInit {
     }
     
     scrollToElement($element: any): void {
-        console.log($element);
         setTimeout(() => {
             $element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
         }, 200);

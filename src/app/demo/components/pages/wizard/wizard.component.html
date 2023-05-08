@@ -1,5 +1,5 @@
 <div class="h-screen bg-no-repeat bg-cover"
-    style="background: url('../../../../../assets/layout/images/extensions/background@2x.jpg')">
+    style="background: url('/assets/layout/images/extensions/background@2x.jpg')">
     <div class="flex flex-column h-full">
         <div class="flex align-items-center justify-content-center"
             style="height: calc(100% - 75px); min-height: 600px;">
@@ -298,8 +298,8 @@
                                     </span>
                                 </div>
                             </div>
-                            <div class="grid col mt-2">
-                                <p-checkbox [(ngModel)]="checked" binary="true" labelStyleClass="ml-2 text-base"
+                            <div class="m-3">
+                                <p-checkbox [(ngModel)]="checked" [binary]="true" labelStyleClass="ml-2 text-base"
                                     label="Save credit card information for future usage"></p-checkbox>
                             </div>
                         </div>

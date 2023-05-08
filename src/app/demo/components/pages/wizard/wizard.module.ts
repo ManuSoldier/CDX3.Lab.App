@@ -9,6 +9,7 @@ import { RadioButtonModule } from 'primeng/radiobutton';
 import { FormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
 import { RippleModule } from 'primeng/ripple';
+import { CheckboxModule } from 'primeng/checkbox';
 
 @NgModule({
     imports: [
@@ -20,7 +21,8 @@ import { RippleModule } from 'primeng/ripple';
         CalendarModule,
         RadioButtonModule,
         InputTextModule,
-        RippleModule
+        RippleModule,
+        CheckboxModule
     ],
     declarations: [WizardComponent]
 })
