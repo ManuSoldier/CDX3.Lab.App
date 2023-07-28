@@ -2,8 +2,12 @@
 
 ## 16.0.0
 **Migration Guide**
+- Update themes
 - Upgrade to PrimeNG 16
 - Upgrade to Angular 16
+
+**Implemented New Features and Enhancements:**
+- Update footer position
 
 # 15.1.0
 
