@@ -37,10 +37,14 @@
             }
         }
     }
-}
+    
+    &.p-invalid > .p-radiobutton-box {
+        @include invalid-input();
+    }
 
-p-radiobutton.ng-dirty.ng-invalid > .p-radiobutton > .p-radiobutton-box {
-    @include invalid-input();
+    &:focus {
+        outline: 0 none;
+    }
 }
 
 .p-input-filled {
@@ -61,10 +65,6 @@ p-radiobutton.ng-dirty.ng-invalid > .p-radiobutton > .p-radiobutton-box {
             }
         }
     }
-}
-
-.p-radiobutton-label {
-    margin-left: $inlineSpacing;
 }
 
 @if ($highlightBg == $radiobuttonActiveBg) {

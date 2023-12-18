@@ -16,8 +16,8 @@
 
         &:not(.p-disabled) {
             .p-accordion-header-link {
-                &:focus {
-                    @include focused();
+                &:focus-visible {
+                    @include focused-inset();
                 }
             }
         }
@@ -61,11 +61,9 @@
         border-bottom-left-radius: $borderRadius;
     }
 
-    p-accordiontab {
-        .p-accordion-tab {
-            margin-bottom: $accordionSpacing;
-        }
-        
+    .p-accordion-tab {
+        margin-bottom: $accordionSpacing;
+
         @if $accordionSpacing == 0 {
             .p-accordion-header {
                 .p-accordion-header-link {
@@ -74,7 +72,8 @@
             }
 
             .p-accordion-content {
-                border-radius: 0;
+                border-bottom-right-radius: 0;
+                border-bottom-left-radius: 0;
             }
 
             &:not(:first-child) {
@@ -108,7 +107,7 @@
                         border-bottom-left-radius: $borderRadius;
                     }
                 }
-
+                
                 .p-accordion-content {
                     border-bottom-right-radius: $borderRadius;
                     border-bottom-left-radius: $borderRadius;

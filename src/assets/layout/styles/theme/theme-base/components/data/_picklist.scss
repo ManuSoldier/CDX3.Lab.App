@@ -12,29 +12,10 @@
         color: $panelHeaderTextColor;
         border: $panelHeaderBorder;
         padding: $panelHeaderPadding;
+        font-weight: $panelHeaderFontWeight;
         border-bottom: 0 none;
         border-top-right-radius: $borderRadius;
         border-top-left-radius: $borderRadius;
-
-        .p-picklist-title {
-            font-weight: $panelHeaderFontWeight;
-        }
-    }
-
-    .p-picklist-filter-container {
-        padding: $panelHeaderPadding;
-        background: $panelContentBg;
-        border: $panelHeaderBorder;
-        border-bottom: 0 none;
-
-        .p-picklist-filter-input {
-            padding-right: nth($inputPadding, 2) + $primeIconFontSize;
-        }
-
-        .p-picklist-filter-icon {
-            right: nth($inputPadding, 2);
-            color: $inputIconColor;
-        }
     }
 
     .p-picklist-list {
@@ -44,6 +25,7 @@
         padding: $inputListPadding;
         border-bottom-right-radius: $borderRadius;
         border-bottom-left-radius: $borderRadius;
+        outline: 0 none;
 
         .p-picklist-item {
             padding: $inputListItemPadding;
@@ -51,28 +33,24 @@
             border: $inputListItemBorder;
             color: $inputListItemTextColor;
             background: $inputListItemBg;
-            transition: $listItemTransition;
+            transition: transform $transitionDuration, $listItemTransition;
 
-            &:focus {
-                @include focused-listitem();
+            &:not(.p-highlight):hover {
+                background: $inputListItemHoverBg;
+                color: $inputListItemTextHoverColor;
+            }
+
+            &.p-focus {
+                color: $inputListItemTextFocusColor;
+                background: $inputListItemFocusBg;
             }
 
             &.p-highlight {
                 color: $highlightTextColor;
                 background: $highlightBg;
-            }
-        }
 
-        .p-picklist-empty-message {
-            padding: $inputListItemPadding;
-            color: $inputListItemTextColor;
-        }
-
-        &:not(.cdk-drop-list-dragging) {
-            .p-picklist-item {
-                &:not(.p-highlight):hover {
-                    background: $inputListItemHoverBg;
-                    color: $inputListItemTextHoverColor;
+                &.p-focus {
+                    background: $highlightFocusBg;
                 }
             }
         }
@@ -88,16 +66,5 @@
                 }
             }
         }
-    }
-}
-
-.p-picklist-item {
-    &.cdk-drag-preview {
-        padding: $inputListItemPadding;
-        box-shadow: $inputOverlayShadow;
-        border: $inputListItemBorder;
-        color: $inputListItemTextColor;
-        background: $panelContentBg;
-        margin: 0;
     }
 }

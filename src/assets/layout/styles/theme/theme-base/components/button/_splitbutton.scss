@@ -30,7 +30,7 @@
                         background: $plainButtonHoverBgColor;
                         color: $plainButtonTextColor;
                     }
-
+            
                     &:active {
                         background: $plainButtonActiveBgColor;
                         color: $plainButtonTextColor;
@@ -70,7 +70,7 @@
                         background: $plainButtonHoverBgColor;
                         color: $plainButtonTextColor;
                     }
-
+            
                     &:active {
                         background: $plainButtonActiveBgColor;
                         color: $plainButtonTextColor;
@@ -109,8 +109,17 @@
             @include scaledFontSize($fontSize, $scaleLG);
             @include scaledPadding($buttonPadding, $scaleLG);
 
+            &.p-button-icon-only {
+                width: auto;
+            }
+
             .p-button-icon {
                 @include scaledFontSize($primeIconFontSize, $scaleLG);
+            }
+
+            .p-icon {
+                width: $primeIconFontSize * $scaleLG;
+                height: $primeIconFontSize * $scaleLG;
             }
         }
     }
@@ -378,4 +387,4 @@
             }
         }
     }
-} 
+}

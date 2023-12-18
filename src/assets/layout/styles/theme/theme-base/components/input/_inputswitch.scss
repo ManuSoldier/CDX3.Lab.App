@@ -44,7 +44,7 @@
 
             &:before {
                 background: $inputSwitchHandleOnBg;
-             }
+            }
         }
 
         &:not(.p-disabled):hover {
@@ -53,8 +53,10 @@
             }
         }
     }
-}
 
-p-inputswitch.ng-dirty.ng-invalid > .p-inputswitch {
-    @include invalid-input();
+    &.p-invalid {
+        .p-inputswitch-slider {
+            @include invalid-input();
+        }
+    }
 }

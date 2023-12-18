@@ -5,39 +5,39 @@
             <img draggable="false" src="assets/layout/images/logo.png" alt="">
         </div>
   
-        <a pRipple class="cursor-pointer block lg:hidden text-white" pStyleClass="@next" enterClass="hidden" leaveToClass="hidden" [hideOnOutsideClick]="true">
+        <a pRipple class="cursor-pointer block lg:hidden text-white" pStyleClass="@next" enterFromClass="hidden" leaveToClass="hidden" [hideOnOutsideClick]="true">
             <i class="pi pi-bars text-4xl"></i>
         </a>
         
         <div id="menu" class="align-items-center flex-grow-1 hidden lg:flex absolute lg:static w-full lg:px-0 z-3 shadow-2 lg:shadow-none fadein" style="top:68px; right: 0%;">
             <ul class="list-none p-3 lg:p-0 m-0 ml-auto flex lg:align-items-center select-none flex-column lg:flex-row cursor-pointer surface-0 lg:bg-transparent">
                 <li>
-                    <a class="flex m-0 md:ml-5 px-0 py-3 text-900 line-height-3" pStyleClass="#menu" enterClass="hidden" leaveToClass="hidden">
+                    <a class="flex m-0 md:ml-5 px-0 py-3 text-900 line-height-3" pStyleClass="#menu" enterFromClass="hidden" leaveToClass="hidden">
                         <span>HOME</span>
                     </a>
                 </li>
                 <li>
-                    <a class="flex m-0 md:ml-5 px-0 py-3 text-900 line-height-3" (click)="scrollToElement(features)" pStyleClass="#menu" enterClass="hidden" leaveToClass="hidden">
+                    <a class="flex m-0 md:ml-5 px-0 py-3 text-900 line-height-3" (click)="scrollToElement(features)" pStyleClass="#menu" enterFromClass="hidden" leaveToClass="hidden">
                         <span>FEATURES</span>
                     </a>
                 </li>
                 <li>
-                    <a class="flex m-0 md:ml-5 px-0 py-3 text-900 line-height-3" (click)="scrollToElement(collaboration)" pStyleClass="#menu" enterClass="hidden" leaveToClass="hidden">
+                    <a class="flex m-0 md:ml-5 px-0 py-3 text-900 line-height-3" (click)="scrollToElement(collaboration)" pStyleClass="#menu" enterFromClass="hidden" leaveToClass="hidden">
                         <span>COLLABORATION</span>
                     </a>
                 </li>
                 <li>
-                    <a class="flex m-0 md:ml-5 px-0 py-3 text-900 line-height-3" (click)="scrollToElement(events)" pStyleClass="#menu" enterClass="hidden" leaveToClass="hidden">
+                    <a class="flex m-0 md:ml-5 px-0 py-3 text-900 line-height-3" (click)="scrollToElement(events)" pStyleClass="#menu" enterFromClass="hidden" leaveToClass="hidden">
                         <span>EVENTS</span>
                     </a>
                 </li>
                 <li>
-                    <a class="flex m-0 md:ml-5 px-0 py-3 text-900 line-height-3" (click)="scrollToElement(video)" pStyleClass="#menu" enterClass="hidden" leaveToClass="hidden">
+                    <a class="flex m-0 md:ml-5 px-0 py-3 text-900 line-height-3" (click)="scrollToElement(video)" pStyleClass="#menu" enterFromClass="hidden" leaveToClass="hidden">
                         <span>VIDEO</span>
                     </a>
                 </li>
                 <li>
-                    <button pButton pRipple type="button" label="LET'S TRY" class="surface-900 text-0 m-0 mt-3 md:mt-0 md:ml-5" pStyleClass="#menu" enterClass="hidden" leaveToClass="hidden"></button>
+                    <button pButton pRipple type="button" label="LET'S TRY" class="surface-900 text-0 m-0 mt-3 md:mt-0 md:ml-5" pStyleClass="#menu" enterFromClass="hidden" leaveToClass="hidden"></button>
                 </li>
             </ul>
         </div>

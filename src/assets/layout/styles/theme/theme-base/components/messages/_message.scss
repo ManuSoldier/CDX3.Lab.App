@@ -17,9 +17,10 @@
             background: rgba(255,255,255,.3);
         }
 
-        &:focus {
+        &:focus-visible {
             @include focused();
         }
+    
     }
 
     &.p-message-info {
@@ -92,16 +93,8 @@
         margin-right: $inlineSpacing;
     }
 
-    .p-icon {
+    .p-icon:not(.p-message-close-icon) {
         width: $messageIconFontSize;
         height: $messageIconFontSize;
-    }
-
-    .p-message-summary {
-        font-weight: 700;
-    }
-
-    .p-message-detail {
-        margin-left: $inlineSpacing;
     }
 }

@@ -46,26 +46,4 @@
             border-color: $sliderHandleHoverBorderColor;
         }
     }
-
-    &.p-slider-animate {
-        &.p-slider-horizontal {
-            .p-slider-handle {
-                transition: $formElementTransition, left $transitionDuration;
-            }
-
-            .p-slider-range {
-                transition: width $transitionDuration;
-            }
-        }
-
-        &.p-slider-vertical {
-            .p-slider-handle {
-                transition: $formElementTransition, bottom $transitionDuration;
-            }
-
-            .p-slider-range {
-                transition: height $transitionDuration;
-            }
-        }
-    }
 }

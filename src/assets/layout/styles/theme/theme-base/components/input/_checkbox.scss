@@ -15,11 +15,11 @@
             transition-duration: $transitionDuration;
             color: $checkboxIconActiveColor;
             font-size: $checkboxIconFontSize;
-        }
-        
-        .p-icon {
-            width: $checkboxIconFontSize;
-            height: $checkboxIconFontSize;
+
+            &.p-icon {
+                width: $checkboxIconFontSize;
+                height: $checkboxIconFontSize;
+            }
         }
 
         &.p-highlight {
@@ -45,10 +45,10 @@
             }
         }
     }
-}
 
-p-checkbox.ng-dirty.ng-invalid > .p-checkbox > .p-checkbox-box {
-    @include invalid-input();
+    &.p-invalid > .p-checkbox-box {
+        @include invalid-input();
+    }
 }
 
 .p-input-filled {
@@ -73,10 +73,6 @@ p-checkbox.ng-dirty.ng-invalid > .p-checkbox > .p-checkbox-box {
             }
         }
     }
-}
-
-.p-checkbox-label {
-    margin-left: $inlineSpacing;
 }
 
 @if ($highlightBg == $checkboxActiveBg) {

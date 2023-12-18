@@ -14,8 +14,7 @@
 
 .p-inputgroup {
     > .p-component,
-    > .p-element,
-    > .p-inputwrapper > .p-component > .p-inputtext,
+    > .p-inputwrapper > .p-inputtext,
     > .p-float-label > .p-component {
         border-radius: 0;
         margin: 0;
@@ -37,8 +36,8 @@
 .p-inputgroup-addon:first-child,
 .p-inputgroup button:first-child,
 .p-inputgroup input:first-child,
-.p-inputgroup > .p-inputwrapper:first-child > .p-component,
-.p-inputgroup > .p-inputwrapper:first-child > .p-component > .p-inputtext {
+.p-inputgroup > .p-inputwrapper:first-child,
+.p-inputgroup > .p-inputwrapper:first-child > .p-inputtext {
     border-top-left-radius: $borderRadius;
     border-bottom-left-radius: $borderRadius;
 }
@@ -51,8 +50,8 @@
 .p-inputgroup-addon:last-child,
 .p-inputgroup button:last-child,
 .p-inputgroup input:last-child,
-.p-inputgroup > .p-inputwrapper:last-child > .p-component,
-.p-inputgroup > .p-inputwrapper:last-child > .p-component > .p-inputtext {
+.p-inputgroup > .p-inputwrapper:last-child, 
+.p-inputgroup > .p-inputwrapper:last-child > .p-inputtext {
     border-top-right-radius: $borderRadius;
     border-bottom-right-radius: $borderRadius;
 }

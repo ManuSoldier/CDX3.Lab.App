@@ -9,7 +9,7 @@
         border-radius: 0;
     }
 
-   .p-treetable-header {
+    .p-treetable-header {
         background: $tableHeaderBg;
         color: $tableHeaderTextColor;
         border: $tableHeaderBorder;
@@ -100,25 +100,20 @@
                 .p-treetable-toggler {
                     @include action-icon();
                     margin-right: $inlineSpacing;
-
-                    &.p-icon {
-                        width: $loadingIconFontSize;
-                        height: $loadingIconFontSize;
-                    }
-                }
-
-                p-treetablecheckbox .p-checkbox {
-                    margin-right: $inlineSpacing;
                     
-                    .p-indeterminate {
-                        .p-checkbox-icon {
-                            color: $textColor;
+                    & + .p-checkbox {
+                        margin-right: $inlineSpacing;
+                        
+                        .p-indeterminate {
+                            .p-checkbox-icon {
+                                color: $textColor;
+                            }
                         }
                     }
                 }
             }
 
-            &:focus {
+            &:focus-visible {
                 outline: 0.15rem solid $focusOutlineColor;
                 outline-offset: -0.15rem;
             }
@@ -163,7 +158,7 @@
         font-size: $loadingIconFontSize;
 
         &.p-icon {
-            width: $loadingIconFontSize;
+            width:  $loadingIconFontSize;
             height: $loadingIconFontSize;
         }
     }

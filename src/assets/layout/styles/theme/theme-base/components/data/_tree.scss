@@ -8,6 +8,11 @@
     .p-tree-container {
         .p-treenode {
             padding: $treeNodePadding;
+            outline: 0 none;
+
+            &:focus > .p-treenode-content {
+                @include focused-listitem();
+            }
 
             .p-treenode-content {
                 border-radius: $borderRadius;
@@ -34,10 +39,6 @@
                     }
                 }
 
-                &:focus {
-                    @include focused-listitem();
-                }
-
                 &.p-highlight {
                     background: $highlightBg;
                     color: $highlightTextColor;
@@ -53,11 +54,6 @@
                 }
 
                 &.p-treenode-selectable:not(.p-highlight):hover {
-                    background: $inputListItemHoverBg;
-                    color: $inputListItemTextHoverColor;
-                }
-
-                &.p-treenode-dragover {
                     background: $inputListItemHoverBg;
                     color: $inputListItemTextHoverColor;
                 }
@@ -87,63 +83,8 @@
         font-size: $loadingIconFontSize;
 
         &.p-icon {
-            width: $loadingIconFontSize;
+            width:  $loadingIconFontSize;
             height: $loadingIconFontSize;
-        }
-    }
-
-    .p-treenode-droppoint {
-        &.p-treenode-droppoint-active {
-            background-color: scale-color($highlightBg, $lightness: -20%);
-        }
-    } 
-
-    &.p-tree-horizontal {
-        .p-treenode {
-            .p-treenode-content {
-                border-radius: $borderRadius;
-                border: $panelContentBorder;
-                background-color: $panelContentBg;
-                color: $panelContentTextColor;
-                padding: $treeNodeContentPadding;
-                transition: $listItemTransition;
-
-                &.p-highlight {
-                    background-color: $highlightBg;
-                    color: $highlightTextColor;
-
-                    .p-treenode-icon {
-                        color: $highlightTextColor;
-                    }
-                }
-
-                .p-tree-toggler {
-                    margin-right: $inlineSpacing;
-                }
-
-                .p-treenode-icon {
-                    color: $treeNodeIconColor;
-                    margin-right: $inlineSpacing;
-                }
-
-                .p-checkbox {
-                    margin-right: $inlineSpacing;
-                }
-
-                .p-treenode-label:not(.p-highlight):hover {
-                    background-color: inherit;
-                    color: inherit;
-                }
-
-                &.p-treenode-selectable:not(.p-highlight):hover {
-                    background: $inputListItemHoverBg;
-                    color: $inputListItemTextHoverColor;
-                }
-                
-                &:focus {
-                    @include focused();
-                }
-            }
         }
     }
 }

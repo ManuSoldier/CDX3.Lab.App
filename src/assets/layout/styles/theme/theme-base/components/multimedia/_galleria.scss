@@ -12,11 +12,9 @@
             font-size: $galleriaCloseIconFontSize;
         }
 
-        .p-icon-wrapper {
-            .p-icon {
-                width: $galleriaCloseIconFontSize;
-                height: $galleriaCloseIconFontSize;
-            }
+        .p-icon {
+            width: $galleriaCloseIconFontSize;
+            height: $galleriaCloseIconFontSize;
         }
 
         &:hover {
@@ -39,11 +37,9 @@
             font-size: $galleriaItemNavigatorFontSize;
         }
 
-        .p-icon-wrapper {
-            .p-icon {
-                width: $galleriaCloseIconFontSize;
-                height: $galleriaCloseIconFontSize;
-            }
+        .p-icon {
+            width: $galleriaCloseIconFontSize;
+            height: $galleriaCloseIconFontSize;
         }
 
         &:not(.p-disabled) {
@@ -139,6 +135,12 @@
             &:hover {
                 background: $galleriaThumbnailNavigatorHoverBg;
                 color: $galleriaThumbnailNavigatorHoverColor;
+            }
+        }
+
+        .p-galleria-thumbnail-item-content {
+            &:focus-visible {
+                @include focused();
             }
         }
     }

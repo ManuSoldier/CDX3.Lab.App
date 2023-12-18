@@ -16,10 +16,6 @@
         margin-right: $inlineSpacing;
     }
 
-    .pi-chip-remove-icon {
-        margin-left: $inlineSpacing;
-    }
-
     img {
         width: 1.5 + nth($inputPadding, 1);
         height: 1.5 + nth($inputPadding, 1);
@@ -27,11 +23,12 @@
         margin-right: $inlineSpacing;
     }
 
-    .pi-chip-remove-icon {
+    .p-chip-remove-icon {
+        margin-left: $inlineSpacing;
         border-radius: $borderRadius;
         transition: $actionIconTransition;
         
-        &:focus {
+        &:focus-visible {
             @include focused();
         }
     }

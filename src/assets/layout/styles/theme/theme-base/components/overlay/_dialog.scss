@@ -19,10 +19,10 @@
         .p-dialog-header-icon {
             @include action-icon();
             margin-right: $inlineSpacing;
-
+            
             &:last-child {
                 margin-right: 0;
-            }
+            }            
         }
     }
 
@@ -55,14 +55,9 @@
     &.p-confirm-dialog {
         .p-confirm-dialog-icon {
             font-size: $primeIconFontSize * 2;
-
-            &.p-icon {
-                width: $primeIconFontSize * 2;
-                height: $primeIconFontSize * 2;
-            }
         }
 
-        .p-confirm-dialog-message {
+        .p-confirm-dialog-message:not(:first-child) {
             margin-left: $inlineSpacing * 2;
         }
     }
