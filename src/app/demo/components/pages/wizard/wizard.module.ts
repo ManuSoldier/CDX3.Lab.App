@@ -10,7 +10,8 @@ import { FormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
 import { RippleModule } from 'primeng/ripple';
 import { CheckboxModule } from 'primeng/checkbox';
-
+import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
+import { InputGroupModule } from 'primeng/inputgroup';
 @NgModule({
     imports: [
         CommonModule,
@@ -22,7 +23,9 @@ import { CheckboxModule } from 'primeng/checkbox';
         RadioButtonModule,
         InputTextModule,
         RippleModule,
-        CheckboxModule
+        CheckboxModule,
+        InputGroupModule,
+		InputGroupAddonModule
     ],
     declarations: [WizardComponent]
 })

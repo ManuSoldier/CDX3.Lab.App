@@ -8,7 +8,8 @@ import { ButtonModule } from 'primeng/button';
 import { RippleModule } from 'primeng/ripple';
 import { AppConfigModule } from 'src/app/layout/config/app.config.module';
 import { AvatarModule } from 'primeng/avatar';
-
+import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
+import { InputGroupModule } from 'primeng/inputgroup';
 @NgModule({
     imports: [
         CommonModule,
@@ -18,7 +19,9 @@ import { AvatarModule } from 'primeng/avatar';
         ButtonModule,
         RippleModule,
         AppConfigModule,
-        AvatarModule
+        AvatarModule,
+        InputGroupModule,
+		InputGroupAddonModule
     ],
     declarations: [LockScreenComponent]
 })

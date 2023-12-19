@@ -8,7 +8,8 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { FormsModule } from '@angular/forms';
 import { AppConfigModule } from 'src/app/layout/config/app.config.module';
 import { RippleModule } from 'primeng/ripple';
-
+import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
+import { InputGroupModule } from 'primeng/inputgroup';
 @NgModule({
     imports: [
         CommonModule,
@@ -18,7 +19,9 @@ import { RippleModule } from 'primeng/ripple';
         CheckboxModule,
         FormsModule,
         AppConfigModule,
-        RippleModule
+        RippleModule,
+        InputGroupModule,
+		InputGroupAddonModule
     ],
     declarations: [Login2Component]
 })

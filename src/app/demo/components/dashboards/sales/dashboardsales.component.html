@@ -284,18 +284,18 @@
                         </div>
                     </li>
                 </ul>
-                <div class="p-inputgroup mt-3">
-                    <span class="p-inputgroup-addon p-0 overflow-hidden border-round-3xl border-noround-right">
+                <p-inputGroup class="mt-3">
+                    <p-inputGroupAddon class="p-0 overflow-hidden border-round-3xl border-noround-right">
                         <button pButton pRipple type="button" icon="pi pi-plus-circle"
                             class="p-button-text p-button-plain h-full"></button>
-                    </span>
+                    </p-inputGroupAddon>
                     <input #chatInput type="text" pInputText placeholder="Write your message (Hint: 'PrimeNG')"
                         (keydown)="onChatKeydown($event)">
-                    <span class="p-inputgroup-addon p-0 overflow-hidden">
+                    <p-inputGroupAddon class="p-0 overflow-hidden">
                         <button pButton pRipple type="button" icon="pi pi-video"
                             class="p-button-text p-button-plain h-full"></button>
-                    </span>
-                    <span class="p-inputgroup-addon p-0 overflow-hidden border-round-3xl border-noround-left">
+                    </p-inputGroupAddon>
+                    <p-inputGroupAddon class="p-0 overflow-hidden border-round-3xl border-noround-left">
                         <button pButton pRipple type="button" icon="pi pi-clock" (click)="op.toggle($event)"
                             class="p-button-text p-button-plain h-full"></button>
                         <p-overlayPanel #op styleClass="w-11">
@@ -305,8 +305,8 @@
                                     class="border-circle w-3rem h-3rem min-w-0 p-2 p-button-text p-button-plain"></button>
                             </ng-template>
                         </p-overlayPanel>
-                    </span>
-                </div>
+                    </p-inputGroupAddon>
+                </p-inputGroup>
             </div>
         </div>
     </div>

@@ -11,7 +11,8 @@ import { DashboardSalesComponent } from './dashboardsales.component';
 import { ChartModule } from 'primeng/chart';
 import { CardModule } from 'primeng/card';
 import { InputTextModule } from 'primeng/inputtext';
-
+import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
+import { InputGroupModule } from 'primeng/inputgroup';
 @NgModule({
     imports: [
         CommonModule,
@@ -24,7 +25,9 @@ import { InputTextModule } from 'primeng/inputtext';
         ChartModule,
         OverlayPanelModule,
         CardModule,
-        InputTextModule
+        InputTextModule,
+        InputGroupModule,
+		InputGroupAddonModule
     ],
     declarations: [
         DashboardSalesComponent

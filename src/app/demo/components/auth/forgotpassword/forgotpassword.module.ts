@@ -6,7 +6,8 @@ import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { AppConfigModule } from 'src/app/layout/config/app.config.module';
 import { RippleModule } from 'primeng/ripple';
-
+import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
+import { InputGroupModule } from 'primeng/inputgroup';
 @NgModule({
     imports: [
         CommonModule,
@@ -14,7 +15,9 @@ import { RippleModule } from 'primeng/ripple';
         InputTextModule,
         ForgotPasswordRoutingModule,
         AppConfigModule,
-        RippleModule
+        RippleModule,
+        InputGroupModule,
+		InputGroupAddonModule
     ],
     declarations: [ForgotPasswordComponent]
 })
