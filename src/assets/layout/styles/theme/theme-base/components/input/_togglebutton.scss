@@ -9,10 +9,6 @@
         color: $toggleButtonIconColor;
     }
 
-    &:not(.p-disabled).p-focus {
-        @include focused-input();
-    }
-
     &:not(.p-disabled):not(.p-highlight):hover {
         background: $toggleButtonHoverBg;
         border-color: $toggleButtonHoverBorderColor;
@@ -45,8 +41,8 @@
             }
         }
     }
+}
 
-    &.p-invalid > .p-button {
-        @include invalid-input();
-    }
+p-togglebutton.ng-dirty.ng-invalid > .p-togglebutton.p-button {
+    @include invalid-input();
 }

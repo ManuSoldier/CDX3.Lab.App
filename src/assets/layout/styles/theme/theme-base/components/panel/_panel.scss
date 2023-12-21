@@ -28,7 +28,7 @@
         background: $panelContentBg;
         color: $panelContentTextColor;
         border-top: 0 none;
-        
+
         &:last-child {
             border-bottom-right-radius: $borderRadius;
             border-bottom-left-radius: $borderRadius;
@@ -43,5 +43,21 @@
         border-bottom-right-radius: $borderRadius;
         border-bottom-left-radius: $borderRadius;
         border-top: 0 none;
+    }
+
+    .p-panel-icons-end {
+        order: 2;
+        margin-left: auto;
+    }    
+
+    .p-panel-icons-start {
+        order: 0;
+        margin-right: $inlineSpacing;
+    }
+
+    .p-panel-icons-center {
+        order: 2;
+        width:100%;
+        text-align:center;
     }
 }

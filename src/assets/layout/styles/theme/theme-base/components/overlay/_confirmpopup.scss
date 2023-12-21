@@ -6,12 +6,12 @@
     box-shadow: $overlayContainerShadow;
 
     .p-confirm-popup-content {
-        padding: $confirmPopupContentPadding;
+        padding: $panelContentPadding;
     }
 
     .p-confirm-popup-footer {
         text-align: right;
-        padding: $confirmPopupFooterPadding;
+        padding: $panelFooterPadding;
 
         button {
             margin: 0 $inlineSpacing 0 0;
@@ -59,7 +59,7 @@
 
     .p-confirm-popup-icon {
         font-size: $primeIconFontSize * 1.5;
-
+        
         &.p-icon {
             width: $primeIconFontSize * 1.5;
             height: $primeIconFontSize * 1.5;

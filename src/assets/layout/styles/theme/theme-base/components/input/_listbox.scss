@@ -22,6 +22,10 @@
             right: nth($inputPadding, 2);
             color: $inputIconColor;
         }
+        
+        .p-checkbox {
+            margin-right: $inlineSpacing;
+        }
     }
 
     .p-listbox-list {
@@ -39,6 +43,10 @@
             &.p-highlight {
                 color: $highlightTextColor;
                 background: $highlightBg;
+            }
+
+            .p-checkbox {
+                margin-right: $inlineSpacing;
             }
         }
 
@@ -82,8 +90,8 @@
     &.p-focus {
         @include focused-input();
     }
+}
 
-    &.p-invalid {
-        @include invalid-input();
-    }
+p-listbox.ng-dirty.ng-invalid > .p-listbox {
+    @include invalid-input();
 }

@@ -1,15 +1,5 @@
-.p-dataview {
-    .p-paginator-top {
-        border-width: $tableTopPaginatorBorderWidth;
-        border-radius: 0;
-    }
-
-    .p-paginator-bottom {
-        border-width: $tableBottomPaginatorBorderWidth;
-        border-radius: 0;
-    }
-
-    .p-dataview-header {
+.p-virtualscroller {
+    .p-virtualscroller-header {
         background: $tableHeaderBg;
         color: $tableHeaderTextColor;
         border: $tableHeaderBorder;
@@ -18,14 +8,14 @@
         font-weight: $tableHeaderFontWeight;
     }
 
-    .p-dataview-content {
+    .p-virtualscroller-content {
         background: $tableBodyRowBg;
         color: $tableBodyRowTextColor;
         border: $dataViewContentBorder;
         padding: $dataViewContentPadding;
     }
 
-    .p-dataview-footer {
+    .p-virtualscroller-footer {
         background: $tableFooterBg;
         color: $tableFooterTextColor;
         border: $tableFooterBorder;
@@ -34,13 +24,5 @@
         font-weight: $tableFooterFontWeight;
         border-bottom-left-radius: $borderRadius;
         border-bottom-right-radius: $borderRadius;
-    }
-
-    .p-dataview-loading-icon {
-        font-size: $loadingIconFontSize;
-    }
-
-    .p-dataview-emptymessage {
-        padding: $panelContentPadding;
     }
 }

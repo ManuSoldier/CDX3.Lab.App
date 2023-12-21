@@ -6,11 +6,6 @@
     background-color: transparent;
     color: $imagePreviewIndicatorColor;
     transition: $actionIconTransition;
-
-    .p-icon {
-        width: $imagePreviewActionIconFontSize;
-        height: $imagePreviewActionIconFontSize;
-    }
 }
 
 .p-image-preview-container {

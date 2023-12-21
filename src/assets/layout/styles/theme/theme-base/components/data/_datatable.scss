@@ -84,7 +84,7 @@
             &:hover {
                 background: $tableHeaderCellHighlightHoverBg;
                 color: $tableHeaderCellHighlightTextColor;
-    
+
                 .p-sortable-column-icon {
                     color: $tableHeaderCellHighlightTextColor;
                 }
@@ -119,10 +119,6 @@
                 .p-row-editor-save {
                     margin-right: $inlineSpacing;
                 }
-
-                > .p-column-title {
-                    font-weight: $tableHeaderCellFontWeight;
-                }
             }
 
             &:focus-visible {
@@ -156,8 +152,13 @@
         background: $tableResizerHelperBg;
     }
 
+    .p-datatable-scrollable-header,
+    .p-datatable-scrollable-footer {
+        background: $panelHeaderBg;
+    }
+
     &.p-datatable-scrollable > .p-datatable-wrapper > .p-datatable-table,
-    &.p-datatable-scrollable > .p-datatable-wrapper > .p-virtualscroller > .p-datatable-table {
+    &.p-datatable-scrollable > .p-datatable-wrapper > .p-scroller-viewport > .p-scroller > .p-datatable-table {
         > .p-datatable-thead,
         > .p-datatable-tfoot {
             background-color: $tableHeaderCellBg;
@@ -166,11 +167,6 @@
 
     .p-datatable-loading-icon {
         font-size: $loadingIconFontSize;
-
-        &.p-icon {
-            width:  $loadingIconFontSize;
-            height: $loadingIconFontSize;
-        }
     }
 
     &.p-datatable-gridlines {
@@ -279,14 +275,14 @@
         .p-datatable-tbody {
             > tr:nth-child(even) {
                 background: $tableBodyRowEvenBg;
-    
+
                 &.p-highlight {
                     background: $highlightBg;
                     color: $highlightTextColor;
-    
+
                     .p-row-toggler {
                         color: $highlightTextColor;
-    
+
                         &:hover {
                             color: $highlightTextColor;
                         }

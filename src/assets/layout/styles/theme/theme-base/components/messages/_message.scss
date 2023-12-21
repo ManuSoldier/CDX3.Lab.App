@@ -14,13 +14,12 @@
         transition: $actionIconTransition;
 
         &:hover {
-            background: rgba(255,255,255,.3);
+            background: rgba(255,255,255,.5);
         }
 
         &:focus-visible {
             @include focused();
         }
-    
     }
 
     &.p-message-info {
@@ -93,8 +92,16 @@
         margin-right: $inlineSpacing;
     }
 
-    .p-icon:not(.p-message-close-icon) {
+    .p-icon {
         width: $messageIconFontSize;
         height: $messageIconFontSize;
+    }
+
+    .p-message-summary {
+        font-weight: 700;
+    }
+
+    .p-message-detail {
+        margin-left: $inlineSpacing;
     }
 }

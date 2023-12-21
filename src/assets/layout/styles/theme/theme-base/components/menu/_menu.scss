@@ -30,4 +30,8 @@
         border-top: $divider;
         margin: $menuSeparatorMargin;
     }
+
+    .p-menuitem-badge {
+        @include menuitem-badge();
+    }
 }

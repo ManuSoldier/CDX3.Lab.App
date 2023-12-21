@@ -44,10 +44,7 @@
         border-top-right-radius: $borderRadius;
         border-bottom-right-radius: $borderRadius;
     }
-    
-    &.p-invalid.p-component {
-        @include invalid-input();
-    }
+
 }
 
 .p-inputwrapper-filled {
@@ -57,6 +54,17 @@
                 padding: math.div(nth($inputPadding, 1), 2) nth($inputPadding, 2);
             }
         }
+    }
+}
+    
+.p-multiselect-clearable {
+    .p-multiselect-label-container {
+        padding-right: nth($inputPadding, 2) + $primeIconFontSize;
+    }
+
+    .p-multiselect-clear-icon {
+        color: $inputIconColor;
+        right: $inputGroupAddOnMinWidth;
     }
 }
 
@@ -163,4 +171,9 @@
             background-color: $inputFilledFocusBg;
         }
     }
+
+}
+
+p-multiselect.ng-dirty.ng-invalid > .p-multiselect {
+    @include invalid-input();
 }
