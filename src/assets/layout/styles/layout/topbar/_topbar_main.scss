@@ -81,18 +81,17 @@
         .layout-megamenu {
             background: none;
 
-            &.p-megamenu .p-megamenu-root-list > .p-menuitem {
-                > .p-menuitem-link {
-                    .p-menuitem-text,
-                    .p-menuitem-icon,
-                    .p-submenu-icon {
-                        color: var(--topbar-item-text-color);
-                    }
+            &.p-megamenu.p-megamenu-horizontal .p-megamenu-root-list>.p-menuitem>.p-menuitem-content .p-menuitem-link {
 
-                    &:not(.p-disabled):hover {
-                        background: var(--topbar-item-hover-bg);
-                        transition: background-color var(--transition-duration);
-                    }
+                .p-menuitem-text,
+                .p-menuitem-icon,
+                .p-submenu-icon {
+                    color: var(--topbar-item-text-color);
+                }
+
+                &:not(.p-disabled):hover {
+                    background: var(--topbar-item-hover-bg);
+                    transition: background-color var(--transition-duration);
                 }
             }
         }
@@ -103,10 +102,10 @@
                 flex-direction: row;
                 gap: 1rem;
 
-                > li {
+                >li {
                     position: relative;
 
-                    > a {
+                    >a {
                         width: 2.5rem;
                         height: 2.5rem;
                         user-select: none;
@@ -127,7 +126,7 @@
                         }
                     }
 
-                    > div {
+                    >div {
                         position: absolute;
                         top: 3.25rem;
                         right: 0;
@@ -137,12 +136,12 @@
                         background: var(--surface-overlay);
                         color: var(--text-color);
                         border-radius: var(--border-radius);
-                        box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
+                        box-shadow: 0 5px 5px -3px rgba(0, 0, 0, .2), 0 8px 10px 1px rgba(0, 0, 0, .14), 0 3px 14px 2px rgba(0, 0, 0, .12);
                     }
 
                     &.layout-topbar-search {
                         position: static;
-                        
+
                         .layout-search-panel {
                             background: var(--surface-overlay);
                             height: 4rem;
@@ -157,7 +156,7 @@
                             padding: 0 2rem;
                             border-radius: 0;
 
-                            > i {
+                            >i {
                                 color: var(--text-color);
                             }
 
