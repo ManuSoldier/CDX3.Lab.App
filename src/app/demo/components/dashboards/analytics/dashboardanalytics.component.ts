@@ -1,12 +1,15 @@
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { SelectItem } from 'primeng/api';
 import { UIChart } from 'primeng/chart';
-import { Subscription } from 'rxjs';
+import { Subscription, debounceTime } from 'rxjs';
 import { AppComponent } from 'src/app/app.component';
 import { Product } from 'src/app/demo/api/product';
 import { EventService } from 'src/app/demo/service/event.service';
 import { ProductService } from 'src/app/demo/service/product.service';
-import { AppConfig, LayoutService } from 'src/app/layout/service/app.layout.service';
+import {
+    AppConfig,
+    LayoutService,
+} from 'src/app/layout/service/app.layout.service';
 
 @Component({
     templateUrl: './dashboardanalytics.component.html',
@@ -19,7 +22,6 @@ import { AppConfig, LayoutService } from 'src/app/layout/service/app.layout.serv
     ],
 })
 export class DashboardAnalyticsComponent implements OnInit, OnDestroy {
-
     cities: SelectItem[] = [];
 
     products: Product[] = [];
@@ -88,11 +90,11 @@ export class DashboardAnalyticsComponent implements OnInit, OnDestroy {
 
     stateOptions: any[];
 
-    optionValue: string = 'weekly'
+    optionValue: string = 'weekly';
 
     selectedCity: any;
 
-    config!: AppConfig;
+    config: AppConfig = this.layoutService.config();
 
     subscription!: Subscription;
 
@@ -110,251 +112,310 @@ export class DashboardAnalyticsComponent implements OnInit, OnDestroy {
 
     @ViewChild('pie') pieViewChild!: UIChart;
 
-    constructor(public app: AppComponent, private productService: ProductService, private eventService: EventService, public layoutService: LayoutService) {
-        this.stateOptions = [{label: 'Weekly', value: 'weekly'}, {label: 'Monthly', value: 'monthly'}];
-        this.subscription = this.layoutService.configUpdate$.subscribe(config => {
-            this.config = config;
-            this.monthlyChartInit();
-            this.pieChartInit();
-            this.doughnutChartInit();
-            this.expensesChartInit();
-        });
+    constructor(
+        public app: AppComponent,
+        private productService: ProductService,
+        private eventService: EventService,
+        public layoutService: LayoutService
+    ) {
+        this.stateOptions = [
+            { label: 'Weekly', value: 'weekly' },
+            { label: 'Monthly', value: 'monthly' },
+        ];
+
+        this.subscription = this.layoutService.configUpdate$
+            .pipe(debounceTime(25))
+            .subscribe((config) => {
+                this.initCharts();
+            });
     }
 
     ngOnInit() {
-        this.productService.getProducts().then(data => this.products = data);
+        this.productService
+            .getProducts()
+            .then((data) => (this.products = data));
 
-        this.eventService.getEvents().then(events => { this.events = events; });
+        this.eventService.getEvents().then((events) => {
+            this.events = events;
+        });
 
         this.cities = [];
         this.cities.push({ label: 'Select City', value: null });
-        this.cities.push({ label: 'New York', value: { id: 1, name: 'New York', code: 'NY' } });
-        this.cities.push({ label: 'Rome', value: { id: 2, name: 'Rome', code: 'RM' } });
-        this.cities.push({ label: 'London', value: { id: 3, name: 'London', code: 'LDN' } });
-        this.cities.push({ label: 'Istanbul', value: { id: 4, name: 'Istanbul', code: 'IST' } });
-        this.cities.push({ label: 'Paris', value: { id: 5, name: 'Paris', code: 'PRS' } });
+        this.cities.push({
+            label: 'New York',
+            value: { id: 1, name: 'New York', code: 'NY' },
+        });
+        this.cities.push({
+            label: 'Rome',
+            value: { id: 2, name: 'Rome', code: 'RM' },
+        });
+        this.cities.push({
+            label: 'London',
+            value: { id: 3, name: 'London', code: 'LDN' },
+        });
+        this.cities.push({
+            label: 'Istanbul',
+            value: { id: 4, name: 'Istanbul', code: 'IST' },
+        });
+        this.cities.push({
+            label: 'Paris',
+            value: { id: 5, name: 'Paris', code: 'PRS' },
+        });
 
-        this.monthlyChartInit();
-
-        this.doughnutChartInit();
-
-        this.pieChartInit();
-
-        this.expensesChartInit();
+        this.initCharts();
 
         this.storeAData = {
-            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September'],
-            datasets: [{
-                data: [55, 3, 45, 6, 44, 58, 84, 68, 64],
-                borderColor: [
-                    '#4DD0E1',
-                ],
-                backgroundColor: [
-                    'rgba(77, 208, 225, 0.8)',
-                ],
-                borderWidth: 2,
-                fill: true,
-                tension: .4
-            }
-            ]
+            labels: [
+                'January',
+                'February',
+                'March',
+                'April',
+                'May',
+                'June',
+                'July',
+                'August',
+                'September',
+            ],
+            datasets: [
+                {
+                    data: [55, 3, 45, 6, 44, 58, 84, 68, 64],
+                    borderColor: ['#4DD0E1'],
+                    backgroundColor: ['rgba(77, 208, 225, 0.8)'],
+                    borderWidth: 2,
+                    fill: true,
+                    tension: 0.4,
+                },
+            ],
         };
 
         this.storeBData = {
-            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September'],
-            datasets: [{
-                data: [81, 75, 63, 100, 69, 79, 38, 37, 76],
-                borderColor: [
-                    '#4DD0E1',
-                ],
-                backgroundColor: [
-                    'rgba(77, 208, 225, 0.8)',
-                ],
-                borderWidth: 2,
-                fill: true,
-                tension: .4
-            }
-            ]
+            labels: [
+                'January',
+                'February',
+                'March',
+                'April',
+                'May',
+                'June',
+                'July',
+                'August',
+                'September',
+            ],
+            datasets: [
+                {
+                    data: [81, 75, 63, 100, 69, 79, 38, 37, 76],
+                    borderColor: ['#4DD0E1'],
+                    backgroundColor: ['rgba(77, 208, 225, 0.8)'],
+                    borderWidth: 2,
+                    fill: true,
+                    tension: 0.4,
+                },
+            ],
         };
 
         this.storeCData = {
-            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September'],
-            datasets: [{
-                data: [99, 55, 22, 72, 24, 79, 35, 91, 48],
-                borderColor: [
-                    '#4DD0E1',
-                ],
-                backgroundColor: [
-                    'rgba(77, 208, 225, 0.8)',
-                ],
-                borderWidth: 2,
-                fill: true,
-                tension: .4
-            }
-            ]
+            labels: [
+                'January',
+                'February',
+                'March',
+                'April',
+                'May',
+                'June',
+                'July',
+                'August',
+                'September',
+            ],
+            datasets: [
+                {
+                    data: [99, 55, 22, 72, 24, 79, 35, 91, 48],
+                    borderColor: ['#4DD0E1'],
+                    backgroundColor: ['rgba(77, 208, 225, 0.8)'],
+                    borderWidth: 2,
+                    fill: true,
+                    tension: 0.4,
+                },
+            ],
         };
 
         this.storeDData = {
-            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September'],
-            datasets: [{
-                data: [5, 51, 68, 82, 28, 21, 29, 45, 44],
-                borderColor: [
-                    '#4DD0E1',
-                ],
-                backgroundColor: [
-                    'rgba(77, 208, 225, 0.8)',
-                ],
-                borderWidth: 2,
-                fill: true,
-                tension: .4
-            }
-            ]
+            labels: [
+                'January',
+                'February',
+                'March',
+                'April',
+                'May',
+                'June',
+                'July',
+                'August',
+                'September',
+            ],
+            datasets: [
+                {
+                    data: [5, 51, 68, 82, 28, 21, 29, 45, 44],
+                    borderColor: ['#4DD0E1'],
+                    backgroundColor: ['rgba(77, 208, 225, 0.8)'],
+                    borderWidth: 2,
+                    fill: true,
+                    tension: 0.4,
+                },
+            ],
         };
 
         this.storeAOptions = {
             plugins: {
                 legend: {
-                    display: false
-                }
+                    display: false,
+                },
             },
             responsive: true,
             aspectRatio: 4,
             scales: {
                 y: {
-                    display: false
+                    display: false,
                 },
                 x: {
-                    display: false
-                }
+                    display: false,
+                },
             },
             tooltips: {
-                enabled: false
+                enabled: false,
             },
             elements: {
                 point: {
-                    radius: 0
-                }
+                    radius: 0,
+                },
             },
         };
 
         this.storeBOptions = {
             plugins: {
                 legend: {
-                    display: false
-                }
+                    display: false,
+                },
             },
             responsive: true,
             aspectRatio: 4,
             scales: {
                 y: {
-                    display: false
+                    display: false,
                 },
                 x: {
-                    display: false
-                }
+                    display: false,
+                },
             },
             tooltips: {
-                enabled: false
+                enabled: false,
             },
             elements: {
                 point: {
-                    radius: 0
-                }
+                    radius: 0,
+                },
             },
         };
 
         this.storeCOptions = {
             plugins: {
                 legend: {
-                    display: false
-                }
+                    display: false,
+                },
             },
             responsive: true,
             aspectRatio: 4,
             scales: {
                 y: {
-                    display: false
+                    display: false,
                 },
                 x: {
-                    display: false
-                }
+                    display: false,
+                },
             },
             tooltips: {
-                enabled: false
+                enabled: false,
             },
             elements: {
                 point: {
-                    radius: 0
-                }
+                    radius: 0,
+                },
             },
         };
 
         this.storeDOptions = {
             plugins: {
                 legend: {
-                    display: false
-                }
+                    display: false,
+                },
             },
             responsive: true,
             aspectRatio: 4,
             scales: {
                 y: {
-                    display: false
+                    display: false,
                 },
                 x: {
-                    display: false
-                }
+                    display: false,
+                },
             },
             tooltips: {
-                enabled: false
+                enabled: false,
             },
             elements: {
                 point: {
-                    radius: 0
-                }
+                    radius: 0,
+                },
             },
         };
 
-        
         const calculateStore = (storeData: any, totalValue: number) => {
-            let randomNumber = +((Math.random() * 500).toFixed(2));
+            let randomNumber = +(Math.random() * 500).toFixed(2);
             let data = [...storeData.datasets[0].data];
             let length = data.length;
             data.push(randomNumber);
             data.shift();
             storeData.datasets[0].data = data;
 
-            let diff = +((data[length - 1] - data[length - 2]).toFixed(2));
-            let status = diff === 0 ? 0 : (diff > 0 ? 1 : -1);
-            totalValue = +((totalValue + diff).toFixed(2));
+            let diff = +(data[length - 1] - data[length - 2]).toFixed(2);
+            let status = diff === 0 ? 0 : diff > 0 ? 1 : -1;
+            totalValue = +(totalValue + diff).toFixed(2);
 
             return { diff, totalValue, status };
         };
 
         this.storeInterval = setInterval(() => {
             requestAnimationFrame(() => {
-                const { diff: storeADiff, totalValue: storeATotalValue, status: storeAStatus } =
-                    calculateStore(this.storeAData, this.storeATotalValue);
+                const {
+                    diff: storeADiff,
+                    totalValue: storeATotalValue,
+                    status: storeAStatus,
+                } = calculateStore(this.storeAData, this.storeATotalValue);
                 this.storeADiff = storeADiff;
                 this.storeATotalValue = storeATotalValue;
                 this.storeAStatus = storeAStatus;
                 this.storeAViewChild.refresh();
 
-                const { diff: storeBDiff, totalValue: storeBTotalValue, status: storeBStatus } =
-                    calculateStore(this.storeBData, this.storeBTotalValue);
+                const {
+                    diff: storeBDiff,
+                    totalValue: storeBTotalValue,
+                    status: storeBStatus,
+                } = calculateStore(this.storeBData, this.storeBTotalValue);
                 this.storeBDiff = storeBDiff;
                 this.storeBTotalValue = storeBTotalValue;
                 this.storeBStatus = storeBStatus;
                 this.storeBViewChild.refresh();
 
-                const { diff: storeCDiff, totalValue: storeCTotalValue, status: storeCStatus } =
-                    calculateStore(this.storeCData, this.storeCTotalValue);
+                const {
+                    diff: storeCDiff,
+                    totalValue: storeCTotalValue,
+                    status: storeCStatus,
+                } = calculateStore(this.storeCData, this.storeCTotalValue);
                 this.storeCDiff = storeCDiff;
                 this.storeCTotalValue = storeCTotalValue;
                 this.storeCStatus = storeCStatus;
                 this.storeCViewChild.refresh();
 
-                const { diff: storeDDiff, totalValue: storeDTotalValue, status: storeDStatus } =
-                    calculateStore(this.storeDData, this.storeDTotalValue);
+                const {
+                    diff: storeDDiff,
+                    totalValue: storeDTotalValue,
+                    status: storeDStatus,
+                } = calculateStore(this.storeDData, this.storeDTotalValue);
                 this.storeDDiff = storeDDiff;
                 this.storeDTotalValue = storeDTotalValue;
                 this.storeDStatus = storeDStatus;
@@ -362,7 +423,6 @@ export class DashboardAnalyticsComponent implements OnInit, OnDestroy {
             });
         }, 2000);
     }
-
 
     monthlyChartInit() {
         this.chartMonthlyData = this.getChartData();
@@ -378,30 +438,35 @@ export class DashboardAnalyticsComponent implements OnInit, OnDestroy {
         this.pieData = this.getPieData();
         this.pieOptions = this.getPieOptions();
     }
-    
-    expensesChartInit(){
+
+    expensesChartInit() {
         this.expensesData = {
-            labels: ['January', 'February', 'March', 'April', 'May', 'June', ],
-            datasets: [{
-                data: [44, 59, 32, 44, 58, 52],
-                borderColor: [
-                    this.layoutService.config.colorScheme === 'dark' ? '#fff' :'#000'
-                ],
-                backgroundColor: [
-                    this.layoutService.config.colorScheme === 'dark' ? 'rgba(255, 255, 255, 0.1)' :'rgba(0, 0, 0, 0.1)'
-                ],
-                borderWidth: 2,
-                fill: true,
-                tension: .4,
-            }
-            ]
+            labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+            datasets: [
+                {
+                    data: [44, 59, 32, 44, 58, 52],
+                    borderColor: [
+                        this.layoutService.config().colorScheme === 'dark'
+                            ? '#fff'
+                            : '#000',
+                    ],
+                    backgroundColor: [
+                        this.layoutService.config().colorScheme === 'dark'
+                            ? 'rgba(255, 255, 255, 0.1)'
+                            : 'rgba(0, 0, 0, 0.1)',
+                    ],
+                    borderWidth: 2,
+                    fill: true,
+                    tension: 0.4,
+                },
+            ],
         };
 
         this.expensesOptions = {
             plugins: {
                 legend: {
-                    display: false
-                }
+                    display: false,
+                },
             },
             maintainAspectRatio: false,
             responsive: true,
@@ -409,11 +474,11 @@ export class DashboardAnalyticsComponent implements OnInit, OnDestroy {
             scales: {
                 y: {
                     display: false,
-                    beginAtZero: true
+                    beginAtZero: true,
                 },
                 x: {
-                    display: false
-                }
+                    display: false,
+                },
             },
             tooltips: {
                 enabled: false,
@@ -421,19 +486,13 @@ export class DashboardAnalyticsComponent implements OnInit, OnDestroy {
             elements: {
                 point: {
                     radius: 5,
-                    pointBackgroundColor: this.layoutService.config.colorScheme === 'dark' ? '#fff' : '#000'
-                }
+                    pointBackgroundColor:
+                        this.layoutService.config().colorScheme === 'dark'
+                            ? '#fff'
+                            : '#000',
+                },
             },
         };
-    }
-
-    ngOnDestroy() {
-        if (this.storeInterval) {
-            clearInterval(this.storeInterval);
-        }
-        if (this.subscription) {
-            this.subscription.unsubscribe();
-        }
     }
 
     getColors() {
@@ -454,32 +513,35 @@ export class DashboardAnalyticsComponent implements OnInit, OnDestroy {
             amberColor: isLight ? '#FFCA28' : '#FFE082',
             orangeColor: isLight ? '#FFA726' : '#FFCC80',
             deeporangeColor: isLight ? '#FF7043' : '#FFAB91',
-            brownColor: isLight ? '#8D6E63' : '#BCAAA4'
+            brownColor: isLight ? '#8D6E63' : '#BCAAA4',
         };
     }
 
     getPieData() {
         const { limeColor, blueColor, tealColor } = this.getColors();
-        const borderColor = getComputedStyle(document.body).getPropertyValue('--surface-border') || 'rgba(160, 167, 181, .3)';
+        const borderColor =
+            getComputedStyle(document.body).getPropertyValue(
+                '--surface-border'
+            ) || 'rgba(160, 167, 181, .3)';
         return {
             labels: ['O', 'D', 'R'],
             datasets: [
                 {
                     data: [300, 50, 100],
-                    backgroundColor: [
-                        blueColor,
-                        tealColor,
-                        limeColor
-                    ],
-                    borderColor
-                }
-            ]
+                    backgroundColor: [blueColor, tealColor, limeColor],
+                    borderColor,
+                },
+            ],
         };
     }
 
     getPieOptions() {
-        const textColor = getComputedStyle(document.body).getPropertyValue('--text-color') || 'rgba(0, 0, 0, 0.87)';
-        const fontFamily = getComputedStyle(document.body).getPropertyValue('--font-family');
+        const textColor =
+            getComputedStyle(document.body).getPropertyValue('--text-color') ||
+            'rgba(0, 0, 0, 0.87)';
+        const fontFamily = getComputedStyle(document.body).getPropertyValue(
+            '--font-family'
+        );
         return {
             responsive: true,
             aspectRatio: 1,
@@ -488,24 +550,41 @@ export class DashboardAnalyticsComponent implements OnInit, OnDestroy {
                     position: 'top',
                     labels: {
                         fontFamily,
-                        color: textColor
-                    }
+                        color: textColor,
+                    },
                 },
             },
             animation: {
                 animateScale: true,
-                animateRotate: true
+                animateRotate: true,
             },
             cutout: '0',
         };
     }
 
     getChartData() {
-        const { limeColor, amberColor, orangeColor, blueColor, lightblueColor,
-            cyanColor, tealColor, greenColor, lightgreenColor } = this.getColors();
+        const {
+            limeColor,
+            amberColor,
+            orangeColor,
+            blueColor,
+            lightblueColor,
+            cyanColor,
+            tealColor,
+            greenColor,
+            lightgreenColor,
+        } = this.getColors();
 
         return {
-            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+            labels: [
+                'January',
+                'February',
+                'March',
+                'April',
+                'May',
+                'June',
+                'July',
+            ],
             datasets: [
                 {
                     label: '2012',
@@ -513,7 +592,7 @@ export class DashboardAnalyticsComponent implements OnInit, OnDestroy {
                     borderColor: blueColor,
                     backgroundColor: blueColor,
                     borderWidth: 2,
-                    fill: true
+                    fill: true,
                 },
                 {
                     label: '2013',
@@ -521,7 +600,7 @@ export class DashboardAnalyticsComponent implements OnInit, OnDestroy {
                     borderColor: lightblueColor,
                     backgroundColor: lightblueColor,
                     borderWidth: 2,
-                    fill: true
+                    fill: true,
                 },
                 {
                     label: '2014',
@@ -529,7 +608,7 @@ export class DashboardAnalyticsComponent implements OnInit, OnDestroy {
                     borderColor: cyanColor,
                     backgroundColor: cyanColor,
                     borderWidth: 2,
-                    fill: true
+                    fill: true,
                 },
                 {
                     label: '2015',
@@ -537,7 +616,7 @@ export class DashboardAnalyticsComponent implements OnInit, OnDestroy {
                     borderColor: tealColor,
                     backgroundColor: tealColor,
                     borderWidth: 2,
-                    fill: true
+                    fill: true,
                 },
                 {
                     label: '2016',
@@ -545,7 +624,7 @@ export class DashboardAnalyticsComponent implements OnInit, OnDestroy {
                     borderColor: greenColor,
                     backgroundColor: greenColor,
                     borderWidth: 2,
-                    fill: true
+                    fill: true,
                 },
                 {
                     label: '2017',
@@ -553,7 +632,7 @@ export class DashboardAnalyticsComponent implements OnInit, OnDestroy {
                     borderColor: lightgreenColor,
                     backgroundColor: lightgreenColor,
                     borderWidth: 2,
-                    fill: true
+                    fill: true,
                 },
                 {
                     label: '2018',
@@ -561,7 +640,7 @@ export class DashboardAnalyticsComponent implements OnInit, OnDestroy {
                     borderColor: limeColor,
                     backgroundColor: limeColor,
                     borderWidth: 2,
-                    fill: true
+                    fill: true,
                 },
                 {
                     label: '2019',
@@ -569,7 +648,7 @@ export class DashboardAnalyticsComponent implements OnInit, OnDestroy {
                     borderColor: amberColor,
                     backgroundColor: amberColor,
                     borderWidth: 2,
-                    fill: true
+                    fill: true,
                 },
                 {
                     label: '2020',
@@ -577,29 +656,36 @@ export class DashboardAnalyticsComponent implements OnInit, OnDestroy {
                     borderColor: orangeColor,
                     backgroundColor: orangeColor,
                     borderWidth: 2,
-                    fill: true
-                }
-            ]
+                    fill: true,
+                },
+            ],
         };
     }
 
     getChartOptions() {
-        const textColor = getComputedStyle(document.body).getPropertyValue('--text-color') || 'rgba(0, 0, 0, 0.87)';
-        const gridLinesColor = getComputedStyle(document.body).getPropertyValue('--surface-border') || 'rgba(160, 167, 181, .3)';
-        const fontFamily = getComputedStyle(document.body).getPropertyValue('--font-family');
+        const textColor =
+            getComputedStyle(document.body).getPropertyValue('--text-color') ||
+            'rgba(0, 0, 0, 0.87)';
+        const gridLinesColor =
+            getComputedStyle(document.body).getPropertyValue(
+                '--surface-border'
+            ) || 'rgba(160, 167, 181, .3)';
+        const fontFamily = getComputedStyle(document.body).getPropertyValue(
+            '--font-family'
+        );
         return {
             plugins: {
                 legend: {
                     display: true,
                     labels: {
                         fontFamily,
-                        color: textColor
-                    }
+                        color: textColor,
+                    },
                 },
             },
             animation: {
                 animateScale: true,
-                animateRotate: true
+                animateRotate: true,
             },
             responsive: true,
             maintainAspectRatio: false,
@@ -607,63 +693,93 @@ export class DashboardAnalyticsComponent implements OnInit, OnDestroy {
                 y: {
                     ticks: {
                         fontFamily,
-                        color: textColor
+                        color: textColor,
                     },
                     grid: {
-                        color: gridLinesColor
-                    }
+                        color: gridLinesColor,
+                    },
                 },
                 x: {
-                    categoryPercentage: .9,
-                    barPercentage: .8,
+                    categoryPercentage: 0.9,
+                    barPercentage: 0.8,
                     ticks: {
                         fontFamily,
-                        color: textColor
+                        color: textColor,
                     },
                     grid: {
-                        color: gridLinesColor
-                    }
-                }
+                        color: gridLinesColor,
+                    },
+                },
             },
         };
     }
 
     getDoughnutData() {
-        const { blueColor, lightblueColor, cyanColor, tealColor, greenColor,
-            lightgreenColor, orangeColor } = this.getColors();
-        const borderColor = getComputedStyle(document.body).getPropertyValue('--surface-border') || 'rgba(160, 167, 181, .3)';
+        const {
+            blueColor,
+            lightblueColor,
+            cyanColor,
+            tealColor,
+            greenColor,
+            lightgreenColor,
+            orangeColor,
+        } = this.getColors();
+        const borderColor =
+            getComputedStyle(document.body).getPropertyValue(
+                '--surface-border'
+            ) || 'rgba(160, 167, 181, .3)';
 
         return {
-            labels: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+            labels: [
+                'Sunday',
+                'Monday',
+                'Tuesday',
+                'Wednesday',
+                'Thursday',
+                'Friday',
+                'Saturday',
+            ],
             datasets: [
                 {
                     data: [11, 29, 71, 33, 28, 95, 6],
-                    backgroundColor: [blueColor, lightblueColor, cyanColor, tealColor, greenColor, lightgreenColor, orangeColor],
-                    borderColor
-                }
-            ]
+                    backgroundColor: [
+                        blueColor,
+                        lightblueColor,
+                        cyanColor,
+                        tealColor,
+                        greenColor,
+                        lightgreenColor,
+                        orangeColor,
+                    ],
+                    borderColor,
+                },
+            ],
         };
     }
 
     getDoughnutOptions() {
-        const textColor = getComputedStyle(document.body).getPropertyValue('--text-color') || 'rgba(0, 0, 0, 0.87)';
-        const fontFamily = getComputedStyle(document.body).getPropertyValue('--font-family');
+        const textColor =
+            getComputedStyle(document.body).getPropertyValue('--text-color') ||
+            'rgba(0, 0, 0, 0.87)';
+        const fontFamily = getComputedStyle(document.body).getPropertyValue(
+            '--font-family'
+        );
         return {
             plugins: {
                 legend: {
                     position: 'top',
                     labels: {
                         fontFamily,
-                        color: textColor
-                    }
+                        color: textColor,
+                    },
                 },
             },
             circumference: 180,
             rotation: -90,
             animation: {
                 animateScale: true,
-                animateRotate: true
-            }
+                animateRotate: true,
+            },
         };
     }
 
@@ -671,8 +787,7 @@ export class DashboardAnalyticsComponent implements OnInit, OnDestroy {
         if (this.chartViewChild.chart.options.scales.x.stacked) {
             this.chartViewChild.chart.options.scales.x.stacked = false;
             this.chartViewChild.chart.options.scales.y.stacked = false;
-        }
-        else {
+        } else {
             this.chartViewChild.chart.options.scales.x.stacked = true;
             this.chartViewChild.chart.options.scales.y.stacked = true;
         }
@@ -693,7 +808,8 @@ export class DashboardAnalyticsComponent implements OnInit, OnDestroy {
     }
 
     togglePieDoughnut() {
-        this.pieViewChild.chart.options.cutout = this.pieViewChild.chart.options.cutout !== '0' ? '0' : '50%';
+        this.pieViewChild.chart.options.cutout =
+            this.pieViewChild.chart.options.cutout !== '0' ? '0' : '50%';
         this.pieViewChild.chart.update();
     }
 
@@ -707,5 +823,21 @@ export class DashboardAnalyticsComponent implements OnInit, OnDestroy {
         }
 
         this.pieViewChild.chart.update();
+    }
+
+    initCharts() {
+        this.monthlyChartInit();
+        this.pieChartInit();
+        this.doughnutChartInit();
+        this.expensesChartInit();
+    }
+
+    ngOnDestroy() {
+        if (this.storeInterval) {
+            clearInterval(this.storeInterval);
+        }
+        if (this.subscription) {
+            this.subscription.unsubscribe();
+        }
     }
 }
