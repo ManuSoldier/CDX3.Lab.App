@@ -653,7 +653,7 @@ $menuBorder:1px solid rgba(255,255,255,.12) !default;
 $menuTextColor:$textColor !default;
 $menuitemPadding:1rem 1rem !default;
 $menuitemBorderRadius:0 !default;
-$menuitemTextColor:red !default;
+$menuitemTextColor: $textColor !default;
 $menuitemIconColor:$textSecondaryColor !default;
 $menuitemTextHoverColor:$textColor !default;
 $menuitemIconHoverColor:$textSecondaryColor !default;
