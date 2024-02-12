@@ -6595,6 +6595,9 @@ p-cascadeselect.ng-dirty.ng-invalid .p-cascadeselect:not(.p-disabled).p-focus {
 .p-checkbox .p-checkbox-box:not(.p-disabled).p-focus {
   border-color: hsla(0, 0%, 100%, 0.7);
 }
+.p-checkbox .p-checkbox-box.p-highlight {
+  border: #A1887F;
+}
 .p-checkbox .p-checkbox-box.p-highlight:not(.p-disabled).p-focus {
   border-color: #A1887F;
 }
@@ -6623,10 +6626,16 @@ p-cascadeselect.ng-dirty.ng-invalid .p-cascadeselect:not(.p-disabled).p-focus {
 }
 
 .p-input-filled .p-checkbox .p-checkbox-box {
-  background-color: #1e1e1e;
+  background-color: hsla(0, 0%, 100%, 0.06);
 }
-.p-input-filled .p-checkbox .p-checkbox-box:not(.p-disabled):hover {
-  background-color: #1e1e1e;
+.p-input-filled .p-checkbox .p-checkbox-box.p-highlight {
+  background: #A1887F;
+}
+.p-input-filled .p-checkbox:not(.p-checkbox-disabled) .p-checkbox-box:hover {
+  background-color: hsla(0, 0%, 100%, 0.08);
+}
+.p-input-filled .p-checkbox:not(.p-checkbox-disabled) .p-checkbox-box.p-highlight:hover {
+  background: #A1887F;
 }
 
 @keyframes checkbox-check {
