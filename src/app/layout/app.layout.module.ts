@@ -26,6 +26,7 @@ import { ButtonModule } from 'primeng/button';
 import { MenuModule } from 'primeng/menu';
 import { StyleClassModule } from 'primeng/styleclass';
 
+
 @NgModule({
     declarations: [
         AppLayoutComponent,
@@ -36,7 +37,8 @@ import { StyleClassModule } from 'primeng/styleclass';
         AppMenuComponent,
         AppSidebarComponent,
         AppMenuitemComponent,
-        AppFooterComponent
+        AppFooterComponent,
+       
     ],
     imports: [
         BrowserModule,
