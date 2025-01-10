@@ -27,10 +27,10 @@ export class LabMenuComponent implements OnInit{
     this.fetchData();
   }
 
-  // Method to fetch data when the button is clicked
+  
   fetchData(): void {
     this.isLoading = true;
-    this.isError = false; // Reset error flag
+    this.isError = false; 
     this.labService.getMenu()
       .subscribe({
         next: (response: any) => {

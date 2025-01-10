@@ -7,14 +7,14 @@ import { CookieService } from 'ngx-cookie-service';
   providedIn: 'root', // This ensures the service is globally available
 })
 export class LabService {
-  private apiMenuUrl = 'http://192.168.190.189:8081/api/LAB_DWMS/GetMenu';
+  private apiMenuUrl = ' http://cdx3-gateway.eastus.azurecontainer.io/api/get_lab_menu';
 
   constructor(private cookieService: CookieService) {}
 
   getMenu(payload?: any): Observable<any> {
     const defaultPayload = { tenant_id: 10, system_id: 10 };
     const finalPayload = payload || defaultPayload;
-    const token = this.cookieService.get('id_token');
+    const token = this.cookieService.get('Access_token');
 
     return from(
       axios
