@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRouteSnapshot, NavigationEnd, Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 import { BehaviorSubject } from 'rxjs';
 import { filter } from 'rxjs/operators';
 
@@ -18,7 +19,7 @@ export class AppBreadcrumbComponent {
 
     readonly breadcrumbs$ = this._breadcrumbs$.asObservable();
 
-    constructor(private router: Router) {
+    constructor(private router: Router,private cookieService: CookieService) {
         this.router.events.pipe(filter((event) => event instanceof NavigationEnd)).subscribe(event => {
             const root = this.router.routerState.snapshot.root;
             const breadcrumbs: Breadcrumb[] = [];
@@ -44,5 +45,21 @@ export class AppBreadcrumbComponent {
             this.addBreadcrumb(route.firstChild, routeUrl, breadcrumbs);
         }
     }
+
+    handleSignOut(): void {
+        this.clearLoginInfo();
+        window.location.href="https://cdx3-gateway.eastus.azurecontainer.io/" 
+      }
+    
+      clearLoginInfo(): void {
+        const allCookies = this.cookieService.getAll();
+    
+        console.log(allCookies);
+        Object.keys(allCookies).forEach(cookieName => {
+            this.cookieService.delete(cookieName, '/'); 
+        });
+        document.cookie = 'KEYCLOAK_IDENTITY=; Path=/realms/compliance365/; Expires=Thu, 01 Jan 1970 00:00:00 GMT;';
+        document.cookie = 'KEYCLOAK_SESSION=; Path=/realms/compliance365/; Expires=Thu, 01 Jan 1970 00:00:00 GMT;';
+      }
 
 }

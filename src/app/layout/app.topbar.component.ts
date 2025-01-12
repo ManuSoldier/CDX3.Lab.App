@@ -1,6 +1,7 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { MegaMenuItem } from 'primeng/api';
 import { LayoutService } from './service/app.layout.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
     selector: 'app-topbar',
@@ -14,7 +15,7 @@ export class AppTopbarComponent {
 
     @ViewChild('searchInput') searchInput!: ElementRef;
     
-    constructor(public layoutService: LayoutService, public el: ElementRef) {}
+    constructor(public layoutService: LayoutService, public el: ElementRef,private cookieService: CookieService) {}
 
     activeItem!: number;
 
@@ -60,8 +61,26 @@ export class AppTopbarComponent {
     }
 
     onRightMenuButtonClick() {
-        this.layoutService.openRightSidebar();
+
+        window.location.href="https://cdx3-gateway.eastus.azurecontainer.io/context-selection"
+        // this.layoutService.openRightSidebar();
     }
+
+    handleSignOut(): void {
+        this.clearLoginInfo();
+        window.location.href="https://cdx3-gateway.eastus.azurecontainer.io/" 
+      }
+    
+      clearLoginInfo(): void {
+        const allCookies = this.cookieService.getAll();
+    
+        console.log(allCookies);
+        Object.keys(allCookies).forEach(cookieName => {
+            this.cookieService.delete(cookieName, '/'); 
+        });
+        document.cookie = 'KEYCLOAK_IDENTITY=; Path=/realms/compliance365/; Expires=Thu, 01 Jan 1970 00:00:00 GMT;';
+        document.cookie = 'KEYCLOAK_SESSION=; Path=/realms/compliance365/; Expires=Thu, 01 Jan 1970 00:00:00 GMT;';
+      }
 
     onMobileTopbarMenuButtonClick() {
         this.layoutService.onTopbarMenuToggle();
