@@ -27,7 +27,7 @@ export class AppTopbarComponent {
                     {
                         label: 'UI KIT 1',
                         items: [
-                            { label: 'LAB MENU', icon: 'pi pi-fw pi-id-card', routerLink: ['/lab'] },
+                            { label: 'LAB MENU', icon: 'pi pi-fw pi-id-card', routerLink: ['/menu'] },
                             
                         ]
                     }

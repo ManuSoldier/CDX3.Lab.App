@@ -17,7 +17,8 @@
                 "build": {
                     "builder": "@angular-devkit/build-angular:browser",
                     "options": {
-                        "outputPath": "dist/ultima-ng",
+                        "outputPath": "dist/lab",
+                        "baseHref": "/lab/",
                         "index": "src/index.html",
                         "main": "src/main.ts",
                         "polyfills": [
