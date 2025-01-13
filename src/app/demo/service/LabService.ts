@@ -7,7 +7,7 @@ import { CookieService } from 'ngx-cookie-service';
   providedIn: 'root', // This ensures the service is globally available
 })
 export class LabService {
-  private apiMenuUrl = ' https://cdx3-gateway.eastus.azurecontainer.io/api/get_lab_menu';
+  private apiMenuUrl = 'https://cdx3-gateway.eastus.azurecontainer.io/api/get_lab_menu';
 
   constructor(private cookieService: CookieService) {}
 
