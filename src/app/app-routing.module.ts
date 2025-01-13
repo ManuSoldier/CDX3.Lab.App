@@ -20,7 +20,7 @@ const routes: Routes = [
             { path: 'blocks', data: { breadcrumb: 'Prime Blocks' }, loadChildren: () => import('./demo/components/primeblocks/primeblocks.module').then(m => m.PrimeBlocksModule) },
             { path: 'ecommerce', data: { breadcrumb: 'E-Commerce' }, loadChildren: () => import('./demo/components/ecommerce/ecommerce.module').then(m => m.EcommerceModule) },
             { path: 'apps', data: { breadcrumb: 'Apps' }, loadChildren: () => import('./demo/components/apps/apps.module').then(m => m.AppsModule) },
-            { path: 'lab', data: { breadcrumb: 'Lab' }, component: LabMenuComponent },
+            { path: 'menu', data: { breadcrumb: 'Menu' }, component: LabMenuComponent },
         ]
     },
 
