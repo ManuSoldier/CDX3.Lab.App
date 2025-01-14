@@ -16,7 +16,7 @@ export class AuthGuard implements CanActivate {
   ): boolean | Observable<boolean> | Promise<boolean> {
     const isAuthenticated = this.isUserAuthenticated(); 
     if (!isAuthenticated) {
-      this.router.navigate(['/landing-page']); 
+      window.location.href = '/landing-page';
       return false;
     }
     return true;
