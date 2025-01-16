@@ -62,13 +62,13 @@ export class AppTopbarComponent {
 
     onRightMenuButtonClick() {
 
-        window.location.href="https://cdx3-gateway.eastus.azurecontainer.io/context-selection"
+        window.location.href="/context-selection"
         // this.layoutService.openRightSidebar();
     }
 
     handleSignOut(): void {
         this.clearLoginInfo();
-        window.location.href="https://cdx3-gateway.eastus.azurecontainer.io/" 
+        window.location.href="/" 
       }
     
       clearLoginInfo(): void {
