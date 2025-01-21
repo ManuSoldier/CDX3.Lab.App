@@ -8,7 +8,7 @@ Run `npm install` to install the node packages used in the project.
 
 ## Development server
 
-Run `npm start` for a dev server. Navigate to `http://localhost:8092/`. The app will automatically reload if you change any of the source files.
+Run `npm start` for a dev server. It particularly Navigate to this url `http://localhost:8092/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
