@@ -1,6 +1,6 @@
 ## CDX3_Lab_App
 
-## open the project in the VS Code
+## Open the project in the VS Code
 
 ## Install node modules
 
