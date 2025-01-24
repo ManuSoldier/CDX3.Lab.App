@@ -32,7 +32,7 @@ const routes: Routes = [
     { path: 'notfound2', loadChildren: () => import('./demo/components/notfound2/notfound2.module').then(m => m.Notfound2Module) },
     { path: '**', redirectTo: '/notfound' },
 
-    // {path: 'lab', loadChildren: () => import('./demo/components/lab/lab-menu/lab-menu.module').then(m => m.LabMenuModule)},
+    //. {path: 'lab', loadChildren: () => import('./demo/components/lab/lab-menu/lab-menu.module').then(m => m.LabMenuModule)},
 
     // {
     //     path: '',
